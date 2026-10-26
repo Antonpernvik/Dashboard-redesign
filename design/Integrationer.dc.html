@@ -164,22 +164,22 @@ html,body{transition:none}
 <span style="font-size: 14px; color: var(--muted)">Koppla de konton Erik ska jobba genom</span>
 </section>
 
-<section aria-label="Integrationer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px">
+<section aria-label="Integrationer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px">
 <sc-for list="{{integ}}" as="g" hint-placeholder-count="3">
-<div style="display: flex; flex-direction: column; gap: 16px; padding: 22px; border-radius: 26px; background: var(--glass); border: {{g.border}}; backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); opacity: {{g.op}}">
-<div style="display: flex; align-items: center; gap: 12px">
-<span style="width: 48px; height: 48px; flex: none; border-radius: 15px; background: {{t.field}}; border: 1px solid var(--glassLine); display: flex; align-items: center; justify-content: center">
-<sc-if value="{{g.isGmail}}" hint-placeholder-val="{{true}}"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5V18a1.5 1.5 0 0 0 1.5 1.5H7V11l5 3.75L17 11v8.5h2.5A1.5 1.5 0 0 0 21 18V7.5l-2.2-1.65a1.5 1.5 0 0 0-1.8 0L12 9.6 7 5.85a1.5 1.5 0 0 0-1.8 0Z" fill="#EA4335"></path><path d="M3 7.5 7 10.5V19.5H4.5A1.5 1.5 0 0 1 3 18Z" fill="#4285F4"></path><path d="M21 7.5 17 10.5V19.5h2.5A1.5 1.5 0 0 0 21 18Z" fill="#34A853"></path><path d="M17 10.5 21 7.5 18.8 5.85a1.5 1.5 0 0 0-1.8 0L17 6Z" fill="#FBBC04"></path></svg></sc-if>
-<sc-if value="{{g.isOutlook}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="12" height="14" rx="2" fill="#0F6CBD"></rect><path d="M15 8h5a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-5Z" fill="#28A8EA"></path><path d="m15 9.5 6 4" stroke="#0F6CBD" stroke-width="1.2" fill="none"></path><ellipse cx="9" cy="12" rx="3" ry="3.4" fill="none" stroke="#FFFFFF" stroke-width="1.8"></ellipse></svg></sc-if>
-<sc-if value="{{g.isLi}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="#0A66C2"></rect><rect x="6.5" y="10" width="2.6" height="7.5" fill="#FFFFFF"></rect><circle cx="7.8" cy="7.3" r="1.5" fill="#FFFFFF"></circle><path d="M11 10h2.5v1.1c.5-.8 1.4-1.3 2.6-1.3 2 0 2.9 1.2 2.9 3.4v4.3h-2.6v-3.9c0-1-.4-1.6-1.3-1.6s-1.5.7-1.5 1.7v3.8H11Z" fill="#FFFFFF"></path></svg></sc-if>
+<div style="display: flex; flex-direction: column; gap: 22px; min-height: 320px; box-sizing: border-box; padding: 28px; border-radius: 28px; background: var(--glass); border: {{g.border}}; backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); opacity: {{g.op}}">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+<span style="width: 56px; height: 56px; flex: none; border-radius: 18px; background: {{t.field}}; border: 1px solid var(--glassLine); display: flex; align-items: center; justify-content: center">
+<sc-if value="{{g.isGmail}}" hint-placeholder-val="{{true}}"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5V18a1.5 1.5 0 0 0 1.5 1.5H7V11l5 3.75L17 11v8.5h2.5A1.5 1.5 0 0 0 21 18V7.5l-2.2-1.65a1.5 1.5 0 0 0-1.8 0L12 9.6 7 5.85a1.5 1.5 0 0 0-1.8 0Z" fill="#EA4335"></path><path d="M3 7.5 7 10.5V19.5H4.5A1.5 1.5 0 0 1 3 18Z" fill="#4285F4"></path><path d="M21 7.5 17 10.5V19.5h2.5A1.5 1.5 0 0 0 21 18Z" fill="#34A853"></path><path d="M17 10.5 21 7.5 18.8 5.85a1.5 1.5 0 0 0-1.8 0L17 6Z" fill="#FBBC04"></path></svg></sc-if>
+<sc-if value="{{g.isOutlook}}" hint-placeholder-val="{{false}}"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="12" height="14" rx="2" fill="#0F6CBD"></rect><path d="M15 8h5a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-5Z" fill="#28A8EA"></path><path d="m15 9.5 6 4" stroke="#0F6CBD" stroke-width="1.2" fill="none"></path><ellipse cx="9" cy="12" rx="3" ry="3.4" fill="none" stroke="#FFFFFF" stroke-width="1.8"></ellipse></svg></sc-if>
+<sc-if value="{{g.isLi}}" hint-placeholder-val="{{false}}"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="#0A66C2"></rect><rect x="6.5" y="10" width="2.6" height="7.5" fill="#FFFFFF"></rect><circle cx="7.8" cy="7.3" r="1.5" fill="#FFFFFF"></circle><path d="M11 10h2.5v1.1c.5-.8 1.4-1.3 2.6-1.3 2 0 2.9 1.2 2.9 3.4v4.3h-2.6v-3.9c0-1-.4-1.6-1.3-1.6s-1.5.7-1.5 1.7v3.8H11Z" fill="#FFFFFF"></path></svg></sc-if>
 </span>
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">{{g.name}}</h2><span style="font-size: 13px; color: var(--muted)">{{g.what}}</span></div>
-<span style="flex: none; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{g.stBg}}; color: var(--ink)"><span style="width: 7px; height: 7px; border-radius: 999px; background: {{g.stDot}}"></span>{{g.status}}</span>
+<span style="flex: none; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: {{g.stBg}}; color: var(--ink); white-space: nowrap"><span style="width: 7px; height: 7px; border-radius: 999px; background: {{g.stDot}}"></span>{{g.status}}</span>
 </div>
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">{{g.name}}</h2><span style="font-size: 14px; color: var(--muted); line-height: 1.5">{{g.what}}</span></div>
 
 <sc-if value="{{g.connected}}" hint-placeholder-val="{{true}}">
-<div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 16px; background: var(--soft); border: 1px solid var(--glassLine)"><span style="font-size: 12px; color: var(--muted)">Ansluten som</span><b style="font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis">{{g.account}}</b></div>
-<div style="margin-top: auto; display: flex; align-items: center; gap: 8px"><button onClick="{{g.disconnect}}" style="height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--down); font-size: 13px; font-weight: 600; cursor: pointer">Koppla från</button></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border-radius: 18px; background: var(--soft); border: 1px solid var(--glassLine)"><span style="font-size: 12px; color: var(--muted)">Ansluten som</span><b style="font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis">{{g.account}}</b></div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 8px"><button onClick="{{g.disconnect}}" style="height: 46px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--down); font-size: 13px; font-weight: 600; cursor: pointer">Koppla från</button></div>
 </sc-if>
 
 <sc-if value="{{g.canConnect}}" hint-placeholder-val="{{false}}">
@@ -190,7 +190,7 @@ html,body{transition:none}
 </sc-if>
 
 <sc-if value="{{g.blocked}}" hint-placeholder-val="{{false}}">
-<span style="margin-top: auto; font-size: 13px; color: var(--muted); line-height: 1.5">{{g.blockText}}</span>
+<span style="margin-top: auto; padding: 14px 16px; border-radius: 16px; background: var(--soft); border: 1px dashed var(--glassLine); font-size: 13px; color: var(--muted); line-height: 1.5">{{g.blockText}}</span>
 </sc-if>
 </div>
 </sc-for>
@@ -575,9 +575,9 @@ class Component extends DCLogic {
     const setIG = (k, v) => this.setState({ ig: { ...IG, [k]: v } });
     const mailConnected = IG.gmail === 'connected' || IG.outlook === 'connected';
     const igDefs = [
-      { k: 'gmail', name: 'Gmail', what: 'Skicka mejl från ditt konto', account: '[namn]@[kund].se', cta: 'Anslut Gmail' },
-      { k: 'outlook', name: 'Outlook', what: 'Skicka mejl från ditt konto', account: '[namn]@[kund].se', cta: 'Anslut Outlook' },
-      { k: 'linkedin', name: 'LinkedIn', what: 'Hitta personer på LinkedIn', account: 'ConnectSafely · ' + (this.state.liId || 'acc_…'), cta: 'Anslut LinkedIn' }
+      { k: 'gmail', name: 'Gmail', what: 'Erik skickar dina godkända mejl från ditt Gmail-konto.', account: '[namn]@[kund].se', cta: 'Anslut Gmail' },
+      { k: 'outlook', name: 'Outlook', what: 'Erik skickar dina godkända mejl från ditt Outlook-konto.', account: '[namn]@[kund].se', cta: 'Anslut Outlook' },
+      { k: 'linkedin', name: 'LinkedIn', what: 'Erik hittar rätt personer på LinkedIn. Han skriver aldrig där.', account: 'ConnectSafely · ' + (this.state.liId || 'acc_…'), cta: 'Anslut LinkedIn' }
     ];
     const integ = igDefs.map((d) => {
       const st = IG[d.k];

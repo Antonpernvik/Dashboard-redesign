@@ -111,7 +111,6 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Skapa konto: till aikollegorna.se / onboarding.
 - Efter inloggning: direkt till Start. (Mellanläget "Välkommen tillbaka" i prototypen är bara för demon.)
 - Logga ut (menyn, alla sidor): leder hit.
-- Vänstra panelen visar kundens kollegor. Har kunden bara Erik ska Moa-raden döljas.
 
 # Designtokens
 
