@@ -67,6 +67,13 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Vet du något Erik inte hittat?: blir en källa märkt "Från dig" och används i nästa steg.
 - Säljkort › Här är Erik: sex steg, klick visar vad som hänt i steget hos just det här bolaget.
 - Säljkort › Säljstrategi: Erik föreslår en vinkel (feardriven eller motivationsdriven) med exempelmening. "Byt till den här" gör att Erik skriver om sina utkast med den nya vinkeln.
+- Säljkort › Strategi: fotnot under exempelmeningen; "Varför …"-rutan följer vald strategi. "Instruera Erik" + "Låt Erik utveckla strategin" (inaktiv tills fältet har text).
+- Säljkort › Erik väntar på dig: svarsutkast. Godkänn och skicka (Ångra finns) · Ändra själv (redigera på plats) · Be Erik skriva om (nytt utkast).
+- Säljkort › Eriks plan för mötet: VEM / VINKEL / HUR med Korrigera per rad, plus fritt fält och "Förbättra planen".
+- Säljkort › All dialog: Boka möte (3 försök) / Nudga (vid triggers), Automatiskt / Manuellt. Stegen följer flödet; nuvarande steg har grön ram. Kontakttrådar fälls ut; röd kant = väntar på svar.
+- Säljkort › Överlämningen till din säljare: de 5 delarna i briefen + "Se överlämningen" → fliken Överlämning.
+- Säljkort › Vad som hänt: tidslinje, senaste först.
+- Överlämning: briefen har rubrikerna Varför de vill ses, Vem som kommer, Tre frågor att ställa, Vad som kan stoppa affären, Föreslaget nästa steg.
 - Överlämning till sälj: Eriks utkast till brief (i korthet, vem du möter, upplägg, att se upp med) och dialogen hittills. Skickas automatiskt när mötet är bokat; "Lämna över nu" skickar direkt.
 
 ## Kundprofil – klickbart

@@ -1,1 +1,208 @@
-{"v":3,"createdOnFiles":{"v":1,"at":"2026-10-26T09:45:00Z"},"title":"Dashboard v2","launch":{"view":"focused","file":"Main.dc.html"},"pages":[],"boards":{"Main.dc.html":{"x":0,"y":0,"w":1440,"h":2100,"title":"Start","expand":"fill","is_interactive":true},"Forslag.dc.html":{"x":1520,"y":0,"w":1440,"h":2400,"title":"Förslag (godkännande)","expand":"fill","is_interactive":true},"Foretag.dc.html":{"x":3040,"y":0,"w":1440,"h":1300,"title":"Identifierade företag","expand":"fill","is_interactive":true},"Pagaende.dc.html":{"x":4560,"y":0,"w":1440,"h":1500,"title":"Pågående sälj","expand":"fill","is_interactive":true},"Kundkort.dc.html":{"x":6080,"y":0,"w":1440,"h":3400,"title":"Kundkort","expand":"fill","is_interactive":true},"Kundprofil.dc.html":{"x":7600,"y":0,"w":1440,"h":2000,"title":"Kundprofil","expand":"fill","is_interactive":true},"Kundprofiler.dc.html":{"x":9120,"y":0,"w":1440,"h":1100,"title":"Kundprofiler","expand":"fill","is_interactive":true},"Installningar.dc.html":{"x":10640,"y":0,"w":1440,"h":2200,"title":"Inställningar","expand":"fill","is_interactive":true},"Arbetsfloden.dc.html":{"x":12160,"y":0,"w":1440,"h":1300,"title":"Arbetsflöden","expand":"fill","is_interactive":true},"Integrationer.dc.html":{"x":13680,"y":0,"w":1440,"h":900,"title":"Integrationer","expand":"fill","is_interactive":true},"Login.dc.html":{"x":-1100,"y":-1120,"w":1440,"h":900,"title":"Logga in","expand":"fill","is_interactive":true}},"order":["Main.dc.html","Forslag.dc.html","Foretag.dc.html","Pagaende.dc.html","Kundkort.dc.html","Kundprofil.dc.html","Kundprofiler.dc.html","Installningar.dc.html","Arbetsfloden.dc.html","Integrationer.dc.html","Login.dc.html"],"notes":{"spec_global":{"x":-1100,"y":0,"w":1000,"fill":"green","size":"m","text":"Vad händer när man klickar – meny och topbar (alla sidor)\n\n• Hovra över menyn: den fälls ut och resten blurras. Musen ut eller klick på ett menyval: allt blir skarpt igen.\n• Agentväljaren (Erik ▾): visar listan med kollegor (Erik, Moa). Byter man kollega visar hela appen den kollegans data. En Moa som inte är aktiverad visar \"Aktivera Moa\".\n• Menyval: går till sidan. Badgen = antal saker som väntar på dig (Förslag, Identifierade företag). Den försvinner vid 0.\n• Logga ut: loggar ut direkt.\n• Datum: live, dagens datum och vecka i kundens tidszon.\n• \"Erik är aktiv\": grön = inom sändningsfönstret och allt anslutet. Gul \"Pausad\" utanför fönstret, röd \"Behöver dig\" om en integration slutat fungera. Klick går till Inställningar › Sändning.\n• Sök (⌘K): söker bolag, kontakter och förslag. Resultaten grupperas per typ och Enter öppnar det första.\n• Måne/sol: växlar ljust och mörkt läge med cirkel-animation. Sparas per användare.\n• Klockan (notiser): öppnar en panel. Bara det som kräver dig eller är riktiga resultat: bokade möten, svar, nya förslag och fel i integrationer. Inte varje körning. Klick på en notis går till rätt sida och markerar den som läst. Badgen = olästa. Samma notiser kan även gå till Slack eller mejl.\n• Ge Erik ett uppdrag (ersätter \"Ny körning\"): kunden skriver fritt eller väljer ett snabbval. Uppdraget syns under Pågående sälj och Körningar. Kunden ska inte behöva starta körningar själv, Erik jobbar ändå."},"spec_start":{"x":0,"y":2260,"w":1000,"size":"m","text":"Start – klickbart\n\n• Periodväljaren (7 d / 30 d / 90 d / I år): byter period för KPI-kort, tratt och graf.\n• KPI-kort: väljer vad grafen visar. Pipeline-kortet byter grafen mot en tavla med bolag per steg.\n• Kanalfilter (Alla / Mejl / LinkedIn / Anbud): filtrerar grafen.\n• Jämför-reglaget: visar eller döljer förra periodens streckade linje.\n• Tratten: varje steg går till Pågående sälj, filtrerat på steget. \"Kostnad per möte\" räknas live som månadsavgift ÷ bokade möten.\n• Pipeline-tavlan: ett bolag öppnar kundkortet. \"+N till\" och \"Öppna hela pipelinen\" går till Pågående sälj.\n• Erik just nu: en rad öppnar kundkortet. \"Alla körningar\" går till Körningar.\n• Sändning \"Ändra\": Inställningar › Sändning.\n• Nya bolag: en rad öppnar kundkortet. \"Alla identifierade företag\" går till Identifierade företag.\n• Aktivera Moa: startar Moas onboarding (sajtens adress, ton, godkännande)."},"spec_forslag":{"x":1520,"y":2560,"w":1000,"size":"m","text":"Förslag (godkännande) – klickbart\n\n• Filter (Alla / Mail / LinkedIn / Anbud): filtrerar. Räknarna visar det som väntar.\n• Granska en i taget: ett kort åt gången, nästa kommer automatiskt efter beslut. \"Avsluta\" går tillbaka till listan.\n• Läs den: fäller ut hela texten. Först då visas Godkänn.\n• Godkänn och skicka: läggs i kö och skickas inom sändningsfönstret. \"Ångra\" fungerar tills det är skickat.\n• Redigera: texten blir redigerbar i kortet. Spara = godkänt med dina ändringar. Erik lär sig av ändringen.\n• Avvisa: frågar kort varför (fel person, fel ton, fel bolag, annat). Erik använder svaret. \"Ångra\" finns.\n• Träna Erik: kunden skriver en regel, till exempel \"nämn aldrig pris i första mejlet\". Den gäller alla framtida utkast.\n• Stjärnor: betyg 1–5 på utkastet. Sparas direkt och påverkar Eriks ton över tid."},"spec_foretag":{"x":3040,"y":1460,"w":1000,"size":"m","text":"Identifierade företag – klickbart\n\n• Flikar: Bolag / Befintliga kunder / Exkluderade.\n• Acceptera: bolaget går till Pågående sälj och Erik börjar researcha och leta kontakter. \"Ångra\" finns.\n• Exkludera: frågar orsak (konkurrent, befintlig kund, fel målgrupp, annat) och flyttar bolaget till Exkluderade. Erik kontaktar det aldrig.\n• Godkänn alla: frågar först, till exempel \"Acceptera 11 bolag?\".\n• Bolagsnamnet: öppnar kundkortet i läsläge, innan man accepterat.\n• Ladda upp: CSV eller Excel med org.nr eller domän. Lägg till: formulär med bolag, kontakt och \"kund sedan\".\n• Återinför: bolaget går tillbaka till fliken Bolag."},"spec_pag":{"x":4560,"y":1660,"w":1000,"size":"m","text":"Pågående sälj – klickbart\n\n• Stegfilter: filtrerar korten på steg.\n• Kort: hela kortet är klickbart och öppnar kundkortet.\n• Åtgärder ▾: Exportera lista (CSV), Pausa Erik för valda bolag, Exkludera valda. Man markerar kort med en kryssruta som syns vid hover."},"spec_kort":{"x":6080,"y":2760,"w":1000,"size":"m","text":"Kundkort (ett bolag i Pågående sälj) – klickbart\n\n• Flikar: Research / Säljkort / Överlämning till sälj.\n• Alla bolag: tillbaka till Pågående sälj.\n• Uppdatera research: Erik kör om den dynamiska researchen; knappen visar \"Erik uppdaterar…\" och tiden uppdateras.\n• Research › Statisk research: fakta med källa på varje rad (Bolagsverket, årsredovisning, webbplats). Ändras sällan.\n• Research › Dynamisk research: signalkort med typ, färskhet och källa. \"Stämmer inte?\" markerar signalen så att Erik slutar använda den; Ångra finns.\n• Källor Erik söker i: lägg till en länk Erik ska bevaka (Enter eller Lägg till).\n• Personerna: Fakta, Just nu och Vad som driver hen, alltid med grund (\"Eriks bedömning utifrån …\"). Har Erik för lite underlag skriver han det i stället för att gissa. \"Du behöver ta över\" = personen har svarat och väntar på en människa. Exkludera = Erik kontaktar inte; Ångra finns.\n• Vet du något Erik inte hittat?: blir en källa märkt \"Från dig\" och används i nästa steg.\n• Säljkort › Här är Erik: sex steg, klick visar vad som hänt i steget hos just det här bolaget.\n• Säljkort › Säljstrategi: Erik föreslår en vinkel (feardriven eller motivationsdriven) med exempelmening. \"Byt till den här\" gör att Erik skriver om sina utkast med den nya vinkeln.\n• Överlämning till sälj: Eriks utkast till brief (i korthet, vem du möter, upplägg, att se upp med) och dialogen hittills. Skickas automatiskt när mötet är bokat; \"Lämna över nu\" skickar direkt."},"spec_profil":{"x":7600,"y":2160,"w":1000,"size":"m","text":"Kundprofil – klickbart\n\n• \"Kundprofiler\" (brödsmulan): går till listan med alla profiler.\n• Taggfälten (branscher, regioner, signaler, roller, uteslut): skriv och tryck Enter eller komma för att lägga till, × tar bort. Ersätter kommaseparerade textfält.\n• \"Så läser jag profilen\": uppdateras live medan man skriver, så kunden ser hur Erik tolkar inställningarna.\n• Spara profilen: sparar och visar \"Sparad\". Ändringar efter det tar bort markeringen igen. Lämnar man sidan med osparade ändringar ska appen fråga först.\n• Granska de 5 företagen: går till Identifierade företag, filtrerat på profilen.\n• Aktiv-reglaget: pausar eller aktiverar profilen direkt. Gäller från nästa sökning.\n• Ta bort profilen: frågar \"Säker?\" först. Bolag som hittats ligger kvar."},"spec_inst":{"x":10640,"y":2360,"w":1000,"size":"m","text":"Inställningar – klickbart\n\n• Flikarna: Företag, Erik, Moa, Arbetsyta, E-post, Kontakta inte, Befintliga kunder, Konto. Fliken ska synas i adressen (t.ex. /installningar/e-post) så att \"Ändra\" på Sändning kan länka rätt.\n• Spara-knapparna: visar \"Sparat\". Lämnar man en flik med osparade ändringar ska appen fråga först.\n• Erik: regler redigeras direkt i fältet; Spara syns bara när regeln ändrats. Reglaget för lägsta matchning visar live hur många bolag i kön som når gränsen. Regler som påstår en rekommendation flaggas, de bör bara gälla kontakter med källa \"rekommenderad\".\n• Moa: \"Kom igång med Moa\" startar onboarding (läser webbplatsen, fyller i tonalitet).\n• Arbetsyta: språk och tidszon gäller alla kollegor. \"Pausa alla kollegor\" stoppar sökningar, research, utkast, artiklar och sändning direkt; granskning fungerar fortfarande. Knappen byts till \"Starta alla igen\".\n• E-post (Sändningsfönster): statusraden räknas live från dagens dag och tid. Till före Från visar ett fel och blockerar sändning. \"ändra\" i texten går till Arbetsyta.\n• Kontakta inte: Typ = e-postadress eller LinkedIn-profil. LinkedIn normaliseras till linkedin.com/in/… så alla stavningar matchar. Dubbletter läggs inte till. Ta bort på varje rad.\n• Befintliga kunder: Ladda ner mallen ger en CSV-mall. Välj fil + Importera lägger till kunderna; rader utan org.nr eller webbplats hoppas över och rapporteras.\n• Konto: gränssnittets språk är personligt och påverkar inte vad Erik och Moa skriver."},"spec_flow":{"x":12160,"y":1460,"w":1000,"size":"m","text":"Arbetsflöden – klickbart\n\n• Ett flödeskort: visar flödets steg under korten. Klick igen eller × stänger.\n• Stegen visar vad som händer av sig självt, vilka steg som kräver ditt godkännande (grön etikett) och vilka som bara körs under ett villkor (t.ex. \"Om LinkedIn är anslutet\").\n• Villkoret \"Om matchningen når din gräns\" styrs av reglaget under Inställningar › Erik."},"spec_integ":{"x":13680,"y":1060,"w":1000,"size":"m","text":"Integrationer – klickbart\n\n• Anslut Gmail / Anslut Outlook: OAuth-flöde i nytt fönster. Bara en e-postkälla åt gången: är den ena ansluten visar den andra \"Koppla från det först\".\n• Koppla från: frågar först. Erik pausar utskick tills en inkorg är ansluten igen, och det syns som \"Behöver dig\" i topbaren.\n• Anslut LinkedIn: första klicket visar fältet för ConnectSafely konto-id, \"Spara och anslut\" ansluter.\n• En integration som slutar fungera (t.ex. utgången token) visar röd status här och en notis."},"spec_login":{"x":440,"y":-1120,"w":900,"size":"m","text":"Logga in – klickbart\n\n• E-post + Lösenord + Logga in: fel e-post eller tomt lösenord ger rött fält och felmeddelande. Fel lösenord: \"Fel e-post eller lösenord\" (säg aldrig vilket av dem som var fel).\n• Visa / Dölj: visar lösenordet i klartext.\n• Glömt lösenordet?: byter till \"Återställ lösenord\". Skicka återställningslänk visar \"Kolla din inkorg\" oavsett om kontot finns (avslöjar inte vilka adresser som har konto). Länken gäller 30 min.\n• Skapa konto: till aikollegorna.se / onboarding.\n• Efter inloggning: direkt till Start. (Mellanläget \"Välkommen tillbaka\" i prototypen är bara för demon.)\n• Logga ut (menyn, alla sidor): leder hit."}},"designSystems":[]}
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-26T09:45:00Z"
+ },
+ "title": "Dashboard v2",
+ "launch": {
+  "view": "focused",
+  "file": "Main.dc.html"
+ },
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 2100,
+   "title": "Start",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Forslag.dc.html": {
+   "x": 1520,
+   "y": 0,
+   "w": 1440,
+   "h": 2400,
+   "title": "Förslag (godkännande)",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Foretag.dc.html": {
+   "x": 3040,
+   "y": 0,
+   "w": 1440,
+   "h": 1300,
+   "title": "Identifierade företag",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Pagaende.dc.html": {
+   "x": 4560,
+   "y": 0,
+   "w": 1440,
+   "h": 1500,
+   "title": "Pågående sälj",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Kundkort.dc.html": {
+   "x": 6080,
+   "y": 0,
+   "w": 1440,
+   "h": 4200,
+   "title": "Kundkort",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Kundprofil.dc.html": {
+   "x": 7600,
+   "y": 0,
+   "w": 1440,
+   "h": 2000,
+   "title": "Kundprofil",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Kundprofiler.dc.html": {
+   "x": 9120,
+   "y": 0,
+   "w": 1440,
+   "h": 1100,
+   "title": "Kundprofiler",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Installningar.dc.html": {
+   "x": 10640,
+   "y": 0,
+   "w": 1440,
+   "h": 2200,
+   "title": "Inställningar",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Arbetsfloden.dc.html": {
+   "x": 12160,
+   "y": 0,
+   "w": 1440,
+   "h": 1300,
+   "title": "Arbetsflöden",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Integrationer.dc.html": {
+   "x": 13680,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "title": "Integrationer",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Login.dc.html": {
+   "x": -1100,
+   "y": -1120,
+   "w": 1440,
+   "h": 900,
+   "title": "Logga in",
+   "expand": "fill",
+   "is_interactive": true
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Forslag.dc.html",
+  "Foretag.dc.html",
+  "Pagaende.dc.html",
+  "Kundkort.dc.html",
+  "Kundprofil.dc.html",
+  "Kundprofiler.dc.html",
+  "Installningar.dc.html",
+  "Arbetsfloden.dc.html",
+  "Integrationer.dc.html",
+  "Login.dc.html"
+ ],
+ "notes": {
+  "spec_global": {
+   "x": -1100,
+   "y": 0,
+   "w": 1000,
+   "fill": "green",
+   "size": "m",
+   "text": "Vad händer när man klickar – meny och topbar (alla sidor)\n\n• Hovra över menyn: den fälls ut och resten blurras. Musen ut eller klick på ett menyval: allt blir skarpt igen.\n• Agentväljaren (Erik ▾): visar listan med kollegor (Erik, Moa). Byter man kollega visar hela appen den kollegans data. En Moa som inte är aktiverad visar \"Aktivera Moa\".\n• Menyval: går till sidan. Badgen = antal saker som väntar på dig (Förslag, Identifierade företag). Den försvinner vid 0.\n• Logga ut: loggar ut direkt.\n• Datum: live, dagens datum och vecka i kundens tidszon.\n• \"Erik är aktiv\": grön = inom sändningsfönstret och allt anslutet. Gul \"Pausad\" utanför fönstret, röd \"Behöver dig\" om en integration slutat fungera. Klick går till Inställningar › Sändning.\n• Sök (⌘K): söker bolag, kontakter och förslag. Resultaten grupperas per typ och Enter öppnar det första.\n• Måne/sol: växlar ljust och mörkt läge med cirkel-animation. Sparas per användare.\n• Klockan (notiser): öppnar en panel. Bara det som kräver dig eller är riktiga resultat: bokade möten, svar, nya förslag och fel i integrationer. Inte varje körning. Klick på en notis går till rätt sida och markerar den som läst. Badgen = olästa. Samma notiser kan även gå till Slack eller mejl.\n• Ge Erik ett uppdrag (ersätter \"Ny körning\"): kunden skriver fritt eller väljer ett snabbval. Uppdraget syns under Pågående sälj och Körningar. Kunden ska inte behöva starta körningar själv, Erik jobbar ändå."
+  },
+  "spec_start": {
+   "x": 0,
+   "y": 2260,
+   "w": 1000,
+   "size": "m",
+   "text": "Start – klickbart\n\n• Periodväljaren (7 d / 30 d / 90 d / I år): byter period för KPI-kort, tratt och graf.\n• KPI-kort: väljer vad grafen visar. Pipeline-kortet byter grafen mot en tavla med bolag per steg.\n• Kanalfilter (Alla / Mejl / LinkedIn / Anbud): filtrerar grafen.\n• Jämför-reglaget: visar eller döljer förra periodens streckade linje.\n• Tratten: varje steg går till Pågående sälj, filtrerat på steget. \"Kostnad per möte\" räknas live som månadsavgift ÷ bokade möten.\n• Pipeline-tavlan: ett bolag öppnar kundkortet. \"+N till\" och \"Öppna hela pipelinen\" går till Pågående sälj.\n• Erik just nu: en rad öppnar kundkortet. \"Alla körningar\" går till Körningar.\n• Sändning \"Ändra\": Inställningar › Sändning.\n• Nya bolag: en rad öppnar kundkortet. \"Alla identifierade företag\" går till Identifierade företag.\n• Aktivera Moa: startar Moas onboarding (sajtens adress, ton, godkännande)."
+  },
+  "spec_forslag": {
+   "x": 1520,
+   "y": 2560,
+   "w": 1000,
+   "size": "m",
+   "text": "Förslag (godkännande) – klickbart\n\n• Filter (Alla / Mail / LinkedIn / Anbud): filtrerar. Räknarna visar det som väntar.\n• Granska en i taget: ett kort åt gången, nästa kommer automatiskt efter beslut. \"Avsluta\" går tillbaka till listan.\n• Läs den: fäller ut hela texten. Först då visas Godkänn.\n• Godkänn och skicka: läggs i kö och skickas inom sändningsfönstret. \"Ångra\" fungerar tills det är skickat.\n• Redigera: texten blir redigerbar i kortet. Spara = godkänt med dina ändringar. Erik lär sig av ändringen.\n• Avvisa: frågar kort varför (fel person, fel ton, fel bolag, annat). Erik använder svaret. \"Ångra\" finns.\n• Träna Erik: kunden skriver en regel, till exempel \"nämn aldrig pris i första mejlet\". Den gäller alla framtida utkast.\n• Stjärnor: betyg 1–5 på utkastet. Sparas direkt och påverkar Eriks ton över tid."
+  },
+  "spec_foretag": {
+   "x": 3040,
+   "y": 1460,
+   "w": 1000,
+   "size": "m",
+   "text": "Identifierade företag – klickbart\n\n• Flikar: Bolag / Befintliga kunder / Exkluderade.\n• Acceptera: bolaget går till Pågående sälj och Erik börjar researcha och leta kontakter. \"Ångra\" finns.\n• Exkludera: frågar orsak (konkurrent, befintlig kund, fel målgrupp, annat) och flyttar bolaget till Exkluderade. Erik kontaktar det aldrig.\n• Godkänn alla: frågar först, till exempel \"Acceptera 11 bolag?\".\n• Bolagsnamnet: öppnar kundkortet i läsläge, innan man accepterat.\n• Ladda upp: CSV eller Excel med org.nr eller domän. Lägg till: formulär med bolag, kontakt och \"kund sedan\".\n• Återinför: bolaget går tillbaka till fliken Bolag."
+  },
+  "spec_pag": {
+   "x": 4560,
+   "y": 1660,
+   "w": 1000,
+   "size": "m",
+   "text": "Pågående sälj – klickbart\n\n• Stegfilter: filtrerar korten på steg.\n• Kort: hela kortet är klickbart och öppnar kundkortet.\n• Åtgärder ▾: Exportera lista (CSV), Pausa Erik för valda bolag, Exkludera valda. Man markerar kort med en kryssruta som syns vid hover."
+  },
+  "spec_kort": {
+   "x": 6080,
+   "y": 4300,
+   "w": 1000,
+   "size": "m",
+   "text": "Kundkort (ett bolag i Pågående sälj) – klickbart\n\n• Flikar: Research / Säljkort / Överlämning till sälj.\n• Alla bolag: tillbaka till Pågående sälj.\n• Uppdatera research: Erik kör om den dynamiska researchen; knappen visar \"Erik uppdaterar…\" och tiden uppdateras.\n• Research › Statisk research: fakta med källa på varje rad (Bolagsverket, årsredovisning, webbplats). Ändras sällan.\n• Research › Dynamisk research: signalkort med typ, färskhet och källa. \"Stämmer inte?\" markerar signalen så att Erik slutar använda den; Ångra finns.\n• Källor Erik söker i: lägg till en länk Erik ska bevaka (Enter eller Lägg till).\n• Personerna: Fakta, Just nu och Vad som driver hen, alltid med grund (\"Eriks bedömning utifrån …\"). Har Erik för lite underlag skriver han det i stället för att gissa. \"Du behöver ta över\" = personen har svarat och väntar på en människa. Exkludera = Erik kontaktar inte; Ångra finns.\n• Vet du något Erik inte hittat?: blir en källa märkt \"Från dig\" och används i nästa steg.\n• Säljkort › Här är Erik: sex steg, klick visar vad som hänt i steget hos just det här bolaget.\n• Säljkort › Säljstrategi: Erik föreslår en vinkel (feardriven eller motivationsdriven) med exempelmening. \"Byt till den här\" gör att Erik skriver om sina utkast med den nya vinkeln.\n• Överlämning till sälj: Eriks utkast till brief (i korthet, vem du möter, upplägg, att se upp med) och dialogen hittills. Skickas automatiskt när mötet är bokat; \"Lämna över nu\" skickar direkt.\n\nSäljkort – tillägg\n• Strategikort: fotnot under citatet om hur Erik använder vinkeln. \"Varför …\" -rutan byter text med vald strategi.\n• Instruera Erik: textfält + \"Låt Erik utveckla strategin\" (grå tills något är skrivet) → bekräftelse.\n• Erik väntar på dig: Eriks svarsutkast till Anders. Godkänn och skicka → \"Godkänt av dig\" + Ångra. Ändra själv → redigerbart fält (Klar). Be Erik skriva om → nytt utkast.\n• Eriks plan för mötet: VEM / VINKEL / HUR, var och en med Korrigera → redigera på plats. Fritt fält + \"Förbättra planen\".\n• All dialog: arbetsflöde Boka möte (3 försök) / Nudga (vid triggers) och Automatiskt / Manuellt. Stegen byts med flödet; nuvarande steg har grön ram. Kontakttrådar fälls ut och visar mejl/LinkedIn; röd kant = väntar på svar.\n• Överlämningen till din säljare: vad briefen innehåller (5 delar) + \"Se överlämningen\" → fliken Överlämning.\n• Vad som hänt: tidslinje, senaste först.\n• Överlämning-fliken använder samma 5 rubriker: Varför de vill ses, Vem som kommer, Tre frågor att ställa, Vad som kan stoppa affären, Föreslaget nästa steg."
+  },
+  "spec_profil": {
+   "x": 7600,
+   "y": 2160,
+   "w": 1000,
+   "size": "m",
+   "text": "Kundprofil – klickbart\n\n• \"Kundprofiler\" (brödsmulan): går till listan med alla profiler.\n• Taggfälten (branscher, regioner, signaler, roller, uteslut): skriv och tryck Enter eller komma för att lägga till, × tar bort. Ersätter kommaseparerade textfält.\n• \"Så läser jag profilen\": uppdateras live medan man skriver, så kunden ser hur Erik tolkar inställningarna.\n• Spara profilen: sparar och visar \"Sparad\". Ändringar efter det tar bort markeringen igen. Lämnar man sidan med osparade ändringar ska appen fråga först.\n• Granska de 5 företagen: går till Identifierade företag, filtrerat på profilen.\n• Aktiv-reglaget: pausar eller aktiverar profilen direkt. Gäller från nästa sökning.\n• Ta bort profilen: frågar \"Säker?\" först. Bolag som hittats ligger kvar."
+  },
+  "spec_inst": {
+   "x": 10640,
+   "y": 2360,
+   "w": 1000,
+   "size": "m",
+   "text": "Inställningar – klickbart\n\n• Flikarna: Företag, Erik, Moa, Arbetsyta, E-post, Kontakta inte, Befintliga kunder, Konto. Fliken ska synas i adressen (t.ex. /installningar/e-post) så att \"Ändra\" på Sändning kan länka rätt.\n• Spara-knapparna: visar \"Sparat\". Lämnar man en flik med osparade ändringar ska appen fråga först.\n• Erik: regler redigeras direkt i fältet; Spara syns bara när regeln ändrats. Reglaget för lägsta matchning visar live hur många bolag i kön som når gränsen. Regler som påstår en rekommendation flaggas, de bör bara gälla kontakter med källa \"rekommenderad\".\n• Moa: \"Kom igång med Moa\" startar onboarding (läser webbplatsen, fyller i tonalitet).\n• Arbetsyta: språk och tidszon gäller alla kollegor. \"Pausa alla kollegor\" stoppar sökningar, research, utkast, artiklar och sändning direkt; granskning fungerar fortfarande. Knappen byts till \"Starta alla igen\".\n• E-post (Sändningsfönster): statusraden räknas live från dagens dag och tid. Till före Från visar ett fel och blockerar sändning. \"ändra\" i texten går till Arbetsyta.\n• Kontakta inte: Typ = e-postadress eller LinkedIn-profil. LinkedIn normaliseras till linkedin.com/in/… så alla stavningar matchar. Dubbletter läggs inte till. Ta bort på varje rad.\n• Befintliga kunder: Ladda ner mallen ger en CSV-mall. Välj fil + Importera lägger till kunderna; rader utan org.nr eller webbplats hoppas över och rapporteras.\n• Konto: gränssnittets språk är personligt och påverkar inte vad Erik och Moa skriver."
+  },
+  "spec_flow": {
+   "x": 12160,
+   "y": 1460,
+   "w": 1000,
+   "size": "m",
+   "text": "Arbetsflöden – klickbart\n\n• Ett flödeskort: visar flödets steg under korten. Klick igen eller × stänger.\n• Stegen visar vad som händer av sig självt, vilka steg som kräver ditt godkännande (grön etikett) och vilka som bara körs under ett villkor (t.ex. \"Om LinkedIn är anslutet\").\n• Villkoret \"Om matchningen når din gräns\" styrs av reglaget under Inställningar › Erik."
+  },
+  "spec_integ": {
+   "x": 13680,
+   "y": 1060,
+   "w": 1000,
+   "size": "m",
+   "text": "Integrationer – klickbart\n\n• Anslut Gmail / Anslut Outlook: OAuth-flöde i nytt fönster. Bara en e-postkälla åt gången: är den ena ansluten visar den andra \"Koppla från det först\".\n• Koppla från: frågar först. Erik pausar utskick tills en inkorg är ansluten igen, och det syns som \"Behöver dig\" i topbaren.\n• Anslut LinkedIn: första klicket visar fältet för ConnectSafely konto-id, \"Spara och anslut\" ansluter.\n• En integration som slutar fungera (t.ex. utgången token) visar röd status här och en notis."
+  },
+  "spec_login": {
+   "x": 440,
+   "y": -1120,
+   "w": 900,
+   "size": "m",
+   "text": "Logga in – klickbart\n\n• E-post + Lösenord + Logga in: fel e-post eller tomt lösenord ger rött fält och felmeddelande. Fel lösenord: \"Fel e-post eller lösenord\" (säg aldrig vilket av dem som var fel).\n• Visa / Dölj: visar lösenordet i klartext.\n• Glömt lösenordet?: byter till \"Återställ lösenord\". Skicka återställningslänk visar \"Kolla din inkorg\" oavsett om kontot finns (avslöjar inte vilka adresser som har konto). Länken gäller 30 min.\n• Skapa konto: till aikollegorna.se / onboarding.\n• Efter inloggning: direkt till Start. (Mellanläget \"Välkommen tillbaka\" i prototypen är bara för demon.)\n• Logga ut (menyn, alla sidor): leder hit."
+  }
+ },
+ "designSystems": []
+}
