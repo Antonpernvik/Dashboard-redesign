@@ -78,6 +78,24 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Aktiv-reglaget: pausar eller aktiverar profilen direkt. Gäller från nästa sökning.
 - Ta bort profilen: frågar "Säker?" först. Bolag som hittats ligger kvar.
 
+## Inställningar – klickbart
+
+- Flikarna: Företag, Erik, Moa, Arbetsyta, E-post, Kontakta inte, Befintliga kunder, Konto. Fliken ska synas i adressen (t.ex. /installningar/e-post) så att "Ändra" på Sändning kan länka rätt.
+- Spara-knapparna: visar "Sparat". Lämnar man en flik med osparade ändringar ska appen fråga först.
+- Erik: regler redigeras direkt i fältet; Spara syns bara när regeln ändrats. Reglaget för lägsta matchning visar live hur många bolag i kön som når gränsen. Regler som påstår en rekommendation flaggas, de bör bara gälla kontakter med källa "rekommenderad".
+- Moa: "Kom igång med Moa" startar onboarding (läser webbplatsen, fyller i tonalitet).
+- Arbetsyta: språk och tidszon gäller alla kollegor. "Pausa alla kollegor" stoppar sökningar, research, utkast, artiklar och sändning direkt; granskning fungerar fortfarande. Knappen byts till "Starta alla igen".
+- E-post (Sändningsfönster): statusraden räknas live från dagens dag och tid. Till före Från visar ett fel och blockerar sändning. "ändra" i texten går till Arbetsyta.
+- Kontakta inte: Typ = e-postadress eller LinkedIn-profil. LinkedIn normaliseras till linkedin.com/in/… så alla stavningar matchar. Dubbletter läggs inte till. Ta bort på varje rad.
+- Befintliga kunder: Ladda ner mallen ger en CSV-mall. Välj fil + Importera lägger till kunderna; rader utan org.nr eller webbplats hoppas över och rapporteras.
+- Konto: gränssnittets språk är personligt och påverkar inte vad Erik och Moa skriver.
+
+## Arbetsflöden – klickbart
+
+- Ett flödeskort: visar flödets steg under korten. Klick igen eller × stänger.
+- Stegen visar vad som händer av sig självt, vilka steg som kräver ditt godkännande (grön etikett) och vilka som bara körs under ett villkor (t.ex. "Om LinkedIn är anslutet").
+- Villkoret "Om matchningen når din gräns" styrs av reglaget under Inställningar › Erik.
+
 # Designtokens
 
 ## Färger (ljust läge)
