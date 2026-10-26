@@ -50,31 +50,43 @@ button{font-family:inherit}
 
 <section aria-label="Logga in" style="flex: 1 1 380px; min-width: 0; box-sizing: border-box; padding: 44px; display: flex; flex-direction: column; justify-content: center; gap: 22px">
 
-<sc-if value="{{showForm}}" hint-placeholder-val="{{true}}">
+<sc-if value="{{modeLogin}}" hint-placeholder-val="{{true}}">
 <div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Logga in</h2><span style="font-size: 14px; color: #4B5750">Välkommen tillbaka.</span></div>
-
-<div style="display: flex; flex-direction: column; gap: 10px">
-<a href="Main.dc.html" style="text-decoration: none; height: 50px; border-radius: 999px; border: 1px solid rgba(20,32,26,0.12); background: #FFFFFF; color: #14201A; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3Z" fill="#4285F4"></path><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z" fill="#34A853"></path><path d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1a10 10 0 0 0 0 9.2Z" fill="#FBBC04"></path><path d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4L6.4 10C7.2 7.7 9.4 5.9 12 5.9Z" fill="#EA4335"></path></svg>Fortsätt med Google</a>
-<a href="Main.dc.html" style="text-decoration: none; height: 50px; border-radius: 999px; border: 1px solid rgba(20,32,26,0.12); background: #FFFFFF; color: #14201A; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9.5" height="9.5" fill="#F25022"></rect><rect x="12.5" y="2" width="9.5" height="9.5" fill="#7FBA00"></rect><rect x="2" y="12.5" width="9.5" height="9.5" fill="#00A4EF"></rect><rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#FFB900"></rect></svg>Fortsätt med Microsoft</a>
-</div>
-
-<div style="display: flex; align-items: center; gap: 12px; font-size: 12px; color: #4B5750"><span style="flex: 1; height: 1px; background: rgba(20,32,26,0.12)"></span>eller med e-post<span style="flex: 1; height: 1px; background: rgba(20,32,26,0.12)"></span></div>
-
-<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 12px; margin: 0">
-<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">Jobbmejl</span><input type="email" autocomplete="email" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
-<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 600; color: #B3382A">Skriv en giltig e-postadress.</span></sc-if>
-<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 24px rgba(30,123,78,0.28)">Skicka inloggningslänk</button>
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 14px; margin: 0">
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">E-post</span><input type="email" autocomplete="username" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 13px; font-weight: 600">Lösenord</span><button type="button" onClick="{{goForgot}}" style="border: 0; background: transparent; padding: 6px 2px; color: #1E7B4E; font-size: 13px; font-weight: 600; cursor: pointer; padding: 0; font-size: 12px">Glömt lösenordet?</button></span>
+<span style="position: relative; display: block"><input type="{{pwType}}" autocomplete="current-password" value="{{pw}}" onChange="{{setPw}}" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{pwLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%; padding-right: 92px"><button type="button" onClick="{{togglePw}}" aria-label="{{pwToggleLabel}}" style="position: absolute; right: 6px; top: 6px; height: 38px; padding: 0 12px; border-radius: 999px; border: 0; background: #F1F3EF; color: #14201A; font-size: 12px; font-weight: 600; cursor: pointer">{{pwToggleText}}</button></span></label>
+<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 600; color: #B3382A">{{errText}}</span></sc-if>
+<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 24px rgba(30,123,78,0.28)">Logga in</button>
 </form>
-
-<span style="font-size: 12px; color: #4B5750; line-height: 1.5">Ingen ny användare? Din arbetsyta skapas när du startar din första kollega. <a href="https://aikollegorna.se" style="color: #1E7B4E; font-weight: 600">Kom igång</a></span>
+<span style="font-size: 13px; color: #4B5750">Inget konto än? <a href="https://aikollegorna.se" style="color: #1E7B4E; font-weight: 600">Skapa konto</a></span>
 </sc-if>
 
-<sc-if value="{{showSent}}" hint-placeholder-val="{{false}}">
+<sc-if value="{{modeForgot}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Återställ lösenord</h2><span style="font-size: 14px; color: #4B5750; line-height: 1.5">Skriv din e-post så skickar vi en länk där du väljer ett nytt lösenord.</span></div>
+<form onSubmit="{{sendReset}}" style="display: flex; flex-direction: column; gap: 14px; margin: 0">
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">E-post</span><input type="email" autocomplete="email" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
+<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 600; color: #B3382A">{{errText}}</span></sc-if>
+<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 24px rgba(30,123,78,0.28)">Skicka återställningslänk</button>
+</form>
+<button onClick="{{goLogin}}" style="border: 0; background: transparent; padding: 6px 2px; color: #1E7B4E; font-size: 13px; font-weight: 600; cursor: pointer; align-self: flex-start">← Tillbaka till inloggning</button>
+</sc-if>
+
+<sc-if value="{{modeSent}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
 <span style="width: 56px; height: 56px; border-radius: 18px; background: rgba(30,123,78,0.14); color: #1E7B4E; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
 <h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Kolla din inkorg</h2>
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5750">Vi har skickat en inloggningslänk till <b style="color: #14201A; font-weight: 600">{{email}}</b>. Länken gäller i 15 minuter.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 8px"><a href="Main.dc.html" style="text-decoration: none; height: 46px; padding: 0 20px; border-radius: 999px; background: #1E7B4E; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center">Öppna dashboarden (demo)</a><button onClick="{{back}}" style="height: 46px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(20,32,26,0.12); background: #FFFFFF; color: #14201A; font-size: 14px; font-weight: 600; cursor: pointer">Byt e-post</button></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5750">Finns det ett konto för <b style="color: #14201A; font-weight: 600">{{email}}</b> har vi skickat en länk för att välja nytt lösenord. Länken gäller i 30 minuter.</p>
+<button onClick="{{goLogin}}" style="height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(20,32,26,0.12); background: #FFFFFF; color: #14201A; font-size: 14px; font-weight: 600; cursor: pointer">Tillbaka till inloggning</button>
+</div>
+</sc-if>
+
+<sc-if value="{{modeIn}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
+<img src="../assets/erik.jpg" alt="" style="width: 56px; height: 56px; border-radius: 18px; object-fit: cover; box-shadow: 0 0 0 2px #1E7B4E">
+<h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Välkommen tillbaka</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5750">Erik har 11 förslag som väntar på dig.</p>
+<a href="Main.dc.html" style="text-decoration: none; height: 46px; padding: 0 20px; border-radius: 999px; background: #1E7B4E; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center">Till dashboarden</a>
 </div>
 </sc-if>
 
@@ -88,17 +100,31 @@ button{font-family:inherit}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { email: '', sent: false, error: false };
+    this.state = { mode: 'login', email: '', pw: '', showPw: false, err: '' };
   }
   renderVals() {
-    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(this.state.email.trim());
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(this.state.email.trim());
+    const mode = this.state.mode;
+    const err = this.state.err;
     return {
-      email: this.state.email,
-      setEmail: (e) => this.setState({ email: e.target.value, error: false }),
-      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); if (!valid) { this.setState({ error: true }); return; } this.setState({ sent: true }); },
-      back: () => this.setState({ sent: false }),
-      showForm: !this.state.sent, showSent: this.state.sent,
-      hasError: this.state.error, emailLine: this.state.error ? '#B3382A' : 'rgba(20,32,26,0.12)'
+      email: this.state.email, pw: this.state.pw,
+      setEmail: (e) => this.setState({ email: e.target.value, err: '' }),
+      setPw: (e) => this.setState({ pw: e.target.value, err: '' }),
+      pwType: this.state.showPw ? 'text' : 'password',
+      pwToggleText: this.state.showPw ? 'Dölj' : 'Visa', pwToggleLabel: this.state.showPw ? 'Dölj lösenord' : 'Visa lösenord',
+      togglePw: () => this.setState({ showPw: !this.state.showPw }),
+      submit: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        if (!validEmail) { this.setState({ err: 'email' }); return; }
+        if (!this.state.pw) { this.setState({ err: 'pw' }); return; }
+        this.setState({ mode: 'in', err: '' });
+      },
+      sendReset: (e) => { if (e && e.preventDefault) e.preventDefault(); if (!validEmail) { this.setState({ err: 'email' }); return; } this.setState({ mode: 'sent', err: '' }); },
+      goForgot: () => this.setState({ mode: 'forgot', err: '' }),
+      goLogin: () => this.setState({ mode: 'login', err: '' }),
+      modeLogin: mode === 'login', modeForgot: mode === 'forgot', modeSent: mode === 'sent', modeIn: mode === 'in',
+      hasError: !!err, errText: err === 'email' ? 'Skriv en giltig e-postadress.' : 'Skriv ditt lösenord.',
+      emailLine: err === 'email' ? '#B3382A' : 'rgba(20,32,26,0.12)', pwLine: err === 'pw' ? '#B3382A' : 'rgba(20,32,26,0.12)'
     };
   }
 }

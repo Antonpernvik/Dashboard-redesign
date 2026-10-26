@@ -105,11 +105,13 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 
 ## Logga in – klickbart
 
-- Fortsätt med Google / Microsoft: SSO. Matchar e-posten en befintlig arbetsyta loggas man in direkt, annars visas "Ingen arbetsyta hittades" med länk till Kom igång.
-- Jobbmejl + Skicka inloggningslänk: validerar adressen, skickar en engångslänk (giltig 15 min) och visar "Kolla din inkorg". Inga lösenord att glömma.
-- Byt e-post: tillbaka till formuläret.
+- E-post + Lösenord + Logga in: fel e-post eller tomt lösenord ger rött fält och felmeddelande. Fel lösenord: "Fel e-post eller lösenord" (säg aldrig vilket av dem som var fel).
+- Visa / Dölj: visar lösenordet i klartext.
+- Glömt lösenordet?: byter till "Återställ lösenord". Skicka återställningslänk visar "Kolla din inkorg" oavsett om kontot finns (avslöjar inte vilka adresser som har konto). Länken gäller 30 min.
+- Skapa konto: till aikollegorna.se / onboarding.
+- Efter inloggning: direkt till Start. (Mellanläget "Välkommen tillbaka" i prototypen är bara för demon.)
 - Logga ut (menyn, alla sidor): leder hit.
-- Vänstra panelen visar kundens kollegor. När kunden bara har Erik ska Moa-raden döljas eller visas som "Inte aktiverad".
+- Vänstra panelen visar kundens kollegor. Har kunden bara Erik ska Moa-raden döljas.
 
 # Designtokens
 
