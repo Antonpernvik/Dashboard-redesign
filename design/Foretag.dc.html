@@ -15,6 +15,9 @@ body{margin:0}
 a{color:inherit}
 button{font-family:inherit}
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-old(root){z-index:1}
+::view-transition-new(root){z-index:2}
+html,body{transition:none}
 </style>
 </helmet>
 <div style="--base: {{t.base}}; --glass: {{t.glass}}; --glassLine: {{t.glassLine}}; --glassHi: {{t.glassHi}}; --soft: {{t.soft}}; --line: {{t.line}}; --ink: {{t.ink}}; --muted: {{t.muted}}; --pill: {{t.pill}}; --pillInk: {{t.pillInk}}; --green: {{t.green}}; --onGreen: {{t.onGreen}}; --chart: {{t.chart}}; --chartPrev: {{t.chartPrev}}; --tintG: {{t.tintG}}; --down: {{t.down}}; --shadow: {{t.shadow}}; position: relative; overflow: clip; min-height: 100vh; box-sizing: border-box; background: var(--base); color: var(--ink); font-family: 'Geist', system-ui, sans-serif">
@@ -102,7 +105,7 @@ button{font-family:inherit}
 <sc-if value="{{dark}}" hint-placeholder-val="{{false}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></sc-if>
 <sc-if value="{{light}}" hint-placeholder-val="{{true}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></sc-if>
 </button>
-<sc-if value="{{anyPop}}" hint-placeholder-val="{{false}}"><button aria-label="Stäng" tabindex="-1" onClick="{{closePops}}" style="position: fixed; inset: 0; z-index: 40; border: 0; padding: 0; margin: 0; background: transparent; cursor: default"></button></sc-if>
+<sc-if value="{{anyPop}}" hint-placeholder-val="{{false}}"><div aria-hidden="true" onMouseDown="{{closePops}}" style="position: fixed; inset: 0; z-index: 40; background: transparent; cursor: default"></div></sc-if>
 <div style="position: relative">
 <button onClick="{{toggleNotif}}" aria-label="{{notifLabel}}" aria-expanded="{{notifStr}}" style="position: relative; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
@@ -257,9 +260,34 @@ button{font-family:inherit}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1E7B4E","options":["#1E7B4E","#0F766E","#2563EB","#B45309"]},"startDark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1300}}'>
 class Component extends DCLogic {
+  aikReadTheme(fallback) {
+    try { window.localStorage.removeItem('aik-theme'); } catch (e) {}
+    try { const v = window.sessionStorage.getItem('aik-theme-tab'); if (v === 'dark') return true; if (v === 'light') return false; } catch (e) {}
+    if (typeof window.__aikTheme === 'boolean') return window.__aikTheme;
+    return !!fallback;
+  }
+  aikWriteTheme(dark) {
+    window.__aikTheme = dark;
+    try { window.sessionStorage.setItem('aik-theme-tab', dark ? 'dark' : 'light'); } catch (e) {}
+  }
+  aikPaintRoot(doc, dark) {
+    try {
+      const root = doc.documentElement;
+      root.style.background = dark ? '#0A0F0C' : '#D8D2C6';
+      root.style.colorScheme = dark ? 'dark' : 'light';
+      if (doc.body) doc.body.style.background = dark ? '#0A0F0C' : '#D8D2C6';
+    } catch (e) {}
+  }
+
   constructor(props) {
     super(props);
-    this.state = { dark: !!props.startDark, tab: 'Översikt', period: '30 d', channel: 'Alla kanaler', kpi: 'Svar', compare: true, auto: true, rail: false, openP: 'p1', decided: {}, ftab: 'Bolag', fdec: {}, restored: {} };
+    this.state = { dark: this.aikReadTheme(props.startDark), tab: 'Översikt', period: '30 d', channel: 'Alla kanaler', kpi: 'Svar', compare: true, auto: true, rail: false, openP: 'p1', decided: {}, ftab: 'Bolag', fdec: {}, restored: {} };
+  }
+  componentDidMount() {
+    this.aikPaintRoot(document, this.state.dark);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.dark !== this.state.dark) this.aikPaintRoot(document, this.state.dark);
   }
   renderVals() {
     const accent = this.props.accent ?? '#1E7B4E';
@@ -271,7 +299,7 @@ class Component extends DCLogic {
       pill: '#EEF2EE', pillInk: '#0A0F0C', green: accent, onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.35)',
       chart: '#4CC285', chartPrev: '#6C7A71', tintG: 'rgba(76,194,133,0.2)', down: '#F07A63',
       shadow: '0 10px 40px rgba(0,0,0,0.35)',
-      scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', inv: 'rgba(236,242,237,0.9)', invInk: '#0F1A14', invSoft: 'rgba(15,26,20,0.06)', invLine: 'rgba(15,26,20,0.12)', invGreen: '#17643F', invGlow: 'rgba(23,100,63,0.18)'
+      scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', inv: 'rgba(24,52,38,0.78)', invInk: '#EEF2EE', invSoft: 'rgba(255,255,255,0.06)', invLine: 'rgba(255,255,255,0.1)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
     } : {
       base: '#D8D2C6', blob1: '#B9C4A8', blob2: '#EADFCB', blob3: '#9FB394', blob4: '#CDB89C',
       glass: 'rgba(255,255,255,0.42)', glassHi: 'rgba(255,255,255,0.68)', glassLine: 'rgba(255,255,255,0.65)',
@@ -284,22 +312,35 @@ class Component extends DCLogic {
     const up = dark ? '#4CC285' : '#17643F';
 
     const toggleTheme = (e) => {
+      if (this._themeBusy) return;
       const el = e && e.currentTarget;
       const next = !this.state.dark;
       const doc = (el && el.ownerDocument) || document;
       const win = doc.defaultView || window;
-      const reduce = win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!el || !doc.startViewTransition || reduce) { this.setState({ dark: next }); return; }
+      this.aikWriteTheme(next);
+      let reduce = false;
+      try { reduce = !!(win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (err) {}
+      if (!el || typeof doc.startViewTransition !== 'function' || reduce) { this.setState({ dark: next }); return; }
       const r = el.getBoundingClientRect();
-      const x = r.left + r.width / 2, y = r.top + r.height / 2;
-      const end = Math.hypot(Math.max(x, win.innerWidth - x), Math.max(y, win.innerHeight - y));
-      const vt = doc.startViewTransition(() => new Promise((res) => this.setState({ dark: next }, res)));
+      const x = Math.round(r.left + r.width / 2), y = Math.round(r.top + r.height / 2);
+      const end = Math.ceil(Math.hypot(Math.max(x, win.innerWidth - x), Math.max(y, win.innerHeight - y)));
+      this._themeBusy = true;
+      let vt;
+      try {
+        vt = doc.startViewTransition(() => new Promise((res) => {
+          this.setState({ dark: next }, () => { this.aikPaintRoot(doc, next); res(); });
+        }));
+      } catch (err) {
+        this._themeBusy = false; this.setState({ dark: next }); return;
+      }
       vt.ready.then(() => {
         doc.documentElement.animate(
           { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
-          { duration: 620, easing: 'cubic-bezier(.65,0,.35,1)', pseudoElement: '::view-transition-new(root)' }
+          { duration: 620, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'both', pseudoElement: '::view-transition-new(root)' }
         );
       }).catch(() => {});
+      const done = () => { this._themeBusy = false; };
+      vt.finished.then(done, done);
     };
 
     const mk = (key, list) => list.map((label) => ({
@@ -465,15 +506,15 @@ class Component extends DCLogic {
       notifs, unreadN: String(unreadN), hasUnread: unreadN > 0,
       notifOpen: !!this.state.notifOpen, notifStr: this.state.notifOpen ? 'true' : 'false',
       notifLabel: unreadN ? 'Notiser, ' + unreadN + ' olästa' : 'Notiser',
-      toggleNotif: () => this.setState({ notifOpen: !this.state.notifOpen, taskOpen: false }),
+      toggleNotif: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((s) => ({ notifOpen: !s.notifOpen, taskOpen: false, taskSent: false })); },
       markAllRead: () => this.setState({ readN: { all: true } }),
       taskOpen: !!this.state.taskOpen, taskStr: this.state.taskOpen ? 'true' : 'false',
       taskForm: !this.state.taskSent, taskSent: !!this.state.taskSent,
-      toggleTask: () => this.setState({ taskOpen: !this.state.taskOpen, notifOpen: false, taskSent: false }),
+      toggleTask: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((s) => ({ taskOpen: !s.taskOpen, notifOpen: false, taskSent: false })); },
       sendTask: () => this.setState({ taskSent: true }),
       closeTask: () => this.setState({ taskOpen: false, taskSent: false }),
       anyPop: !!(this.state.notifOpen || this.state.taskOpen),
-      closePops: () => this.setState({ notifOpen: false, taskOpen: false, taskSent: false, taskText: '' }),
+      closePops: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ notifOpen: false, taskOpen: false, taskSent: false, taskText: '' }); },
       taskText: this.state.taskText || '',
       setTaskText: (e) => this.setState({ taskText: e.target.value }),
       taskIdeas: ['Hitta fler bolag som liknar Allente', 'Researcha ett specifikt bolag åt mig', 'Följ upp en kontakt som inte svarat', 'Leta upphandlingar som passar oss'].map((label) => ({ label, pick: () => this.setState({ taskText: label }) }))
