@@ -380,30 +380,74 @@ html,body{transition:none}
 </section>
 </sc-if>
 <sc-if value="{{tabOver}}" hint-placeholder-val="{{false}}">
-<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 16px; align-items: start">
-<div style="padding: 28px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 18px">
-<div style="display: flex; align-items: center; gap: 12px"><img src="../assets/erik.jpg" alt="" style="width: 44px; height: 44px; border-radius: 14px; object-fit: cover; box-shadow: 0 0 0 2px var(--green)"><div style="display: flex; flex-direction: column; gap: 2px"><h2 style="margin: 0; font-size: 22px; font-weight: 600">Överlämning till Jakob Pernvik</h2><span style="font-size: 13px; color: var(--muted)">Eriks utkast · skickas som mejl dagen före mötet</span></div></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Varför de vill ses</span><p style="margin: 0; font-size: 15px; line-height: 1.6">Stratsys har vänt till vinst och växer 25 %, men har färre anställda än för två år sedan. Nya regelkrav (CSRD, NIS2, DORA) ger fler köpare än säljteamet hinner med. Anders har svarat ja och vill ta med Karin.</p></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Vem som kommer</span>
+<section style="display: flex; flex-direction: column; gap: 8px; padding: 4px 6px 0">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green)">Utkast · skickas när mötet är bokat</span>
+<h1 style="margin: 0; font-size: 40px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1">Överlämning till sälj</h1>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 11h18"></path></svg>Möte: Ej bokat · Erik föreslår tis 10.00, ons 14.00 eller tors 09.30 · 20 min · Teams</span>
+</section>
+
+<article aria-label="Brief till Jakob" style="border-radius: 28px; overflow: hidden; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow)">
+<header style="padding: 24px 32px; background: var(--soft); border-bottom: 1px solid var(--glassLine); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<img src="../assets/erik.jpg" alt="" style="width: 44px; height: 44px; border-radius: 14px; object-fit: cover; box-shadow: 0 0 0 2px var(--green)">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px"><b style="font-weight: 600">Erik</b> <span style="color: var(--muted)">· AI-kollega på Ai Kollegorna</span></span><span style="font-size: 12px; color: var(--muted)">Till: Jakob Pernvik · jakob@aikollegorna.se</span></div>
+<span style="font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; background: var(--glassHi); border: 1px solid var(--glassLine)">Utkast</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Stratsys – brief inför ert första möte</h2><span style="font-size: 13px; color: var(--muted)">Skickas automatiskt dagen före mötet · Stratsys AB</span></div>
+</header>
+
+<div style="padding: 32px; display: flex; flex-direction: column; gap: 28px; background: var(--glassHi)">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 860px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600">Hej Jakob,</h3>
+<sc-if value="{{hasOverLine}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 12px 16px; border-radius: 14px; border-left: 3px solid var(--green); background: var(--tintG); font-size: 15px; line-height: 1.6">{{overLine}}<span style="display: block; margin-top: 4px; font-size: 12px; color: var(--muted)">Din rad</span></p></sc-if>
+<p style="margin: 0; font-size: 15px; line-height: 1.65">Stratsys har vänt till vinst (+45 MSEK efter finansnetto) och växer 25 % – och deras egna kunder måste hantera CSRD, NIS2 och DORA. Anders, försäljningsdirektör, svarade själv ja till att ses efter Eriks första mejl. Mötet är på 20 minuter och handlar om hur de når fler köpare utan att säljkostnaderna ökar.</p>
+</div>
+
+<div style="padding: 20px 24px; border-radius: 20px; background: var(--soft); border: 1px solid var(--glassLine); display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green)">Vad som kan vinna kunden</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.65">Börja med deras eget resultat, inte med oss. +45 MSEK och 25 % tillväxt med färre personer är beviset på att de kan skala – och det är precis där Erik avlastar. Prata om de nya regelkraven som efterfrågan, inte som risk: CSRD, NIS2 och DORA gör att köparna redan finns, frågan är om teamet hinner prata med alla. Avsluta med en pilot på 60 dagar mot bolag som berörs av CSRD eller NIS2, med Karin som ägare och ett tydligt mål för antal bokade möten. Lova inga siffror – en ärlig pilot säljer bättre än en utlovad garanti.</p>
+</div>
+
 <div style="display: flex; flex-direction: column; gap: 8px">
-<div style="padding: 12px 14px; border-radius: 14px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 14px"><b style="font-weight: 600">Anders Berggren</b> · Försäljningsdirektör<br><span style="color: var(--muted)">Vill fortsätta växa utan att säljkostnaderna springer iväg.</span></div>
-<div style="padding: 12px 14px; border-radius: 14px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 14px"><b style="font-weight: 600">Karin Lund</b> · Säljchef, ny i rollen<br><span style="color: var(--muted)">Vill visa snabba resultat för VD och styrelse under första kvartalet.</span></div>
-</div></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Tre frågor att ställa</span>
-<ol style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.55"><li>Hur många av förfrågningarna kring CSRD, NIS2 och DORA hinner teamet bearbeta i dag?</li><li>Vad behöver Karin kunna visa styrelsen efter första kvartalet?</li><li>Om ni växer 25 % till nästa år – hur många säljare behövs då med dagens arbetssätt?</li></ol></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Vad som kan stoppa affären</span><p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--muted)">"Vi har precis minskat personalen" – möt med att det handlar om att växa utan att anställa, inte om att ersätta någon. Beslut kan behöva gå via VD. Nämn inte pris, det lämnas som offert.</p></div>
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Föreslaget nästa steg</span><p style="margin: 0; font-size: 14px; line-height: 1.55">Be om ett uppföljande möte med Karins team inom två veckor för att sätta upp en pilot på 30 dagar.</p></div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
-<sc-if value="{{notHanded}}" hint-placeholder-val="{{true}}"><button onClick="{{handOver}}" style="height: 46px; padding: 0 20px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 8px 20px {{t.greenGlow}}">Lämna över nu</button><button style="height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer">Redigera</button></sc-if>
-<sc-if value="{{handed}}" hint-placeholder-val="{{false}}"><span style="display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--green)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="m5 12 5 5L20 7"></path></svg>Skickad till Jakob · i dag</span><button onClick="{{handOver}}" style="border: 0; background: transparent; padding: 8px; color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer">Ångra</button></sc-if>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted)">Varför de vill ses</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.65">Stratsys har vänt till vinst (+45 MSEK) och växer 25 % – och nya regelkrav som CSRD, NIS2 och DORA ger fler köpare. Anders svarade själv ja till att ses.</p>
 </div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 28px 40px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted)">Vem som kommer</span>
+<sc-for list="{{attendees}}" as="at" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px solid var(--glassLine)"><span style="font-size: 14px"><b style="font-weight: 600">{{at.name}}</b> <span style="color: var(--muted)">· {{at.role}}</span></span><span style="font-size: 14px; line-height: 1.5">{{at.cares}}</span></div></sc-for>
 </div>
-<div style="padding: 24px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
-<h3 style="margin: 0; font-size: 17px; font-weight: 600">Dialogen hittills</h3>
-<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
-<sc-for list="{{dialog}}" as="d" hint-placeholder-count="4"><li style="display: flex; gap: 12px"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: {{d.dot}}"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">{{d.t}}</span><span style="font-size: 12px; color: var(--muted)">{{d.when}}</span></div></li></sc-for>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted)">Tre frågor att ställa</span>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{questions}}" as="q" hint-placeholder-count="3"><li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.5"><span style="width: 26px; height: 26px; flex: none; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">{{q.n}}</span><span style="padding-top: 3px">{{q.t}}</span></li></sc-for>
 </ol>
 </div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted)">Vad som kan stoppa affären</span>
+<sc-for list="{{objections}}" as="ob" hint-placeholder-count="3"><div style="padding: 14px 16px; border-radius: 16px; background: var(--soft); border: 1px solid var(--glassLine); display: flex; flex-direction: column; gap: 4px"><b style="font-size: 14px; font-weight: 600">{{ob.t}}</b><span style="font-size: 14px; line-height: 1.5; color: var(--muted)">{{ob.d}}</span></div></sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted)">Föreslaget nästa steg</span><p style="margin: 0; font-size: 14px; line-height: 1.6">Be om en pilot på 60 dagar riktad mot bolag som berörs av CSRD eller NIS2, med Karin som ägare och ett mål för antal bokade möten.</p></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted)">Så gick dialogen</span><p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted)">Erik mejlade Anders om tillväxten och de nya regelkraven och föreslog ett kort samtal. Anders svarade: "Låter intressant – skicka gärna ett par tider." Erik föreslår tre tider och vill ta med Karin.</p></div>
+</div>
+</div>
+
+<div style="display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid var(--glassLine)">
+<img src="../assets/erik.jpg" alt="" style="width: 40px; height: 40px; border-radius: 999px; object-fit: cover">
+<div style="display: flex; flex-direction: column; gap: 2px"><b style="font-size: 14px; font-weight: 600">Erik</b><span style="font-size: 12px; color: var(--muted)">AI-kollega på Ai Kollegorna · jakob@aikollegorna.se</span></div>
+</div>
+</div>
+</article>
+
+<section aria-label="Lägg till en rad" style="padding: 28px 32px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>Lägg till en rad innan mejlet går</h2>
+<span style="font-size: 14px; color: var(--muted)">Erik skickar sammanfattningen ovan dagen före mötet. Lägg gärna till en egen rad.</span>
+</div>
+<textarea value="{{overLine}}" onChange="{{setOverLine}}" rows="3" placeholder="T.ex. &quot;Karin gillar raka besked – ha siffrorna redo.&quot;" style="padding: 14px 16px; border-radius: 16px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; line-height: 1.5; outline: none; resize: vertical; box-sizing: border-box; width: 100%"></textarea>
+<span style="font-size: 13px; color: var(--muted)">{{overLineHint}}</span>
 </section>
 </sc-if>
 </main>
@@ -696,6 +740,10 @@ class Component extends DCLogic {
       bg: stratSel === k ? 'var(--glassHi)' : 'var(--soft)', border: stratSel === k ? '2px solid var(--green)' : '1px solid var(--glassLine)',
       pick: () => this.setState({ strat: k })
     }));
+    const overLine = this.state.overLine || '';
+    const attendees = [['Anders Berggren', 'Försäljningsdirektör', 'Fortsatt tillväxt utan att säljkostnaderna springer i väg.'], ['Karin Lund', 'Säljchef', 'Visa snabba resultat för ledningen.']].map(([name, role, cares]) => ({ name, role, cares }));
+    const questions = ['Hur hinner ni med alla bolag som behöver hjälp med CSRD, NIS2 och DORA just nu?', 'Ni är 150 personer i dag mot 172 för två år sedan – var saknar säljarna mest tid?', 'Vad är viktigast just nu – fler nya kunder eller att sälja mer till era 600+ befintliga?'].map((tt, i) => ({ n: String(i + 1), t: tt }));
+    const objections = [['"Vi har precis blivit lönsamma – vi drar inte på oss nya kostnader."', 'Jämför med kostnaden för en ny säljare. En AI-kollega växer med efterfrågan utan att lönerna gör det.'], ['Offentlig sektor kräver försiktighet i tonen.', 'Många av deras kunder är kommuner och regioner. Var konkret om vad Erik gör och inte gör.'], ['Inga kundcase ännu.', 'Erik har inte lovat några siffror. Föreslå en pilot med tydligt mål i stället för att lova resultat.']].map(([tt, d]) => ({ t: tt, d }));
     const dialog = [
       ['Erik researchade Stratsys och bedömde passformen till 8/10', '17 okt', 'var(--muted)'],
       ['Du godkände första mejlet till Anders Berggren', '20 okt', 'var(--muted)'],
@@ -816,6 +864,9 @@ class Component extends DCLogic {
       flowWhy: fm === 'boka' ? 'Stark trigger i researchen – därför försöker Erik boka ett möte.' : 'Ingen akut trigger just nu – Erik väntar in nästa signal.',
       flowNext: (fm === 'boka' ? 'Sedan: inget svar efter försök 3 → flyttas till Nudga.' : 'Sedan: ny stark signal → tillbaka till Boka möte.') + (am === 'man' ? ' Manuellt: varje steg väntar på dig.' : ''),
       goOver: () => { this.setState({ kkTab: 'over' }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} },
+      overLine, hasOverLine: !!overLine.trim(), setOverLine: (e) => this.setState({ overLine: e.target.value }),
+      overLineHint: overLine.trim() ? 'Din rad kommer med överst i mejlet. Erik skickar det automatiskt dagen före mötet, när en tid är bekräftad.' : 'Erik skickar mejlet automatiskt dagen före mötet, när en tid är bekräftad.',
+      attendees, questions, objections,
       steps, stepHead: 'Steg ' + sel + ' · ' + sd[0], stepDesc: sd[1],
       kkTabs, tabResearch: kkTab === 'research', tabSalj: kkTab === 'salj', tabOver: kkTab === 'over',
       factGroups, signals, sources: srcList.map((x) => ({ t: x })), srcDraft: this.state.srcDraft || '', setSrc: (e) => this.setState({ srcDraft: e.target.value }), addSrc,

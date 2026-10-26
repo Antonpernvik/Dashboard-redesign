@@ -73,7 +73,8 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Säljkort › All dialog: Boka möte (3 försök) / Nudga (vid triggers), Automatiskt / Manuellt. Stegen följer flödet; nuvarande steg har grön ram. Kontakttrådar fälls ut; röd kant = väntar på svar.
 - Säljkort › Överlämningen till din säljare: de 5 delarna i briefen + "Se överlämningen" → fliken Överlämning.
 - Säljkort › Vad som hänt: tidslinje, senaste först.
-- Överlämning: briefen har rubrikerna Varför de vill ses, Vem som kommer, Tre frågor att ställa, Vad som kan stoppa affären, Föreslaget nästa steg.
+- Överlämning: förhandsvisning av mejlet Erik skickar till säljaren dagen före mötet (Vad som kan vinna kunden, Varför de vill ses, Vem som kommer, Tre frågor att ställa, Vad som kan stoppa affären, Föreslaget nästa steg, Så gick dialogen).
+- Överlämning › Lägg till en rad: texten syns direkt överst i mejlet som "Din rad". Mejlet går automatiskt när en tid är bekräftad.
 - Överlämning till sälj: Eriks utkast till brief (i korthet, vem du möter, upplägg, att se upp med) och dialogen hittills. Skickas automatiskt när mötet är bokat; "Lämna över nu" skickar direkt.
 
 ## Kundprofil – klickbart
