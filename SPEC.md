@@ -96,6 +96,21 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Stegen visar vad som händer av sig självt, vilka steg som kräver ditt godkännande (grön etikett) och vilka som bara körs under ett villkor (t.ex. "Om LinkedIn är anslutet").
 - Villkoret "Om matchningen når din gräns" styrs av reglaget under Inställningar › Erik.
 
+## Integrationer – klickbart
+
+- Anslut Gmail / Anslut Outlook: OAuth-flöde i nytt fönster. Bara en e-postkälla åt gången: är den ena ansluten visar den andra "Koppla från det först".
+- Koppla från: frågar först. Erik pausar utskick tills en inkorg är ansluten igen, och det syns som "Behöver dig" i topbaren.
+- Anslut LinkedIn: första klicket visar fältet för ConnectSafely konto-id, "Spara och anslut" ansluter.
+- En integration som slutar fungera (t.ex. utgången token) visar röd status här och en notis.
+
+## Logga in – klickbart
+
+- Fortsätt med Google / Microsoft: SSO. Matchar e-posten en befintlig arbetsyta loggas man in direkt, annars visas "Ingen arbetsyta hittades" med länk till Kom igång.
+- Jobbmejl + Skicka inloggningslänk: validerar adressen, skickar en engångslänk (giltig 15 min) och visar "Kolla din inkorg". Inga lösenord att glömma.
+- Byt e-post: tillbaka till formuläret.
+- Logga ut (menyn, alla sidor): leder hit.
+- Vänstra panelen visar kundens kollegor. När kunden bara har Erik ska Moa-raden döljas eller visas som "Inte aktiverad".
+
 # Designtokens
 
 ## Färger (ljust läge)

@@ -15,6 +15,8 @@ Ny design för Ai Kollegornas kunddashboard (Erik och Moa): glas-paneler över e
 | `design/Kundprofil.dc.html` | En kundprofil | Klick på en profil |
 | `design/Installningar.dc.html` | Inställningar (8 flikar) | Menyn › Inställningar |
 | `design/Arbetsfloden.dc.html` | Arbetsflöden | Menyn › Arbetsflöden |
+| `design/Integrationer.dc.html` | Integrationer | Menyn › Integrationer |
+| `design/Login.dc.html` | Logga in | Logga ut i menyn |
 
 `assets/` innehåller Eriks och Moas bilder.
 

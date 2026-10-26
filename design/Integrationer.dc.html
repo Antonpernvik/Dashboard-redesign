@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Integrationer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:inherit}
+button{font-family:inherit}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-old(root){z-index:1}
+::view-transition-new(root){z-index:2}
+html,body{transition:none}
+</style>
+</helmet>
+<div style="--base: {{t.base}}; --glass: {{t.glass}}; --glassLine: {{t.glassLine}}; --glassHi: {{t.glassHi}}; --soft: {{t.soft}}; --line: {{t.line}}; --ink: {{t.ink}}; --muted: {{t.muted}}; --pill: {{t.pill}}; --pillInk: {{t.pillInk}}; --green: {{t.green}}; --onGreen: {{t.onGreen}}; --chart: {{t.chart}}; --chartPrev: {{t.chartPrev}}; --tintG: {{t.tintG}}; --down: {{t.down}}; --shadow: {{t.shadow}}; position: relative; overflow: clip; min-height: 100vh; box-sizing: border-box; background: var(--base); color: var(--ink); font-family: 'Geist', system-ui, sans-serif">
+
+<!-- Blurred backdrop -->
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; overflow: hidden">
+<div style="position: absolute; left: -8%; top: -6%; width: 46%; height: 520px; border-radius: 999px; background: {{t.blob1}}; filter: blur(90px)"></div>
+<div style="position: absolute; right: -6%; top: 4%; width: 42%; height: 600px; border-radius: 999px; background: {{t.blob2}}; filter: blur(110px)"></div>
+<div style="position: absolute; left: 28%; top: 38%; width: 40%; height: 520px; border-radius: 999px; background: {{t.blob3}}; filter: blur(110px)"></div>
+<div style="position: absolute; left: -4%; bottom: -4%; width: 38%; height: 560px; border-radius: 999px; background: {{t.blob4}}; filter: blur(100px)"></div>
+<div style="position: absolute; right: 4%; bottom: 6%; width: 34%; height: 460px; border-radius: 999px; background: {{t.blob1}}; filter: blur(100px)"></div>
+</div>
+
+<div style="position: relative; box-sizing: border-box; padding: 16px; display: flex; gap: 16px; align-items: flex-start">
+
+<!-- Focus scrim: blurs the dashboard while the menu is open -->
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: 20; pointer-events: none; background: {{t.scrim}}; backdrop-filter: blur(8px) saturate(120%); -webkit-backdrop-filter: blur(8px) saturate(120%); opacity: {{lo}}; transition: opacity .3s cubic-bezier(.65,0,.35,1)"></div>
+
+<!-- Sidebar -->
+<div style="position: sticky; top: 16px; z-index: 30; flex: none; width: 76px; height: calc(100vh - 32px); min-height: 620px">
+<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
+
+<button aria-label="Byt kollega, nu vald: Erik" style="display: flex; align-items: center; gap: 12px; width: 100%; height: 48px; padding: 0; border-radius: 16px; border: 0; background: transparent; color: var(--ink); cursor: pointer; text-align: left; white-space: nowrap">
+<img src="../assets/erik.jpg" alt="" style="width: 48px; height: 48px; flex: none; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 2px var(--green), 0 8px 20px {{t.greenGlow}}">
+<span style="flex: 1; display: flex; flex-direction: column; line-height: 1.2; opacity: {{lo}}; transition: opacity .2s"><span style="font-size: 15px; font-weight: 600">Erik</span><span style="font-size: 12px; color: var(--muted)">B2B-säljare</span></span>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex: none; margin-right: 6px; opacity: {{lo}}; transition: opacity .2s"><path d="m6 9 6 6 6-6"></path></svg>
+</button>
+
+<div style="height: 1px; background: var(--line); margin: 2px 6px"></div>
+
+<nav aria-label="Erik" style="display: flex; flex-direction: column; gap: 6px">
+<a href="Main.dc.html" aria-label="Start" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Start</span></a>
+<a href="Forslag.dc.html" aria-label="Förslag, 11 nya" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1Z"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Förslag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
+<a href="Foretag.dc.html" aria-label="Identifierade företag, 11 nya" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path><path d="M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Identifierade företag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
+<a href="Pagaende.dc.html" aria-label="Pågående sälj" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M17 2l4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Pågående sälj</span></a>
+<a href="#" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Körningar</span></a>
+</nav>
+
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 6px">
+<span style="height: 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0 14px; white-space: nowrap; opacity: {{lo}}; transition: opacity .2s">Inställningar</span>
+<nav aria-label="Inställningar" style="display: flex; flex-direction: column; gap: 6px">
+<a href="Kundprofiler.dc.html" aria-label="Kundprofiler" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="3"></circle></svg><span style="opacity: {{lo}}; transition: opacity .2s">Kundprofiler</span></a>
+<a href="Arbetsfloden.dc.html" aria-label="Arbetsflöden" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><rect x="3" y="3" width="6" height="6" rx="1.5"></rect><rect x="15" y="15" width="6" height="6" rx="1.5"></rect><path d="M9 6h4a3 3 0 0 1 3 3v6"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Arbetsflöden</span></a>
+<a href="Integrationer.dc.html" aria-current="page" aria-label="Integrationer" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; background: var(--glassHi); color: var(--green); font-size: 14px; font-weight: 600; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--glassLine)">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M19.4 7.3a2.4 2.4 0 0 0 0 3.4l1.6 1.6c.5.5.5 1.2 0 1.7l-1.6 1.6a2.4 2.4 0 0 1-3.4 0 2.4 2.4 0 0 0-3.4 3.4l1.6 1.6c.5.5.5 1.2 0 1.7l-.3.2M4.6 16.7a2.4 2.4 0 0 0 0-3.4L3 11.7c-.5-.5-.5-1.2 0-1.7l1.6-1.6a2.4 2.4 0 0 1 3.4 0 2.4 2.4 0 0 0 3.4-3.4L9.8 3.4c-.5-.5-.5-1.2 0-1.7"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Integrationer</span></a>
+<a href="Installningar.dc.html" aria-label="Inställningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Inställningar</span></a>
+</nav>
+<div style="height: 1px; background: var(--line); margin: 6px 6px"></div>
+<div style="display: flex; align-items: center; gap: 12px; white-space: nowrap">
+<div style="width: 48px; height: 48px; flex: none; border-radius: 999px; background: var(--pill); color: var(--pillInk); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">KB</div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; line-height: 1.25; opacity: {{lo}}; transition: opacity .2s">
+<span style="font-size: 13px; font-weight: 600">[Kundens bolag]</span>
+<span style="font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis">namn@kund.se</span>
+<a href="Login.dc.html" style="font-size: 12px; font-weight: 600; color: var(--green)">Logga ut</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+
+<!-- Main -->
+<main style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+
+<header style="position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 22px; border-radius: 24px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow)">
+<div style="display: flex; flex-direction: column; line-height: 1.2; padding: 4px 0">
+<span style="font-size: 19px; font-weight: 600; letter-spacing: -0.01em">{{todayStr}} <span style="font-size: 13px; font-weight: 500; color: var(--muted)">{{weekStr}}</span></span>
+<span style="font-size: 12px; color: var(--muted)">Erik · B2B-säljare</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<span style="display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px 0 4px; border-radius: 999px; background: var(--tintG); color: var(--ink); font-size: 13px; font-weight: 600"><span style="position: relative; width: 36px; height: 36px; flex: none"><img src="../assets/erik.jpg" alt="" style="width: 36px; height: 36px; border-radius: 999px; object-fit: cover"><span style="position: absolute; right: -1px; bottom: -1px; width: 10px; height: 10px; border-radius: 999px; background: var(--green); border: 2px solid var(--base)"></span></span>Erik är aktiv</span>
+
+<label style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); color: var(--muted); font-size: 14px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<input type="search" placeholder="Sök bolag eller kontakt" aria-label="Sök" style="border: 0; background: transparent; outline: none; font: inherit; color: var(--ink); width: 170px">
+</label>
+<button onClick="{{toggleTheme}}" aria-label="{{themeLabel}}" title="{{themeLabel}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer">
+<sc-if value="{{dark}}" hint-placeholder-val="{{false}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></sc-if>
+<sc-if value="{{light}}" hint-placeholder-val="{{true}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></sc-if>
+</button>
+<sc-if value="{{anyPop}}" hint-placeholder-val="{{false}}"><div aria-hidden="true" onMouseDown="{{closePops}}" style="position: fixed; inset: 0; z-index: 40; background: transparent; cursor: default"></div></sc-if>
+<div style="position: relative">
+<button onClick="{{toggleNotif}}" aria-label="{{notifLabel}}" aria-expanded="{{notifStr}}" style="position: relative; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
+<sc-if value="{{hasUnread}}" hint-placeholder-val="{{true}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 16px; height: 16px; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{unreadN}}</span></sc-if>
+</button>
+<sc-if value="{{notifOpen}}" hint-placeholder-val="{{false}}">
+<div role="dialog" aria-label="Notiser" style="position: absolute; right: 0; top: 54px; width: 380px; max-width: calc(100vw - 120px); padding: 14px; border-radius: 22px; background: {{t.pop}}; border: 1px solid var(--glassLine); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: 0 30px 80px rgba(0,0,0,0.22); display: flex; flex-direction: column; gap: 6px; z-index: 50">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 6px 8px"><span style="font-size: 15px; font-weight: 600">Notiser</span><button onClick="{{markAllRead}}" style="border: 0; background: transparent; padding: 6px; color: var(--green); font-size: 12px; font-weight: 600; cursor: pointer">Markera alla som lästa</button></div>
+<sc-for list="{{notifs}}" as="n" hint-placeholder-count="5">
+<a href="{{n.href}}" onClick="{{n.read}}" style="text-decoration: none; color: var(--ink); display: flex; gap: 12px; align-items: flex-start; padding: 10px; border-radius: 14px; background: {{n.bg}}">
+<span style="width: 8px; height: 8px; margin-top: 6px; flex: none; border-radius: 999px; background: {{n.dot}}"></span>
+<span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: {{n.weight}}; line-height: 1.4">{{n.text}}</span><span style="font-size: 11px; color: var(--muted)">{{n.kind}} · {{n.when}}</span></span>
+</a>
+</sc-for>
+<a href="#" style="text-align: center; padding: 8px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none">Notisinställningar</a>
+</div>
+</sc-if>
+</div>
+<div style="position: relative">
+<button onClick="{{toggleTask}}" aria-expanded="{{taskStr}}" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 8px 20px {{t.greenGlow}}">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Ge Erik ett uppdrag</button>
+<sc-if value="{{taskOpen}}" hint-placeholder-val="{{false}}">
+<div role="dialog" aria-label="Ge Erik ett uppdrag" style="position: absolute; right: 0; top: 56px; width: 440px; max-width: calc(100vw - 120px); border-radius: 24px; background: {{t.pop}}; border: 1px solid var(--glassLine); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: 0 30px 80px rgba(0,0,0,0.22); overflow: hidden; z-index: 50">
+<sc-if value="{{taskForm}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; align-items: center; gap: 12px; padding: 18px 18px 14px">
+<img src="../assets/erik.jpg" alt="" style="width: 44px; height: 44px; border-radius: 14px; object-fit: cover; box-shadow: 0 0 0 2px var(--green)">
+<div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Vad vill du att jag gör?</span><span style="font-size: 12px; color: var(--muted)">Skriv fritt eller välj ett förslag nedan</span></div>
+<button onClick="{{closePops}}" aria-label="Stäng" style="width: 36px; height: 36px; flex: none; border-radius: 999px; border: 0; background: var(--soft); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</div>
+<div style="padding: 0 18px; display: flex; flex-direction: column; gap: 12px">
+<textarea aria-label="Uppdrag" value="{{taskText}}" onChange="{{setTaskText}}" placeholder="T.ex. hitta 20 bolag som liknar Allente i Göteborg" style="min-height: 96px; resize: vertical; padding: 14px; border-radius: 16px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; line-height: 1.5; outline: none; box-sizing: border-box; width: 100%"></textarea>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Förslag</span>
+<sc-for list="{{taskIdeas}}" as="ti" hint-placeholder-count="4">
+<button onClick="{{ti.pick}}" style="display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border-radius: 14px; border: 0; background: transparent; color: var(--ink); font-size: 13px; text-align: left; cursor: pointer">
+<span style="width: 30px; height: 30px; flex: none; border-radius: 10px; background: var(--tintG); color: var(--green); display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>{{ti.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 14px; padding: 14px 18px; border-top: 1px solid var(--line)">
+<span style="font-size: 12px; color: var(--muted)">Syns under Pågående sälj</span>
+<button onClick="{{sendTask}}" style="height: 42px; padding: 0 20px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 13px; font-weight: 600; cursor: pointer">Skicka till Erik</button>
+</div>
+</sc-if>
+<sc-if value="{{taskSent}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 28px 22px; text-align: center"><img src="../assets/erik.jpg" alt="" style="width: 56px; height: 56px; border-radius: 18px; object-fit: cover; box-shadow: 0 0 0 2px var(--green)"><span style="font-size: 16px; font-weight: 600">Jag är på det!</span><span style="font-size: 13px; color: var(--muted); line-height: 1.5; max-width: 300px">Uppdraget syns under Pågående sälj. Jag hör av mig när jag har något att visa.</span><button onClick="{{closePops}}" style="margin-top: 4px; height: 40px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--pill); color: var(--pillInk); font-size: 13px; font-weight: 600; cursor: pointer">Stäng</button></div>
+</sc-if>
+</div>
+</sc-if>
+</div>
+</div>
+</header>
+
+<section style="display: flex; flex-direction: column; gap: 6px; padding: 6px 6px 0">
+<h1 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: -0.03em">Integrationer</h1>
+<span style="font-size: 14px; color: var(--muted)">Koppla de konton Erik ska jobba genom</span>
+</section>
+
+<section aria-label="Integrationer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px">
+<sc-for list="{{integ}}" as="g" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 22px; border-radius: 26px; background: var(--glass); border: {{g.border}}; backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); opacity: {{g.op}}">
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="width: 48px; height: 48px; flex: none; border-radius: 15px; background: {{t.field}}; border: 1px solid var(--glassLine); display: flex; align-items: center; justify-content: center">
+<sc-if value="{{g.isGmail}}" hint-placeholder-val="{{true}}"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5V18a1.5 1.5 0 0 0 1.5 1.5H7V11l5 3.75L17 11v8.5h2.5A1.5 1.5 0 0 0 21 18V7.5l-2.2-1.65a1.5 1.5 0 0 0-1.8 0L12 9.6 7 5.85a1.5 1.5 0 0 0-1.8 0Z" fill="#EA4335"></path><path d="M3 7.5 7 10.5V19.5H4.5A1.5 1.5 0 0 1 3 18Z" fill="#4285F4"></path><path d="M21 7.5 17 10.5V19.5h2.5A1.5 1.5 0 0 0 21 18Z" fill="#34A853"></path><path d="M17 10.5 21 7.5 18.8 5.85a1.5 1.5 0 0 0-1.8 0L17 6Z" fill="#FBBC04"></path></svg></sc-if>
+<sc-if value="{{g.isOutlook}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="12" height="14" rx="2" fill="#0F6CBD"></rect><path d="M15 8h5a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-5Z" fill="#28A8EA"></path><path d="m15 9.5 6 4" stroke="#0F6CBD" stroke-width="1.2" fill="none"></path><ellipse cx="9" cy="12" rx="3" ry="3.4" fill="none" stroke="#FFFFFF" stroke-width="1.8"></ellipse></svg></sc-if>
+<sc-if value="{{g.isLi}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="#0A66C2"></rect><rect x="6.5" y="10" width="2.6" height="7.5" fill="#FFFFFF"></rect><circle cx="7.8" cy="7.3" r="1.5" fill="#FFFFFF"></circle><path d="M11 10h2.5v1.1c.5-.8 1.4-1.3 2.6-1.3 2 0 2.9 1.2 2.9 3.4v4.3h-2.6v-3.9c0-1-.4-1.6-1.3-1.6s-1.5.7-1.5 1.7v3.8H11Z" fill="#FFFFFF"></path></svg></sc-if>
+</span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">{{g.name}}</h2><span style="font-size: 13px; color: var(--muted)">{{g.what}}</span></div>
+<span style="flex: none; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{g.stBg}}; color: var(--ink)"><span style="width: 7px; height: 7px; border-radius: 999px; background: {{g.stDot}}"></span>{{g.status}}</span>
+</div>
+
+<sc-if value="{{g.connected}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 16px; background: var(--soft); border: 1px solid var(--glassLine)"><span style="font-size: 12px; color: var(--muted)">Ansluten som</span><b style="font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis">{{g.account}}</b></div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 8px"><button onClick="{{g.disconnect}}" style="height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--down); font-size: 13px; font-weight: 600; cursor: pointer">Koppla från</button></div>
+</sc-if>
+
+<sc-if value="{{g.canConnect}}" hint-placeholder-val="{{false}}">
+<sc-if value="{{g.showField}}" hint-placeholder-val="{{false}}">
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">ConnectSafely konto-id</span><input value="{{liId}}" onChange="{{setLiId}}" placeholder="acc_…" style="height: 46px; padding: 0 14px; border-radius: 14px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; outline: none; box-sizing: border-box; width: 100%"></label>
+</sc-if>
+<div style="margin-top: auto"><button onClick="{{g.connect}}" style="width: 100%; height: 46px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 8px 20px {{t.greenGlow}}">{{g.cta}}</button></div>
+</sc-if>
+
+<sc-if value="{{g.blocked}}" hint-placeholder-val="{{false}}">
+<span style="margin-top: auto; font-size: 13px; color: var(--muted); line-height: 1.5">{{g.blockText}}</span>
+</sc-if>
+</div>
+</sc-for>
+</section>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1E7B4E","options":["#1E7B4E","#0F766E","#2563EB","#B45309"]},"startDark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  aikReadTheme(fallback) {
+    try { window.localStorage.removeItem('aik-theme'); } catch (e) {}
+    try { const v = window.sessionStorage.getItem('aik-theme-tab'); if (v === 'dark') return true; if (v === 'light') return false; } catch (e) {}
+    if (typeof window.__aikTheme === 'boolean') return window.__aikTheme;
+    return !!fallback;
+  }
+  aikWriteTheme(dark) {
+    window.__aikTheme = dark;
+    try { window.sessionStorage.setItem('aik-theme-tab', dark ? 'dark' : 'light'); } catch (e) {}
+  }
+  aikPaintRoot(doc, dark) {
+    try {
+      const root = doc.documentElement;
+      root.style.background = dark ? '#0A0F0C' : '#D8D2C6';
+      root.style.colorScheme = dark ? 'dark' : 'light';
+      if (doc.body) doc.body.style.background = dark ? '#0A0F0C' : '#D8D2C6';
+    } catch (e) {}
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { dark: this.aikReadTheme(props.startDark), tab: 'Översikt', period: '30 d', channel: 'Alla kanaler', kpi: 'Svar', compare: true, auto: true, rail: false, openP: 'p1', decided: {}, ftab: 'Bolag', fdec: {}, restored: {} };
+  }
+  componentDidMount() {
+    this.aikPaintRoot(document, this.state.dark);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.dark !== this.state.dark) this.aikPaintRoot(document, this.state.dark);
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#1E7B4E';
+    const dark = this.state.dark;
+    const t = dark ? {
+      base: '#0A0F0C', blob1: '#1D3A2B', blob2: '#3A3124', blob3: '#173226', blob4: '#2B2A22',
+      glass: 'rgba(22,30,25,0.55)', glassHi: 'rgba(34,46,38,0.7)', glassLine: 'rgba(255,255,255,0.08)',
+      soft: 'rgba(255,255,255,0.06)', line: 'rgba(255,255,255,0.08)', ink: '#EEF2EE', muted: '#A3AFA7',
+      pill: '#EEF2EE', pillInk: '#0A0F0C', green: accent, onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.35)',
+      chart: '#4CC285', chartPrev: '#6C7A71', tintG: 'rgba(76,194,133,0.2)', down: '#F07A63',
+      shadow: '0 10px 40px rgba(0,0,0,0.35)',
+      scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', curBar: 'rgba(76,194,133,0.5)', inv: 'rgba(24,52,38,0.78)', invInk: '#EEF2EE', invSoft: 'rgba(255,255,255,0.06)', invLine: 'rgba(255,255,255,0.1)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
+    } : {
+      base: '#D8D2C6', blob1: '#B9C4A8', blob2: '#EADFCB', blob3: '#9FB394', blob4: '#CDB89C',
+      glass: 'rgba(255,255,255,0.42)', glassHi: 'rgba(255,255,255,0.68)', glassLine: 'rgba(255,255,255,0.65)',
+      soft: 'rgba(255,255,255,0.45)', line: 'rgba(30,40,34,0.1)', ink: '#14201A', muted: '#4B5750',
+      pill: '#14201A', pillInk: '#FFFFFF', green: accent, onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.28)',
+      chart: '#1E7B4E', chartPrev: '#8A938C', tintG: 'rgba(30,123,78,0.16)', down: '#B3382A',
+      shadow: '0 10px 40px rgba(60,50,30,0.10)',
+      scrim: 'rgba(216,210,198,0.28)', pop: 'rgba(251,250,247,0.97)', field: '#FFFFFF', fieldLine: 'rgba(20,32,26,0.12)', curBar: 'rgba(30,123,78,0.4)', inv: 'rgba(17,28,22,0.86)', invInk: '#F1F5F2', invSoft: 'rgba(255,255,255,0.08)', invLine: 'rgba(255,255,255,0.12)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
+    };
+    const up = dark ? '#4CC285' : '#17643F';
+
+    const toggleTheme = (e) => {
+      if (this._themeBusy) return;
+      const el = e && e.currentTarget;
+      const next = !this.state.dark;
+      const doc = (el && el.ownerDocument) || document;
+      const win = doc.defaultView || window;
+      this.aikWriteTheme(next);
+      let reduce = false;
+      try { reduce = !!(win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (err) {}
+      if (!el || typeof doc.startViewTransition !== 'function' || reduce) { this.setState({ dark: next }); return; }
+      const r = el.getBoundingClientRect();
+      const x = Math.round(r.left + r.width / 2), y = Math.round(r.top + r.height / 2);
+      const end = Math.ceil(Math.hypot(Math.max(x, win.innerWidth - x), Math.max(y, win.innerHeight - y)));
+      this._themeBusy = true;
+      let vt;
+      try {
+        vt = doc.startViewTransition(() => new Promise((res) => {
+          this.setState({ dark: next }, () => { this.aikPaintRoot(doc, next); res(); });
+        }));
+      } catch (err) {
+        this._themeBusy = false; this.setState({ dark: next }); return;
+      }
+      vt.ready.then(() => {
+        doc.documentElement.animate(
+          { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
+          { duration: 620, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'both', pseudoElement: '::view-transition-new(root)' }
+        );
+      }).catch(() => {});
+      const done = () => { this._themeBusy = false; };
+      vt.finished.then(done, done);
+    };
+
+    const mk = (key, list) => list.map((label) => ({
+      label, active: this.state[key] === label, inactive: this.state[key] !== label,
+      pick: () => this.setState({ [key]: label })
+    }));
+    const tabs = mk('tab', ['Översikt', 'Möten', 'Kanaler']);
+    const periods = mk('period', ['7 d', '30 d', '90 d', 'I år']);
+    const channels = mk('channel', ['Alla kanaler', 'Mejl', 'LinkedIn', 'Anbud']);
+
+    const kpiDefs = [
+      ['Svar', '140', '↗ 77 % mot förra', up, '0.0,28.0 9.1,25.3 18.2,28.0 27.3,20.0 36.4,22.7 45.5,17.3 54.5,20.0 63.6,12.0 72.7,14.7 81.8,9.3 90.9,12.0 100.0,4.0'],
+      ['Utskick', '1 270', '958 mejl · 312 LinkedIn', t.muted, '0.0,28.0 9.1,22.5 18.2,24.3 27.3,18.3 36.4,19.7 45.5,14.2 54.5,16.0 63.6,12.3 72.7,9.1 81.8,10.0 90.9,5.8 100.0,4.0'],
+      ['Svarsfrekvens', '14,6 %', '↘ 0,8 p', t.down, '0.0,10.0 9.1,8.0 18.2,12.0 27.3,9.0 36.4,14.0 45.5,12.0 54.5,16.0 63.6,13.0 72.7,18.0 81.8,15.0 90.9,20.0 100.0,18.0'],
+      ['Pipeline', '26 bolag', '↗ +5 denna vecka', up, '0.0,28.0 9.1,27.0 18.2,24.0 27.3,24.0 36.4,21.0 45.5,20.0 54.5,17.0 63.6,16.0 72.7,12.0 81.8,10.0 90.9,8.0 100.0,4.0']
+    ];
+    const kpis = kpiDefs.map(([label, value, trend, trendColor, spark]) => ({
+      label, value, trend, trendColor, spark,
+      selected: this.state.kpi === label, unselected: this.state.kpi !== label,
+      pick: () => this.setState({ kpi: label })
+    }));
+
+    const st = dark ? {
+      'Möte bokat': [accent, '#FFFFFF'], 'I dialog': ['rgba(76,194,133,0.2)', '#9BE6BD'], 'Kontaktad': ['rgba(255,255,255,0.08)', '#D3DBD5'], 'Ny': ['transparent', '#A3AFA7']
+    } : {
+      'Möte bokat': [accent, '#FFFFFF'], 'I dialog': ['rgba(30,123,78,0.16)', '#124A2F'], 'Kontaktad': ['rgba(255,255,255,0.6)', '#2F3A33'], 'Ny': ['transparent', '#4B5750']
+    };
+    const companies = [
+      ['Bolag A', 'Industri', 'Rekryterar säljare', 94, 'Möte bokat'],
+      ['Bolag B', 'SaaS', 'Ny försäljningschef', 91, 'I dialog'],
+      ['Bolag C', 'Redovisning', 'Expanderar till Göteborg', 87, 'Kontaktad'],
+      ['Bolag D', 'Bygg', 'Vann upphandling', 82, 'Kontaktad'],
+      ['Bolag E', 'Fastighet', 'Ny VD', 78, 'Ny']
+    ].map(([name, industry, signal, score, status]) => ({
+      name, industry, signal, score, status,
+      initials: name.split(' ').map((w) => w[0]).join(''),
+      scorePct: score + '%', statusBg: st[status][0], statusFg: st[status][1]
+    }));
+
+    const waiting = [
+      ['3', 'Mejlutkast att godkänna', 'Skickas 08:00 efter ditt ok', 'Granska', true],
+      ['11', 'Nya företag att godkänna', 'Identifierade i dag', 'Granska företag', true],
+      ['1', 'Varmt svar från [Prospekt]', 'Vill ha möte nästa vecka', 'Svara', true],
+      ['1', 'Ny upphandling matchar', 'Sista anbudsdag 14 nov', 'Öppna', false]
+    ].map(([count, title, meta, action, primary], i) => ({ count, title, meta, action, primary, secondary: !primary, href: i === 0 ? 'Forslag.dc.html' : '#' }));
+    const pco = (n, note) => ({ name: n, note, initials: n.split(' ').map((w) => w[0]).join('') });
+    const pipeline = [
+      { stage: 'Svarat positivt', count: '12', more: 9, pillBg: t.soft, pillFg: t.ink, items: [pco('Bolag F', 'Vill veta mer om pris'), pco('Bolag G', 'Be om case från bygg'), pco('Bolag H', 'Återkom i januari')] },
+      { stage: 'I dialog', count: '7', more: 4, pillBg: t.tintG, pillFg: t.ink, items: [pco('Bolag B', 'Erik föreslår tider'), pco('Bolag I', 'Väntar på ditt svar'), pco('Bolag J', 'Andra mejlet skickat')] },
+      { stage: 'Möte bokat', count: '7', more: 4, pillBg: accent, pillFg: '#FFFFFF', items: [pco('Bolag A', 'Tor 29 okt 14:00'), pco('Bolag K', 'Fre 30 okt 09:30'), pco('Bolag L', 'Tis 3 nov 10:00')] }
+    ];
+    const funnel = [
+      ['Identifierade företag', 108], ['Godkända av dig', 64], ['Kontaktade', 52], ['Har svarat', 19], ['Möte bokat', 7]
+    ].map(([label, v], i, arr) => ({ label, value: String(v), pct: Math.max(4, Math.round(v / 108 * 100)) + '%', op: i === arr.length - 1 ? '1' : String(0.35 + i * 0.12) }));
+    const proposals = [
+      { who: '[Kontakt 1]', company: '[Bolag]', when: '23 okt 12:54' },
+      { who: '[Kontakt 2]', company: '[Bolag]', when: '23 okt 12:53' },
+      { who: '[Kontakt 3]', company: '[Bolag]', when: '23 okt 12:53' }
+    ];
+    const searches = [
+      { profile: '[Kundprofil 1]', last: '23 okt 13:36', found: '5 företag' },
+      { profile: '[Kundprofil 2]', last: '22 okt 08:13', found: '5 företag' }
+    ];
+    const compare = this.state.compare;
+    const auto = this.state.auto;
+    const dec = this.state.decided || {};
+    const mailBody = (co) => 'Hej [Förnamn],\n\nJag blev varmt rekommenderad att kontakta dig via en gemensam kontakt, efter ett nätverksevent häromveckan.\n\nVi hjälper bolag som ' + co + ' att låta en AI-kollega ta över prospektering och uppföljning, så att säljarna kan lägga tiden på samtalen som faktiskt leder till affärer.\n\nHar du 20 minuter nästa vecka? Jag visar gärna hur det ser ut i praktiken.\n\nVänliga hälsningar,\n[Avsändare]';
+    const drafts = [
+      { id: 'p1', who: '[Kontakt 1]', company: '[Bolag]', role: 'Försäljningschef', when: '23 okt 12:54', reason: 'rekryterar två säljare just nu', subject: 'AI i säljarbetet på [Bolag] – 20 minuter?' },
+      { id: 'p2', who: '[Kontakt 2]', company: '[Bolag]', role: 'Head of Operations', when: '23 okt 12:53', reason: 'ny i rollen sedan september', subject: 'AI i era egna arbetsflöden – 20 minuter?' },
+      { id: 'p3', who: '[Kontakt 3]', company: '[Bolag]', role: 'Partneransvarig', when: '23 okt 12:53', reason: 'bygger ut partnerkanalen', subject: 'AI i sälj- och partnerledet på [Bolag]' }
+    ].map((d) => {
+      const st = dec[d.id] || 'pending';
+      const exp = this.state.openP === d.id;
+      const body = mailBody(d.company);
+      const set = (v) => () => this.setState({ decided: { ...(this.state.decided || {}), [d.id]: v } });
+      return {
+        ...d, body, preview: body.replace(/\n+/g, ' '),
+        pending: st === 'pending', approved: st === 'approved', rejected: st === 'rejected',
+        cardOpacity: st === 'rejected' ? '0.6' : '1',
+        expanded: exp, collapsed: !exp, expandedStr: exp ? 'true' : 'false', toggleLabel: exp ? 'Visa mindre' : 'Läs hela',
+        toggle: () => this.setState({ openP: exp ? null : d.id }),
+        approve: set('approved'), reject: set('rejected'), undo: set('pending')
+      };
+    });
+    const pendingCount = drafts.filter((d) => d.pending).length;
+    const approveAll = () => {
+      const next = { ...(this.state.decided || {}) };
+      drafts.forEach((d) => { if (d.pending) next[d.id] = 'approved'; });
+      this.setState({ decided: next });
+    };
+    const fdec = this.state.fdec || {};
+    const restored = this.state.restored || {};
+    const setF = (id, v) => () => this.setState({ fdec: { ...(this.state.fdec || {}), [id]: v } });
+    const ini = (n) => n.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
+    const coBase = [
+      ['Embark Studios', 8, 'LinkedIn-trigger: ny CRO'],
+      ['Voi Technology', 8, 'Branschlista – SaaS 100'],
+      ['Mentimeter', 9, 'Funding-signal'],
+      ['Truecaller', 7, 'ICP-matchning'],
+      ['Kry', 8, 'LinkedIn-aktivitet'],
+      ['Budbee', 7, 'ICP-matchning']
+    ];
+    const coCards = coBase.filter(([n]) => fdec[n] !== 'excluded').map(([name, score, signal]) => {
+      const st = fdec[name] || 'pending';
+      return {
+        name, score: String(score), scorePct: score * 10 + '%', initials: ini(name),
+        checks: [{ text: 'Matchar vald kundprofil och bolagsstorlek' }, { text: 'Signal: ' + signal }, { text: 'Rätt marknad och tydlig tillväxtpotential' }],
+        pending: st === 'pending', accepted: st === 'accepted',
+        border: st === 'accepted' ? '2px solid var(--green)' : '1px solid var(--glassLine)',
+        accept: setF(name, 'accepted'), exclude: setF(name, 'excluded'), undo: setF(name, 'pending')
+      };
+    });
+    const pendingCoN = coCards.filter((c) => c.pending).length;
+    const acceptAll = () => {
+      const next = { ...(this.state.fdec || {}) };
+      coCards.forEach((c) => { if (c.pending) next[c.name] = 'accepted'; });
+      this.setState({ fdec: next });
+    };
+    const customers = [
+      ['TEST AB', 'Maria Sköld · VD', '2025'], ['Tibro Industri', 'Anders Nilsson · Försäljningschef', '2026'],
+      ['Nordström Bygg', 'Eva Lind · VD', '2024'], ['Hexa Solutions', 'Peter Ek · CRO', '2025'],
+      ['Värmlands El', 'Karl Olsson · VD', '2023'], ['MediCare Nord', 'Lina Berg · Marknadschef', '2024']
+    ].map(([name, contact, since]) => ({ name, contact, since, initials: ini(name) }));
+    const exBase = [
+      ['Konkurrent A AB', 'Direkt konkurrent · Du · 12 mar'],
+      ['Tidigare kund X', 'Avslutat samarbete – vill inte kontaktas · Du · 2 apr'],
+      ['Klagomål Y AB', 'Bett om att tas bort · Erik (auto) · 18 apr'],
+      ['Konkurrent B Tech', 'Direkt konkurrent · Du · 5 maj']
+    ].filter(([n]) => !restored[n]).map(([name, meta]) => ({ name, meta, restore: () => this.setState({ restored: { ...(this.state.restored || {}), [name]: true } }) }));
+    const exFromList = coBase.filter(([n]) => fdec[n] === 'excluded').map(([name]) => ({ name, meta: 'Avvisad från Eriks förslag · Du · i dag', restore: setF(name, 'pending') }));
+    const excluded = exFromList.concat(exBase);
+    const ftabs = [['Bolag', pendingCoN], ['Befintliga kunder', customers.length], ['Exkluderade', excluded.length]].map(([label, count]) => ({
+      label, count: String(count), active: this.state.ftab === label, inactive: this.state.ftab !== label, pick: () => this.setState({ ftab: label })
+    }));
+    const stepData = [
+      ['Research', 'Erik samlar fakta om bolaget från publika källor och bedömer hur väl det matchar din kundprofil.', 'Klart 17 okt – 8/10 i matchning.'],
+      ['Första kontakt', 'Skriver ett kort mejl till en person, i din ton, med enbart fakta som redan är lagrade. Du läser och godkänner det innan något skickas.', 'Inget är noterat här än.'],
+      ['Dialog', 'Erik svarar på frågor och föreslår tider. Allt som kräver ditt beslut hamnar i Förslag.', 'Följs inte än.'],
+      ['Möte bokat', 'När mottagaren tackar ja bokar Erik mötet i din kalender och skickar en bekräftelse.', 'Följs inte än.'],
+      ['Överlämning', 'Erik sammanfattar allt han vet om bolaget och personen inför mötet.', 'Följs inte än.'],
+      ['Din säljare tar mötet', 'Här tar din säljare över. Erik följer upp efter mötet om du vill.', 'Följs inte än.']
+    ];
+    const cur = 2;
+    const sel = this.state.step || cur;
+    const steps = stepData.map(([title, desc], i) => {
+      const n = i + 1, done = n < cur, now = n === cur, isSel = n === sel;
+      return {
+        title: n + '. ' + title, current: now, selStr: isSel ? 'true' : 'false',
+        chip: done ? 'Klart' : now ? 'Erik är här' : 'Följs inte än',
+        chipBg: now ? 'var(--green)' : 'var(--glassHi)', chipFg: now ? 'var(--onGreen)' : done ? 'var(--ink)' : 'var(--muted)',
+        chipPad: now ? '3px 10px 3px 3px' : '4px 10px',
+        bar: done ? 'var(--green)' : now ? t.curBar : 'var(--line)',
+        bg: isSel ? 'var(--glassHi)' : 'var(--soft)', border: isSel ? '2px solid var(--green)' : '1px solid var(--glassLine)',
+        pick: () => this.setState({ step: n })
+      };
+    });
+    const sd = stepData[sel - 1];
+    const facts = [
+      ['Organisationsnummer', '559218-1308', 'allabolag.se', '22 sep 08:53'], ['Webbplats', 'allente.se', 'allente.se', '15 okt 21:18'],
+      ['Bransch', 'Telekommunikation, teleoperatörer', 'allabolag.se', '22 sep 08:53'], ['Ort', 'Stockholm', 'allabolag.se', '22 sep 08:53'],
+      ['Anställda', '98', 'allabolag.se', '22 sep 08:53'], ['Land', 'Sverige', 'allabolag.se', '22 sep 08:53'],
+      ['Omsättning', 'Saknas', '', ''], ['Ägare', 'Viaplay Group', 'viaplaygroup.com', '15 okt 21:18']
+    ].map(([label, value, src, when]) => ({ label, value, src, when, hasSrc: !!src }));
+    const contacts = [['Caroline Størmer-Nilsen', 'Marknadsdirektör'], ['Mia Vagnsgaard', 'Chief People & Culture Officer'], ['Tor Jacobsen', 'Chief Commercial Officer'], ['Victor Liljeroth', 'Chief B2B Officer']].map(([name, title]) => ({ name, title }));
+    const flow = [
+      ['Berika Allente Sverige AB', 'Klart', 0, ''], ['Bedöm företaget', 'Klart', 1, ''],
+      ['Hitta kontakter på Allente', 'Klart', 2, ''], ['Hitta på LinkedIn', 'Överhoppat', 3, 'LinkedIn är inte anslutet, så Erik letade inte där.']
+    ].map(([label, status, lvl, note]) => ({
+      label, status, note, hasNote: !!note, indent: lvl * 18 + 'px', rule: lvl ? '2px solid var(--line)' : '0',
+      dot: status === 'Klart' ? 'var(--green)' : 'var(--muted)',
+      chipBg: status === 'Klart' ? t.tintG : 'var(--soft)', chipFg: status === 'Klart' ? t.ink : t.muted
+    }));
+    const runs = [['Hitta kontakter på Allente', '23 okt 12:40'], ['Hitta kontakter på Allente', '17 okt 10:33'], ['Berika Allente Sverige AB', '17 okt 10:32']].map(([task, when]) => ({ task, when }));
+    const nowD = new Date();
+    const dayStr = nowD.toLocaleDateString('sv-SE', { weekday: 'long', day: 'numeric', month: 'long' });
+    const wkTmp = new Date(Date.UTC(nowD.getFullYear(), nowD.getMonth(), nowD.getDate()));
+    const wkDay = wkTmp.getUTCDay() || 7;
+    wkTmp.setUTCDate(wkTmp.getUTCDate() + 4 - wkDay);
+    const weekNo = Math.ceil(((wkTmp - new Date(Date.UTC(wkTmp.getUTCFullYear(), 0, 1))) / 86400000 + 1) / 7);
+    const hr = nowD.getHours();
+    const readSet = this.state.readN || {};
+    const notifBase = [
+      ['n1', 'Erik bokade möte med Teracom AB, tor 29 okt 14:00', 'Möte', '08:47', 'Kundkort.dc.html'],
+      ['n2', 'Varmt svar från [Prospekt] – vill ha möte nästa vecka', 'Svar', '08:12', 'Forslag.dc.html'],
+      ['n3', '11 nya förslag väntar på ditt godkännande', 'Förslag', '07:00', 'Forslag.dc.html'],
+      ['n4', 'LinkedIn är inte anslutet – Erik hoppar över LinkedIn-sökningar', 'Behöver dig', 'I går', '#'],
+      ['n5', 'Veckorapporten för vecka 43 är klar', 'Rapport', 'Fre', '#']
+    ];
+    const notifs = notifBase.map(([id, text, kind, when, href], i) => {
+      const unread = i < 3 && !readSet[id] && !readSet.all;
+      return {
+        text, kind, when, href, weight: unread ? '600' : '400',
+        bg: unread ? 'var(--soft)' : 'transparent', dot: unread ? 'var(--green)' : 'transparent',
+        read: () => this.setState({ readN: { ...(this.state.readN || {}), [id]: true }, notifOpen: false })
+      };
+    });
+    const unreadN = notifs.filter((n) => n.weight === '600').length;
+    const topVals = {
+      todayStr: dayStr.charAt(0).toUpperCase() + dayStr.slice(1), weekStr: 'v. ' + weekNo,
+      greeting: hr < 10 ? 'God morgon' : hr < 18 ? 'Hej' : 'God kväll',
+      notifs, unreadN: String(unreadN), hasUnread: unreadN > 0,
+      notifOpen: !!this.state.notifOpen, notifStr: this.state.notifOpen ? 'true' : 'false',
+      notifLabel: unreadN ? 'Notiser, ' + unreadN + ' olästa' : 'Notiser',
+      toggleNotif: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((s) => ({ notifOpen: !s.notifOpen, taskOpen: false, taskSent: false })); },
+      markAllRead: () => this.setState({ readN: { all: true } }),
+      taskOpen: !!this.state.taskOpen, taskStr: this.state.taskOpen ? 'true' : 'false',
+      taskForm: !this.state.taskSent, taskSent: !!this.state.taskSent,
+      toggleTask: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((s) => ({ taskOpen: !s.taskOpen, notifOpen: false, taskSent: false })); },
+      sendTask: () => this.setState({ taskSent: true }),
+      closeTask: () => this.setState({ taskOpen: false, taskSent: false }),
+      anyPop: !!(this.state.notifOpen || this.state.taskOpen),
+      closePops: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ notifOpen: false, taskOpen: false, taskSent: false, taskText: '' }); },
+      taskText: this.state.taskText || '',
+      setTaskText: (e) => this.setState({ taskText: e.target.value }),
+      taskIdeas: ['Hitta fler bolag som liknar Allente', 'Researcha ett specifikt bolag åt mig', 'Följ upp en kontakt som inte svarat', 'Leta upphandlingar som passar oss'].map((label) => ({ label, pick: () => this.setState({ taskText: label }) }))
+    };
+    const pfDef = {
+      bransch: ['Bank och finans', 'Försäkring', 'Fastighet', 'Energi', 'Industri och tillverkning', 'Läkemedel och life science', 'Telekom'],
+      region: ['Sverige'],
+      kw: ['rekryterar bolagsjurist', 'rekryterar legal counsel', 'legal operations', 'avtalshantering', 'avtalsgranskning', 'AI-förordningen', 'AI Act', 'AI-policy', 'compliance', 'GDPR', 'due diligence', 'förvärv', 'legal tech', 'generativ AI', 'Copilot', 'effektivisering'],
+      roll: ['Chefsjurist', 'General Counsel', 'Chief Legal Officer', 'Head of Legal', 'Legal Operations Manager', 'Head of Compliance', 'Senior Legal Counsel', 'Bolagsjurist'],
+      ut: []
+    };
+    const descDef = 'Juridiska avdelningar på stora svenska bolag, med ungefär 3–20 bolagsjurister. De hanterar stora volymer avtal, avtalsgranskning, frågor från verksamheten och compliance, och arbetsbördan ökar med EU:s AI-förordning och nya regler. Många jurister har börjat testa AI på egen hand, men oftast utan gemensamma arbetssätt och med oro för sekretess och felaktiga svar.\n\nBerghs AI Success Cases är ett 12-veckorsprogram där avdelningens eget team bygger om en verklig arbetsprocess med AI, t.ex. avtalsgranskning, första utkast eller en intern frågetjänst baserad på egna policyer. Arbetet sker under full sekretess. Det är inte en utbildning i kommunikation eller juridik, teamet har en fungerande lösning kvar efteråt.\n\nKontakta chefen för den juridiska funktionen, inte VD. Nämn aldrig pris.';
+    const Lst = this.state.lists || pfDef;
+    const setList = (k, arr) => this.setState({ lists: { ...(this.state.lists || pfDef), [k]: arr }, saved: false });
+    const mkGroup = (k, label, help, placeholder) => ({
+      label, help, placeholder, addLabel: 'Lägg till i ' + label.toLowerCase(), count: Lst[k].length ? String(Lst[k].length) : '',
+      chips: Lst[k].map((text) => ({ text, removeLabel: 'Ta bort ' + text, remove: () => setList(k, (this.state.lists || pfDef)[k].filter((x) => x !== text)) })),
+      onKey: (e) => {
+        if (e.key !== 'Enter' && e.key !== ',') return;
+        e.preventDefault();
+        const v = e.currentTarget.value.trim().replace(/,$/, '');
+        const cur = (this.state.lists || pfDef)[k];
+        if (v && cur.indexOf(v) === -1) setList(k, cur.concat(v));
+        e.currentTarget.value = '';
+      }
+    });
+    const gBolag = [mkGroup('bransch', 'Branscher', 'Tryck Enter för att lägga till en bransch.', 'Lägg till bransch…'), mkGroup('region', 'Regioner', 'Land, län eller stad.', 'Lägg till region…')];
+    const gSign = [mkGroup('kw', 'Signaler att leta efter', 'Rekryteringar, nyheter och ord som gör att Erik hör av sig just nu.', 'Lägg till signal…'), mkGroup('roll', 'Roller att kontakta', 'Erik prioriterar de här när han letar kontakter.', 'Lägg till roll…')];
+    const gUt = [mkGroup('ut', 'Uteslut', 'Bolag, branscher eller ord Erik ska hoppa över.', 'T.ex. advokatbyråer, konkurrent AB…')];
+    const minV = this.state.minV !== undefined ? this.state.minV : '200';
+    const maxV = this.state.maxV !== undefined ? this.state.maxV : '';
+    const more = (arr, n) => arr.slice(0, n).join(', ') + (arr.length > n ? ' och ' + (arr.length - n) + ' till' : '');
+    const size = minV && maxV ? ' med ' + minV + '–' + maxV + ' anställda' : minV ? ' med minst ' + minV + ' anställda' : maxV ? ' med högst ' + maxV + ' anställda' : '';
+    const readback = [
+      'Jag letar efter bolag i ' + (Lst.region.join(', ') || 'alla regioner') + size + '.',
+      Lst.bransch.length ? 'Branscher: ' + more(Lst.bransch, 3) + '.' : 'Ingen bransch vald, så jag söker brett.',
+      Lst.kw.length ? 'Jag hör av mig när jag ser signaler som ' + more(Lst.kw.map((x) => '"' + x + '"'), 3) + '.' : 'Inga signaler valda.',
+      Lst.roll.length ? 'Jag kontaktar i första hand ' + more(Lst.roll, 3) + '.' : 'Ingen roll vald, jag väljer själv.',
+      Lst.ut.length ? 'Jag hoppar över ' + Lst.ut.join(', ') + '.' : 'Inget är uteslutet än.'
+    ].map((text) => ({ text }));
+    const isActive = this.state.pActive !== false;
+    const profiles = [
+      { name: 'Juridiska avdelningar – AI Success Cases', desc: 'Juridiska avdelningar på stora svenska bolag, med ungefär 3–20 bolagsjurister. De hanterar stora volymer avtal, avtalsgranskning, frågor från verksamheten och compliance.', short: 'Jurister på stora bolag som vill använda AI säkert i avtalsarbetet.', tags: ['Bank och finans', 'Försäkring', 'Energi'], erik: '5 företag väntar på din granskning', meta: 'Sverige · från 200 anställda · 8 roller · uppdaterad 23 okt 13:31' },
+      { name: 'Svenska telekomoperatörer – AI Success Case', desc: 'Svenska telekom-, mobil- och bredbandsoperatörer, från de stora (Telia, Telenor, Tre, Tele2) till utmanare som Telavox, Soluno och Junet. Bolagen har stora volymer kundärenden.', short: 'Telekom- och bredbandsoperatörer med stora volymer kundärenden.', tags: ['Telekom', 'Mobil', 'Bredband och fiber'], erik: 'Allt granskat · nästa sökning i morgon 07:00', meta: 'Stockholm, Göteborg, Malmö · 50–20 000 anställda · 15 roller · uppdaterad 22 okt 08:34' }
+    ].map((p) => ({ ...p, tags: p.tags.map((text) => ({ text })) }));
+    const ERIKI = '../assets/erik.jpg';
+    const flowDefs = [
+      { id: 'hitta', who: 'Erik', img: ERIKI, name: 'Hitta företag', status: 'Aktivt', on: true,
+        desc: 'När du godkänner ett företag researchar Erik det, letar efter personer och kollar sedan LinkedIn.',
+        meta: '6 steg · kördes senast i dag 09:12', trigger: 'du godkänner ett företag under Identifierade företag',
+        steps: [
+          ['Berika företaget', 'Hämtar fakta från allabolag.se och bolagets webbplats: bransch, storlek, ort och vad de gör.', false, ''],
+          ['Bedöm passform', 'Jämför mot kundprofilen och sätter en matchning 0–10 med motivering.', false, ''],
+          ['Hitta personer på webbplatsen', 'Letar efter rollerna i kundprofilen på bolagets egen sajt.', false, 'Om matchningen når din gräns'],
+          ['Hitta på LinkedIn', 'Kompletterar med personer från LinkedIn. Erik skriver aldrig där, han hittar bara personer.', false, 'Om LinkedIn är anslutet'],
+          ['Skriv första mejlet', 'Ett kort mejl till en person, i din ton och enligt dina regler. Hamnar under Förslag.', true, ''],
+          ['Skicka', 'Skickas inom sändningsfönstret efter ditt godkännande. Svar hamnar i din inkorg.', false, '']
+        ] }
+    ];
+    const selId = this.state.flowSel === undefined ? null : this.state.flowSel;
+    const flows = flowDefs.map((w) => ({
+      ...w, selStr: selId === w.id ? 'true' : 'false',
+      border: selId === w.id ? '2px solid var(--green)' : '1px solid var(--glassLine)',
+      shadow: selId === w.id ? '0 0 0 4px ' + t.tintG + ', ' + t.shadow : t.shadow,
+      stBg: w.on ? t.tintG : 'var(--soft)', stDot: w.on ? 'var(--green)' : 'var(--muted)',
+      pick: () => this.setState({ flowSel: selId === w.id ? null : w.id })
+    }));
+    const selW = flowDefs.find((w) => w.id === selId);
+    const flowSel = selW ? {
+      name: selW.name, trigger: selW.trigger,
+      steps: selW.steps.map(([title, desc, needsYou, condText], i, arr) => ({
+        n: String(i + 1), title, desc, needsYou, cond: !!condText, condText, notLast: i < arr.length - 1,
+        bg: needsYou ? 'var(--green)' : 'var(--tintG)', fg: needsYou ? 'var(--onGreen)' : 'var(--green)'
+      }))
+    } : { name: '', trigger: '', steps: [] };
+    const IG = { gmail: 'connected', outlook: 'off', linkedin: 'off', ...(this.state.ig || {}) };
+    const setIG = (k, v) => this.setState({ ig: { ...IG, [k]: v } });
+    const mailConnected = IG.gmail === 'connected' || IG.outlook === 'connected';
+    const igDefs = [
+      { k: 'gmail', name: 'Gmail', what: 'Skicka mejl från ditt konto', account: '[namn]@[kund].se', cta: 'Anslut Gmail' },
+      { k: 'outlook', name: 'Outlook', what: 'Skicka mejl från ditt konto', account: '[namn]@[kund].se', cta: 'Anslut Outlook' },
+      { k: 'linkedin', name: 'LinkedIn', what: 'Hitta personer på LinkedIn', account: 'ConnectSafely · ' + (this.state.liId || 'acc_…'), cta: 'Anslut LinkedIn' }
+    ];
+    const integ = igDefs.map((d) => {
+      const st = IG[d.k];
+      const connected = st === 'connected';
+      const isMail = d.k !== 'linkedin';
+      const blocked = isMail && !connected && mailConnected;
+      const showField = d.k === 'linkedin' && st === 'entering';
+      return {
+        ...d, connected, blocked, canConnect: !connected && !blocked, showField,
+        isGmail: d.k === 'gmail', isOutlook: d.k === 'outlook', isLi: d.k === 'linkedin',
+        status: connected ? 'Ansluten' : 'Inte ansluten',
+        stBg: connected ? t.tintG : 'var(--soft)', stDot: connected ? 'var(--green)' : 'var(--muted)',
+        border: connected ? '1.5px solid var(--green)' : '1px solid var(--glassLine)', op: blocked ? '0.7' : '1',
+        blockText: 'Du skickar redan från ' + (IG.gmail === 'connected' ? 'Gmail' : 'Outlook') + '. Koppla från det först.',
+        cta: showField ? 'Spara och anslut' : d.cta,
+        connect: () => {
+          if (d.k === 'linkedin' && st !== 'entering') { setIG('linkedin', 'entering'); return; }
+          if (d.k === 'linkedin' && !(this.state.liId || '').trim()) return;
+          setIG(d.k, 'connected');
+        },
+        disconnect: () => setIG(d.k, 'off')
+      };
+    });
+    return {
+      integ, liId: this.state.liId || '', setLiId: (e) => this.setState({ liId: e.target.value }),
+      flows, fsel: flowSel, hasSel: !!selW, closeSel: () => this.setState({ flowSel: null }),
+      profiles,
+      gBolag, gSign, gUt, readback, minVal: minV, maxVal: maxV,
+      setMin: (e) => this.setState({ minV: e.target.value, saved: false }), setMax: (e) => this.setState({ maxV: e.target.value, saved: false }),
+      nameVal: this.state.pName !== undefined ? this.state.pName : 'Juridiska avdelningar – AI Success Cases',
+      descVal: this.state.pDesc !== undefined ? this.state.pDesc : descDef,
+      setName: (e) => this.setState({ pName: e.target.value, saved: false }), setDesc: (e) => this.setState({ pDesc: e.target.value, saved: false }),
+      saved: !!this.state.saved, saveProfile: () => this.setState({ saved: true }),
+      activeLabel: isActive ? 'Aktiv' : 'Pausad', activeBg: isActive ? t.tintG : 'var(--soft)', activeDot: isActive ? 'var(--green)' : 'var(--muted)',
+      activeStr: isActive ? 'true' : 'false', activeTrack: isActive ? accent : t.line, activeKnob: isActive ? '23px' : '3px',
+      toggleActive: () => this.setState({ pActive: !isActive, saved: false }),
+      confirmDel: !!this.state.confirmDel, notConfirm: !this.state.confirmDel,
+      askDelete: () => this.setState({ confirmDel: true }), cancelDelete: () => this.setState({ confirmDel: false }),
+      steps, facts, contacts, flow, runs, stepHead: 'Steg ' + sel + ' · ' + sd[0], stepDesc: sd[1], stepNote: sd[2],
+      coCards, customers, excluded, ftabs, acceptAll, pendingCo: String(pendingCoN), hasPendingCo: pendingCoN > 0,
+      tabBolag: this.state.ftab === 'Bolag', tabKunder: this.state.ftab === 'Befintliga kunder', tabExkl: this.state.ftab === 'Exkluderade',
+      proposals: drafts, hasPending: pendingCount > 0, pendingLabel: pendingCount ? pendingCount + ' väntar' : 'Allt granskat', approveAll,
+      ...topVals,
+      t, dark, light: !dark, themeLabel: dark ? 'Byt till ljust läge' : 'Byt till mörkt läge', toggleTheme,
+      waiting, funnel, searches, periods, channels, kpis, companies,
+      chartTitle: this.state.kpi, pipeline,
+      showPipeline: this.state.kpi === 'Pipeline', showChart: this.state.kpi !== 'Pipeline',
+      chartSub: this.state.kpi === 'Pipeline' ? '26 bolag som Erik hittat och fått svar från' : 'Senaste 30 dagarna · per dag',
+      compare, compareStr: compare ? 'true' : 'false',
+      compareTrack: compare ? accent : t.line, compareKnob: compare ? '19px' : '3px',
+      toggleCompare: () => this.setState({ compare: !compare }),
+      autoStr: auto ? 'true' : 'false', autoTrack: auto ? accent : t.line, autoKnob: auto ? '23px' : '3px',
+      toggleAuto: () => this.setState({ auto: !auto }),
+      openRail: () => { if (!this.state.rail) this.setState({ rail: true }); },
+      closeRail: () => { if (this.state.rail) this.setState({ rail: false }); },
+      railW: this.state.rail ? '268px' : '76px', lo: this.state.rail ? '1' : '0',
+      railShadow: this.state.rail ? (dark ? '0 24px 60px rgba(0,0,0,0.55)' : '0 24px 60px rgba(60,50,30,0.22)') : t.shadow
+    };
+  }
+}
+</script>
+</body>
+</html>
