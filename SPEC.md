@@ -55,18 +55,19 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Kort: hela kortet är klickbart och öppnar kundkortet.
 - Åtgärder ▾: Exportera lista (CSV), Pausa Erik för valda bolag, Exkludera valda. Man markerar kort med en kryssruta som syns vid hover.
 
-## Kundkort – klickbart
+## Kundkort (ett bolag i Pågående sälj) – klickbart
 
-- "Pågående sälj" (brödsmulan): tillbaka till listan.
-- Språk i mejl: ändras direkt och gäller nya utkast för bolaget. Ingen Spara-knapp behövs.
-- Åtgärder ▾: Pausa bolaget, Exkludera, Markera som kund, Byt kundprofil.
-- Stegen: visar hur Erik jobbar i steget och vad som hänt där.
-- Lägg till kontakt: namn, titel, e-post, telefon och källa (kall eller rekommendation). Erik skriver ett utkast när e-postadressen finns.
-- En kontaktrad: öppnar en sidopanel med kontaktens historik.
-- Mejl: ett utkast öppnas som samma kort som under Förslag.
-- Källor (allabolag.se m.fl.): öppnas i ny flik.
-- Anslut LinkedIn: går till Integrationer.
-- En körningsrad: visar körningens detaljlogg.
+- Flikar: Research / Säljkort / Överlämning till sälj.
+- Alla bolag: tillbaka till Pågående sälj.
+- Uppdatera research: Erik kör om den dynamiska researchen; knappen visar "Erik uppdaterar…" och tiden uppdateras.
+- Research › Statisk research: fakta med källa på varje rad (Bolagsverket, årsredovisning, webbplats). Ändras sällan.
+- Research › Dynamisk research: signalkort med typ, färskhet och källa. "Stämmer inte?" markerar signalen så att Erik slutar använda den; Ångra finns.
+- Källor Erik söker i: lägg till en länk Erik ska bevaka (Enter eller Lägg till).
+- Personerna: Fakta, Just nu och Vad som driver hen, alltid med grund ("Eriks bedömning utifrån …"). Har Erik för lite underlag skriver han det i stället för att gissa. "Du behöver ta över" = personen har svarat och väntar på en människa. Exkludera = Erik kontaktar inte; Ångra finns.
+- Vet du något Erik inte hittat?: blir en källa märkt "Från dig" och används i nästa steg.
+- Säljkort › Här är Erik: sex steg, klick visar vad som hänt i steget hos just det här bolaget.
+- Säljkort › Säljstrategi: Erik föreslår en vinkel (feardriven eller motivationsdriven) med exempelmening. "Byt till den här" gör att Erik skriver om sina utkast med den nya vinkeln.
+- Överlämning till sälj: Eriks utkast till brief (i korthet, vem du möter, upplägg, att se upp med) och dialogen hittills. Skickas automatiskt när mötet är bokat; "Lämna över nu" skickar direkt.
 
 ## Kundprofil – klickbart
 
