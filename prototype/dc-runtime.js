@@ -14,7 +14,7 @@
   'use strict';
   var HOLE = /\{\{\s*([\w.$]+)\s*\}\}/g;
   var ONLY = /^\s*\{\{\s*([\w.$]+)\s*\}\}\s*$/;
-  var EVENTS = { onclick: 'click', onchange: 'change', onmousedown: 'mousedown', onmouseenter: 'mouseenter', onmouseleave: 'mouseleave', onfocus: 'focus', onblur: 'blur', onkeydown: 'keydown', onsubmit: 'submit', oninput: 'input' };
+  var EVENTS = { onclick: 'click', onchange: 'change', onmousedown: 'mousedown', onmouseenter: 'mouseenter', onmouseleave: 'mouseleave', onfocus: 'focusin', onblur: 'focusout', onkeydown: 'keydown', onsubmit: 'submit', oninput: 'input' };
   var SVGNS = 'http://www.w3.org/2000/svg';
 
   function lookup(path, scopes) {

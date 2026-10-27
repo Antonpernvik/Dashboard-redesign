@@ -8,10 +8,10 @@ Allt för att föra över Dashboard v2 till den riktiga appen. Börja här.
 |---|---|---|
 | `handoff/tokens.css` | Alla designvärden som CSS-variabler, ljust och mörkt läge | **Kopiera rakt in.** Grunden för allt. |
 | `handoff/components.css` | Rena klasser för meny, toppfält, kort, knappar, flikar, taggar, fält, switch, popover, KPI, steg och tidslinje | Kopiera eller översätt till ert komponentbibliotek |
-| `handoff/components.html` | Komponentark med ren HTML (inga inline-stilar), inklusive JS för temabyte | Facit för markup och tillstånd |
+| `handoff/components.html` | Komponentark med ren HTML (nästan inga inline-stilar), inklusive JS för temabyte | Facit för markup och tillstånd |
 | `handoff/fonts/` + `fonts.css` | Outfit (OFL-licens), lokala filer | Self-hosta i stället för Google Fonts |
 | `handoff/screens/` | Skärmbilder av alla sidor i ljust och mörkt läge, plus viktiga lägen (öppna popovers, flikar, utfälld meny) | Pixelreferens |
-| `prototype/` | Alla 11 sidor körbara i vanlig webbläsare, utan Claude | Klicka runt och se beteendet. Öppna `prototype/Main.html`. |
+| `prototype/` | Alla 14 sidor körbara i vanlig webbläsare, utan Claude | Klicka runt och se beteendet. Öppna `prototype/Main.html`. |
 | `design/` | Källfilerna (Claudes designformat) | Exakta mått om något är oklart |
 | `SPEC.md` | Vad varje klickbar sak ska göra | Beteende |
 | `NYA-FUNKTIONER.md` | Vad som är nytt jämfört med dagens app, och vad som saknas i designen | Planering och backlog |
@@ -52,9 +52,12 @@ Glas = `bg-glass border border-glass-line backdrop-blur-[28px] backdrop-saturate
 - **Glaseffekten** kräver `backdrop-filter` med `-webkit-`-prefix för Safari. Den syns bara mot den suddiga bakgrunden, så bygg bakgrunden först.
 - **Menyn** fälls ut med ren CSS (`:hover` och `:focus-within`). Oskärpan bakom använder `:has()`. Vill ni stödja äldre webbläsare, sätt klassen `.is-open` med JS i stället.
 - **Temat:** ljust är standard. Valet sparas per flik i `sessionStorage` (nyckel `aik-theme-tab`), inte mellan flikar. Det är medvetet, eftersom synk mellan flikar skapade buggar. Cirkelanimationen använder View Transitions API och faller tillbaka till direktbyte.
-- **Popovers** stängs vid klick utanför: en osynlig spärr (`.popover-catcher`) lyssnar på `mousedown`.
-- **Datan** är påhittad eller platshållare (`[Förnamn]`, `[Kundens bolag]`). Datum och vecka i toppfältet räknas live.
+- **Popovers** stängs vid klick utanför och med Esc. Spärren (`.popover-catcher`) måste ligga **utanför** element med `backdrop-filter`/`filter`/`transform` (t.ex. toppfältet) – annars blir den bara lika stor som det elementet. Enklast: rendera popover och spärr i en portal på `<body>`.
+- **Datan** är påhittad eller platshållare (`[Förnamn]`, `[Kundens bolag]`); bolagen i exemplen är fiktiva. Siffrorna hänger ihop: 9 bolag i Pågående sälj, 6 identifierade väntar, 11 förslag, 7 möten senaste 30 dagarna. Datum och vecka i toppfältet räknas live.
 - **Kostnad per körning i USD** visas medvetet inte för kunden.
+- **Grönt som text** använder `--greenText` (mörkare i ljust läge, ljusare i mörkt) för att klara kontrast 4,5:1. `--green` är bara för fyllda knappar och ytor.
+- **Utkast från Erik** säger alltid att det är en AI-kollega (öppning och signatur). Inga påhittade rekommendationer eller kontakter.
+- **Mobil/surfplatta** är inte designat än – sidorna är byggda för ≥ 1024 px.
 - **Prototypen** (`prototype/`) har inline-stilar och en liten egen körmiljö (`dc-runtime.js`). Den är facit för utseende och beteende, inte kod att kopiera. Ren markup finns i `handoff/`.
 
 ## Öppna prototypen lokalt

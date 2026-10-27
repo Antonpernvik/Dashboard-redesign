@@ -12,7 +12,8 @@
   --font-mono: 'Outfit', sans-serif; /* inga monospace-siffror längre – använd font-variant-numeric: tabular-nums */
 
   /* Accent (samma i båda lägena) */
-  --green: #1E7B4E;
+  --green: #1E7B4E;      /* fyllda knappar och ytor */
+  --greenText: #15603C;  /* grönt som TEXT/länk – klarar 4,5:1 på glaset */
   --onGreen: #FFFFFF;
 
   /* Bakgrund + suddiga färgfläckar */
@@ -33,7 +34,7 @@
 
   /* Text */
   --ink: #14201A;
-  --muted: #4B5750;
+  --muted: #3F4B44;
 
   /* Mörk "pill" (vald flik/segment) */
   --pill: rgba(255,255,255,0.82);   /* vald flik/segment = vit pill (inte svart) */
@@ -43,7 +44,7 @@
   /* Status */
   --tintG: rgba(30,123,78,0.16);        /* grön bakgrundston */
   --greenGlow: transparent;              /* ingen glöd under knappar */
-  --down: #B3382A;                      /* negativ trend, fel, varning */
+  --down: #9E2F22;                      /* negativ trend, fel, varning */
   --up: #17643F;                        /* positiv trend (text) */
 
   /* Formulärfält */
@@ -112,6 +113,7 @@
 }
 
 :root[data-theme="dark"] {
+  --greenText: #6EDC9F;
   --base: #0A0F0C;
   --blob1: #1D3A2B;
   --blob2: #3A3124;

@@ -20,7 +20,7 @@ button{font-family:inherit}
 html,body{transition:none}
 </style>
 </helmet>
-<div style="--base: {{t.base}}; --glass: {{t.glass}}; --glassLine: {{t.glassLine}}; --glassHi: {{t.glassHi}}; --soft: {{t.soft}}; --line: {{t.line}}; --ink: {{t.ink}}; --muted: {{t.muted}}; --pill: {{t.pill}}; --pillInk: {{t.pillInk}}; --green: {{t.green}}; --onGreen: {{t.onGreen}}; --chart: {{t.chart}}; --chartPrev: {{t.chartPrev}}; --tintG: {{t.tintG}}; --down: {{t.down}}; --shadow: {{t.shadow}}; position: relative; overflow: clip; min-height: 100vh; box-sizing: border-box; background: var(--base); color: var(--ink); font-family: 'Outfit', system-ui, sans-serif; font-feature-settings: 'tnum' 1; letter-spacing: 0.005em">
+<div style="--base: {{t.base}}; --glass: {{t.glass}}; --glassLine: {{t.glassLine}}; --glassHi: {{t.glassHi}}; --soft: {{t.soft}}; --line: {{t.line}}; --ink: {{t.ink}}; --muted: {{t.muted}}; --pill: {{t.pill}}; --pillInk: {{t.pillInk}}; --green: {{t.green}}; --greenText: {{t.greenText}}; --onGreen: {{t.onGreen}}; --chart: {{t.chart}}; --chartPrev: {{t.chartPrev}}; --tintG: {{t.tintG}}; --down: {{t.down}}; --shadow: {{t.shadow}}; position: relative; overflow: clip; min-height: 100vh; box-sizing: border-box; background: var(--base); color: var(--ink); font-family: 'Outfit', system-ui, sans-serif; font-feature-settings: 'tnum' 1; letter-spacing: 0.005em">
 
 <!-- Blurred backdrop -->
 <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; overflow: hidden">
@@ -52,12 +52,12 @@ html,body{transition:none}
 <div style="height: 1px; background: var(--line); margin: 2px 6px"></div>
 
 <nav aria-label="Erik" style="display: flex; flex-direction: column; gap: 6px">
-<a href="Main.dc.html" aria-current="page" aria-label="Start" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; background: var(--glassHi); color: var(--green); font-size: 14px; font-weight: 500; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--glassLine)">
+<a href="Main.dc.html" aria-current="page" aria-label="Start" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; background: var(--glassHi); color: var(--greenText); font-size: 14px; font-weight: 500; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--glassLine)">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Start</span></a>
 <a href="Forslag.dc.html" aria-label="Förslag, 11 nya" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1Z"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s">Förslag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
-<a href="Foretag.dc.html" aria-label="Identifierade företag, 11 nya" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path><path d="M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s">Identifierade företag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
+<a href="Foretag.dc.html" aria-label="Identifierade företag, 6 nya" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path><path d="M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s">Identifierade företag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">6</span></a>
 <a href="Pagaende.dc.html" aria-label="Pågående sälj" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M17 2l4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Pågående sälj</span></a>
 <a href="Korningar.dc.html" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
@@ -82,7 +82,7 @@ html,body{transition:none}
 <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; line-height: 1.25; opacity: {{lo}}; transition: opacity .2s">
 <span style="font-size: 13px; font-weight: 500">[Kundens bolag]</span>
 <span style="font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis">namn@kund.se</span>
-<a href="Login.dc.html" style="font-size: 12px; font-weight: 500; color: var(--green)">Logga ut</a>
+<a href="Login.dc.html" style="font-size: 12px; font-weight: 500; color: var(--greenText)">Logga ut</a>
 </div>
 </div>
 </div>
@@ -92,6 +92,7 @@ html,body{transition:none}
 <!-- Main -->
 <main style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 
+<sc-if value="{{anyPop}}" hint-placeholder-val="{{false}}"><div aria-hidden="true" onMouseDown="{{closePops}}" style="position: fixed; inset: 0; z-index: 14; background: transparent; cursor: default"></div></sc-if>
 <header style="position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; box-sizing: border-box; padding: 14px 14px 14px 30px; border-radius: 30px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow)">
 <div style="display: flex; flex-direction: column; gap: 4px; line-height: 1.15; padding: 4px 0">
 <span style="font-size: 22px; font-weight: 400; letter-spacing: -0.01em">{{todayStr}} <span style="margin-left: 4px; font-size: 14px; font-weight: 400; color: var(--muted)">{{weekStr}}</span></span>
@@ -107,7 +108,7 @@ html,body{transition:none}
 <sc-if value="{{dark}}" hint-placeholder-val="{{false}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></sc-if>
 <sc-if value="{{light}}" hint-placeholder-val="{{true}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></sc-if>
 </button>
-<sc-if value="{{anyPop}}" hint-placeholder-val="{{false}}"><div aria-hidden="true" onMouseDown="{{closePops}}" style="position: fixed; inset: 0; z-index: 40; background: transparent; cursor: default"></div></sc-if>
+
 <div style="position: relative">
 <button onClick="{{toggleNotif}}" aria-label="{{notifLabel}}" aria-expanded="{{notifStr}}" style="position: relative; width: 52px; height: 52px; border-radius: 999px; border: 0; background: var(--glassHi); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
@@ -115,7 +116,7 @@ html,body{transition:none}
 </button>
 <sc-if value="{{notifOpen}}" hint-placeholder-val="{{false}}">
 <div role="dialog" aria-label="Notiser" style="position: absolute; right: 0; top: 62px; width: 380px; max-width: calc(100vw - 120px); padding: 14px; border-radius: 22px; background: {{t.pop}}; border: 1px solid var(--glassLine); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: 0 30px 80px rgba(0,0,0,0.22); display: flex; flex-direction: column; gap: 6px; z-index: 50">
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 6px 8px"><span style="font-size: 15px; font-weight: 500">Notiser</span><button onClick="{{markAllRead}}" style="border: 0; background: transparent; padding: 6px; color: var(--green); font-size: 12px; font-weight: 500; cursor: pointer">Markera alla som lästa</button></div>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 6px 8px"><span style="font-size: 15px; font-weight: 500">Notiser</span><button onClick="{{markAllRead}}" style="border: 0; background: transparent; padding: 6px; color: var(--greenText); font-size: 12px; font-weight: 500; cursor: pointer">Markera alla som lästa</button></div>
 <sc-for list="{{notifs}}" as="n" hint-placeholder-count="5">
 <a href="{{n.href}}" onClick="{{n.read}}" style="text-decoration: none; color: var(--ink); display: flex; gap: 12px; align-items: flex-start; padding: 10px; border-radius: 14px; background: {{n.bg}}">
 <span style="width: 8px; height: 8px; margin-top: 6px; flex: none; border-radius: 999px; background: {{n.dot}}"></span>
@@ -138,12 +139,12 @@ html,body{transition:none}
 <button onClick="{{closePops}}" aria-label="Stäng" style="width: 36px; height: 36px; flex: none; border-radius: 999px; border: 0; background: var(--soft); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
 </div>
 <div style="padding: 0 18px; display: flex; flex-direction: column; gap: 12px">
-<textarea aria-label="Uppdrag" value="{{taskText}}" onChange="{{setTaskText}}" placeholder="T.ex. hitta 20 bolag som liknar Allente i Göteborg" style="min-height: 96px; resize: vertical; padding: 14px; border-radius: 16px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; line-height: 1.5; outline: none; box-sizing: border-box; width: 100%"></textarea>
+<textarea aria-label="Uppdrag" value="{{taskText}}" onChange="{{setTaskText}}" placeholder="T.ex. hitta 20 bolag som liknar Kanalnord i Göteborg" style="min-height: 96px; resize: vertical; padding: 14px; border-radius: 16px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; line-height: 1.5; outline: none; box-sizing: border-box; width: 100%"></textarea>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Förslag</span>
 <sc-for list="{{taskIdeas}}" as="ti" hint-placeholder-count="4">
 <button onClick="{{ti.pick}}" style="display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border-radius: 14px; border: 0; background: transparent; color: var(--ink); font-size: 13px; text-align: left; cursor: pointer">
-<span style="width: 30px; height: 30px; flex: none; border-radius: 10px; background: var(--tintG); color: var(--green); display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>{{ti.label}}</button>
+<span style="width: 30px; height: 30px; flex: none; border-radius: 10px; background: var(--tintG); color: var(--greenText); display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>{{ti.label}}</button>
 </sc-for>
 </div>
 </div>
@@ -198,7 +199,7 @@ html,body{transition:none}
 <section style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
 
 <div style="flex: 1 1 320px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Från bolag till möte</h2><span style="font-size: 13px; color: var(--muted)">Oktober · Eriks arbete steg för steg</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Från bolag till möte</h2><span style="font-size: 13px; color: var(--muted)">Senaste 30 dagarna · Eriks arbete steg för steg</span></div>
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
 <sc-for list="{{funnel}}" as="f" hint-placeholder-count="5">
 <li style="display: flex; flex-direction: column; gap: 6px">
@@ -265,11 +266,11 @@ html,body{transition:none}
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 13px; font-weight: 500">{{it.name}}</span><span style="font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.note}}</span></span>
 </a>
 </sc-for>
-<a href="#" style="font-size: 12px; font-weight: 500; color: var(--green); padding: 4px">+ {{st.more}} till</a>
+<sc-if value="{{st.hasMore}}" hint-placeholder-val="{{false}}"><a href="Pagaende.dc.html" style="font-size: 12px; font-weight: 500; color: var(--greenText); padding: 4px">+ {{st.more}} till</a></sc-if>
 </div>
 </sc-for>
 </div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap"><span style="font-size: 12px; color: var(--muted)">Alla bolag här har Erik hittat själv och fått svar från.</span><a href="#" style="font-size: 13px; font-weight: 500; color: var(--green)">Öppna hela pipelinen</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap"><span style="font-size: 12px; color: var(--muted)">Alla bolag här har Erik hittat själv och fått svar från.</span><a href="#" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Öppna hela pipelinen</a></div>
 </sc-if>
 </div>
 </section>
@@ -278,7 +279,7 @@ html,body{transition:none}
 <section aria-label="Erik just nu" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
 
 <div style="flex: 999 1 520px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Erik just nu</h2><a href="#" style="font-size: 13px; font-weight: 500; color: var(--green)">Alla körningar</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Erik just nu</h2><a href="#" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Alla körningar</a></div>
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px">
 <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--green); box-shadow: none"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Researchar <b>12 bolag</b> i Mälardalen</span><span style="font-size: 12px; color: var(--muted)">Pågår nu</span></div></li>
 <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--muted); opacity: 0.6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Bokade möte med <b>[Prospekt]</b>, tor 14:00</span><span style="font-size: 12px; color: var(--muted)">08:47</span></div></li>
@@ -300,33 +301,31 @@ html,body{transition:none}
 
 <!-- New companies -->
 <section style="padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center"><div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Nya bolag</h2><span style="font-size: 13px; color: var(--muted)">Topp 5, sorterat på matchning mot dina kundprofiler</span></div><a href="Foretag.dc.html" style="font-size: 13px; font-weight: 500; color: var(--green)">Alla identifierade företag</a></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center"><div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Nya bolag</h2><span style="font-size: 13px; color: var(--muted)">Topp 5, sorterat på matchning mot dina kundprofiler</span></div><a href="Foretag.dc.html" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Alla identifierade företag</a></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{searches}}" as="se" hint-placeholder-count="2">
 <span style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px"><b style="font-weight: 500">{{se.profile}}</b><span style="color: var(--muted)">senast {{se.last}} · {{se.found}}</span></span>
 </sc-for>
 </div>
 <div style="overflow-x: auto">
-<table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px">
-<thead><tr style="text-align: left; color: var(--muted); font-size: 12px">
-<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Bolag</th>
-<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Bransch</th>
-<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Köpsignal</th>
-<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line); width: 170px">Matchning</th>
-<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Status</th>
-</tr></thead>
-<tbody>
+<div role="table" aria-label="Nya bolag" style="min-width: 720px; font-size: 14px">
+<div role="row" style="display: grid; grid-template-columns: minmax(180px, 1.4fr) minmax(110px, 1fr) minmax(160px, 1.4fr) 170px 120px; color: var(--muted); font-size: 12px">
+<span role="columnheader" style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Bolag</span>
+<span role="columnheader" style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Bransch</span>
+<span role="columnheader" style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Köpsignal</span>
+<span role="columnheader" style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Matchning</span>
+<span role="columnheader" style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Status</span>
+</div>
 <sc-for list="{{companies}}" as="co" hint-placeholder-count="5">
-<tr>
-<td style="padding: 12px; border-bottom: 1px solid var(--line)"><div style="display: flex; align-items: center; gap: 10px"><div style="width: 32px; height: 32px; border-radius: 10px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{co.initials}}</div><span style="font-weight: 500">{{co.name}}</span></div></td>
-<td style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted)">{{co.industry}}</td>
-<td style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted)">{{co.signal}}</td>
-<td style="padding: 12px; border-bottom: 1px solid var(--line)"><div style="display: flex; align-items: center; gap: 10px"><div style="flex: 1; height: 6px; border-radius: 999px; background: var(--soft)"><div style="width: {{co.scorePct}}; height: 100%; border-radius: 999px; background: var(--green)"></div></div><span style="font-family: 'Outfit', sans-serif; font-size: 12px">{{co.score}}</span></div></td>
-<td style="padding: 12px; border-bottom: 1px solid var(--line)"><span style="font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: {{co.statusBg}}; color: {{co.statusFg}}">{{co.status}}</span></td>
-</tr>
+<div role="row" style="display: grid; grid-template-columns: minmax(180px, 1.4fr) minmax(110px, 1fr) minmax(160px, 1.4fr) 170px 120px; align-items: center">
+<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; flex: none; border-radius: 10px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{co.initials}}</span><span style="font-weight: 500">{{co.name}}</span></span>
+<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted)">{{co.industry}}</span>
+<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted)">{{co.signal}}</span>
+<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px"><span style="flex: 1; height: 6px; border-radius: 999px; background: var(--soft)"><span style="display: block; width: {{co.scorePct}}; height: 100%; border-radius: 999px; background: var(--green)"></span></span><span style="font-size: 12px">{{co.score}}</span></span>
+<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line)"><span style="font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: {{co.statusBg}}; color: {{co.statusFg}}">{{co.status}}</span></span>
+</div>
 </sc-for>
-</tbody>
-</table>
+</div>
 </div>
 </section>
 
@@ -368,6 +367,7 @@ class Component extends DCLogic {
   }
   componentDidMount() {
     this.aikPaintRoot(document, this.state.dark);
+    try { document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && (this.state.notifOpen || this.state.taskOpen || this.state.actOpen || this.state.pActOpen)) this.setState({ notifOpen: false, taskOpen: false, actOpen: false, pActOpen: false, confirmEx: false }); }); } catch (e) {}
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.dark !== this.state.dark) this.aikPaintRoot(document, this.state.dark);
@@ -379,16 +379,16 @@ class Component extends DCLogic {
       base: '#0A0F0C', blob1: '#1D3A2B', blob2: '#3A3124', blob3: '#173226', blob4: '#2B2A22',
       glass: 'rgba(22,30,25,0.55)', glassHi: 'rgba(34,46,38,0.7)', glassLine: 'rgba(255,255,255,0.08)',
       soft: 'rgba(255,255,255,0.06)', line: 'rgba(255,255,255,0.08)', ink: '#EEF2EE', muted: '#A3AFA7',
-      pill: 'rgba(255,255,255,0.16)', pillInk: '#EEF2EE', kpiOn: 'rgba(255,255,255,0.1)', sun: 'rgba(76,194,133,0.18)', beam: 'rgba(255,255,255,0.05)', grain: '0.25', green: accent, onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.35)',
+      pill: 'rgba(255,255,255,0.16)', pillInk: '#EEF2EE', kpiOn: 'rgba(255,255,255,0.1)', sun: 'rgba(76,194,133,0.18)', beam: 'rgba(255,255,255,0.05)', grain: '0.25', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.35)',
       chart: '#4CC285', chartPrev: '#6C7A71', tintG: 'rgba(76,194,133,0.2)', down: '#F07A63',
       shadow: '0 10px 40px rgba(0,0,0,0.35)',
       scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', inv: 'rgba(24,52,38,0.78)', invInk: '#EEF2EE', invSoft: 'rgba(255,255,255,0.06)', invLine: 'rgba(255,255,255,0.1)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
     } : {
       base: '#D8D2C6', blob1: '#B9C4A8', blob2: '#EADFCB', blob3: '#9FB394', blob4: '#CDB89C',
       glass: 'rgba(255,255,255,0.36)', glassHi: 'rgba(255,255,255,0.6)', glassLine: 'rgba(255,255,255,0.65)',
-      soft: 'rgba(255,255,255,0.45)', line: 'rgba(30,40,34,0.1)', ink: '#14201A', muted: '#4B5750',
-      pill: 'rgba(255,255,255,0.82)', pillInk: '#14201A', kpiOn: 'rgba(255,255,255,0.78)', sun: 'rgba(255,253,240,0.6)', beam: 'rgba(255,255,250,0.28)', grain: '0.35', green: accent, onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.28)',
-      chart: '#1E7B4E', chartPrev: '#8A938C', tintG: 'rgba(30,123,78,0.16)', down: '#B3382A',
+      soft: 'rgba(255,255,255,0.45)', line: 'rgba(30,40,34,0.1)', ink: '#14201A', muted: '#3F4B44',
+      pill: 'rgba(255,255,255,0.82)', pillInk: '#14201A', kpiOn: 'rgba(255,255,255,0.78)', sun: 'rgba(255,253,240,0.6)', beam: 'rgba(255,255,250,0.28)', grain: '0.35', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.28)',
+      chart: '#1E7B4E', chartPrev: '#8A938C', tintG: 'rgba(30,123,78,0.16)', down: '#9E2F22',
       shadow: '0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 50px rgba(60,70,40,0.08)',
       scrim: 'rgba(216,210,198,0.28)', pop: 'rgba(251,250,247,0.97)', field: '#FFFFFF', fieldLine: 'rgba(20,32,26,0.12)', inv: 'rgba(17,28,22,0.86)', invInk: '#F1F5F2', invSoft: 'rgba(255,255,255,0.08)', invLine: 'rgba(255,255,255,0.12)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
     };
@@ -437,8 +437,8 @@ class Component extends DCLogic {
     const kpiDefs = [
       ['Svar', '140', '↗ 77 % mot förra', up, '0.0,28.0 9.1,25.3 18.2,28.0 27.3,20.0 36.4,22.7 45.5,17.3 54.5,20.0 63.6,12.0 72.7,14.7 81.8,9.3 90.9,12.0 100.0,4.0'],
       ['Utskick', '1 270', '958 mejl · 312 LinkedIn', t.muted, '0.0,28.0 9.1,22.5 18.2,24.3 27.3,18.3 36.4,19.7 45.5,14.2 54.5,16.0 63.6,12.3 72.7,9.1 81.8,10.0 90.9,5.8 100.0,4.0'],
-      ['Svarsfrekvens', '14,6 %', '↘ 0,8 p', t.down, '0.0,10.0 9.1,8.0 18.2,12.0 27.3,9.0 36.4,14.0 45.5,12.0 54.5,16.0 63.6,13.0 72.7,18.0 81.8,15.0 90.9,20.0 100.0,18.0'],
-      ['Pipeline', '26 bolag', '↗ +5 denna vecka', up, '0.0,28.0 9.1,27.0 18.2,24.0 27.3,24.0 36.4,21.0 45.5,20.0 54.5,17.0 63.6,16.0 72.7,12.0 81.8,10.0 90.9,8.0 100.0,4.0']
+      ['Svarsfrekvens', '11,0 %', '↘ 0,8 p mot förra', t.down, '0.0,10.0 9.1,8.0 18.2,12.0 27.3,9.0 36.4,14.0 45.5,12.0 54.5,16.0 63.6,13.0 72.7,18.0 81.8,15.0 90.9,20.0 100.0,18.0'],
+      ['Pipeline', '9 bolag', '↗ +2 mot förra', up, '0.0,28.0 9.1,27.0 18.2,24.0 27.3,24.0 36.4,21.0 45.5,20.0 54.5,17.0 63.6,16.0 72.7,12.0 81.8,10.0 90.9,8.0 100.0,4.0']
     ];
     const kpis = kpiDefs.map(([label, value, trend, trendColor, spark]) => ({
       label, value, trend, trendColor, spark,
@@ -465,17 +465,18 @@ class Component extends DCLogic {
 
     const waiting = [
       ['11', 'Förslag att godkänna', '6 mejl · 3 LinkedIn · 2 anbud', 'Granska', true],
-      ['11', 'Nya företag att godkänna', 'Identifierade i dag', 'Granska företag', true],
+      ['6', 'Nya företag att godkänna', 'Identifierade i dag', 'Granska företag', true],
       ['1', 'Varmt svar från [Prospekt]', 'Vill ha möte nästa vecka', 'Svara', true]
     ].map(([count, title, meta, action, primary], i) => ({ count, title, meta, action, primary, secondary: !primary, href: i === 0 ? 'Forslag.dc.html' : i === 1 ? 'Foretag.dc.html' : '#' }));
     const pco = (n, note) => ({ name: n, note, initials: n.split(' ').map((w) => w[0]).join('') });
     const pipeline = [
-      { stage: 'Svarat positivt', count: '12', more: 9, pillBg: t.soft, pillFg: t.ink, items: [pco('Bolag F', 'Vill veta mer om pris'), pco('Bolag G', 'Be om case från bygg'), pco('Bolag H', 'Återkom i januari')] },
-      { stage: 'I dialog', count: '7', more: 4, pillBg: t.tintG, pillFg: t.ink, items: [pco('Bolag B', 'Erik föreslår tider'), pco('Bolag I', 'Väntar på ditt svar'), pco('Bolag J', 'Andra mejlet skickat')] },
-      { stage: 'Möte bokat', count: '7', more: 4, pillBg: accent, pillFg: '#FFFFFF', items: [pco('Bolag A', 'Tor 29 okt 14:00'), pco('Bolag K', 'Fre 30 okt 09:30'), pco('Bolag L', 'Tis 3 nov 10:00')] }
+      { stage: 'Första kontakt', count: '3', more: 0, pillBg: t.soft, pillFg: t.ink, items: [pco('Bolag F', 'Första mejlet skickat'), pco('Bolag G', 'Påminnelse i morgon'), pco('Bolag H', 'Väntar på svar')] },
+      { stage: 'I dialog', count: '2', more: 0, pillBg: t.tintG, pillFg: t.ink, items: [pco('Bolag B', 'Erik föreslår tider'), pco('Bolag I', 'Väntar på ditt svar')] },
+      { stage: 'Möte bokat', count: '1', more: 0, pillBg: accent, pillFg: '#FFFFFF', items: [pco('Bolag A', 'Tor 29 okt 14:00')] }
     ];
+    pipeline.forEach((p) => { p.hasMore = p.more > 0; });
     const funnel = [
-      ['Identifierade företag', 108], ['Godkända av dig', 64], ['Kontaktade', 52], ['Har svarat', 19], ['Möte bokat', 7]
+      ['Identifierade företag', 108], ['Godkända av dig', 64], ['Kontaktade', 52], ['Bolag som svarat', 19], ['Möte bokat', 7]
     ].map(([label, v], i, arr) => ({ label, value: String(v), pct: Math.max(4, Math.round(v / 108 * 100)) + '%', op: i === arr.length - 1 ? '1' : String(0.35 + i * 0.12) }));
     const proposals = [
       { who: '[Kontakt 1]', company: '[Bolag]', when: '23 okt 12:54' },
@@ -483,8 +484,8 @@ class Component extends DCLogic {
       { who: '[Kontakt 3]', company: '[Bolag]', when: '23 okt 12:53' }
     ];
     const searches = [
-      { profile: '[Kundprofil 1]', last: '23 okt 13:36', found: '5 företag' },
-      { profile: '[Kundprofil 2]', last: '22 okt 08:13', found: '5 företag' }
+      { profile: '[Kundprofil 1]', last: '23 okt 13:36', found: '3 att granska' },
+      { profile: '[Kundprofil 2]', last: '22 okt 08:13', found: '3 att granska' }
     ];
     const compare = this.state.compare;
     const auto = this.state.auto;
@@ -497,7 +498,7 @@ class Component extends DCLogic {
     const hr = nowD.getHours();
     const readSet = this.state.readN || {};
     const notifBase = [
-      ['n1', 'Erik bokade möte med Teracom AB, tor 29 okt 14:00', 'Möte', '08:47', 'Kundkort.dc.html'],
+      ['n1', 'Erik bokade möte med Sändarnät AB, tor 29 okt 14:00', 'Möte', '08:47', 'Kundkort.dc.html'],
       ['n2', 'Varmt svar från [Prospekt] – vill ha möte nästa vecka', 'Svar', '08:12', 'Forslag.dc.html'],
       ['n3', '11 nya förslag väntar på ditt godkännande', 'Förslag', '07:00', 'Forslag.dc.html'],
       ['n4', 'LinkedIn är inte anslutet – Erik hoppar över LinkedIn-sökningar', 'Behöver dig', 'I går', '#'],
@@ -529,7 +530,7 @@ class Component extends DCLogic {
       closePops: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ notifOpen: false, taskOpen: false, taskSent: false, taskText: '' }); },
       taskText: this.state.taskText || '',
       setTaskText: (e) => this.setState({ taskText: e.target.value }),
-      taskIdeas: ['Hitta fler bolag som liknar Allente', 'Researcha ett specifikt bolag åt mig', 'Följ upp en kontakt som inte svarat', 'Leta upphandlingar som passar oss'].map((label) => ({ label, pick: () => this.setState({ taskText: label }) }))
+      taskIdeas: ['Hitta fler bolag som liknar Kanalnord', 'Researcha ett specifikt bolag åt mig', 'Följ upp en kontakt som inte svarat', 'Leta upphandlingar som passar oss'].map((label) => ({ label, pick: () => this.setState({ taskText: label }) }))
     };
     return {
       ...topVals,
@@ -537,7 +538,7 @@ class Component extends DCLogic {
       waiting, funnel, searches, periods, channels, kpis, companies,
       chartTitle: this.state.kpi, pipeline,
       showPipeline: this.state.kpi === 'Pipeline', showChart: this.state.kpi !== 'Pipeline',
-      chartSub: this.state.kpi === 'Pipeline' ? '26 bolag som Erik hittat och fått svar från' : 'Senaste 30 dagarna · per dag',
+      chartSub: this.state.kpi === 'Pipeline' ? '9 bolag i Pågående sälj just nu (3 är kvar i research)' : 'Senaste 30 dagarna · per dag',
       compare, compareStr: compare ? 'true' : 'false',
       compareTrack: compare ? accent : t.line, compareKnob: compare ? '19px' : '3px',
       toggleCompare: () => this.setState({ compare: !compare }),

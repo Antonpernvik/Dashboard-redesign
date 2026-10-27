@@ -111,7 +111,7 @@ Detta ska **inte** flaggas som saknat. Det ska byggas om i ny design med samma f
 | G-04 | Porträtt på kollegorna | Eriks och Moas foton i menyn, toppfältet och korten i stället för "E"/"M". Filer i `assets/`. | – |
 | G-05 | Toppfält | Datum och vecka live, "Erik · B2B-säljare" och statusen "Erik är aktiv". | Status från agenten |
 | G-06 | Sökfält | "Sök bolag eller kontakt". Bara fältet är designat, inget resultatflöde. | Sök-endpoint över bolag och kontakter |
-| G-07 | Notispanel | Klocka med antal olästa. Panelen listar händelser (t.ex. "Erik bokade möte med …") och har "Markera alla som lästa". Stängs vid klick utanför. | Händelseström och läst-status per användare |
+| G-07 | Notispanel | Klocka med antal olästa. Panelen listar händelser (t.ex. "Erik bokade möte med …") och har "Markera alla som lästa". Stängs vid klick utanför och med Esc. | Händelseström och läst-status per användare |
 | G-08 | "Ge Erik ett uppdrag" | Grön knapp i toppfältet. Popover med fritext och färdiga förslag; skickar ett uppdrag till Erik. | **Agent:** ta emot fritt uppdrag och omvandla till körning |
 | G-09 | Räknare i menyn | Siffermärke på Förslag (Identifierade företag har redan ett). | Antal väntande förslag |
 | G-10 | Byte av namn | "Pågående" heter "Pågående sälj". | – |
@@ -123,7 +123,7 @@ Detta ska **inte** flaggas som saknat. Det ska byggas om i ny design med samma f
 | S-01 | Rubrik som räknas från data | T.ex. "Erik har bokat 2 möten sedan i fredags", med hälsning. | Antal möten per period |
 | S-02 | Periodval | 7 d / 30 d / 90 d / I år styr KPI:er och diagram. | Aggregering per period |
 | S-03 | KPI-kort | Svar, Utskick (mejl/LinkedIn), Svarsfrekvens och Pipeline. Varje kort har minidiagram och trend mot förra perioden. Klick väljer vad huvuddiagrammet visar. | Tidsserier per kanal |
-| S-04 | Pipeline-tavla | Väljer man Pipeline visas en tavla per steg (Möte bokat / I dialog / Kontaktad / Ny) i stället för diagram. | Bolag per steg |
+| S-04 | Pipeline-tavla | Väljer man Pipeline visas en tavla per steg (Första kontakt / I dialog / Möte bokat – samma bolag som i Pågående sälj) i stället för diagram. | Bolag per steg |
 | S-05 | Tratt "Från bolag till möte" | Identifierade → godkända → kontaktade → svarat → möte bokat. | Räknare per steg |
 | S-06 | Kostnad per bokat möte | Månadspris ÷ antal bokade möten. | Pris per arbetsyta + antal möten |
 | S-07 | Diagram svar per dag | Linjediagram med jämförelse mot förra perioden (på/av) och kanalfilter Alla/Mejl/LinkedIn/Anbud. | Tidsserie per kanal |

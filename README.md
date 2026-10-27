@@ -32,4 +32,4 @@ Ny design för Ai Kollegornas kunddashboard (Erik och Moa): glas-paneler över e
 - **SPEC.md** – vad varje knapp ska göra.
 - **design/** – källfilerna i Claudes designformat.
 
-All exempeldata är påhittad eller platshållare. Kostnad per körning i dollar visas medvetet inte för kunden.
+All exempeldata är påhittad eller platshållare – bolagen i exemplen är fiktiva. Kostnad per körning i dollar visas medvetet inte för kunden.

@@ -10,8 +10,8 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Logga ut: loggar ut direkt.
 - Datum: live, dagens datum och vecka i kundens tidszon.
 - "Erik är aktiv": grön = inom sändningsfönstret och allt anslutet. Gul "Pausad" utanför fönstret, röd "Behöver dig" om en integration slutat fungera. Klick går till Inställningar › Sändning.
-- Sök (⌘K): söker bolag, kontakter och förslag. Resultaten grupperas per typ och Enter öppnar det första.
-- Måne/sol: växlar ljust och mörkt läge med cirkel-animation. Sparas per användare.
+- Sök: söker bolag, kontakter och förslag (kortkommando ⌘K finns inte i prototypen). Resultaten grupperas per typ och Enter öppnar det första.
+- Måne/sol: växlar ljust och mörkt läge med cirkel-animation. Sparas per flik (sessionStorage), ljust är standard.
 - Klockan (notiser): öppnar en panel. Bara det som kräver dig eller är riktiga resultat: bokade möten, svar, nya förslag och fel i integrationer. Inte varje körning. Klick på en notis går till rätt sida och markerar den som läst. Badgen = olästa. Samma notiser kan även gå till Slack eller mejl.
 - Ge Erik ett uppdrag (ersätter "Ny körning"): kunden skriver fritt eller väljer ett snabbval. Uppdraget syns under Pågående sälj och Körningar. Kunden ska inte behöva starta körningar själv, Erik jobbar ändå.
 
@@ -44,7 +44,7 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Flikar: Bolag / Befintliga kunder / Exkluderade.
 - Acceptera: bolaget går till Pågående sälj och Erik börjar researcha och leta kontakter. "Ångra" finns.
 - Exkludera: frågar orsak (konkurrent, befintlig kund, fel målgrupp, annat) och flyttar bolaget till Exkluderade. Erik kontaktar det aldrig.
-- Godkänn alla: frågar först, till exempel "Acceptera 11 bolag?".
+- Godkänn alla: frågar först, till exempel "Acceptera 6 bolag?" (bara spec – prototypen frågar inte).
 - Bolagsnamnet: öppnar kundkortet i läsläge, innan man accepterat.
 - Ladda upp: CSV eller Excel med org.nr eller domän. Lägg till: formulär med bolag, kontakt och "kund sedan".
 - Återinför: bolaget går tillbaka till fliken Bolag.
@@ -154,8 +154,8 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 |---|---|---|
 | base | #D8D2C6 | Bakgrund under blurren |
 | blobbar | #B9C4A8, #EADFCB, #9FB394, #CDB89C | Suddiga färgfält i bakgrunden (blur 90–110 px) |
-| glass | rgba(255,255,255,0.42) | Kort, meny, topbar |
-| glassHi | rgba(255,255,255,0.68) | Valt kort, aktiva ytor |
+| glass | rgba(255,255,255,0.36) | Kort, meny, topbar |
+| glassHi | rgba(255,255,255,0.60) | Valt kort, aktiva ytor |
 | glassLine | rgba(255,255,255,0.65) | Kantlinje på glas |
 | pop | rgba(251,250,247,0.97) | Popup-rutor (notiser, uppdrag) |
 | ink | #14201A | Text |
@@ -176,7 +176,7 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 `background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); border-radius: 22–28px;`
 
 ## Typografi
-Outfit (Google Fonts), 300/400/500/600. Sidrubriker och stora siffror 38–50 px / 300 / letter-spacing -0.02em. Etiketter och knappar 500. Ikoner med stroke 1,5.
+Outfit (self-hostad, se handoff/fonts – inga anrop till Google Fonts av GDPR-skäl), 300/400/500/600. Sidrubriker och stora siffror 38–50 px / 300 / letter-spacing -0.02em. Etiketter och knappar 500. Ikoner med stroke 1,5.
 
 ## Rörelse
 - Menyn: 76 px ikonlist, 268 px utfälld, `width .28s cubic-bezier(.65,0,.35,1)`. Blur på innehållet bakom: `backdrop-filter: blur(8px)`, opacity .3s.

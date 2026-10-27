@@ -49,7 +49,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .muted { color: var(--muted); }
 .small { font-size: var(--fs-12); }
 .eyebrow { font-size: var(--fs-12); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.eyebrow--green { color: var(--green); }
+.eyebrow--green { color: var(--greenText); }
 .num { font-size: 38px; font-weight: 300; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 .mono { font-family: var(--font-mono); }
 
@@ -57,12 +57,12 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: var(--h-lg); padding: 0 18px; border-radius: var(--r-pill); border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: var(--fs-14); font-weight: 500; cursor: pointer; white-space: nowrap; text-decoration: none; transition: filter .15s, transform .15s; }
 .btn:hover { filter: brightness(1.03); }
 .btn:active { transform: translateY(1px); }
-.btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+:where(a, button, input, select, textarea, [role="switch"], [role="tab"]):focus-visible { outline: 2px solid var(--greenText); outline-offset: 2px; }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
 .btn--primary { border: 0; background: var(--green); color: var(--onGreen); box-shadow: none; }
 .btn--soft { background: var(--soft); }
 .btn--danger { color: var(--down); }
-.btn--link { height: auto; padding: 6px 2px; border: 0; background: transparent; color: var(--green); font-size: var(--fs-13); box-shadow: none; }
+.btn--link { height: auto; padding: 8px 2px; border: 0; background: transparent; color: var(--greenText); font-size: var(--fs-13); box-shadow: none; }
 .btn--link-muted { color: var(--muted); }
 .btn--sm { height: var(--h-sm); padding: 0 16px; font-size: var(--fs-13); }
 .btn--md { height: var(--h-md); }
@@ -157,7 +157,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .popover { position: absolute; right: 0; top: 54px; z-index: 50; width: 380px; max-width: calc(100vw - 120px); padding: 14px; border-radius: var(--r-xl); background: var(--pop); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-pop); -webkit-backdrop-filter: var(--blur-pop); box-shadow: var(--shadow-pop); display: flex; flex-direction: column; gap: 6px; }
 .popover--wide { width: 440px; padding: 0; border-radius: 24px; overflow: hidden; }
 /* Klick utanför stänger: lägg en osynlig spärr bakom popovern som lyssnar på mousedown */
-.popover-catcher { position: fixed; inset: 0; z-index: 40; background: transparent; }
+.popover-catcher { position: fixed; inset: 0; z-index: 14; background: transparent; }
+/* OBS: lägg spärren UTANFÖR .topbar – .topbar har backdrop-filter och blir då containing block för position: fixed. Lägg till Esc som stänger. */
 
 /* ---------- KPI-kort ------------------------------------------------- */
 .kpi { padding: 18px 18px 16px; border-radius: 24px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 6px; cursor: pointer; text-align: left; }
