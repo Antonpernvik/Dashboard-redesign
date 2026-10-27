@@ -1,0 +1,151 @@
+/* =====================================================================
+   Ai Kollegorna – Dashboard v2 · design tokens
+   Källa: designfilerna i /design (objektet `t` i varje sida).
+   Ljust läge är standard. Mörkt läge: sätt data-theme="dark" på <html>.
+   ===================================================================== */
+
+@import url('fonts.css');
+
+:root {
+  /* Typsnitt */
+  --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  /* Accent (samma i båda lägena) */
+  --green: #1E7B4E;
+  --onGreen: #FFFFFF;
+
+  /* Bakgrund + suddiga färgfläckar */
+  --base: #D8D2C6;
+  --blob1: #B9C4A8;
+  --blob2: #EADFCB;
+  --blob3: #9FB394;
+  --blob4: #CDB89C;
+
+  /* Glasytor */
+  --glass: rgba(255,255,255,0.42);      /* kort, panel, meny */
+  --glassHi: rgba(255,255,255,0.68);    /* upphöjd yta inne i kort, aktiv menyrad */
+  --glassLine: rgba(255,255,255,0.65);  /* kantlinje på glas */
+  --soft: rgba(255,255,255,0.45);       /* mjuk ruta, sekundära knappar */
+  --line: rgba(30,40,34,0.10);          /* avdelare */
+  --pop: rgba(251,250,247,0.97);        /* popover/dropdown */
+  --scrim: rgba(216,210,198,0.28);      /* oskärpa bakom öppen meny */
+
+  /* Text */
+  --ink: #14201A;
+  --muted: #4B5750;
+
+  /* Mörk "pill" (vald flik/segment) */
+  --pill: #14201A;
+  --pillInk: #FFFFFF;
+
+  /* Status */
+  --tintG: rgba(30,123,78,0.16);        /* grön bakgrundston */
+  --greenGlow: rgba(30,123,78,0.28);    /* skugga under gröna knappar */
+  --down: #B3382A;                      /* negativ trend, fel, varning */
+  --up: #17643F;                        /* positiv trend (text) */
+
+  /* Formulärfält */
+  --field: #FFFFFF;
+  --fieldLine: rgba(20,32,26,0.12);
+
+  /* Diagram */
+  --chart: #1E7B4E;
+  --chartPrev: #8A938C;
+  --curBar: rgba(30,123,78,0.40);
+
+  /* Inverterat kort (t.ex. "Sändning", "Därför är det här en bra matchning") */
+  --inv: rgba(17,28,22,0.86);
+  --invInk: #F1F5F2;
+  --invSoft: rgba(255,255,255,0.08);
+  --invLine: rgba(255,255,255,0.12);
+  --invGreen: #6EDC9F;
+  --invGlow: rgba(110,220,159,0.22);
+
+  /* Skuggor */
+  --shadow: 0 10px 40px rgba(60,50,30,0.10);
+  --shadow-pop: 0 30px 80px rgba(0,0,0,0.22);
+  --shadow-rail-open: 0 24px 60px rgba(60,50,30,0.22);
+
+  /* Glaseffekt */
+  --blur-glass: blur(28px) saturate(150%);
+  --blur-pop: blur(40px) saturate(180%);
+  --blur-scrim: blur(8px) saturate(120%);
+
+  /* Radier (mest använda) */
+  --r-pill: 999px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 16px;   /* menyrader, rutor i kort */
+  --r-xl: 22px;   /* popovers */
+  --r-card: 26px; /* standardkort */
+  --r-panel: 28px;/* meny, stora kort */
+
+  /* Mellanrum (mest använda) */
+  --s-1: 4px; --s-2: 6px; --s-3: 8px; --s-4: 10px; --s-5: 12px;
+  --s-6: 14px; --s-7: 16px; --s-8: 22px; --s-9: 28px; --s-10: 32px;
+
+  /* Typskala */
+  --fs-10: 10px; --fs-11: 11px; --fs-12: 12px; --fs-13: 13px; --fs-14: 14px;
+  --fs-15: 15px; --fs-16: 16px; --fs-18: 18px; --fs-19: 19px; --fs-24: 24px;
+  --fs-28: 28px; --fs-36: 36px; --fs-40: 40px;
+
+  /* Kontrollhöjder */
+  --h-sm: 38px; --h-md: 42px; --h-lg: 44px; --h-xl: 50px;
+
+  /* Rörelse */
+  --ease: cubic-bezier(.65,0,.35,1);
+  --dur-rail: .28s;
+  --dur-fade: .2s;
+  --dur-theme: 620ms; /* cirkel-wipe vid byte av tema */
+
+  /* Meny */
+  --rail-closed: 76px;
+  --rail-open: 268px;
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --base: #0A0F0C;
+  --blob1: #1D3A2B;
+  --blob2: #3A3124;
+  --blob3: #173226;
+  --blob4: #2B2A22;
+
+  --glass: rgba(22,30,25,0.55);
+  --glassHi: rgba(34,46,38,0.70);
+  --glassLine: rgba(255,255,255,0.08);
+  --soft: rgba(255,255,255,0.06);
+  --line: rgba(255,255,255,0.08);
+  --pop: rgba(22,30,25,0.97);
+  --scrim: rgba(10,15,12,0.35);
+
+  --ink: #EEF2EE;
+  --muted: #A3AFA7;
+
+  --pill: #EEF2EE;
+  --pillInk: #0A0F0C;
+
+  --tintG: rgba(76,194,133,0.20);
+  --greenGlow: rgba(30,123,78,0.35);
+  --down: #F07A63;
+  --up: #4CC285;
+
+  --field: rgba(255,255,255,0.05);
+  --fieldLine: rgba(255,255,255,0.12);
+
+  --chart: #4CC285;
+  --chartPrev: #6C7A71;
+  --curBar: rgba(76,194,133,0.50);
+
+  --inv: rgba(24,52,38,0.78);
+  --invInk: #EEF2EE;
+  --invSoft: rgba(255,255,255,0.06);
+  --invLine: rgba(255,255,255,0.10);
+
+  --shadow: 0 10px 40px rgba(0,0,0,0.35);
+  --shadow-rail-open: 0 24px 60px rgba(0,0,0,0.55);
+
+  color-scheme: dark;
+}

@@ -57,7 +57,7 @@ html,body{transition:none}
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path><path d="M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Identifierade företag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
 <a href="Pagaende.dc.html" aria-label="Pågående sälj" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M17 2l4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Pågående sälj</span></a>
-<a href="#" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<a href="Korningar.dc.html" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Körningar</span></a>
 </nav>
 
@@ -164,41 +164,67 @@ html,body{transition:none}
 <span style="font-size: 14px; color: var(--muted)">Vad som händer av sig självt när du godkänt något</span>
 </section>
 
-<section aria-label="Arbetsflöden" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px">
+<section aria-label="Arbetsflöden" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px">
 <sc-for list="{{flows}}" as="w" hint-placeholder-count="1">
-<button onClick="{{w.pick}}" aria-pressed="{{w.selStr}}" style="text-align: left; font: inherit; color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 24px; background: var(--glass); border: {{w.border}}; backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: {{w.shadow}}">
+<button onClick="{{w.pick}}" aria-pressed="{{w.selStr}}" style="text-align: left; font: inherit; color: var(--ink); cursor: pointer; display: flex; flex-direction: column; gap: 16px; min-height: 260px; box-sizing: border-box; padding: 32px; border-radius: 28px; background: var(--glass); border: {{w.border}}; backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: {{w.shadow}}">
 <div style="display: flex; align-items: center; gap: 10px">
 <img src="{{w.img}}" alt="" style="width: 32px; height: 32px; border-radius: 10px; object-fit: cover">
 <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted)">{{w.who}}</span>
 <span style="margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{w.stBg}}"><span style="width: 7px; height: 7px; border-radius: 999px; background: {{w.stDot}}"></span>{{w.status}}</span>
 </div>
-<h2 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em">{{w.name}}</h2>
-<p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--muted)">{{w.desc}}</p>
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">{{w.name}}</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted); max-width: 720px">{{w.desc}}</p>
 <span style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted)">{{w.meta}}</span>
 </button>
 </sc-for>
 </section>
 
 <sc-if value="{{hasSel}}" hint-placeholder-val="{{true}}">
-<section style="padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 18px">
+<section style="padding: 32px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
-<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 20px; font-weight: 600">{{fsel.name}}</h2><span style="font-size: 13px; color: var(--muted)">Startar när: <b style="font-weight: 600; color: var(--ink)">{{fsel.trigger}}</b></span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">{{fsel.name}} – steg för steg</h2><span style="font-size: 13px; color: var(--muted)">Startar när: <b style="font-weight: 600; color: var(--ink)">{{fsel.trigger}}</b></span></div>
 <button onClick="{{closeSel}}" aria-label="Stäng" style="width: 38px; height: 38px; border-radius: 999px; border: 0; background: var(--soft); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
 </div>
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
 <sc-for list="{{fsel.steps}}" as="s" hint-placeholder-count="6">
-<li style="display: flex; gap: 14px">
+<li style="display: flex; gap: 16px">
 <div style="display: flex; flex-direction: column; align-items: center; flex: none">
-<span style="width: 34px; height: 34px; border-radius: 12px; background: {{s.bg}}; color: {{s.fg}}; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{s.n}}</span>
+<span style="width: 36px; height: 36px; border-radius: 12px; background: {{s.bg}}; color: {{s.fg}}; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{s.n}}</span>
 <sc-if value="{{s.notLast}}" hint-placeholder-val="{{true}}"><span style="width: 2px; flex: 1; min-height: 18px; background: var(--line)"></span></sc-if>
 </div>
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; padding: 6px 0 18px">
-<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 15px; font-weight: 600">{{s.title}}<sc-if value="{{s.needsYou}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--green); color: var(--onGreen)">Du godkänner</span></sc-if><sc-if value="{{s.cond}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); color: var(--muted)">{{s.condText}}</span></sc-if></span>
-<span style="font-size: 13px; color: var(--muted); line-height: 1.55">{{s.desc}}</span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 6px 0 22px">
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 16px; font-weight: 600">{{s.title}}<span style="font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: {{s.modeBg}}; color: {{s.modeFg}}">{{s.mode}}</span></span>
+<span style="font-size: 14px; color: var(--muted); line-height: 1.55; max-width: 860px">{{s.desc}}</span>
+<sc-if value="{{s.hasLimits}}" hint-placeholder-val="{{true}}"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--muted)">{{s.limits}}</span></sc-if>
+<sc-if value="{{s.hasCond}}" hint-placeholder-val="{{false}}"><span style="font-size: 13px"><b style="font-weight: 600">Körs när</b> {{s.cond}}</span></sc-if>
+<sc-if value="{{s.hasRules}}" hint-placeholder-val="{{true}}">
+<button onClick="{{s.toggleRules}}" aria-expanded="{{s.rulesStr}}" style="align-self: flex-start; display: flex; align-items: center; gap: 6px; border: 0; background: transparent; padding: 4px 0; color: var(--green); font-size: 13px; font-weight: 600; cursor: pointer">Regler för det här steget ({{s.ruleCount}})<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate({{s.rot}})"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{s.rulesOpen}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 16px; background: var(--soft); border: 1px solid var(--glassLine)">
+<sc-for list="{{s.rules}}" as="ru" hint-placeholder-count="1"><div style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span style="flex: 1">{{ru.text}}</span><button onClick="{{ru.remove}}" style="border: 0; background: transparent; padding: 4px; color: var(--down); font-size: 12px; font-weight: 600; cursor: pointer">Ta bort</button></div></sc-for>
+<sc-if value="{{s.noRules}}" hint-placeholder-val="{{false}}"><span style="font-size: 13px; color: var(--muted)">{{s.noRulesText}}</span></sc-if>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><input value="{{s.draft}}" onChange="{{s.setDraft}}" onKeyDown="{{s.key}}" placeholder="{{s.ph}}" style="flex: 1 1 260px; height: 42px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; outline: none; box-sizing: border-box"><button onClick="{{s.add}}" style="height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">Lägg till regel</button></div>
+</div>
+</sc-if>
+</sc-if>
 </div>
 </li>
 </sc-for>
 </ol>
+<div style="padding: 14px 16px; border-radius: 16px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 14px">Det är hela kedjan. Mejl startar du själv – från <b style="font-weight: 600">Kontakter</b> på företagets kundkort.</div>
+</section>
+
+<section aria-label="Körningar i flödet" style="padding: 32px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px"><div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 22px; font-weight: 600">Körs nu och senast</h2><span style="font-size: 13px; color: var(--muted)">Ett företag per rad. Överhoppade steg visar varför.</span></div><a href="Korningar.dc.html" style="font-size: 13px; font-weight: 600; color: var(--green)">Alla körningar</a></div>
+<sc-for list="{{flowRuns}}" as="fr" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 16px 0; border-top: 1px solid var(--line)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><b style="font-size: 15px; font-weight: 600">{{fr.co}}</b><span style="font-size: 12px; color: var(--muted)">{{fr.when}}</span><sc-if value="{{fr.live}}" hint-placeholder-val="{{false}}"><span style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--tintG)"><span style="width: 7px; height: 7px; border-radius: 999px; background: var(--green)"></span>Körs nu</span></sc-if></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{fr.steps}}" as="fs" hint-placeholder-count="4"><a href="Korning.dc.html" style="text-decoration: none; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: {{fs.bg}}; color: {{fs.fg}}; border: 1px solid var(--glassLine)"><span style="width: 7px; height: 7px; border-radius: 999px; background: {{fs.dot}}"></span>{{fs.name}} · {{fs.st}}</a></sc-for>
+</div>
+<sc-if value="{{fr.hasWhy}}" hint-placeholder-val="{{false}}"><span style="font-size: 13px; color: var(--muted)">{{fr.why}}</span></sc-if>
+</div>
+</sc-for>
 </section>
 </sc-if>
 
@@ -206,7 +232,7 @@ html,body{transition:none}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1E7B4E","options":["#1E7B4E","#0F766E","#2563EB","#B45309"]},"startDark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1300}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1E7B4E","options":["#1E7B4E","#0F766E","#2563EB","#B45309"]},"startDark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":2600}}'>
 class Component extends DCLogic {
   aikReadTheme(fallback) {
     try { window.localStorage.removeItem('aik-theme'); } catch (e) {}
@@ -551,14 +577,14 @@ class Component extends DCLogic {
     const flowDefs = [
       { id: 'hitta', who: 'Erik', img: ERIKI, name: 'Hitta företag', status: 'Aktivt', on: true,
         desc: 'När du godkänner ett företag researchar Erik det, letar efter personer och kollar sedan LinkedIn.',
-        meta: '6 steg · kördes senast i dag 09:12', trigger: 'du godkänner ett företag under Identifierade företag',
+        meta: '6 steg · körs nu på 1 företag · senast i dag 15.24', trigger: 'du godkänner ett företag under Identifierade företag',
         steps: [
-          ['Berika företaget', 'Hämtar fakta från allabolag.se och bolagets webbplats: bransch, storlek, ort och vad de gör.', false, ''],
-          ['Bedöm passform', 'Jämför mot kundprofilen och sätter en matchning 0–10 med motivering.', false, ''],
-          ['Hitta personer på webbplatsen', 'Letar efter rollerna i kundprofilen på bolagets egen sajt.', false, 'Om matchningen når din gräns'],
-          ['Hitta på LinkedIn', 'Kompletterar med personer från LinkedIn. Erik skriver aldrig där, han hittar bara personer.', false, 'Om LinkedIn är anslutet'],
-          ['Skriv första mejlet', 'Ett kort mejl till en person, i din ton och enligt dina regler. Hamnar under Förslag.', true, ''],
-          ['Skicka', 'Skickas inom sändningsfönstret efter ditt godkännande. Svar hamnar i din inkorg.', false, '']
+          ['Sök efter företag för en kundprofil', 'Söker på webben efter företag som matchar en av dina kundprofiler och föreslår dem, med verifierade grundfakta och en bedömning av passformen.', 'you', 'Upp till 30 turer · stoppar efter 10 min', '', 'sok'],
+          ['Berika företaget', 'Researchar företaget i register, på webbplatsen och i nyheter, och föreslår verifierade uppdateringar: organisationsnummer, webbplats, bransch, ort, anställda, omsättning och beskrivning.', 'auto', 'Upp till 20 turer', 'du har godkänt företaget', 'berika'],
+          ['Bedöm företaget', 'Bedömer företaget mot kundprofilen det hittades för, nu när researchen är ifylld.', 'self', '', '', ''],
+          ['Hitta kontakter', 'Hittar beslutsfattare och påverkare från öppna källor – webbplatsen, pressmeddelanden, register – och föreslår dem som kontakter.', 'auto', 'Upp till 20 turer', 'matchningen når arbetsytans gräns (5/10), eller saknar poäng', 'kontakter'],
+          ['Hitta på LinkedIn', 'Slår upp företaget på LinkedIn via ConnectSafely och föreslår dess sida och företagsfakta för godkännande.', 'li', '', 'företaget har en webbplats som LinkedIn-sidan kan matchas mot', ''],
+          ['Hitta kontakter på LinkedIn', 'Hittar personer som arbetar på företagets LinkedIn-sida och föreslår dem som kontakter, för godkännande.', 'li', '', 'företagets LinkedIn-sida är känd, vilket steget innan fastställer', '']
         ] }
     ];
     const selId = this.state.flowSel === undefined ? null : this.state.flowSel;
@@ -570,15 +596,37 @@ class Component extends DCLogic {
       pick: () => this.setState({ flowSel: selId === w.id ? null : w.id })
     }));
     const selW = flowDefs.find((w) => w.id === selId);
+    const MODES = { you: ['Väntar på ditt godkännande', 'var(--green)', 'var(--onGreen)'], auto: ['Körs automatiskt', 'var(--tintG)', 'var(--ink)'], self: ['Avgör på egen hand', 'var(--soft)', 'var(--ink)'], li: ['Kräver LinkedIn', 'var(--soft)', 'var(--muted)'] };
+    const ruleDefs = { sok: ['Föreslå inte bolag vi redan har som kunder'], berika: [], kontakter: ['Prioritera chefer med egen budget, inte koncernledningen'] };
+    const fRules = this.state.fRules || ruleDefs;
+    const fOpen = this.state.fOpen || {};
+    const fDraft = this.state.fDraft || {};
+    const addFRule = (rk) => { const v = ((this.state.fDraft || {})[rk] || '').trim(); if (!v) return; const cur = this.state.fRules || ruleDefs; this.setState({ fRules: { ...cur, [rk]: (cur[rk] || []).concat(v) }, fDraft: { ...(this.state.fDraft || {}), [rk]: '' } }); };
     const flowSel = selW ? {
       name: selW.name, trigger: selW.trigger,
-      steps: selW.steps.map(([title, desc, needsYou, condText], i, arr) => ({
-        n: String(i + 1), title, desc, needsYou, cond: !!condText, condText, notLast: i < arr.length - 1,
-        bg: needsYou ? 'var(--green)' : 'var(--tintG)', fg: needsYou ? 'var(--onGreen)' : 'var(--green)'
-      }))
+      steps: selW.steps.map(([title, desc, mode, limits, cond, rk], i, arr) => {
+        const m = MODES[mode]; const rules = rk ? (fRules[rk] || []) : []; const open = !!fOpen[rk];
+        return { n: String(i + 1), title, desc, mode: m[0], modeBg: m[1], modeFg: m[2], notLast: i < arr.length - 1,
+          bg: mode === 'you' ? 'var(--green)' : mode === 'li' ? 'var(--soft)' : 'var(--tintG)', fg: mode === 'you' ? 'var(--onGreen)' : mode === 'li' ? 'var(--muted)' : 'var(--green)',
+          hasLimits: !!limits, limits, hasCond: !!cond, cond,
+          hasRules: !!rk, ruleCount: String(rules.length), rulesOpen: open, rulesStr: open ? 'true' : 'false', rot: open ? '180deg' : '0deg',
+          toggleRules: () => this.setState({ fOpen: { ...(this.state.fOpen || {}), [rk]: !open } }),
+          rules: rules.map((text, j) => ({ text, remove: () => { const cur = this.state.fRules || ruleDefs; this.setState({ fRules: { ...cur, [rk]: cur[rk].filter((x, q) => q !== j) } }); } })),
+          noRules: rules.length === 0, noRulesText: 'Inga regler än. Erik följer kundprofilen och era e-postregler.',
+          draft: fDraft[rk] || '', ph: 'T.ex. Hoppa över bolag under 100 anställda',
+          setDraft: (e) => this.setState({ fDraft: { ...(this.state.fDraft || {}), [rk]: e.target.value } }),
+          key: (e) => { if (e.key === 'Enter') { e.preventDefault(); addFRule(rk); } }, add: () => addFRule(rk) };
+      })
     } : { name: '', trigger: '', steps: [] };
+    const SC = { ok: ['Klart', 'var(--soft)', 'var(--ink)', 'var(--green)'], skip: ['Överhoppat', 'transparent', 'var(--muted)', 'var(--muted)'], fail: ['Misslyckades', 'var(--soft)', 'var(--down)', 'var(--down)'], run: ['Pågår', 'var(--tintG)', 'var(--ink)', 'var(--green)'] };
+    const flowRuns = [
+      ['Kustenergi AB', 'i dag 15.24', true, [['Berika', 'ok'], ['Bedöm', 'ok'], ['Hitta kontakter', 'run']], ''],
+      ['Norrsignal AB', 'i dag 13.54', false, [['Berika', 'ok'], ['Bedöm', 'ok'], ['Hitta kontakter', 'ok'], ['Hitta på LinkedIn', 'skip']], 'LinkedIn är inte anslutet, så Erik letade inte där.'],
+      ['Fjällnät AB', 'fre 13.49', false, [['Berika', 'ok'], ['Bedöm', 'ok'], ['Hitta kontakter', 'skip']], 'Matchar kundprofilen 4/10, under er gräns 5/10 – Erik letade inte efter personer.'],
+      ['Bolag K', 'i dag 12.49', false, [['Berika', 'ok'], ['Bedöm', 'ok'], ['Hitta kontakter', 'fail']], 'Erik kunde inte slutföra – för mycket underlag i en körning. Vi har fått en signal och tittar på det.']
+    ].map(([co, when, live, steps, why]) => ({ co, when, live, why, hasWhy: !!why, steps: steps.map(([name, st]) => ({ name, st: SC[st][0], bg: SC[st][1], fg: SC[st][2], dot: SC[st][3] })) }));
     return {
-      flows, fsel: flowSel, hasSel: !!selW, closeSel: () => this.setState({ flowSel: null }),
+      flows, fsel: flowSel, hasSel: !!selW, flowRuns, closeSel: () => this.setState({ flowSel: null }),
       profiles,
       gBolag, gSign, gUt, readback, minVal: minV, maxVal: maxV,
       setMin: (e) => this.setState({ minV: e.target.value, saved: false }), setMax: (e) => this.setState({ maxV: e.target.value, saved: false }),

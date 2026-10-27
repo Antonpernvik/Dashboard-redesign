@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erik – Start</title>
+<link rel="stylesheet" href="../handoff/fonts.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:inherit}
+button{font-family:inherit}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-old(root){z-index:1}
+::view-transition-new(root){z-index:2}
+html,body{transition:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-tpl">
+<div style="--base: {{t.base}}; --glass: {{t.glass}}; --glassLine: {{t.glassLine}}; --glassHi: {{t.glassHi}}; --soft: {{t.soft}}; --line: {{t.line}}; --ink: {{t.ink}}; --muted: {{t.muted}}; --pill: {{t.pill}}; --pillInk: {{t.pillInk}}; --green: {{t.green}}; --onGreen: {{t.onGreen}}; --chart: {{t.chart}}; --chartPrev: {{t.chartPrev}}; --tintG: {{t.tintG}}; --down: {{t.down}}; --shadow: {{t.shadow}}; position: relative; overflow: clip; min-height: 100vh; box-sizing: border-box; background: var(--base); color: var(--ink); font-family: 'Geist', system-ui, sans-serif">
+
+<!-- Blurred backdrop -->
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; overflow: hidden">
+<div style="position: absolute; left: -8%; top: -6%; width: 46%; height: 520px; border-radius: 999px; background: {{t.blob1}}; filter: blur(90px)"></div>
+<div style="position: absolute; right: -6%; top: 4%; width: 42%; height: 600px; border-radius: 999px; background: {{t.blob2}}; filter: blur(110px)"></div>
+<div style="position: absolute; left: 28%; top: 38%; width: 40%; height: 520px; border-radius: 999px; background: {{t.blob3}}; filter: blur(110px)"></div>
+<div style="position: absolute; left: -4%; bottom: -4%; width: 38%; height: 560px; border-radius: 999px; background: {{t.blob4}}; filter: blur(100px)"></div>
+<div style="position: absolute; right: 4%; bottom: 6%; width: 34%; height: 460px; border-radius: 999px; background: {{t.blob1}}; filter: blur(100px)"></div>
+</div>
+
+<div style="position: relative; box-sizing: border-box; padding: 16px; display: flex; gap: 16px; align-items: flex-start">
+
+<!-- Focus scrim: blurs the dashboard while the menu is open -->
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: 20; pointer-events: none; background: {{t.scrim}}; backdrop-filter: blur(8px) saturate(120%); -webkit-backdrop-filter: blur(8px) saturate(120%); opacity: {{lo}}; transition: opacity .3s cubic-bezier(.65,0,.35,1)"></div>
+
+<!-- Sidebar -->
+<div style="position: sticky; top: 16px; z-index: 30; flex: none; width: 76px; height: calc(100vh - 32px); min-height: 620px">
+<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
+
+<button aria-label="Byt kollega, nu vald: Erik" style="display: flex; align-items: center; gap: 12px; width: 100%; height: 48px; padding: 0; border-radius: 16px; border: 0; background: transparent; color: var(--ink); cursor: pointer; text-align: left; white-space: nowrap">
+<img src="../assets/erik.jpg" alt="" style="width: 48px; height: 48px; flex: none; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 2px var(--green), 0 8px 20px {{t.greenGlow}}">
+<span style="flex: 1; display: flex; flex-direction: column; line-height: 1.2; opacity: {{lo}}; transition: opacity .2s"><span style="font-size: 15px; font-weight: 600">Erik</span><span style="font-size: 12px; color: var(--muted)">B2B-säljare</span></span>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex: none; margin-right: 6px; opacity: {{lo}}; transition: opacity .2s"><path d="m6 9 6 6 6-6"></path></svg>
+</button>
+
+<div style="height: 1px; background: var(--line); margin: 2px 6px"></div>
+
+<nav aria-label="Erik" style="display: flex; flex-direction: column; gap: 6px">
+<a href="Main.dc.html" aria-current="page" aria-label="Start" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; background: var(--glassHi); color: var(--green); font-size: 14px; font-weight: 600; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--glassLine)">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Start</span></a>
+<a href="Forslag.dc.html" aria-label="Förslag, 11 nya" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1Z"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s">Förslag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
+<a href="Foretag.dc.html" aria-label="Identifierade företag, 11 nya" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path><path d="M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s">Identifierade företag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
+<a href="Pagaende.dc.html" aria-label="Pågående sälj" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M17 2l4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Pågående sälj</span></a>
+<a href="Korningar.dc.html" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Körningar</span></a>
+</nav>
+
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 6px">
+<span style="height: 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0 14px; white-space: nowrap; opacity: {{lo}}; transition: opacity .2s">Inställningar</span>
+<nav aria-label="Inställningar" style="display: flex; flex-direction: column; gap: 6px">
+<a href="Kundprofiler.dc.html" aria-label="Kundprofiler" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="3"></circle></svg><span style="opacity: {{lo}}; transition: opacity .2s">Kundprofiler</span></a>
+<a href="Arbetsfloden.dc.html" aria-label="Arbetsflöden" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><rect x="3" y="3" width="6" height="6" rx="1.5"></rect><rect x="15" y="15" width="6" height="6" rx="1.5"></rect><path d="M9 6h4a3 3 0 0 1 3 3v6"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Arbetsflöden</span></a>
+<a href="Integrationer.dc.html" aria-label="Integrationer" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M19.4 7.3a2.4 2.4 0 0 0 0 3.4l1.6 1.6c.5.5.5 1.2 0 1.7l-1.6 1.6a2.4 2.4 0 0 1-3.4 0 2.4 2.4 0 0 0-3.4 3.4l1.6 1.6c.5.5.5 1.2 0 1.7l-.3.2M4.6 16.7a2.4 2.4 0 0 0 0-3.4L3 11.7c-.5-.5-.5-1.2 0-1.7l1.6-1.6a2.4 2.4 0 0 1 3.4 0 2.4 2.4 0 0 0 3.4-3.4L9.8 3.4c-.5-.5-.5-1.2 0-1.7"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Integrationer</span></a>
+<a href="Installningar.dc.html" aria-label="Inställningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Inställningar</span></a>
+</nav>
+<div style="height: 1px; background: var(--line); margin: 6px 6px"></div>
+<div style="display: flex; align-items: center; gap: 12px; white-space: nowrap">
+<div style="width: 48px; height: 48px; flex: none; border-radius: 999px; background: var(--pill); color: var(--pillInk); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">KB</div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; line-height: 1.25; opacity: {{lo}}; transition: opacity .2s">
+<span style="font-size: 13px; font-weight: 600">[Kundens bolag]</span>
+<span style="font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis">namn@kund.se</span>
+<a href="Login.dc.html" style="font-size: 12px; font-weight: 600; color: var(--green)">Logga ut</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+
+<!-- Main -->
+<main style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+
+<header style="position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 22px; border-radius: 24px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow)">
+<div style="display: flex; flex-direction: column; line-height: 1.2; padding: 4px 0">
+<span style="font-size: 19px; font-weight: 600; letter-spacing: -0.01em">{{todayStr}} <span style="font-size: 13px; font-weight: 500; color: var(--muted)">{{weekStr}}</span></span>
+<span style="font-size: 12px; color: var(--muted)">Erik · B2B-säljare</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<span style="display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px 0 4px; border-radius: 999px; background: var(--tintG); color: var(--ink); font-size: 13px; font-weight: 600"><span style="position: relative; width: 36px; height: 36px; flex: none"><img src="../assets/erik.jpg" alt="" style="width: 36px; height: 36px; border-radius: 999px; object-fit: cover"><span style="position: absolute; right: -1px; bottom: -1px; width: 10px; height: 10px; border-radius: 999px; background: var(--green); border: 2px solid var(--base)"></span></span>Erik är aktiv</span>
+
+<label style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); color: var(--muted); font-size: 14px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<input type="search" placeholder="Sök bolag eller kontakt" aria-label="Sök" style="border: 0; background: transparent; outline: none; font: inherit; color: var(--ink); width: 170px">
+</label>
+<button onClick="{{toggleTheme}}" aria-label="{{themeLabel}}" title="{{themeLabel}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer">
+<sc-if value="{{dark}}" hint-placeholder-val="{{false}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></sc-if>
+<sc-if value="{{light}}" hint-placeholder-val="{{true}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></sc-if>
+</button>
+<sc-if value="{{anyPop}}" hint-placeholder-val="{{false}}"><div aria-hidden="true" onMouseDown="{{closePops}}" style="position: fixed; inset: 0; z-index: 40; background: transparent; cursor: default"></div></sc-if>
+<div style="position: relative">
+<button onClick="{{toggleNotif}}" aria-label="{{notifLabel}}" aria-expanded="{{notifStr}}" style="position: relative; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"></path></svg>
+<sc-if value="{{hasUnread}}" hint-placeholder-val="{{true}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 16px; height: 16px; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{unreadN}}</span></sc-if>
+</button>
+<sc-if value="{{notifOpen}}" hint-placeholder-val="{{false}}">
+<div role="dialog" aria-label="Notiser" style="position: absolute; right: 0; top: 54px; width: 380px; max-width: calc(100vw - 120px); padding: 14px; border-radius: 22px; background: {{t.pop}}; border: 1px solid var(--glassLine); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: 0 30px 80px rgba(0,0,0,0.22); display: flex; flex-direction: column; gap: 6px; z-index: 50">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 6px 8px"><span style="font-size: 15px; font-weight: 600">Notiser</span><button onClick="{{markAllRead}}" style="border: 0; background: transparent; padding: 6px; color: var(--green); font-size: 12px; font-weight: 600; cursor: pointer">Markera alla som lästa</button></div>
+<sc-for list="{{notifs}}" as="n" hint-placeholder-count="5">
+<a href="{{n.href}}" onClick="{{n.read}}" style="text-decoration: none; color: var(--ink); display: flex; gap: 12px; align-items: flex-start; padding: 10px; border-radius: 14px; background: {{n.bg}}">
+<span style="width: 8px; height: 8px; margin-top: 6px; flex: none; border-radius: 999px; background: {{n.dot}}"></span>
+<span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: {{n.weight}}; line-height: 1.4">{{n.text}}</span><span style="font-size: 11px; color: var(--muted)">{{n.kind}} · {{n.when}}</span></span>
+</a>
+</sc-for>
+<a href="#" style="text-align: center; padding: 8px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none">Notisinställningar</a>
+</div>
+</sc-if>
+</div>
+<div style="position: relative">
+<button onClick="{{toggleTask}}" aria-expanded="{{taskStr}}" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 8px 20px {{t.greenGlow}}">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Ge Erik ett uppdrag</button>
+<sc-if value="{{taskOpen}}" hint-placeholder-val="{{false}}">
+<div role="dialog" aria-label="Ge Erik ett uppdrag" style="position: absolute; right: 0; top: 56px; width: 440px; max-width: calc(100vw - 120px); border-radius: 24px; background: {{t.pop}}; border: 1px solid var(--glassLine); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: 0 30px 80px rgba(0,0,0,0.22); overflow: hidden; z-index: 50">
+<sc-if value="{{taskForm}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; align-items: center; gap: 12px; padding: 18px 18px 14px">
+<img src="../assets/erik.jpg" alt="" style="width: 44px; height: 44px; border-radius: 14px; object-fit: cover; box-shadow: 0 0 0 2px var(--green)">
+<div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Vad vill du att jag gör?</span><span style="font-size: 12px; color: var(--muted)">Skriv fritt eller välj ett förslag nedan</span></div>
+<button onClick="{{closePops}}" aria-label="Stäng" style="width: 36px; height: 36px; flex: none; border-radius: 999px; border: 0; background: var(--soft); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</div>
+<div style="padding: 0 18px; display: flex; flex-direction: column; gap: 12px">
+<textarea aria-label="Uppdrag" value="{{taskText}}" onChange="{{setTaskText}}" placeholder="T.ex. hitta 20 bolag som liknar Allente i Göteborg" style="min-height: 96px; resize: vertical; padding: 14px; border-radius: 16px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; line-height: 1.5; outline: none; box-sizing: border-box; width: 100%"></textarea>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Förslag</span>
+<sc-for list="{{taskIdeas}}" as="ti" hint-placeholder-count="4">
+<button onClick="{{ti.pick}}" style="display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border-radius: 14px; border: 0; background: transparent; color: var(--ink); font-size: 13px; text-align: left; cursor: pointer">
+<span style="width: 30px; height: 30px; flex: none; border-radius: 10px; background: var(--tintG); color: var(--green); display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>{{ti.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 14px; padding: 14px 18px; border-top: 1px solid var(--line)">
+<span style="font-size: 12px; color: var(--muted)">Syns under Pågående sälj</span>
+<button onClick="{{sendTask}}" style="height: 42px; padding: 0 20px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 13px; font-weight: 600; cursor: pointer">Skicka till Erik</button>
+</div>
+</sc-if>
+<sc-if value="{{taskSent}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 28px 22px; text-align: center"><img src="../assets/erik.jpg" alt="" style="width: 56px; height: 56px; border-radius: 18px; object-fit: cover; box-shadow: 0 0 0 2px var(--green)"><span style="font-size: 16px; font-weight: 600">Jag är på det!</span><span style="font-size: 13px; color: var(--muted); line-height: 1.5; max-width: 300px">Uppdraget syns under Pågående sälj. Jag hör av mig när jag har något att visa.</span><button onClick="{{closePops}}" style="margin-top: 4px; height: 40px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--pill); color: var(--pillInk); font-size: 13px; font-weight: 600; cursor: pointer">Stäng</button></div>
+</sc-if>
+</div>
+</sc-if>
+</div>
+</div>
+</header>
+
+<section style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; padding: 6px 6px 0">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; color: var(--muted)">{{greeting}}, [Förnamn]</span>
+<h1 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: -0.03em">Erik har bokat 2 möten sedan i fredags</h1>
+</div>
+<div role="group" aria-label="Period" style="display: flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px)">
+<sc-for list="{{periods}}" as="p" hint-placeholder-count="4">
+<sc-if value="{{p.active}}" hint-placeholder-val="{{false}}"><button onClick="{{p.pick}}" aria-pressed="true" style="height: 34px; padding: 0 14px; border-radius: 999px; border: 0; background: var(--pill); color: var(--pillInk); font-size: 13px; font-weight: 600; cursor: pointer">{{p.label}}</button></sc-if>
+<sc-if value="{{p.inactive}}" hint-placeholder-val="{{true}}"><button onClick="{{p.pick}}" aria-pressed="false" style="height: 34px; padding: 0 14px; border-radius: 999px; border: 0; background: transparent; color: var(--ink); font-size: 13px; font-weight: 500; cursor: pointer">{{p.label}}</button></sc-if>
+</sc-for>
+</div>
+</section>
+
+<!-- KPI cards -->
+<section aria-label="Nyckeltal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="6">
+<sc-if value="{{k.selected}}" hint-placeholder-val="{{false}}">
+<button onClick="{{k.pick}}" aria-pressed="true" style="text-align: left; font: inherit; color: var(--ink); background: var(--glassHi); border: 2px solid var(--green); border-radius: 22px; padding: 15px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); box-shadow: 0 0 0 4px var(--tintG), var(--shadow)">
+<span style="font-size: 13px; font-weight: 600">{{k.label}}</span>
+<span style="font-size: 32px; font-weight: 600; letter-spacing: -0.03em; line-height: 1">{{k.value}}</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: {{k.trendColor}}">{{k.trend}}</span><svg width="78" height="26" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><polyline points="{{k.spark}}" fill="none" stroke="var(--chart)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"></polyline></svg></span>
+</button>
+</sc-if>
+<sc-if value="{{k.unselected}}" hint-placeholder-val="{{true}}">
+<button onClick="{{k.pick}}" aria-pressed="false" style="text-align: left; font: inherit; color: var(--ink); background: var(--glass); border: 1px solid var(--glassLine); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); box-shadow: var(--shadow)">
+<span style="font-size: 13px; font-weight: 500; color: var(--muted)">{{k.label}}</span>
+<span style="font-size: 32px; font-weight: 600; letter-spacing: -0.03em; line-height: 1">{{k.value}}</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: {{k.trendColor}}">{{k.trend}}</span><svg width="78" height="26" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><polyline points="{{k.spark}}" fill="none" stroke="var(--chart)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"></polyline></svg></span>
+</button>
+</sc-if>
+</sc-for>
+</section>
+
+<!-- Goal gauge + chart -->
+<section style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
+
+<div style="flex: 1 1 320px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Från bolag till möte</h2><span style="font-size: 13px; color: var(--muted)">Oktober · Eriks arbete steg för steg</span></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{funnel}}" as="f" hint-placeholder-count="5">
+<li style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 13px; color: var(--muted)">{{f.label}}</span><span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em">{{f.value}}</span></div>
+<div style="height: 10px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); overflow: hidden"><div style="width: {{f.pct}}; height: 100%; border-radius: 999px; background: var(--green); opacity: {{f.op}}"></div></div>
+</li>
+</sc-for>
+</ol>
+<div style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-radius: 18px; background: var(--tintG)">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--muted)">Kostnad per bokat möte</span><span style="font-size: 24px; font-weight: 600; letter-spacing: -0.02em">700 kr</span></div>
+<span style="font-size: 12px; color: var(--muted); text-align: right; max-width: 140px">4 900 kr/mån ÷ 7 möten</span>
+</div>
+</div>
+
+<div style="flex: 999 1 560px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">{{chartTitle}}</h2><span style="font-size: 13px; color: var(--muted)">{{chartSub}}</span></div>
+<sc-if value="{{showChart}}" hint-placeholder-val="{{true}}">
+<button onClick="{{toggleCompare}}" role="switch" aria-checked="{{compareStr}}" style="display: flex; align-items: center; gap: 8px; border: 0; background: transparent; color: var(--ink); font-size: 13px; font-weight: 500; cursor: pointer; padding: 0">
+<span style="position: relative; width: 38px; height: 22px; border-radius: 999px; background: {{compareTrack}}; transition: background .2s"><span style="position: absolute; top: 3px; left: {{compareKnob}}; width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF; transition: left .2s"></span></span>Jämför med förra perioden
+</button>
+</sc-if>
+</div>
+<sc-if value="{{showChart}}" hint-placeholder-val="{{true}}">
+<div role="group" aria-label="Kanal" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{channels}}" as="c" hint-placeholder-count="4">
+<sc-if value="{{c.active}}" hint-placeholder-val="{{false}}"><button onClick="{{c.pick}}" aria-pressed="true" style="height: 32px; padding: 0 14px; border-radius: 999px; border: 0; background: var(--pill); color: var(--pillInk); font-size: 12px; font-weight: 600; cursor: pointer">{{c.label}}</button></sc-if>
+<sc-if value="{{c.inactive}}" hint-placeholder-val="{{true}}"><button onClick="{{c.pick}}" aria-pressed="false" style="height: 32px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); font-size: 12px; font-weight: 500; cursor: pointer">{{c.label}}</button></sc-if>
+</sc-for>
+</div>
+<div style="display: flex; gap: 10px; flex: 1">
+<div style="display: flex; flex-direction: column; justify-content: space-between; font-size: 11px; color: var(--muted); padding: 8px 0 26px; font-family: 'Geist Mono', monospace"><span>10</span><span>5</span><span>0</span></div>
+<div style="position: relative; flex: 1; min-width: 0; height: 270px">
+<svg viewBox="0 0 720 240" preserveAspectRatio="none" role="img" aria-label="Linjediagram över de senaste 30 dagarna, totalt 140 mot 79 föregående period" style="position: absolute; left: 0; top: 0; width: 100%; height: calc(100% - 22px); overflow: visible">
+<defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--chart)" stop-opacity="0.22"></stop><stop offset="1" stop-color="var(--chart)" stop-opacity="0"></stop></linearGradient></defs>
+<line x1="0" y1="16" x2="720" y2="16" stroke="var(--line)" vector-effect="non-scaling-stroke"></line>
+<line x1="0" y1="120" x2="720" y2="120" stroke="var(--line)" vector-effect="non-scaling-stroke"></line>
+<line x1="0" y1="224" x2="720" y2="224" stroke="var(--line)" vector-effect="non-scaling-stroke"></line>
+<path d="M0.0 182.4 C12.4 182.4 12.4 161.6 24.8 161.6 C37.2 161.6 37.2 182.4 49.7 182.4 C62.1 182.4 62.1 140.8 74.5 140.8 C86.9 140.8 86.9 120.0 99.3 120.0 C111.7 120.0 111.7 161.6 124.1 161.6 C136.6 161.6 136.6 203.2 149.0 203.2 C161.4 203.2 161.4 203.2 173.8 203.2 C186.2 203.2 186.2 140.8 198.6 140.8 C211.0 140.8 211.0 99.2 223.4 99.2 C235.9 99.2 235.9 120.0 248.3 120.0 C260.7 120.0 260.7 78.4 273.1 78.4 C285.5 78.4 285.5 140.8 297.9 140.8 C310.4 140.8 310.4 182.4 322.8 182.4 C335.2 182.4 335.2 182.4 347.6 182.4 C360.0 182.4 360.0 120.0 372.4 120.0 C384.8 120.0 384.8 78.4 397.2 78.4 C409.6 78.4 409.6 99.2 422.1 99.2 C434.5 99.2 434.5 57.6 446.9 57.6 C459.3 57.6 459.3 99.2 471.7 99.2 C484.1 99.2 484.1 161.6 496.6 161.6 C509.0 161.6 509.0 182.4 521.4 182.4 C533.8 182.4 533.8 99.2 546.2 99.2 C558.6 99.2 558.6 57.6 571.0 57.6 C583.5 57.6 583.5 78.4 595.9 78.4 C608.3 78.4 608.3 36.8 620.7 36.8 C633.1 36.8 633.1 57.6 645.5 57.6 C657.9 57.6 657.9 140.8 670.3 140.8 C682.8 140.8 682.8 161.6 695.2 161.6 C707.6 161.6 707.6 78.4 720.0 78.4 L720 224 L0 224 Z" fill="url(#fillg)"></path>
+<sc-if value="{{compare}}" hint-placeholder-val="{{true}}">
+<path d="M0.0 203.2 C12.4 203.2 12.4 182.4 24.8 182.4 C37.2 182.4 37.2 182.4 49.7 182.4 C62.1 182.4 62.1 161.6 74.5 161.6 C86.9 161.6 86.9 182.4 99.3 182.4 C111.7 182.4 111.7 182.4 124.1 182.4 C136.6 182.4 136.6 203.2 149.0 203.2 C161.4 203.2 161.4 224.0 173.8 224.0 C186.2 224.0 186.2 182.4 198.6 182.4 C211.0 182.4 211.0 161.6 223.4 161.6 C235.9 161.6 235.9 161.6 248.3 161.6 C260.7 161.6 260.7 140.8 273.1 140.8 C285.5 140.8 285.5 161.6 297.9 161.6 C310.4 161.6 310.4 203.2 322.8 203.2 C335.2 203.2 335.2 203.2 347.6 203.2 C360.0 203.2 360.0 161.6 372.4 161.6 C384.8 161.6 384.8 140.8 397.2 140.8 C409.6 140.8 409.6 161.6 422.1 161.6 C434.5 161.6 434.5 140.8 446.9 140.8 C459.3 140.8 459.3 140.8 471.7 140.8 C484.1 140.8 484.1 182.4 496.6 182.4 C509.0 182.4 509.0 203.2 521.4 203.2 C533.8 203.2 533.8 161.6 546.2 161.6 C558.6 161.6 558.6 140.8 571.0 140.8 C583.5 140.8 583.5 140.8 595.9 140.8 C608.3 140.8 608.3 120.0 620.7 120.0 C633.1 120.0 633.1 140.8 645.5 140.8 C657.9 140.8 657.9 182.4 670.3 182.4 C682.8 182.4 682.8 182.4 695.2 182.4 C707.6 182.4 707.6 140.8 720.0 140.8" fill="none" stroke="var(--chartPrev)" stroke-width="1.5" stroke-dasharray="5 5" vector-effect="non-scaling-stroke"></path>
+</sc-if>
+<path d="M0.0 182.4 C12.4 182.4 12.4 161.6 24.8 161.6 C37.2 161.6 37.2 182.4 49.7 182.4 C62.1 182.4 62.1 140.8 74.5 140.8 C86.9 140.8 86.9 120.0 99.3 120.0 C111.7 120.0 111.7 161.6 124.1 161.6 C136.6 161.6 136.6 203.2 149.0 203.2 C161.4 203.2 161.4 203.2 173.8 203.2 C186.2 203.2 186.2 140.8 198.6 140.8 C211.0 140.8 211.0 99.2 223.4 99.2 C235.9 99.2 235.9 120.0 248.3 120.0 C260.7 120.0 260.7 78.4 273.1 78.4 C285.5 78.4 285.5 140.8 297.9 140.8 C310.4 140.8 310.4 182.4 322.8 182.4 C335.2 182.4 335.2 182.4 347.6 182.4 C360.0 182.4 360.0 120.0 372.4 120.0 C384.8 120.0 384.8 78.4 397.2 78.4 C409.6 78.4 409.6 99.2 422.1 99.2 C434.5 99.2 434.5 57.6 446.9 57.6 C459.3 57.6 459.3 99.2 471.7 99.2 C484.1 99.2 484.1 161.6 496.6 161.6 C509.0 161.6 509.0 182.4 521.4 182.4 C533.8 182.4 533.8 99.2 546.2 99.2 C558.6 99.2 558.6 57.6 571.0 57.6 C583.5 57.6 583.5 78.4 595.9 78.4 C608.3 78.4 608.3 36.8 620.7 36.8 C633.1 36.8 633.1 57.6 645.5 57.6 C657.9 57.6 657.9 140.8 670.3 140.8 C682.8 140.8 682.8 161.6 695.2 161.6 C707.6 161.6 707.6 78.4 720.0 78.4" fill="none" stroke="var(--chart)" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path>
+<line x1="620.7" y1="16" x2="620.7" y2="224" stroke="var(--muted)" stroke-opacity="0.35" vector-effect="non-scaling-stroke"></line>
+</svg>
+<div aria-hidden="true" style="position: absolute; left: calc(86.2% - 8px); top: calc((270px - 22px) * 0.153 - 8px); width: 16px; height: 16px; border-radius: 999px; background: var(--green); border: 3px solid #FFFFFF; box-sizing: border-box"></div>
+<div style="position: absolute; right: calc(13.8% + 18px); top: 0; padding: 10px 12px; border-radius: 14px; background: var(--glassHi); border: 1px solid var(--glassLine); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 6px; min-width: 160px">
+<span style="font-size: 12px; font-weight: 600">Ons 21 okt</span>
+<span style="display: flex; justify-content: space-between; gap: 16px; font-size: 12px; color: var(--muted)"><span>{{chartTitle}}</span><span style="font-weight: 600; color: var(--ink)">9</span></span>
+<sc-if value="{{compare}}" hint-placeholder-val="{{true}}"><span style="display: flex; justify-content: space-between; gap: 16px; font-size: 12px; color: var(--muted)"><span>Förra perioden</span><span style="font-weight: 600; color: var(--ink)">5</span></span></sc-if>
+</div>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); font-family: 'Geist Mono', monospace"><span>27 sep</span><span>4 okt</span><span>11 okt</span><span>18 okt</span><span>26 okt</span></div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{showPipeline}}" hint-placeholder-val="{{false}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; flex: 1">
+<sc-for list="{{pipeline}}" as="st" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 20px; background: var(--soft); border: 1px solid var(--glassLine)">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px 4px"><span style="font-size: 13px; font-weight: 600">{{st.stage}}</span><span style="font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: {{st.pillBg}}; color: {{st.pillFg}}">{{st.count}}</span></div>
+<sc-for list="{{st.items}}" as="it" hint-placeholder-count="3">
+<a href="#" style="text-decoration: none; display: flex; gap: 10px; align-items: center; padding: 10px; border-radius: 14px; background: var(--glassHi); border: 1px solid var(--glassLine); color: var(--ink)">
+<span style="width: 32px; height: 32px; flex: none; border-radius: 10px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{it.initials}}</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 13px; font-weight: 600">{{it.name}}</span><span style="font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.note}}</span></span>
+</a>
+</sc-for>
+<a href="#" style="font-size: 12px; font-weight: 600; color: var(--green); padding: 4px">+ {{st.more}} till</a>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap"><span style="font-size: 12px; color: var(--muted)">Alla bolag här har Erik hittat själv och fått svar från.</span><a href="#" style="font-size: 13px; font-weight: 600; color: var(--green)">Öppna hela pipelinen</a></div>
+</sc-if>
+</div>
+</section>
+
+<!-- Erik now -->
+<section aria-label="Erik just nu" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
+
+<div style="flex: 999 1 520px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Erik just nu</h2><a href="#" style="font-size: 13px; font-weight: 600; color: var(--green)">Alla körningar</a></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px">
+<li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--green); box-shadow: 0 0 0 4px var(--tintG)"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Researchar <b>12 bolag</b> i Mälardalen</span><span style="font-size: 12px; color: var(--muted)">Pågår nu</span></div></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--muted); opacity: 0.6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Bokade möte med <b>[Prospekt]</b>, tor 14:00</span><span style="font-size: 12px; color: var(--muted)">08:47</span></div></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--muted); opacity: 0.6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Fick svar från <b>[Prospekt]</b> – positivt</span><span style="font-size: 12px; color: var(--muted)">I går 16:10</span></div></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--muted); opacity: 0.6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Skickade <b>48 mejl</b> och <b>16 LinkedIn-förfrågningar</b></span><span style="font-size: 12px; color: var(--muted)">I går 08:00–17:00</span></div></li>
+</ol>
+</div>
+
+<div style="flex: 1 1 300px; min-width: 0; padding: 22px; border-radius: 26px; background: {{t.inv}}; color: {{t.invInk}}; border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Sändning</h2><a href="Installningar.dc.html" style="font-size: 13px; font-weight: 600; color: {{t.invGreen}}">Ändra</a></div>
+<dl style="margin: 0; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid {{t.invLine}}"><dt style="font-size: 13px; opacity: 0.72">Just nu</dt><dd style="margin: 0; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: {{t.invGreen}}"></span>Inom fönstret</dd></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid {{t.invLine}}"><dt style="font-size: 13px; opacity: 0.72">Fönster</dt><dd style="margin: 0; font-size: 14px; font-weight: 600">mån–fre · 08:00–17:00</dd></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid {{t.invLine}}"><dt style="font-size: 13px; opacity: 0.72">Tidszon</dt><dd style="margin: 0; font-size: 14px; font-weight: 600">Europe/Stockholm</dd></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0"><dt style="font-size: 13px; opacity: 0.72">Gmail</dt><dd style="margin: 0; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: {{t.invGreen}}"><path d="m5 12 5 5L20 7"></path></svg>Ansluten</dd></div>
+</dl>
+</div>
+</section>
+
+<!-- New companies -->
+<section style="padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center"><div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Nya bolag</h2><span style="font-size: 13px; color: var(--muted)">Topp 5, sorterat på matchning mot dina kundprofiler</span></div><a href="Foretag.dc.html" style="font-size: 13px; font-weight: 600; color: var(--green)">Alla identifierade företag</a></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{searches}}" as="se" hint-placeholder-count="2">
+<span style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px"><b style="font-weight: 600">{{se.profile}}</b><span style="color: var(--muted)">senast {{se.last}} · {{se.found}}</span></span>
+</sc-for>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px">
+<thead><tr style="text-align: left; color: var(--muted); font-size: 12px">
+<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Bolag</th>
+<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Bransch</th>
+<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Köpsignal</th>
+<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line); width: 170px">Matchning</th>
+<th style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Status</th>
+</tr></thead>
+<tbody>
+<sc-for list="{{companies}}" as="co" hint-placeholder-count="5">
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid var(--line)"><div style="display: flex; align-items: center; gap: 10px"><div style="width: 32px; height: 32px; border-radius: 10px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{co.initials}}</div><span style="font-weight: 500">{{co.name}}</span></div></td>
+<td style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted)">{{co.industry}}</td>
+<td style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted)">{{co.signal}}</td>
+<td style="padding: 12px; border-bottom: 1px solid var(--line)"><div style="display: flex; align-items: center; gap: 10px"><div style="flex: 1; height: 6px; border-radius: 999px; background: var(--soft)"><div style="width: {{co.scorePct}}; height: 100%; border-radius: 999px; background: var(--green)"></div></div><span style="font-family: 'Geist Mono', monospace; font-size: 12px">{{co.score}}</span></div></td>
+<td style="padding: 12px; border-bottom: 1px solid var(--line)"><span style="font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{co.statusBg}}; color: {{co.statusFg}}">{{co.status}}</span></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- Moa strip -->
+<section style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 14px 16px 14px 14px; border-radius: 24px; background: var(--glass); border: 1px dashed var(--muted); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%)">
+<img src="../assets/moa.jpg" alt="Moa" style="width: 52px; height: 52px; flex: none; border-radius: 16px; object-fit: cover">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Moa, webbredaktör <span style="font-size: 12px; font-weight: 500; color: var(--muted)">· inte aktiverad</span></span><span style="font-size: 13px; color: var(--muted)">Skriver artiklar för er sajt i den ton ni redan har. Du granskar allt innan något sparas.</span></div>
+<button style="height: 42px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 13px; font-weight: 600; cursor: pointer">Aktivera Moa</button>
+</section>
+
+</main>
+</div>
+</div>
+</template>
+<script src="dc-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  aikReadTheme(fallback) {
+    try { window.localStorage.removeItem('aik-theme'); } catch (e) {}
+    try { const v = window.sessionStorage.getItem('aik-theme-tab'); if (v === 'dark') return true; if (v === 'light') return false; } catch (e) {}
+    if (typeof window.__aikTheme === 'boolean') return window.__aikTheme;
+    return !!fallback;
+  }
+  aikWriteTheme(dark) {
+    window.__aikTheme = dark;
+    try { window.sessionStorage.setItem('aik-theme-tab', dark ? 'dark' : 'light'); } catch (e) {}
+  }
+  aikPaintRoot(doc, dark) {
+    try {
+      const root = doc.documentElement;
+      root.style.background = dark ? '#0A0F0C' : '#D8D2C6';
+      root.style.colorScheme = dark ? 'dark' : 'light';
+      if (doc.body) doc.body.style.background = dark ? '#0A0F0C' : '#D8D2C6';
+    } catch (e) {}
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { dark: this.aikReadTheme(props.startDark), tab: 'Översikt', period: '30 d', channel: 'Alla kanaler', kpi: 'Svar', compare: true, auto: true, rail: false };
+  }
+  componentDidMount() {
+    this.aikPaintRoot(document, this.state.dark);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.dark !== this.state.dark) this.aikPaintRoot(document, this.state.dark);
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#1E7B4E';
+    const dark = this.state.dark;
+    const t = dark ? {
+      base: '#0A0F0C', blob1: '#1D3A2B', blob2: '#3A3124', blob3: '#173226', blob4: '#2B2A22',
+      glass: 'rgba(22,30,25,0.55)', glassHi: 'rgba(34,46,38,0.7)', glassLine: 'rgba(255,255,255,0.08)',
+      soft: 'rgba(255,255,255,0.06)', line: 'rgba(255,255,255,0.08)', ink: '#EEF2EE', muted: '#A3AFA7',
+      pill: '#EEF2EE', pillInk: '#0A0F0C', green: accent, onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.35)',
+      chart: '#4CC285', chartPrev: '#6C7A71', tintG: 'rgba(76,194,133,0.2)', down: '#F07A63',
+      shadow: '0 10px 40px rgba(0,0,0,0.35)',
+      scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', inv: 'rgba(24,52,38,0.78)', invInk: '#EEF2EE', invSoft: 'rgba(255,255,255,0.06)', invLine: 'rgba(255,255,255,0.1)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
+    } : {
+      base: '#D8D2C6', blob1: '#B9C4A8', blob2: '#EADFCB', blob3: '#9FB394', blob4: '#CDB89C',
+      glass: 'rgba(255,255,255,0.42)', glassHi: 'rgba(255,255,255,0.68)', glassLine: 'rgba(255,255,255,0.65)',
+      soft: 'rgba(255,255,255,0.45)', line: 'rgba(30,40,34,0.1)', ink: '#14201A', muted: '#4B5750',
+      pill: '#14201A', pillInk: '#FFFFFF', green: accent, onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.28)',
+      chart: '#1E7B4E', chartPrev: '#8A938C', tintG: 'rgba(30,123,78,0.16)', down: '#B3382A',
+      shadow: '0 10px 40px rgba(60,50,30,0.10)',
+      scrim: 'rgba(216,210,198,0.28)', pop: 'rgba(251,250,247,0.97)', field: '#FFFFFF', fieldLine: 'rgba(20,32,26,0.12)', inv: 'rgba(17,28,22,0.86)', invInk: '#F1F5F2', invSoft: 'rgba(255,255,255,0.08)', invLine: 'rgba(255,255,255,0.12)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
+    };
+    const up = dark ? '#4CC285' : '#17643F';
+
+    const toggleTheme = (e) => {
+      if (this._themeBusy) return;
+      const el = e && e.currentTarget;
+      const next = !this.state.dark;
+      const doc = (el && el.ownerDocument) || document;
+      const win = doc.defaultView || window;
+      this.aikWriteTheme(next);
+      let reduce = false;
+      try { reduce = !!(win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (err) {}
+      if (!el || typeof doc.startViewTransition !== 'function' || reduce) { this.setState({ dark: next }); return; }
+      const r = el.getBoundingClientRect();
+      const x = Math.round(r.left + r.width / 2), y = Math.round(r.top + r.height / 2);
+      const end = Math.ceil(Math.hypot(Math.max(x, win.innerWidth - x), Math.max(y, win.innerHeight - y)));
+      this._themeBusy = true;
+      let vt;
+      try {
+        vt = doc.startViewTransition(() => new Promise((res) => {
+          this.setState({ dark: next }, () => { this.aikPaintRoot(doc, next); res(); });
+        }));
+      } catch (err) {
+        this._themeBusy = false; this.setState({ dark: next }); return;
+      }
+      vt.ready.then(() => {
+        doc.documentElement.animate(
+          { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
+          { duration: 620, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'both', pseudoElement: '::view-transition-new(root)' }
+        );
+      }).catch(() => {});
+      const done = () => { this._themeBusy = false; };
+      vt.finished.then(done, done);
+    };
+
+    const mk = (key, list) => list.map((label) => ({
+      label, active: this.state[key] === label, inactive: this.state[key] !== label,
+      pick: () => this.setState({ [key]: label })
+    }));
+    const tabs = mk('tab', ['Översikt', 'Möten', 'Kanaler']);
+    const periods = mk('period', ['7 d', '30 d', '90 d', 'I år']);
+    const channels = mk('channel', ['Alla kanaler', 'Mejl', 'LinkedIn', 'Anbud']);
+
+    const kpiDefs = [
+      ['Svar', '140', '↗ 77 % mot förra', up, '0.0,28.0 9.1,25.3 18.2,28.0 27.3,20.0 36.4,22.7 45.5,17.3 54.5,20.0 63.6,12.0 72.7,14.7 81.8,9.3 90.9,12.0 100.0,4.0'],
+      ['Utskick', '1 270', '958 mejl · 312 LinkedIn', t.muted, '0.0,28.0 9.1,22.5 18.2,24.3 27.3,18.3 36.4,19.7 45.5,14.2 54.5,16.0 63.6,12.3 72.7,9.1 81.8,10.0 90.9,5.8 100.0,4.0'],
+      ['Svarsfrekvens', '14,6 %', '↘ 0,8 p', t.down, '0.0,10.0 9.1,8.0 18.2,12.0 27.3,9.0 36.4,14.0 45.5,12.0 54.5,16.0 63.6,13.0 72.7,18.0 81.8,15.0 90.9,20.0 100.0,18.0'],
+      ['Pipeline', '26 bolag', '↗ +5 denna vecka', up, '0.0,28.0 9.1,27.0 18.2,24.0 27.3,24.0 36.4,21.0 45.5,20.0 54.5,17.0 63.6,16.0 72.7,12.0 81.8,10.0 90.9,8.0 100.0,4.0']
+    ];
+    const kpis = kpiDefs.map(([label, value, trend, trendColor, spark]) => ({
+      label, value, trend, trendColor, spark,
+      selected: this.state.kpi === label, unselected: this.state.kpi !== label,
+      pick: () => this.setState({ kpi: label })
+    }));
+
+    const st = dark ? {
+      'Möte bokat': [accent, '#FFFFFF'], 'I dialog': ['rgba(76,194,133,0.2)', '#9BE6BD'], 'Kontaktad': ['rgba(255,255,255,0.08)', '#D3DBD5'], 'Ny': ['transparent', '#A3AFA7']
+    } : {
+      'Möte bokat': [accent, '#FFFFFF'], 'I dialog': ['rgba(30,123,78,0.16)', '#124A2F'], 'Kontaktad': ['rgba(255,255,255,0.6)', '#2F3A33'], 'Ny': ['transparent', '#4B5750']
+    };
+    const companies = [
+      ['Bolag A', 'Industri', 'Rekryterar säljare', 94, 'Möte bokat'],
+      ['Bolag B', 'SaaS', 'Ny försäljningschef', 91, 'I dialog'],
+      ['Bolag C', 'Redovisning', 'Expanderar till Göteborg', 87, 'Kontaktad'],
+      ['Bolag D', 'Bygg', 'Vann upphandling', 82, 'Kontaktad'],
+      ['Bolag E', 'Fastighet', 'Ny VD', 78, 'Ny']
+    ].map(([name, industry, signal, score, status]) => ({
+      name, industry, signal, score, status,
+      initials: name.split(' ').map((w) => w[0]).join(''),
+      scorePct: score + '%', statusBg: st[status][0], statusFg: st[status][1]
+    }));
+
+    const waiting = [
+      ['11', 'Förslag att godkänna', '6 mejl · 3 LinkedIn · 2 anbud', 'Granska', true],
+      ['11', 'Nya företag att godkänna', 'Identifierade i dag', 'Granska företag', true],
+      ['1', 'Varmt svar från [Prospekt]', 'Vill ha möte nästa vecka', 'Svara', true]
+    ].map(([count, title, meta, action, primary], i) => ({ count, title, meta, action, primary, secondary: !primary, href: i === 0 ? 'Forslag.dc.html' : i === 1 ? 'Foretag.dc.html' : '#' }));
+    const pco = (n, note) => ({ name: n, note, initials: n.split(' ').map((w) => w[0]).join('') });
+    const pipeline = [
+      { stage: 'Svarat positivt', count: '12', more: 9, pillBg: t.soft, pillFg: t.ink, items: [pco('Bolag F', 'Vill veta mer om pris'), pco('Bolag G', 'Be om case från bygg'), pco('Bolag H', 'Återkom i januari')] },
+      { stage: 'I dialog', count: '7', more: 4, pillBg: t.tintG, pillFg: t.ink, items: [pco('Bolag B', 'Erik föreslår tider'), pco('Bolag I', 'Väntar på ditt svar'), pco('Bolag J', 'Andra mejlet skickat')] },
+      { stage: 'Möte bokat', count: '7', more: 4, pillBg: accent, pillFg: '#FFFFFF', items: [pco('Bolag A', 'Tor 29 okt 14:00'), pco('Bolag K', 'Fre 30 okt 09:30'), pco('Bolag L', 'Tis 3 nov 10:00')] }
+    ];
+    const funnel = [
+      ['Identifierade företag', 108], ['Godkända av dig', 64], ['Kontaktade', 52], ['Har svarat', 19], ['Möte bokat', 7]
+    ].map(([label, v], i, arr) => ({ label, value: String(v), pct: Math.max(4, Math.round(v / 108 * 100)) + '%', op: i === arr.length - 1 ? '1' : String(0.35 + i * 0.12) }));
+    const proposals = [
+      { who: '[Kontakt 1]', company: '[Bolag]', when: '23 okt 12:54' },
+      { who: '[Kontakt 2]', company: '[Bolag]', when: '23 okt 12:53' },
+      { who: '[Kontakt 3]', company: '[Bolag]', when: '23 okt 12:53' }
+    ];
+    const searches = [
+      { profile: '[Kundprofil 1]', last: '23 okt 13:36', found: '5 företag' },
+      { profile: '[Kundprofil 2]', last: '22 okt 08:13', found: '5 företag' }
+    ];
+    const compare = this.state.compare;
+    const auto = this.state.auto;
+    const nowD = new Date();
+    const dayStr = nowD.toLocaleDateString('sv-SE', { weekday: 'long', day: 'numeric', month: 'long' });
+    const wkTmp = new Date(Date.UTC(nowD.getFullYear(), nowD.getMonth(), nowD.getDate()));
+    const wkDay = wkTmp.getUTCDay() || 7;
+    wkTmp.setUTCDate(wkTmp.getUTCDate() + 4 - wkDay);
+    const weekNo = Math.ceil(((wkTmp - new Date(Date.UTC(wkTmp.getUTCFullYear(), 0, 1))) / 86400000 + 1) / 7);
+    const hr = nowD.getHours();
+    const readSet = this.state.readN || {};
+    const notifBase = [
+      ['n1', 'Erik bokade möte med Teracom AB, tor 29 okt 14:00', 'Möte', '08:47', 'Kundkort.dc.html'],
+      ['n2', 'Varmt svar från [Prospekt] – vill ha möte nästa vecka', 'Svar', '08:12', 'Forslag.dc.html'],
+      ['n3', '11 nya förslag väntar på ditt godkännande', 'Förslag', '07:00', 'Forslag.dc.html'],
+      ['n4', 'LinkedIn är inte anslutet – Erik hoppar över LinkedIn-sökningar', 'Behöver dig', 'I går', '#'],
+      ['n5', 'Veckorapporten för vecka 43 är klar', 'Rapport', 'Fre', '#']
+    ];
+    const notifs = notifBase.map(([id, text, kind, when, href], i) => {
+      const unread = i < 3 && !readSet[id] && !readSet.all;
+      return {
+        text, kind, when, href, weight: unread ? '600' : '400',
+        bg: unread ? 'var(--soft)' : 'transparent', dot: unread ? 'var(--green)' : 'transparent',
+        read: () => this.setState({ readN: { ...(this.state.readN || {}), [id]: true }, notifOpen: false })
+      };
+    });
+    const unreadN = notifs.filter((n) => n.weight === '600').length;
+    const topVals = {
+      todayStr: dayStr.charAt(0).toUpperCase() + dayStr.slice(1), weekStr: 'v. ' + weekNo,
+      greeting: hr < 10 ? 'God morgon' : hr < 18 ? 'Hej' : 'God kväll',
+      notifs, unreadN: String(unreadN), hasUnread: unreadN > 0,
+      notifOpen: !!this.state.notifOpen, notifStr: this.state.notifOpen ? 'true' : 'false',
+      notifLabel: unreadN ? 'Notiser, ' + unreadN + ' olästa' : 'Notiser',
+      toggleNotif: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((s) => ({ notifOpen: !s.notifOpen, taskOpen: false, taskSent: false })); },
+      markAllRead: () => this.setState({ readN: { all: true } }),
+      taskOpen: !!this.state.taskOpen, taskStr: this.state.taskOpen ? 'true' : 'false',
+      taskForm: !this.state.taskSent, taskSent: !!this.state.taskSent,
+      toggleTask: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((s) => ({ taskOpen: !s.taskOpen, notifOpen: false, taskSent: false })); },
+      sendTask: () => this.setState({ taskSent: true }),
+      closeTask: () => this.setState({ taskOpen: false, taskSent: false }),
+      anyPop: !!(this.state.notifOpen || this.state.taskOpen),
+      closePops: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ notifOpen: false, taskOpen: false, taskSent: false, taskText: '' }); },
+      taskText: this.state.taskText || '',
+      setTaskText: (e) => this.setState({ taskText: e.target.value }),
+      taskIdeas: ['Hitta fler bolag som liknar Allente', 'Researcha ett specifikt bolag åt mig', 'Följ upp en kontakt som inte svarat', 'Leta upphandlingar som passar oss'].map((label) => ({ label, pick: () => this.setState({ taskText: label }) }))
+    };
+    return {
+      ...topVals,
+      t, dark, light: !dark, themeLabel: dark ? 'Byt till ljust läge' : 'Byt till mörkt läge', toggleTheme,
+      waiting, funnel, searches, periods, channels, kpis, companies,
+      chartTitle: this.state.kpi, pipeline,
+      showPipeline: this.state.kpi === 'Pipeline', showChart: this.state.kpi !== 'Pipeline',
+      chartSub: this.state.kpi === 'Pipeline' ? '26 bolag som Erik hittat och fått svar från' : 'Senaste 30 dagarna · per dag',
+      compare, compareStr: compare ? 'true' : 'false',
+      compareTrack: compare ? accent : t.line, compareKnob: compare ? '19px' : '3px',
+      toggleCompare: () => this.setState({ compare: !compare }),
+      autoStr: auto ? 'true' : 'false', autoTrack: auto ? accent : t.line, autoKnob: auto ? '23px' : '3px',
+      toggleAuto: () => this.setState({ auto: !auto }),
+      openRail: () => { if (!this.state.rail) this.setState({ rail: true }); },
+      closeRail: () => { if (this.state.rail) this.setState({ rail: false }); },
+      railW: this.state.rail ? '268px' : '76px', lo: this.state.rail ? '1' : '0',
+      railShadow: this.state.rail ? (dark ? '0 24px 60px rgba(0,0,0,0.55)' : '0 24px 60px rgba(60,50,30,0.22)') : t.shadow
+    };
+  }
+}
+DC.mount(Component, {"accent": "#1E7B4E", "startDark": false});
+</script>
+</body>
+</html>

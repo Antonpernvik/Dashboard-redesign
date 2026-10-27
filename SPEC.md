@@ -121,6 +121,32 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - Efter inloggning: direkt till Start. (Mellanläget "Välkommen tillbaka" i prototypen är bara för demon.)
 - Logga ut (menyn, alla sidor): leder hit.
 
+## Granska förslag fält för fält – klickbart
+- Nås från Identifierade företag › Visa underlag och från en körning › Granska förslaget.
+- Pilarna uppe till höger bläddrar mellan förslagen från samma körning; "x av 3 väntar" räknas ned.
+- Kryssruta per fält: avmarkera så tas fältet inte med (raden tonas, "Tas inte med").
+- Klick på ett värde: redigera på plats. Enter/Spara sparar, Esc/Avbryt ångrar. Ändrat värde får "Ändrad av dig" + Återställ och sparas utan källa.
+- Källa per fält: citat + länk + när sidan hämtades. Eriks bedömning har ingen källa.
+- Beslutsraden ligger fast i nederkant: "x av 7 fält tas med · y ändrat", Anledning (valfritt), Avvisa, Godkänn (x fält). Godkänn är inaktiv om inget fält är med.
+- Efter beslut: kvitto + Ångra + Nästa förslag (eller Klart – tillbaka till listan).
+
+## Körningar och En körning – klickbart
+- Filter: Alla / Pågår / Väntar på dig / Klara / Misslyckade med antal.
+- Rad: uppgift på svenska, status, resultat, startad + tid. Klick öppnar körningen.
+- Väntar på dig: grön kant + länk till granskningen. Misslyckad: röd kant, begriplig text (aldrig rått fel) + Försök igen.
+- Kostnad i USD visas inte för kunden.
+- En körning: fakta, "Så gick det till", Hämtade sidor (Visa alla), Borttagna värden, Teknisk information (fälls ut: modellanrop och tokens).
+
+## Tillägg från dagens app
+- Kundkort: Matchning + säkerhet + bedömd datum under rubriken. Åtgärder-meny (Bedöm igen, Berika, Hitta kontakter, Hitta på LinkedIn – inaktiv utan LinkedIn, Uteslut företaget… med bekräftelse → banner med Återinför).
+- Kundkort › Research › Kontakter: tabell med e-post/telefon/källa, Skriv mejl per kontakt (utkast till Förslag), Lägg till kontakt för hand, Språk i e-post per företag.
+- Kundkort › Research › Eriks arbete: arbetsflödets steg med status och skäl, klick → körningen.
+- Kundkort och Förslag › Be Erik skriva om: instruktion + "Kom ihåg till framtida mejl" (sparas som regel under Inställningar › Erik).
+- Förslag › Redigera: texten redigeras på plats. Träna Erik: kommentar till Erik + kvitto.
+- Arbetsflöden: steg 1–6 som i appen, med läge, gränser (turer, tidsgräns), "Körs när …" och "Regler för det här steget". "Körs nu och senast" per företag med skäl till överhoppade steg. Mejl ingår inte i kedjan – startas från Kontakter.
+- Pågående › Åtgärder › Lägg till ett företag… (namn/webbplats + kundprofil).
+- Kundprofiler: Åtgärder-knappen borttagen – "Ny kundprofil" finns redan som knapp och kort.
+
 # Designtokens
 
 ## Färger (ljust läge)

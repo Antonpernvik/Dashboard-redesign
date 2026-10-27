@@ -1,0 +1,190 @@
+/* =====================================================================
+   Ai Kollegorna – Dashboard v2 · komponenter
+   Kräver tokens.css. Klassnamn i BEM-stil, inga beroenden.
+   Värdena är tagna direkt från designfilerna – samma mått, samma färger.
+   ===================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; background: var(--base); }
+body { font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+button, input, textarea, select { font: inherit; color: inherit; }
+
+/* ---------- Bakgrund ------------------------------------------------- */
+.app-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: var(--base); }
+.app-bg span { position: absolute; border-radius: 999px; }
+.app-bg span:nth-child(1) { left: -8%; top: -6%; width: 46%; height: 520px; background: var(--blob1); filter: blur(90px); }
+.app-bg span:nth-child(2) { right: -6%; top: 4%; width: 42%; height: 600px; background: var(--blob2); filter: blur(110px); }
+.app-bg span:nth-child(3) { left: 28%; top: 38%; width: 40%; height: 520px; background: var(--blob3); filter: blur(110px); }
+.app-bg span:nth-child(4) { left: -4%; bottom: -4%; width: 38%; height: 560px; background: var(--blob4); filter: blur(100px); }
+.app-bg span:nth-child(5) { right: 4%; bottom: 6%; width: 34%; height: 460px; background: var(--blob1); filter: blur(100px); }
+
+/* ---------- Layout --------------------------------------------------- */
+.app { position: relative; z-index: 1; display: flex; gap: 16px; align-items: flex-start; padding: 16px; min-height: 100vh; }
+.app__main { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+
+/* ---------- Glas ----------------------------------------------------- */
+.glass { background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); }
+.card { padding: 22px; border-radius: var(--r-card); background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; }
+.card--lg { padding: 32px; border-radius: var(--r-panel); min-height: 300px; }
+.card--selected { border: 2px solid var(--green); }
+.card--inv { background: var(--inv); color: var(--invInk); border-color: var(--invLine); }
+.card--inv .muted { color: rgba(241,245,242,0.7); }
+.card--dashed { border: 1px dashed var(--muted); box-shadow: none; }
+.box { padding: 12px 14px; border-radius: var(--r-lg); background: var(--soft); border: 1px solid var(--glassLine); }
+.box--hi { background: var(--glassHi); }
+.divider { height: 1px; background: var(--line); border: 0; margin: 0; }
+
+/* ---------- Typografi ----------------------------------------------- */
+.h1 { margin: 0; font-size: var(--fs-36); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+.h1--xl { font-size: var(--fs-40); }
+.h2 { margin: 0; font-size: var(--fs-24); font-weight: 600; letter-spacing: -0.02em; }
+.h3 { margin: 0; font-size: var(--fs-18); font-weight: 600; }
+.lead { font-size: var(--fs-14); color: var(--muted); }
+.muted { color: var(--muted); }
+.small { font-size: var(--fs-12); }
+.eyebrow { font-size: var(--fs-12); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.eyebrow--green { color: var(--green); }
+.num { font-size: 32px; font-weight: 600; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-mono); }
+
+/* ---------- Knappar -------------------------------------------------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: var(--h-lg); padding: 0 18px; border-radius: var(--r-pill); border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: var(--fs-14); font-weight: 600; cursor: pointer; white-space: nowrap; text-decoration: none; transition: filter .15s, transform .15s; }
+.btn:hover { filter: brightness(1.03); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn--primary { border: 0; background: var(--green); color: var(--onGreen); box-shadow: 0 8px 20px var(--greenGlow); }
+.btn--soft { background: var(--soft); }
+.btn--danger { color: var(--down); }
+.btn--link { height: auto; padding: 6px 2px; border: 0; background: transparent; color: var(--green); font-size: var(--fs-13); box-shadow: none; }
+.btn--link-muted { color: var(--muted); }
+.btn--sm { height: var(--h-sm); padding: 0 16px; font-size: var(--fs-13); }
+.btn--md { height: var(--h-md); }
+.btn--xl { height: var(--h-xl); font-size: var(--fs-15); }
+.btn--block { width: 100%; }
+.icon-btn { width: 44px; height: 44px; border-radius: var(--r-pill); border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; position: relative; }
+
+/* ---------- Segment / flikar ---------------------------------------- */
+/* Används för periodval (7 d/30 d), kanalfilter, flikar i Kundkort/Inställningar. */
+.seg { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 5px; border-radius: var(--r-pill); background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.seg__item { height: 40px; padding: 0 18px; border-radius: var(--r-pill); border: 0; background: transparent; color: var(--ink); font-size: var(--fs-14); font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.seg__item[aria-selected="true"], .seg__item.is-active { background: var(--pill); color: var(--pillInk); font-weight: 600; }
+.seg__count { font-size: var(--fs-11); font-weight: 700; padding: 2px 7px; border-radius: var(--r-pill); background: var(--soft); }
+.seg__item.is-active .seg__count { background: rgba(255,255,255,0.18); }
+/* Lös variant (filterknappar utan behållare) */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip-btn { height: 36px; padding: 0 14px; border-radius: var(--r-pill); border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); font-size: var(--fs-13); font-weight: 500; cursor: pointer; }
+.chip-btn.is-active { background: var(--pill); color: var(--pillInk); border-color: transparent; font-weight: 600; }
+
+/* ---------- Taggar / status ----------------------------------------- */
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-12); font-weight: 600; padding: 4px 10px; border-radius: var(--r-pill); background: var(--soft); border: 1px solid var(--glassLine); color: var(--ink); white-space: nowrap; }
+.tag--green { background: var(--tintG); border-color: transparent; }
+.tag--solid { background: var(--green); color: var(--onGreen); border-color: transparent; }
+.tag--warn { color: var(--down); }
+.tag__dot { width: 7px; height: 7px; border-radius: 999px; background: var(--green); }
+.badge { position: absolute; min-width: 18px; height: 18px; padding: 0 5px; border-radius: var(--r-pill); background: var(--green); color: var(--onGreen); font-size: var(--fs-10); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.trend--up { color: var(--up); font-size: var(--fs-12); font-weight: 600; }
+.trend--down { color: var(--down); font-size: var(--fs-12); font-weight: 600; }
+
+/* ---------- Avatar --------------------------------------------------- */
+.avatar { width: 44px; height: 44px; flex: none; border-radius: 14px; object-fit: cover; }
+.avatar--ring { box-shadow: 0 0 0 2px var(--green), 0 8px 20px var(--greenGlow); }
+.avatar--round { border-radius: 999px; }
+.avatar--initials { display: flex; align-items: center; justify-content: center; background: var(--pill); color: var(--pillInk); font-size: 13px; font-weight: 700; border-radius: 999px; }
+.status-pill { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px 0 4px; border-radius: var(--r-pill); background: var(--tintG); font-size: var(--fs-13); font-weight: 600; }
+.status-pill__img { position: relative; width: 36px; height: 36px; }
+.status-pill__img img { width: 36px; height: 36px; border-radius: 999px; object-fit: cover; }
+.status-pill__img::after { content: ''; position: absolute; right: -1px; bottom: -1px; width: 10px; height: 10px; border-radius: 999px; background: var(--green); border: 2px solid var(--base); }
+
+/* ---------- Formulär ------------------------------------------------- */
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field__label { font-size: var(--fs-13); font-weight: 600; }
+.field__hint { font-size: var(--fs-12); color: var(--muted); }
+.input, .textarea, .select { width: 100%; height: 46px; padding: 0 14px; border-radius: var(--r-md); border: 1.5px solid var(--fieldLine); background: var(--field); color: var(--ink); font-size: var(--fs-14); outline: none; }
+.input:focus, .textarea:focus, .select:focus { border-color: var(--green); }
+.input.is-error { border-color: var(--down); }
+.textarea { height: auto; min-height: 92px; padding: 12px 14px; line-height: 1.5; resize: vertical; }
+.input--xl { height: 50px; padding: 0 16px; border-radius: 16px; font-size: var(--fs-15); }
+.search { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: var(--r-pill); background: var(--soft); border: 1px solid var(--glassLine); color: var(--muted); font-size: var(--fs-14); }
+.search input { border: 0; background: transparent; outline: none; color: var(--ink); width: 170px; }
+.error-text { font-size: var(--fs-13); font-weight: 600; color: var(--down); }
+
+/* Tagg-inmatning (Kundprofil: branscher, regioner, signaler, roller, uteslut) */
+.tag-input { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; border-radius: var(--r-md); border: 1.5px solid var(--fieldLine); background: var(--field); }
+.tag-input .tag button { border: 0; background: transparent; padding: 0; color: var(--muted); cursor: pointer; }
+.tag-input input { flex: 1 1 160px; min-width: 120px; height: 36px; border: 0; background: transparent; outline: none; font-size: var(--fs-13); }
+
+/* Switch */
+.switch { display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; padding: 0; font-size: var(--fs-13); font-weight: 500; cursor: pointer; }
+.switch__track { position: relative; width: 38px; height: 22px; border-radius: 999px; background: var(--fieldLine); transition: background .2s; }
+.switch__track::after { content: ''; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 999px; background: #FFFFFF; transition: left .2s; }
+.switch[aria-checked="true"] .switch__track { background: var(--green); }
+.switch[aria-checked="true"] .switch__track::after { left: 19px; }
+
+/* Reglage (Erik › lägsta matchning) */
+.range { width: 100%; accent-color: var(--green); }
+
+/* ---------- Sidomeny (ikonlist som fälls ut vid hover) -------------- */
+.rail-slot { position: sticky; top: 16px; z-index: 30; flex: none; width: var(--rail-closed); height: calc(100vh - 32px); min-height: 620px; }
+.rail { position: absolute; inset: 0 auto 0 0; width: var(--rail-closed); overflow: hidden; padding: 14px; border-radius: var(--r-panel); background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; transition: width var(--dur-rail) var(--ease), box-shadow var(--dur-rail); }
+.rail:hover, .rail:focus-within, .rail.is-open { width: var(--rail-open); box-shadow: var(--shadow-rail-open); }
+.rail__label { opacity: 0; transition: opacity var(--dur-fade); white-space: nowrap; }
+.rail:hover .rail__label, .rail:focus-within .rail__label, .rail.is-open .rail__label { opacity: 1; }
+.rail__nav { display: flex; flex-direction: column; gap: 6px; }
+.rail__item { position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: var(--r-lg); color: var(--ink); font-size: var(--fs-14); font-weight: 500; text-decoration: none; white-space: nowrap; }
+.rail__item svg { flex: none; }
+.rail__item[aria-current="page"] { background: var(--glassHi); color: var(--green); font-weight: 600; box-shadow: inset 0 0 0 1px var(--glassLine); }
+.rail__item[aria-current="page"] .rail__label { color: var(--ink); }
+.rail__item .badge { left: 30px; top: 6px; }
+.rail__section { height: 18px; padding: 0 14px; font-size: var(--fs-11); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.rail__bottom { margin-top: auto; display: flex; flex-direction: column; gap: 6px; }
+/* Oskärpa över resten av sidan när menyn är utfälld */
+.rail-scrim { position: fixed; inset: 0; z-index: 20; pointer-events: none; background: var(--scrim); backdrop-filter: var(--blur-scrim); -webkit-backdrop-filter: var(--blur-scrim); opacity: 0; transition: opacity .3s var(--ease); }
+.app:has(.rail:hover, .rail:focus-within, .rail.is-open) .rail-scrim { opacity: 1; }
+
+/* ---------- Toppfält ------------------------------------------------- */
+.topbar { position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 22px; border-radius: 24px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); }
+.topbar__title { font-size: var(--fs-19); font-weight: 600; letter-spacing: -0.01em; }
+.topbar__actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* ---------- Popover (notiser, "Ge Erik ett uppdrag", menyer) -------- */
+.popover { position: absolute; right: 0; top: 54px; z-index: 50; width: 380px; max-width: calc(100vw - 120px); padding: 14px; border-radius: var(--r-xl); background: var(--pop); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-pop); -webkit-backdrop-filter: var(--blur-pop); box-shadow: var(--shadow-pop); display: flex; flex-direction: column; gap: 6px; }
+.popover--wide { width: 440px; padding: 0; border-radius: 24px; overflow: hidden; }
+/* Klick utanför stänger: lägg en osynlig spärr bakom popovern som lyssnar på mousedown */
+.popover-catcher { position: fixed; inset: 0; z-index: 40; background: transparent; }
+
+/* ---------- KPI-kort ------------------------------------------------- */
+.kpi { padding: 18px 18px 16px; border-radius: 24px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 6px; cursor: pointer; text-align: left; }
+.kpi.is-active { border: 2px solid var(--green); background: var(--glassHi); }
+.kpi__label { font-size: var(--fs-13); color: var(--muted); }
+
+/* ---------- Progress / steg ---------------------------------------- */
+/* Sex segment i Pågående sälj (Research → Möte bokat) */
+.segbar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+.segbar span { height: 6px; border-radius: 999px; background: var(--line); }
+.segbar span.is-done { background: var(--green); }
+.segbar span.is-current { background: var(--curBar); }
+/* Funnel-stapel */
+.bar { height: 8px; border-radius: 999px; background: var(--soft); overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: inherit; background: var(--green); }
+/* Stegare ("Här är Erik") */
+.stepper { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 8px; }
+.step { display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: var(--r-lg); background: var(--soft); border: 1px solid var(--glassLine); font-size: var(--fs-13); cursor: pointer; }
+.step__n { width: 26px; height: 26px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; background: var(--glassHi); border: 1px solid var(--glassLine); }
+.step.is-done .step__n { background: var(--green); color: var(--onGreen); border-color: transparent; }
+.step.is-current { border: 2px solid var(--green); background: var(--glassHi); }
+
+/* ---------- Tidslinje ------------------------------------------------ */
+.timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.timeline li { display: flex; gap: 12px; font-size: var(--fs-14); }
+.timeline li::before { content: ''; width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--muted); }
+.timeline li.is-new::before { background: var(--green); }
+
+/* ---------- Rörelse -------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+/* Cirkel-wipe vid temabyte (View Transitions API), se components.html för JS */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }

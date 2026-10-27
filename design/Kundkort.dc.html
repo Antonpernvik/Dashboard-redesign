@@ -57,7 +57,7 @@ html,body{transition:none}
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path><path d="M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Identifierade företag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
 <a href="Pagaende.dc.html" aria-current="page" aria-label="Pågående sälj" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; background: var(--glassHi); color: var(--green); font-size: 14px; font-weight: 600; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--glassLine)">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M17 2l4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Pågående sälj</span></a>
-<a href="#" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<a href="Korningar.dc.html" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Körningar</span></a>
 </nav>
 
@@ -174,8 +174,28 @@ html,body{transition:none}
 <a href="Pagaende.dc.html" style="text-decoration: none; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"></path></svg>Alla bolag</a>
 <h1 style="margin: 0; font-size: 44px; font-weight: 600; letter-spacing: -0.035em; line-height: 1">Stratsys AB</h1>
 <span style="font-size: 13px; color: var(--muted)">Eriks research · senast uppdaterad {{researchTime}} · 6 källor · Sverige</span>
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px"><span style="font-family: 'Geist Mono', monospace; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: var(--tintG)">Matchning 8/10</span><span style="color: var(--muted)">säkerhet 86 % · bedömd 17 okt</span></span>
 </div>
+<div style="position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<sc-if value="{{actNote}}" hint-placeholder-val="{{false}}"><span role="status" style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--green)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"></path></svg>{{actNoteText}}</span></sc-if>
 <sc-if value="{{tabResearch}}" hint-placeholder-val="{{true}}"><button onClick="{{refresh}}" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 3v5h-5"></path></svg>{{refreshLabel}}</button></sc-if>
+<button onClick="{{toggleAct}}" aria-expanded="{{actStr}}" aria-haspopup="menu" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px">Åtgärder<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{actOpen}}" hint-placeholder-val="{{false}}">
+<div aria-hidden="true" onMouseDown="{{closeAct}}" style="position: fixed; inset: 0; z-index: 40; background: transparent"></div>
+<div role="menu" aria-label="Åtgärder för Stratsys AB" style="position: absolute; right: 0; top: 52px; z-index: 50; width: 320px; padding: 8px; border-radius: 20px; background: {{t.pop}}; border: 1px solid var(--glassLine); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: 0 30px 80px rgba(0,0,0,0.22); display: flex; flex-direction: column; gap: 2px">
+<sc-if value="{{notConfirmEx}}" hint-placeholder-val="{{true}}">
+<sc-for list="{{actItems}}" as="ai" hint-placeholder-count="4">
+<button role="menuitem" onClick="{{ai.run}}" disabled="{{ai.disabled}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; padding: 10px 12px; border: 0; border-radius: 12px; background: transparent; color: var(--ink); text-align: left; cursor: {{ai.cursor}}; opacity: {{ai.op}}"><span style="font-size: 14px; font-weight: 600">{{ai.label}}</span><span style="font-size: 12px; color: var(--muted)">{{ai.desc}}</span></button>
+</sc-for>
+<div style="height: 1px; background: var(--line); margin: 4px 8px"></div>
+<button role="menuitem" onClick="{{askExclude}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; padding: 10px 12px; border: 0; border-radius: 12px; background: transparent; color: var(--down); text-align: left; cursor: pointer"><span style="font-size: 14px; font-weight: 600">Uteslut företaget…</span><span style="font-size: 12px; color: var(--muted)">Erik slutar jobba med bolaget</span></button>
+</sc-if>
+<sc-if value="{{confirmEx}}" hint-placeholder-val="{{false}}">
+<div style="padding: 10px 12px; display: flex; flex-direction: column; gap: 10px"><b style="font-size: 14px; font-weight: 600">Uteslut Stratsys AB?</b><span style="font-size: 13px; color: var(--muted); line-height: 1.5">Erik slutar researcha bolaget och kontaktar ingen där. Pågående utkast stoppas. Du kan återinföra det under Identifierade företag › Uteslutna.</span><div style="display: flex; gap: 8px"><button onClick="{{doExclude}}" style="height: 40px; padding: 0 16px; border-radius: 999px; border: 0; background: var(--down); color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer">Ja, uteslut</button><button onClick="{{cancelExclude}}" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">Avbryt</button></div></div>
+</sc-if>
+</div>
+</sc-if>
+</div>
 <sc-if value="{{tabSalj}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
 <div style="padding: 12px 16px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); border-radius: 18px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--muted)">Eriks mål</span><b style="font-size: 14px; font-weight: 600">Ett möte som kan bli affär</b></div>
@@ -184,6 +204,7 @@ html,body{transition:none}
 </div>
 </sc-if>
 </section>
+<sc-if value="{{isExcluded}}" hint-placeholder-val="{{false}}"><section role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px 20px; border-radius: 20px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 14px"><b style="font-weight: 600; color: var(--down)">Stratsys AB är utesluten.</b><span style="color: var(--muted)">Erik gör inget mer här.</span><button onClick="{{undoExclude}}" style="margin-left: auto; height: 38px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">Återinför</button></section></sc-if>
 <sc-if value="{{tabResearch}}" hint-placeholder-val="{{true}}">
 <section style="padding: 32px; border-radius: 28px; background: {{t.inv}}; color: {{t.invInk}}; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; align-items: center; gap: 12px"><img src="../assets/erik.jpg" alt="" style="width: 40px; height: 40px; border-radius: 999px; object-fit: cover; box-shadow: 0 0 0 2px {{t.invGreen}}"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75">Därför är det här en bra matchning</span></div>
@@ -250,11 +271,54 @@ html,body{transition:none}
 </div>
 </section>
 
+<section aria-label="Kontakter" style="padding: 32px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Kontakter</h2><span style="font-size: 13px; color: var(--muted)">Personerna Erik hittat, med kontaktuppgifter. Mejl startar du själv härifrån.</span></div>
+<label style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted)">Språk i e-post<select value="{{mailLang}}" onChange="{{setMailLang}}" style="height: 40px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 13px"><option value="std">Arbetsytans standard (svenska)</option><option value="sv">Svenska</option><option value="en">Engelska</option><option value="nb">Norska</option><option value="da">Danska</option><option value="fi">Finska</option><option value="de">Tyska</option></select><sc-if value="{{langSaved}}" hint-placeholder-val="{{false}}"><span style="font-weight: 600; color: var(--green)">Sparat</span></sc-if></label>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.3fr) minmax(0, 1.4fr) minmax(0, 0.9fr) 90px 150px; gap: 14px; padding: 0 0 10px; border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted)"><span>Namn</span><span>Titel</span><span>E-post</span><span>Telefon</span><span>Källa</span><span></span></div>
+<sc-for list="{{contactRows}}" as="ct" hint-placeholder-count="4">
+<div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.3fr) minmax(0, 1.4fr) minmax(0, 0.9fr) 90px 150px; gap: 14px; align-items: center; padding: 4px 0 14px; border-bottom: 1px solid var(--line); font-size: 14px">
+<b style="font-weight: 600">{{ct.name}}</b><span style="color: var(--muted)">{{ct.title}}</span><span style="overflow: hidden; text-overflow: ellipsis">{{ct.email}}</span><span style="color: var(--muted)">{{ct.phone}}</span><span style="font-size: 12px; color: var(--muted)">{{ct.src}}</span>
+<span style="justify-self: end">
+<sc-if value="{{ct.canMail}}" hint-placeholder-val="{{true}}"><button onClick="{{ct.mail}}" style="height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">Skriv mejl</button></sc-if>
+<sc-if value="{{ct.noEmail}}" hint-placeholder-val="{{false}}"><span style="font-size: 12px; color: var(--muted)">E-post saknas</span></sc-if>
+<sc-if value="{{ct.drafting}}" hint-placeholder-val="{{false}}"><a href="Forslag.dc.html" style="font-size: 12px; font-weight: 600; color: var(--green)">Utkast på väg → Förslag</a></sc-if>
+</span>
+</div>
+</sc-for>
+<sc-if value="{{notAddingC}}" hint-placeholder-val="{{true}}"><button onClick="{{startAddC}}" style="align-self: flex-start; border: 0; background: transparent; padding: 6px 2px; color: var(--green); font-size: 14px; font-weight: 600; cursor: pointer">+ Lägg till kontakt för hand</button></sc-if>
+<sc-if value="{{addingC}}" hint-placeholder-val="{{false}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; padding: 16px; border-radius: 18px; background: var(--soft); border: 1px solid var(--glassLine)">
+<sc-for list="{{cFields}}" as="cf" hint-placeholder-count="4"><label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 600">{{cf.label}}</span><input value="{{cf.val}}" onChange="{{cf.set}}" placeholder="{{cf.ph}}" style="height: 42px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; outline: none; box-sizing: border-box; width: 100%"></label></sc-for>
+<div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><button onClick="{{saveC}}" disabled="{{cDisabled}}" style="height: 40px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 13px; font-weight: 600; cursor: {{cCursor}}; opacity: {{cOp}}">Lägg till</button><button onClick="{{cancelC}}" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">Avbryt</button><span style="font-size: 12px; color: var(--muted)">Namn krävs. Kontakter du lägger till sparas med dig som källa.</span></div>
+</div>
+</sc-if>
+</section>
+
 <section style="padding: 26px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 20px; font-weight: 600">Vet du något Erik inte hittat?</h2><span style="font-size: 13px; color: var(--muted)">Det du skriver blir en källa i researchen och används i Eriks nästa steg.</span></div>
 <div style="display: flex; gap: 8px; flex-wrap: wrap"><input value="{{tipDraft}}" onChange="{{setTip}}" onKeyDown="{{tipKey}}" placeholder="T.ex. &quot;Vi träffade Anders på en mässa i våras.&quot;" style="border-radius: 14px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; outline: none; box-sizing: border-box; flex: 1 1 320px; height: 48px; padding: 0 16px"><button onClick="{{addTip}}" style="height: 48px; padding: 0 22px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 14px; font-weight: 600; cursor: pointer">Lägg till</button></div>
 <sc-for list="{{tips}}" as="tp" hint-placeholder-count="0"><div style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 14px"><span style="font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--tintG)">Från dig</span>{{tp.t}}</div></sc-for>
 </section>
+<section aria-label="Eriks arbete med bolaget" style="padding: 32px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Eriks arbete med Stratsys</h2><span style="font-size: 13px; color: var(--muted)">Arbetsflödet Hitta företag, steg för steg. Klicka för att se körningen och källorna.</span></div>
+<a href="Korningar.dc.html" style="font-size: 13px; font-weight: 600; color: var(--green)">Alla körningar</a>
+</div>
+<div style="display: flex; flex-direction: column">
+<sc-for list="{{workRows}}" as="w" hint-placeholder-count="4">
+<a href="{{w.href}}" style="text-decoration: none; color: var(--ink); display: grid; grid-template-columns: minmax(0, 1.4fr) 130px minmax(0, 2fr) 110px; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); font-size: 14px">
+<b style="font-weight: 600">{{w.step}}</b>
+<span style="justify-self: start; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--soft); color: {{w.fg}}"><span style="width: 7px; height: 7px; border-radius: 999px; background: {{w.dot}}"></span>{{w.status}}</span>
+<span style="color: var(--muted); font-size: 13px">{{w.note}}</span>
+<span style="font-size: 12px; color: var(--muted); text-align: right">{{w.when}}</span>
+</a>
+</sc-for>
+</div>
+<span style="font-size: 13px; color: var(--muted)">Det är hela kedjan. LinkedIn-stegen körs när du anslutit LinkedIn under <a href="Integrationer.dc.html" style="color: var(--green); font-weight: 600">Integrationer</a>.</span>
+</section>
+
 </sc-if>
 <sc-if value="{{tabSalj}}" hint-placeholder-val="{{false}}">
 <section style="padding: 28px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 18px">
@@ -310,9 +374,18 @@ html,body{transition:none}
 <sc-if value="{{replyView}}" hint-placeholder-val="{{true}}"><div style="padding: 18px 20px; border-radius: 18px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 14px; line-height: 1.65; white-space: pre-line">{{replyText}}<span style="display: block; margin-top: 8px; font-size: 12px; color: var(--muted)">Erik, AI-kollega på Ai Kollegorna</span></div></sc-if>
 <sc-if value="{{replyEdit}}" hint-placeholder-val="{{false}}"><textarea value="{{replyText}}" onChange="{{setReply}}" style="border-radius: 14px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; outline: none; box-sizing: border-box; width: 100%; min-height: 150px; padding: 16px; line-height: 1.6; resize: vertical"></textarea></sc-if>
 <div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
-<sc-if value="{{replyPending}}" hint-placeholder-val="{{true}}"><button onClick="{{approveReply}}" style="height: 42px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 13px; font-weight: 600; cursor: pointer">Godkänn och skicka</button><button onClick="{{toggleReplyEdit}}" style="height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">{{editLabel}}</button><button onClick="{{rewriteReply}}" style="height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">{{rewriteLabel}}</button></sc-if>
+<sc-if value="{{replyPending}}" hint-placeholder-val="{{true}}"><button onClick="{{approveReply}}" style="height: 42px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 13px; font-weight: 600; cursor: pointer">Godkänn och skicka</button><button onClick="{{toggleReplyEdit}}" style="height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">{{editLabel}}</button><button onClick="{{openRw}}" style="height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">{{rewriteLabel}}</button></sc-if>
 <sc-if value="{{replySent}}" hint-placeholder-val="{{false}}"><span style="font-size: 14px; font-weight: 600; color: var(--green)">Godkänt – skickas inom sändningsfönstret</span><button onClick="{{undoReply}}" style="border: 0; background: transparent; padding: 8px; color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer">Ångra</button></sc-if>
 </div>
+<sc-if value="{{rwOpen}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 18px; background: var(--soft); border: 1px solid var(--glassLine)">
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">Vad ska Erik ändra?</span><input value="{{rwText}}" onChange="{{setRwText}}" placeholder="T.ex. Kortare, och nämn inte Karin" style="height: 44px; padding: 0 14px; border-radius: 14px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; outline: none; box-sizing: border-box; width: 100%"></label>
+<button role="checkbox" aria-checked="{{rwRemStr}}" onClick="{{toggleRwRem}}" style="align-self: flex-start; display: flex; align-items: center; gap: 10px; border: 0; background: transparent; padding: 0; color: var(--ink); font-size: 13px; font-weight: 500; cursor: pointer"><span style="width: 20px; height: 20px; border-radius: 6px; border: {{rwBoxBorder}}; background: {{rwBoxBg}}; color: var(--onGreen); display: flex; align-items: center; justify-content: center"><sc-if value="{{rwRem}}" hint-placeholder-val="{{false}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"></path></svg></sc-if></span>Kom ihåg till framtida mejl</button>
+<div style="display: flex; gap: 8px"><button onClick="{{doRewrite}}" disabled="{{rwDisabled}}" style="height: 40px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 13px; font-weight: 600; cursor: {{rwCursor}}; opacity: {{rwOp}}">Skriv om</button><button onClick="{{closeRw}}" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer">Avbryt</button></div>
+</div>
+</sc-if>
+<sc-if value="{{rwSaved}}" hint-placeholder-val="{{false}}"><span style="font-size: 13px; color: var(--muted)">Sparat som regel – Erik följer den i alla mejl. Ändra under <a href="Installningar.dc.html" style="color: var(--green); font-weight: 600">Inställningar › Erik</a>.</span></sc-if>
+
 </div>
 <div style="padding: 28px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 4px">
 <div style="display: flex; align-items: center; gap: 12px; padding-bottom: 14px"><img src="../assets/erik.jpg" alt="" style="width: 40px; height: 40px; border-radius: 999px; object-fit: cover"><h2 style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Eriks plan för mötet</h2></div>
@@ -454,7 +527,7 @@ html,body{transition:none}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1E7B4E","options":["#1E7B4E","#0F766E","#2563EB","#B45309"]},"startDark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":4200}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1E7B4E","options":["#1E7B4E","#0F766E","#2563EB","#B45309"]},"startDark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":5200}}'>
 class Component extends DCLogic {
   aikReadTheme(fallback) {
     try { window.localStorage.removeItem('aik-theme'); } catch (e) {}
@@ -844,7 +917,62 @@ class Component extends DCLogic {
       setTaskText: (e) => this.setState({ taskText: e.target.value }),
       taskIdeas: ['Hitta fler bolag som liknar Allente', 'Researcha ett specifikt bolag åt mig', 'Följ upp en kontakt som inte svarat', 'Leta upphandlingar som passar oss'].map((label) => ({ label, pick: () => this.setState({ taskText: label }) }))
     };
+    const actDefs = [
+      ['bedom', 'Bedöm igen', 'Ny matchning mot kundprofilen', false],
+      ['berika', 'Berika företaget', 'Uppdatera fakta från register och webbplats', false],
+      ['kontakter', 'Hitta kontakter', 'Leta efter fler beslutsfattare', false],
+      ['linkedin', 'Hitta på LinkedIn', 'Anslut LinkedIn under Integrationer först', true]
+    ];
+    const actItems = actDefs.map(([k, label, desc, dis]) => ({ label, desc, disabled: dis, op: dis ? '0.5' : '1', cursor: dis ? 'not-allowed' : 'pointer',
+      run: () => { if (dis) return; this.setState({ actOpen: false, actNote: 'Erik har startat: ' + label + '. Klart om några minuter.' }); } }));
+    const baseContacts = [
+      ['Anders Berggren', 'Försäljningsdirektör', 'anders@exempel.se', '—', 'Webbplats'],
+      ['Karin Lund', 'Säljchef', 'karin@exempel.se', '—', 'LinkedIn'],
+      ['Sofia Ekman', 'Marknadschef', '—', '—', 'Pressmeddelande'],
+      ['[Kontakt 4]', 'VD', 'kontakt4@exempel.se', '08-000 00 00', 'Bolagsregistret']
+    ];
+    const allContacts = baseContacts.concat(this.state.addedC || []);
+    const drafting = this.state.drafting || {};
+    const contactRows = allContacts.map(([name, title, email, phone, src], i) => {
+      const hasMail = email && email !== '—';
+      const d = !!drafting[i];
+      return { name, title, email: email || '—', phone: phone || '—', src, canMail: hasMail && !d, noEmail: !hasMail, drafting: d,
+        mail: () => this.setState({ drafting: { ...(this.state.drafting || {}), [i]: true } }) };
+    });
+    const cDraft = this.state.cDraft || { name: '', title: '', email: '', phone: '' };
+    const cFields = [['name', 'Namn', 'För- och efternamn'], ['title', 'Titel', 'T.ex. Inköpschef'], ['email', 'E-post', 'namn@bolag.se'], ['phone', 'Telefon', 'Valfritt']].map(([k, label, ph]) => ({
+      label, ph, val: cDraft[k], set: (e) => this.setState({ cDraft: { ...(this.state.cDraft || { name: '', title: '', email: '', phone: '' }), [k]: e.target.value } }) }));
+    const cOk = !!cDraft.name.trim();
+    const workRows = [
+      ['Berika företaget', 'done', '7 fakta verifierade mot bolagsregistret och webbplatsen', '17 okt 10.32'],
+      ['Bedöm företaget', 'done', 'Matchning 8/10 · säkerhet 86 %', '17 okt 10.33'],
+      ['Hitta kontakter', 'done', '4 kontakter föreslagna och godkända', '17 okt 10.40'],
+      ['Hitta på LinkedIn', 'skip', 'Överhoppat – LinkedIn är inte anslutet', '—'],
+      ['Hitta kontakter på LinkedIn', 'skip', 'Väntar på steget innan', '—']
+    ].map(([step, st, note, when]) => ({ step, note, when, href: 'Korning.dc.html', status: st === 'done' ? 'Klart' : 'Överhoppat', fg: st === 'done' ? 'var(--ink)' : 'var(--muted)', dot: st === 'done' ? 'var(--green)' : 'var(--muted)' }));
+    const rwText = this.state.rwText || '';
+    const rwRem = !!this.state.rwRem;
     return {
+      actOpen: !!this.state.actOpen, actStr: this.state.actOpen ? 'true' : 'false',
+      toggleAct: () => this.setState((s) => ({ actOpen: !s.actOpen, confirmEx: false })), closeAct: () => this.setState({ actOpen: false, confirmEx: false }),
+      actItems, actNote: !!this.state.actNote, actNoteText: this.state.actNote || '',
+      confirmEx: !!this.state.confirmEx, notConfirmEx: !this.state.confirmEx,
+      askExclude: () => this.setState({ confirmEx: true }), cancelExclude: () => this.setState({ confirmEx: false }),
+      doExclude: () => this.setState({ excluded: true, actOpen: false, confirmEx: false, actNote: '' }), undoExclude: () => this.setState({ excluded: false }),
+      isExcluded: !!this.state.excluded,
+      contactRows, cFields, addingC: !!this.state.addingC, notAddingC: !this.state.addingC,
+      startAddC: () => this.setState({ addingC: true }), cancelC: () => this.setState({ addingC: false, cDraft: undefined }),
+      saveC: () => { if (!cOk) return; const d = this.state.cDraft; this.setState({ addedC: (this.state.addedC || []).concat([[d.name.trim(), d.title.trim() || '—', d.email.trim() || '—', d.phone.trim() || '—', 'Du']]), addingC: false, cDraft: undefined }); },
+      cDisabled: !cOk, cOp: cOk ? '1' : '0.5', cCursor: cOk ? 'pointer' : 'not-allowed',
+      mailLang: this.state.mailLang || 'std', setMailLang: (e) => this.setState({ mailLang: e.target.value, langSaved: true }), langSaved: !!this.state.langSaved,
+      workRows,
+      rwOpen: !!this.state.rwOpen, openRw: () => this.setState({ rwOpen: true, rwSaved: false }), closeRw: () => this.setState({ rwOpen: false }),
+      rwText, setRwText: (e) => this.setState({ rwText: e.target.value }),
+      rwRem, rwRemStr: rwRem ? 'true' : 'false', toggleRwRem: () => this.setState({ rwRem: !this.state.rwRem }),
+      rwBoxBg: rwRem ? 'var(--green)' : 'transparent', rwBoxBorder: rwRem ? '0' : '1.5px solid var(--muted)',
+      rwDisabled: !rwText.trim(), rwOp: rwText.trim() ? '1' : '0.5', rwCursor: rwText.trim() ? 'pointer' : 'not-allowed',
+      doRewrite: () => { if (!rwText.trim()) return; const rem = !!this.state.rwRem; this.setState({ rwOpen: false, rwText: '', rwRem: false, rwSaved: rem, rewriting: true, replyText: undefined, replyEditing: false }, () => setTimeout(() => this.setState({ rewriting: false, rewritten: !this.state.rewritten }), 900)); },
+      rwSaved: !!this.state.rwSaved,
       whyTitle: whyBy[stratSel][0], whyText: whyBy[stratSel][1],
       stratNote, setStratNote: (e) => this.setState({ stratNote: e.target.value, stratDone: false }),
       stratDisabled: !stratNote.trim(), stratOp: stratNote.trim() ? '1' : '0.5', stratCursor: stratNote.trim() ? 'pointer' : 'not-allowed',

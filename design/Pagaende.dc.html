@@ -57,7 +57,7 @@ html,body{transition:none}
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path><path d="M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"></path></svg><span style="flex: 1; opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Identifierade företag</span><span style="position: absolute; left: 30px; top: 6px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: var(--green); color: var(--onGreen); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid var(--base)">11</span></a>
 <a href="Pagaende.dc.html" aria-current="page" aria-label="Pågående sälj" style="text-decoration: none; position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; background: var(--glassHi); color: var(--green); font-size: 14px; font-weight: 600; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--glassLine)">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M17 2l4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s; color: var(--ink)">Pågående sälj</span></a>
-<a href="#" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
+<a href="Korningar.dc.html" aria-label="Körningar" style="text-decoration: none; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: 16px; color: var(--ink); font-size: 14px; font-weight: 500; white-space: nowrap">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg><span style="opacity: {{lo}}; transition: opacity .2s">Körningar</span></a>
 </nav>
 
@@ -164,8 +164,27 @@ html,body{transition:none}
 <span style="font-size: 14px; color: var(--muted)">Bolag Erik har tagit sig an</span>
 <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap"><h1 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: -0.03em">Pågående sälj</h1><span style="font-size: 20px; color: var(--muted)">22 bolag</span></div>
 </div>
-<button style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px">Åtgärder<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<div style="position: relative">
+<button onClick="{{togglePAct}}" aria-expanded="{{pActStr}}" aria-haspopup="menu" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px">Åtgärder<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{pActOpen}}" hint-placeholder-val="{{false}}">
+<div aria-hidden="true" onMouseDown="{{closePAct}}" style="position: fixed; inset: 0; z-index: 40; background: transparent"></div>
+<div role="menu" style="position: absolute; right: 0; top: 52px; z-index: 50; width: 280px; padding: 8px; border-radius: 20px; background: {{t.pop}}; border: 1px solid var(--glassLine); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: 0 30px 80px rgba(0,0,0,0.22)">
+<button role="menuitem" onClick="{{openAddCo}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; padding: 10px 12px; border: 0; border-radius: 12px; background: transparent; color: var(--ink); text-align: left; cursor: pointer"><span style="font-size: 14px; font-weight: 600">Lägg till ett företag…</span><span style="font-size: 12px; color: var(--muted)">Ett bolag du själv vill att Erik tar sig an</span></button>
+</div>
+</sc-if>
+</div>
 </section>
+<sc-if value="{{addCoOpen}}" hint-placeholder-val="{{false}}">
+<section aria-label="Lägg till ett företag" style="padding: 28px 32px; border-radius: 28px; background: var(--glass); border: 2px solid var(--green); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; gap: 12px"><div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 22px; font-weight: 600">Lägg till ett företag</h2><span style="font-size: 13px; color: var(--muted)">Erik researchar bolaget, bedömer det mot kundprofilen och letar kontakter – precis som med bolag han hittat själv.</span></div><button onClick="{{closeAddCo}}" aria-label="Stäng" style="width: 38px; height: 38px; flex: none; border-radius: 999px; border: 0; background: var(--soft); color: var(--ink); cursor: pointer">×</button></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px">
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">Företagsnamn eller webbplats</span><input value="{{addCoName}}" onChange="{{setAddCoName}}" placeholder="T.ex. Exempelbolaget AB eller exempel.se" style="height: 46px; padding: 0 14px; border-radius: 14px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px; outline: none; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">Kundprofil</span><select value="{{addCoIcp}}" onChange="{{setAddCoIcp}}" style="height: 46px; padding: 0 12px; border-radius: 14px; border: 1.5px solid {{t.fieldLine}}; background: {{t.field}}; color: var(--ink); font: inherit; font-size: 14px"><option value="jur">Juridiska avdelningar – AI Success Cases</option><option value="tel">Svenska telekomoperatörer – AI Success Case</option></select></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><button onClick="{{addCo}}" disabled="{{addCoDisabled}}" style="height: 44px; padding: 0 20px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 14px; font-weight: 600; cursor: {{addCoCursor}}; opacity: {{addCoOp}}">Lägg till och researcha</button><span style="font-size: 12px; color: var(--muted)">Bolaget hoppar över Identifierade företag eftersom du redan valt det.</span></div>
+</section>
+</sc-if>
+<sc-if value="{{addCoDone}}" hint-placeholder-val="{{false}}"><section role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 16px 20px; border-radius: 20px; background: var(--tintG); font-size: 14px"><b style="font-weight: 600">Erik researchar {{addCoDoneName}}.</b><span style="color: var(--muted)">Kortet dyker upp här under Research om några minuter.</span><a href="Korningar.dc.html" style="margin-left: auto; font-size: 13px; font-weight: 600; color: var(--green)">Följ körningen</a></section></sc-if>
 
 <div role="tablist" aria-label="Steg" style="display: flex; flex-wrap: wrap; gap: 4px; align-self: flex-start; padding: 5px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px)">
 <sc-for list="{{stageTabs}}" as="sg" hint-placeholder-count="5">
@@ -484,7 +503,16 @@ class Component extends DCLogic {
       setTaskText: (e) => this.setState({ taskText: e.target.value }),
       taskIdeas: ['Hitta fler bolag som liknar Allente', 'Researcha ett specifikt bolag åt mig', 'Följ upp en kontakt som inte svarat', 'Leta upphandlingar som passar oss'].map((label) => ({ label, pick: () => this.setState({ taskText: label }) }))
     };
+    const addCoName = this.state.addCoName || '';
     return {
+      pActOpen: !!this.state.pActOpen, pActStr: this.state.pActOpen ? 'true' : 'false',
+      togglePAct: () => this.setState((st) => ({ pActOpen: !st.pActOpen })), closePAct: () => this.setState({ pActOpen: false }),
+      openAddCo: () => this.setState({ pActOpen: false, addCoOpen: true, addCoDone: '' }), closeAddCo: () => this.setState({ addCoOpen: false }),
+      addCoOpen: !!this.state.addCoOpen, addCoName, setAddCoName: (e) => this.setState({ addCoName: e.target.value }),
+      addCoIcp: this.state.addCoIcp || 'tel', setAddCoIcp: (e) => this.setState({ addCoIcp: e.target.value }),
+      addCoDisabled: !addCoName.trim(), addCoOp: addCoName.trim() ? '1' : '0.5', addCoCursor: addCoName.trim() ? 'pointer' : 'not-allowed',
+      addCo: () => { if (!addCoName.trim()) return; this.setState({ addCoOpen: false, addCoDone: addCoName.trim(), addCoName: '' }); },
+      addCoDone: !!this.state.addCoDone, addCoDoneName: this.state.addCoDone || '',
       deals, stageTabs,
       coCards, customers, excluded, ftabs, acceptAll, pendingCo: String(pendingCoN), hasPendingCo: pendingCoN > 0,
       tabBolag: this.state.ftab === 'Bolag', tabKunder: this.state.ftab === 'Befintliga kunder', tabExkl: this.state.ftab === 'Exkluderade',

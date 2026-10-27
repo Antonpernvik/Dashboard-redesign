@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Komponenter – Dashboard v2</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  .demo-section { display: flex; flex-direction: column; gap: 14px; }
+  .demo-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .swatch { border-radius: 14px; border: 1px solid var(--glassLine); overflow: hidden; font-size: 12px; background: var(--glassHi); }
+  .swatch i { display: block; height: 52px; }
+  .swatch span { display: block; padding: 8px 10px; }
+  code { font-family: var(--font-mono); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="app-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+<div class="app">
+  <div class="rail-scrim" aria-hidden="true"></div>
+
+  <!-- Sidomeny: 76 px stängd, 268 px vid hover/fokus. Ren CSS (:hover/:focus-within). -->
+  <div class="rail-slot">
+    <aside class="rail" aria-label="Huvudmeny">
+      <button class="rail__item" style="padding:0;border:0;background:transparent;cursor:pointer" aria-label="Byt kollega, nu vald: Erik">
+        <img class="avatar avatar--ring" src="../assets/erik.jpg" alt="" style="width:48px;height:48px;border-radius:16px">
+        <span class="rail__label" style="display:flex;flex-direction:column;line-height:1.2"><b style="font-size:15px">Erik</b><span class="small muted">B2B-säljare</span></span>
+      </button>
+      <hr class="divider">
+      <nav class="rail__nav" aria-label="Erik">
+        <a class="rail__item" href="#" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span class="rail__label">Start</span></a>
+        <a class="rail__item" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1Z"/></svg><span class="rail__label">Förslag</span><span class="badge">11</span></a>
+        <a class="rail__item" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"/></svg><span class="rail__label">Identifierade företag</span><span class="badge">11</span></a>
+        <a class="rail__item" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg><span class="rail__label">Pågående sälj</span></a>
+      </nav>
+      <div class="rail__bottom">
+        <span class="rail__section rail__label">Inställningar</span>
+        <nav class="rail__nav" aria-label="Inställningar">
+          <a class="rail__item" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg><span class="rail__label">Inställningar</span></a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <main class="app__main">
+    <header class="topbar">
+      <div style="display:flex;flex-direction:column;line-height:1.2;padding:4px 0">
+        <span class="topbar__title">Måndag 26 oktober <span class="small muted" style="font-size:13px;font-weight:500">v. 44</span></span>
+        <span class="small muted">Erik · B2B-säljare</span>
+      </div>
+      <div class="topbar__actions">
+        <span class="status-pill"><span class="status-pill__img"><img src="../assets/erik.jpg" alt=""></span>Erik är aktiv</span>
+        <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" placeholder="Sök bolag eller kontakt" aria-label="Sök"></label>
+        <button class="icon-btn" id="themeBtn" aria-label="Byt till mörkt läge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+        <button class="icon-btn" aria-label="Notiser, 3 olästa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="badge" style="right:-4px;top:-4px">3</span></button>
+        <button class="btn btn--primary">+ Ge Erik ett uppdrag</button>
+      </div>
+    </header>
+
+    <section class="demo-section">
+      <span class="eyebrow">Rubriker</span>
+      <h1 class="h1">Erik har bokat 2 möten sedan i fredags</h1>
+      <h2 class="h2">Kortrubrik 24 px</h2>
+      <p class="lead" style="margin:0">Brödtext 14 px muted – används under rubriker och i kort.</p>
+    </section>
+
+    <section class="card">
+      <span class="eyebrow">Färger (byter med tema)</span>
+      <div class="swatches" id="swatches"></div>
+    </section>
+
+    <section class="card">
+      <span class="eyebrow">Knappar</span>
+      <div class="demo-row">
+        <button class="btn btn--primary">Godkänn och skicka</button>
+        <button class="btn">Redigera</button>
+        <button class="btn btn--soft">Stäng</button>
+        <button class="btn btn--danger">Koppla från</button>
+        <button class="btn btn--sm">Liten</button>
+        <button class="btn btn--primary" disabled>Inaktiv</button>
+        <button class="btn btn--link">Alla körningar</button>
+        <button class="btn btn--link btn--link-muted">Ångra</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="eyebrow">Flikar, segment och filter</span>
+      <div class="demo-row">
+        <div class="seg" role="tablist"><button class="seg__item" role="tab" aria-selected="false">7 d</button><button class="seg__item" role="tab" aria-selected="true">30 d</button><button class="seg__item" role="tab" aria-selected="false">90 d</button><button class="seg__item" role="tab" aria-selected="false">I år</button></div>
+        <div class="seg" role="tablist"><button class="seg__item is-active">Alla <span class="seg__count">11</span></button><button class="seg__item">Mail <span class="seg__count">6</span></button><button class="seg__item">LinkedIn <span class="seg__count">3</span></button><button class="seg__item">Anbud <span class="seg__count">2</span></button></div>
+      </div>
+      <div class="chips"><button class="chip-btn is-active">Alla kanaler</button><button class="chip-btn">Mejl</button><button class="chip-btn">LinkedIn</button><button class="chip-btn">Anbud</button></div>
+    </section>
+
+    <section class="card">
+      <span class="eyebrow">Taggar och status</span>
+      <div class="demo-row">
+        <span class="tag">Utkast</span><span class="tag tag--green">I dialog</span><span class="tag tag--solid">Möte bokat</span><span class="tag"><span class="tag__dot"></span>Ansluten</span><span class="tag tag--warn">Stämmer inte?</span>
+        <span class="trend--up">↗ 77 % mot förra</span><span class="trend--down">↘ 0,8 p</span>
+      </div>
+    </section>
+
+    <div class="grid-cards">
+      <section class="card">
+        <span class="eyebrow">Formulär</span>
+        <label class="field"><span class="field__label">Företagsnamn</span><input class="input" value="Ai Kollegorna"></label>
+        <label class="field"><span class="field__label">E-post</span><input class="input is-error" value="fel@"><span class="error-text">Skriv en giltig e-postadress.</span></label>
+        <label class="field"><span class="field__label">Tonalitet</span><textarea class="textarea">Rakt på sak, varmt och kort.</textarea></label>
+        <label class="field"><span class="field__label">Språk</span><select class="select"><option>Svenska</option><option>Engelska</option></select></label>
+        <div class="field"><span class="field__label">Branscher</span><div class="tag-input"><span class="tag">Fastighet <button aria-label="Ta bort Fastighet">×</button></span><span class="tag">Energi <button aria-label="Ta bort Energi">×</button></span><input aria-label="Lägg till i branscher" placeholder="Lägg till…"></div></div>
+        <button class="switch" role="switch" aria-checked="true" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') !== 'true')"><span class="switch__track"></span>Jämför med förra perioden</button>
+        <label class="field"><span class="field__label">Lägsta matchning</span><input class="range" type="range" min="1" max="10" value="6"></label>
+      </section>
+      <section class="card">
+        <span class="eyebrow">KPI, progress och steg</span>
+        <button class="kpi is-active"><span class="kpi__label">Svar</span><span class="num">140</span><span class="trend--up">↗ 77 % mot förra</span></button>
+        <div class="box"><div style="display:flex;justify-content:space-between;font-size:13px"><span>Kontaktade</span><b>52</b></div><div class="bar" style="margin-top:8px"><span style="width:48%"></span></div></div>
+        <div class="segbar"><span class="is-done"></span><span class="is-done"></span><span class="is-current"></span><span></span><span></span><span></span></div>
+        <ol class="timeline"><li class="is-new">Erik uppdaterade researchen · i dag 06.10</li><li>Anders svarade · mån 14.02</li></ol>
+      </section>
+      <section class="card card--inv">
+        <span class="eyebrow" style="color:var(--invGreen)">Inverterat kort</span>
+        <h3 class="h3">Sändning</h3>
+        <span class="muted">Används för Sändning på Start och "Därför är det här en bra matchning" i Kundkort.</span>
+      </section>
+      <section class="card card--dashed">
+        <span class="eyebrow">Streckat kort</span>
+        <span class="muted">Moa (inte aktiverad), "Ny kundprofil".</span>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script>
+/* Tema: ljust är standard. Valet sparas per flik (sessionStorage) – inte mellan flikar.
+   Byte sker med cirkel-wipe från knappen om webbläsaren stöder View Transitions. */
+(function () {
+  var KEY = 'aik-theme-tab';
+  var root = document.documentElement;
+  function apply(t) { root.dataset.theme = t; }
+  try { apply(sessionStorage.getItem(KEY) === 'dark' ? 'dark' : 'light'); } catch (e) { apply('light'); }
+  var btn = document.getElementById('themeBtn');
+  var busy = false;
+  btn.addEventListener('click', function () {
+    if (busy) return;
+    var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { sessionStorage.setItem(KEY, next); } catch (e) {}
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.startViewTransition || reduce) { apply(next); return; }
+    var r = btn.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+    var end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    busy = true;
+    var vt = document.startViewTransition(function () { apply(next); });
+    vt.ready.then(function () {
+      root.animate({ clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
+        { duration: 620, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'both', pseudoElement: '::view-transition-new(root)' });
+    });
+    vt.finished.finally(function () { busy = false; });
+  });
+
+  var names = ['base','glass','glassHi','glassLine','soft','line','ink','muted','pill','green','tintG','down','up','field','fieldLine','chart','chartPrev','inv','invGreen','pop'];
+  document.getElementById('swatches').innerHTML = names.map(function (n) {
+    return '<div class="swatch"><i style="background:var(--' + n + ')"></i><span><code>--' + n + '</code></span></div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
