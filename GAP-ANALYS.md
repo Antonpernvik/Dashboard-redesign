@@ -105,7 +105,7 @@ Detta ska **inte** flaggas som saknat. Det ska byggas om i ny design med samma f
 
 | ID | Funktion | Beteende i designen | Data/backend |
 |---|---|---|---|
-| G-01 | Nytt visuellt system | Glaspaneler över suddig bakgrund, grön accent #1E7B4E, typsnittet Geist. Alla värden i `handoff/tokens.css`. | – |
+| G-01 | Nytt visuellt system | Glaspaneler över suddig bakgrund, grön accent #1E7B4E, typsnittet Outfit med lätta vikter, tunna ikoner, vita pillor för valt läge, ingen glöd. Alla värden i `handoff/tokens.css`. | – |
 | G-02 | Utfällbar ikonmeny | 76 px bred; fälls ut till 268 px vid hover/fokus. Resten av sidan blir suddig. Ren CSS (`.rail`, `.rail-scrim`). | – |
 | G-03 | Mörkt läge | Knapp i toppfältet, cirkelanimation (View Transitions). Ljust är standard. Valet sparas per flik i sessionStorage (`aik-theme-tab`). | – |
 | G-04 | Porträtt på kollegorna | Eriks och Moas foton i menyn, toppfältet och korten i stället för "E"/"M". Filer i `assets/`. | – |

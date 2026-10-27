@@ -9,7 +9,7 @@ Allt för att föra över Dashboard v2 till den riktiga appen. Börja här.
 | `handoff/tokens.css` | Alla designvärden som CSS-variabler, ljust och mörkt läge | **Kopiera rakt in.** Grunden för allt. |
 | `handoff/components.css` | Rena klasser för meny, toppfält, kort, knappar, flikar, taggar, fält, switch, popover, KPI, steg och tidslinje | Kopiera eller översätt till ert komponentbibliotek |
 | `handoff/components.html` | Komponentark med ren HTML (inga inline-stilar), inklusive JS för temabyte | Facit för markup och tillstånd |
-| `handoff/fonts/` + `fonts.css` | Geist och Geist Mono (OFL-licens), lokala filer | Self-hosta i stället för Google Fonts |
+| `handoff/fonts/` + `fonts.css` | Outfit (OFL-licens), lokala filer | Self-hosta i stället för Google Fonts |
 | `handoff/screens/` | Skärmbilder av alla sidor i ljust och mörkt läge, plus viktiga lägen (öppna popovers, flikar, utfälld meny) | Pixelreferens |
 | `prototype/` | Alla 11 sidor körbara i vanlig webbläsare, utan Claude | Klicka runt och se beteendet. Öppna `prototype/Main.html`. |
 | `design/` | Källfilerna (Claudes designformat) | Exakta mått om något är oklart |
@@ -39,13 +39,15 @@ theme: { extend: {
   },
   borderRadius: { card: '26px', panel: '28px', box: '16px' },
   boxShadow: { glass: 'var(--shadow)', pop: 'var(--shadow-pop)' },
-  fontFamily: { sans: ['Geist', 'system-ui', 'sans-serif'], mono: ['Geist Mono', 'monospace'] },
+  fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'] },
 }}
 ```
 
 Glas = `bg-glass border border-glass-line backdrop-blur-[28px] backdrop-saturate-150 shadow-glass`.
 
 ## Saker att veta
+
+- **Stilen (okt 2026):** Outfit med lätta vikter (300 för stora siffror och sidrubriker, 500 för etiketter och knappar), tunna ikoner (stroke 1,5), vita pillor för valt läge i stället för svarta, inga glödskuggor, ljusinsläpp och korn i bakgrunden. Toppbaren är 80 px hög med 52 px knappar.
 
 - **Glaseffekten** kräver `backdrop-filter` med `-webkit-`-prefix för Safari. Den syns bara mot den suddiga bakgrunden, så bygg bakgrunden först.
 - **Menyn** fälls ut med ren CSS (`:hover` och `:focus-within`). Oskärpan bakom använder `:has()`. Vill ni stödja äldre webbläsare, sätt klassen `.is-open` med JS i stället.

@@ -18,6 +18,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .app-bg span:nth-child(3) { left: 28%; top: 38%; width: 40%; height: 520px; background: var(--blob3); filter: blur(110px); }
 .app-bg span:nth-child(4) { left: -4%; bottom: -4%; width: 38%; height: 560px; background: var(--blob4); filter: blur(100px); }
 .app-bg span:nth-child(5) { right: 4%; bottom: 6%; width: 34%; height: 460px; background: var(--blob1); filter: blur(100px); }
+.app-bg span:nth-child(6) { right: 12%; top: -14%; width: 38%; height: 520px; background: var(--sun); filter: blur(120px); }
+.app-bg span:nth-child(7) { left: 10%; top: 18%; width: 80%; height: 900px; border-radius: 0; background: linear-gradient(115deg, transparent 0%, var(--beam) 42%, transparent 60%); filter: blur(60px); }
+/* Fint korn över bakgrunden – gör att den känns mindre platt */
+.app-bg::after { content: ''; position: absolute; inset: 0; opacity: var(--grain); mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
 /* ---------- Layout --------------------------------------------------- */
 .app { position: relative; z-index: 1; display: flex; gap: 16px; align-items: flex-start; padding: 16px; min-height: 100vh; }
@@ -37,7 +41,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .divider { height: 1px; background: var(--line); border: 0; margin: 0; }
 
 /* ---------- Typografi ----------------------------------------------- */
-.h1 { margin: 0; font-size: var(--fs-36); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+.h1 { margin: 0; font-size: 42px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; }
 .h1--xl { font-size: var(--fs-40); }
 .h2 { margin: 0; font-size: var(--fs-24); font-weight: 600; letter-spacing: -0.02em; }
 .h3 { margin: 0; font-size: var(--fs-18); font-weight: 600; }
@@ -46,16 +50,16 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .small { font-size: var(--fs-12); }
 .eyebrow { font-size: var(--fs-12); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .eyebrow--green { color: var(--green); }
-.num { font-size: 32px; font-weight: 600; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.num { font-size: 38px; font-weight: 300; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 .mono { font-family: var(--font-mono); }
 
 /* ---------- Knappar -------------------------------------------------- */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: var(--h-lg); padding: 0 18px; border-radius: var(--r-pill); border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: var(--fs-14); font-weight: 600; cursor: pointer; white-space: nowrap; text-decoration: none; transition: filter .15s, transform .15s; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: var(--h-lg); padding: 0 18px; border-radius: var(--r-pill); border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: var(--fs-14); font-weight: 500; cursor: pointer; white-space: nowrap; text-decoration: none; transition: filter .15s, transform .15s; }
 .btn:hover { filter: brightness(1.03); }
 .btn:active { transform: translateY(1px); }
 .btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
-.btn--primary { border: 0; background: var(--green); color: var(--onGreen); box-shadow: 0 8px 20px var(--greenGlow); }
+.btn--primary { border: 0; background: var(--green); color: var(--onGreen); box-shadow: none; }
 .btn--soft { background: var(--soft); }
 .btn--danger { color: var(--down); }
 .btn--link { height: auto; padding: 6px 2px; border: 0; background: transparent; color: var(--green); font-size: var(--fs-13); box-shadow: none; }
@@ -64,13 +68,13 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .btn--md { height: var(--h-md); }
 .btn--xl { height: var(--h-xl); font-size: var(--fs-15); }
 .btn--block { width: 100%; }
-.icon-btn { width: 44px; height: 44px; border-radius: var(--r-pill); border: 1px solid var(--glassLine); background: var(--soft); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; position: relative; }
+.icon-btn { width: 52px; height: 52px; border-radius: var(--r-pill); border: 0; background: var(--glassHi); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; position: relative; }
 
 /* ---------- Segment / flikar ---------------------------------------- */
 /* Används för periodval (7 d/30 d), kanalfilter, flikar i Kundkort/Inställningar. */
 .seg { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 5px; border-radius: var(--r-pill); background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 .seg__item { height: 40px; padding: 0 18px; border-radius: var(--r-pill); border: 0; background: transparent; color: var(--ink); font-size: var(--fs-14); font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
-.seg__item[aria-selected="true"], .seg__item.is-active { background: var(--pill); color: var(--pillInk); font-weight: 600; }
+.seg__item[aria-selected="true"], .seg__item.is-active { background: var(--pill); color: var(--pillInk); font-weight: 500; }
 .seg__count { font-size: var(--fs-11); font-weight: 700; padding: 2px 7px; border-radius: var(--r-pill); background: var(--soft); }
 .seg__item.is-active .seg__count { background: rgba(255,255,255,0.18); }
 /* Lös variant (filterknappar utan behållare) */
@@ -93,9 +97,9 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .avatar--ring { box-shadow: 0 0 0 2px var(--green), 0 8px 20px var(--greenGlow); }
 .avatar--round { border-radius: 999px; }
 .avatar--initials { display: flex; align-items: center; justify-content: center; background: var(--pill); color: var(--pillInk); font-size: 13px; font-weight: 700; border-radius: 999px; }
-.status-pill { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px 0 4px; border-radius: var(--r-pill); background: var(--tintG); font-size: var(--fs-13); font-weight: 600; }
-.status-pill__img { position: relative; width: 36px; height: 36px; }
-.status-pill__img img { width: 36px; height: 36px; border-radius: 999px; object-fit: cover; }
+.status-pill { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 20px 0 6px; border-radius: var(--r-pill); background: var(--tintG); font-size: var(--fs-13); font-weight: 600; }
+.status-pill__img { position: relative; width: 40px; height: 40px; }
+.status-pill__img img { width: 40px; height: 40px; border-radius: 999px; object-fit: cover; }
 .status-pill__img::after { content: ''; position: absolute; right: -1px; bottom: -1px; width: 10px; height: 10px; border-radius: 999px; background: var(--green); border: 2px solid var(--base); }
 
 /* ---------- Formulär ------------------------------------------------- */
@@ -107,8 +111,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .input.is-error { border-color: var(--down); }
 .textarea { height: auto; min-height: 92px; padding: 12px 14px; line-height: 1.5; resize: vertical; }
 .input--xl { height: 50px; padding: 0 16px; border-radius: 16px; font-size: var(--fs-15); }
-.search { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: var(--r-pill); background: var(--soft); border: 1px solid var(--glassLine); color: var(--muted); font-size: var(--fs-14); }
-.search input { border: 0; background: transparent; outline: none; color: var(--ink); width: 170px; }
+.search { display: inline-flex; align-items: center; gap: 8px; height: 52px; padding: 0 20px; border-radius: var(--r-pill); background: var(--glassHi); border: 0; color: var(--muted); font-size: var(--fs-14); }
+.search input { border: 0; background: transparent; outline: none; color: var(--ink); width: 200px; }
 .error-text { font-size: var(--fs-13); font-weight: 600; color: var(--down); }
 
 /* Tagg-inmatning (Kundprofil: branscher, regioner, signaler, roller, uteslut) */
@@ -135,7 +139,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .rail__nav { display: flex; flex-direction: column; gap: 6px; }
 .rail__item { position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: var(--r-lg); color: var(--ink); font-size: var(--fs-14); font-weight: 500; text-decoration: none; white-space: nowrap; }
 .rail__item svg { flex: none; }
-.rail__item[aria-current="page"] { background: var(--glassHi); color: var(--green); font-weight: 600; box-shadow: inset 0 0 0 1px var(--glassLine); }
+.rail__item[aria-current="page"] { background: var(--glassHi); color: var(--green); font-weight: 500; box-shadow: inset 0 0 0 1px var(--glassLine); }
 .rail__item[aria-current="page"] .rail__label { color: var(--ink); }
 .rail__item .badge { left: 30px; top: 6px; }
 .rail__section { height: 18px; padding: 0 14px; font-size: var(--fs-11); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -145,9 +149,9 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .app:has(.rail:hover, .rail:focus-within, .rail.is-open) .rail-scrim { opacity: 1; }
 
 /* ---------- Toppfält ------------------------------------------------- */
-.topbar { position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 22px; border-radius: 24px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); }
-.topbar__title { font-size: var(--fs-19); font-weight: 600; letter-spacing: -0.01em; }
-.topbar__actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.topbar { position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; padding: 14px 14px 14px 30px; border-radius: 30px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); }
+.topbar__title { font-size: 22px; font-weight: 400; letter-spacing: -0.01em; }
+.topbar__actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
 /* ---------- Popover (notiser, "Ge Erik ett uppdrag", menyer) -------- */
 .popover { position: absolute; right: 0; top: 54px; z-index: 50; width: 380px; max-width: calc(100vw - 120px); padding: 14px; border-radius: var(--r-xl); background: var(--pop); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-pop); -webkit-backdrop-filter: var(--blur-pop); box-shadow: var(--shadow-pop); display: flex; flex-direction: column; gap: 6px; }
@@ -157,7 +161,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 /* ---------- KPI-kort ------------------------------------------------- */
 .kpi { padding: 18px 18px 16px; border-radius: 24px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 6px; cursor: pointer; text-align: left; }
-.kpi.is-active { border: 2px solid var(--green); background: var(--glassHi); }
+.kpi.is-active { border: 1px solid var(--glassLine); background: var(--kpiOn); }
 .kpi__label { font-size: var(--fs-13); color: var(--muted); }
 
 /* ---------- Progress / steg ---------------------------------------- */

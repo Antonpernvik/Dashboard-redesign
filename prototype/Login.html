@@ -6,7 +6,7 @@
 <title>Logga in – Ai Kollegorna</title>
 <link rel="stylesheet" href="../handoff/fonts.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#D8D2C6}
 a{color:inherit}
@@ -16,7 +16,7 @@ button{font-family:inherit}
 <body>
 <div id="app"></div>
 <template id="dc-tpl">
-<div style="position: relative; overflow: hidden; min-height: 100vh; box-sizing: border-box; background: #D8D2C6; color: #14201A; font-family: 'Geist', system-ui, sans-serif; display: flex; align-items: center; justify-content: center; padding: 24px">
+<div style="position: relative; overflow: hidden; min-height: 100vh; box-sizing: border-box; background: #D8D2C6; color: #14201A; font-family: 'Outfit', system-ui, sans-serif; font-feature-settings: 'tnum' 1; letter-spacing: 0.005em; display: flex; align-items: center; justify-content: center; padding: 24px">
 
 <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; overflow: hidden">
 <div style="position: absolute; left: -10%; top: -10%; width: 50%; height: 560px; border-radius: 999px; background: #B9C4A8; filter: blur(100px)"></div>
@@ -31,42 +31,42 @@ button{font-family:inherit}
 <section aria-label="Logga in" style="flex: 1 1 100%; min-width: 0; box-sizing: border-box; padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 22px">
 
 <sc-if value="{{modeLogin}}" hint-placeholder-val="{{true}}">
-<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px"><h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Logga in</h2><span style="font-size: 14px; color: #4B5750">Välkommen tillbaka.</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px"><h2 style="margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.02em">Logga in</h2><span style="font-size: 14px; color: #4B5750">Välkommen tillbaka.</span></div>
 <form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 14px; margin: 0">
-<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">E-post</span><input type="email" autocomplete="username" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
-<label style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 13px; font-weight: 600">Lösenord</span><button type="button" onClick="{{goForgot}}" style="border: 0; background: transparent; padding: 6px 2px; color: #1E7B4E; font-size: 13px; font-weight: 600; cursor: pointer; padding: 0; font-size: 12px">Glömt lösenordet?</button></span>
-<span style="position: relative; display: block"><input type="{{pwType}}" autocomplete="current-password" value="{{pw}}" onChange="{{setPw}}" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{pwLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%; padding-right: 92px"><button type="button" onClick="{{togglePw}}" aria-label="{{pwToggleLabel}}" style="position: absolute; right: 6px; top: 6px; height: 38px; padding: 0 12px; border-radius: 999px; border: 0; background: #F1F3EF; color: #14201A; font-size: 12px; font-weight: 600; cursor: pointer">{{pwToggleText}}</button></span></label>
-<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 600; color: #B3382A">{{errText}}</span></sc-if>
-<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 24px rgba(30,123,78,0.28)">Logga in</button>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 500">E-post</span><input type="email" autocomplete="username" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 13px; font-weight: 500">Lösenord</span><button type="button" onClick="{{goForgot}}" style="border: 0; background: transparent; padding: 6px 2px; color: #1E7B4E; font-size: 13px; font-weight: 500; cursor: pointer; padding: 0; font-size: 12px">Glömt lösenordet?</button></span>
+<span style="position: relative; display: block"><input type="{{pwType}}" autocomplete="current-password" value="{{pw}}" onChange="{{setPw}}" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{pwLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%; padding-right: 92px"><button type="button" onClick="{{togglePw}}" aria-label="{{pwToggleLabel}}" style="position: absolute; right: 6px; top: 6px; height: 38px; padding: 0 12px; border-radius: 999px; border: 0; background: #F1F3EF; color: #14201A; font-size: 12px; font-weight: 500; cursor: pointer">{{pwToggleText}}</button></span></label>
+<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 500; color: #B3382A">{{errText}}</span></sc-if>
+<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: none">Logga in</button>
 </form>
-<span style="font-size: 13px; color: #4B5750">Inget konto än? <a href="https://aikollegorna.se" style="color: #1E7B4E; font-weight: 600">Skapa konto</a></span>
+<span style="font-size: 13px; color: #4B5750">Inget konto än? <a href="https://aikollegorna.se" style="color: #1E7B4E; font-weight: 500">Skapa konto</a></span>
 </sc-if>
 
 <sc-if value="{{modeForgot}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Återställ lösenord</h2><span style="font-size: 14px; color: #4B5750; line-height: 1.5">Skriv din e-post så skickar vi en länk där du väljer ett nytt lösenord.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.02em">Återställ lösenord</h2><span style="font-size: 14px; color: #4B5750; line-height: 1.5">Skriv din e-post så skickar vi en länk där du väljer ett nytt lösenord.</span></div>
 <form onSubmit="{{sendReset}}" style="display: flex; flex-direction: column; gap: 14px; margin: 0">
-<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600">E-post</span><input type="email" autocomplete="email" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
-<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 600; color: #B3382A">{{errText}}</span></sc-if>
-<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 24px rgba(30,123,78,0.28)">Skicka återställningslänk</button>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 500">E-post</span><input type="email" autocomplete="email" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
+<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 500; color: #B3382A">{{errText}}</span></sc-if>
+<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: none">Skicka återställningslänk</button>
 </form>
-<button onClick="{{goLogin}}" style="border: 0; background: transparent; padding: 6px 2px; color: #1E7B4E; font-size: 13px; font-weight: 600; cursor: pointer; align-self: flex-start">← Tillbaka till inloggning</button>
+<button onClick="{{goLogin}}" style="border: 0; background: transparent; padding: 6px 2px; color: #1E7B4E; font-size: 13px; font-weight: 500; cursor: pointer; align-self: flex-start">← Tillbaka till inloggning</button>
 </sc-if>
 
 <sc-if value="{{modeSent}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
-<span style="width: 56px; height: 56px; border-radius: 18px; background: rgba(30,123,78,0.14); color: #1E7B4E; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
-<h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Kolla din inkorg</h2>
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5750">Finns det ett konto för <b style="color: #14201A; font-weight: 600">{{email}}</b> har vi skickat en länk för att välja nytt lösenord. Länken gäller i 30 minuter.</p>
-<button onClick="{{goLogin}}" style="height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(20,32,26,0.12); background: #FFFFFF; color: #14201A; font-size: 14px; font-weight: 600; cursor: pointer">Tillbaka till inloggning</button>
+<span style="width: 56px; height: 56px; border-radius: 18px; background: rgba(30,123,78,0.14); color: #1E7B4E; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
+<h2 style="margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.02em">Kolla din inkorg</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5750">Finns det ett konto för <b style="color: #14201A; font-weight: 500">{{email}}</b> har vi skickat en länk för att välja nytt lösenord. Länken gäller i 30 minuter.</p>
+<button onClick="{{goLogin}}" style="height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(20,32,26,0.12); background: #FFFFFF; color: #14201A; font-size: 14px; font-weight: 500; cursor: pointer">Tillbaka till inloggning</button>
 </div>
 </sc-if>
 
 <sc-if value="{{modeIn}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
 <img src="../assets/erik.jpg" alt="" style="width: 56px; height: 56px; border-radius: 18px; object-fit: cover; box-shadow: 0 0 0 2px #1E7B4E">
-<h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Välkommen tillbaka</h2>
+<h2 style="margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.02em">Välkommen tillbaka</h2>
 <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5750">Erik har 11 förslag som väntar på dig.</p>
-<a href="Main.dc.html" style="text-decoration: none; height: 46px; padding: 0 20px; border-radius: 999px; background: #1E7B4E; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center">Till dashboarden</a>
+<a href="Main.dc.html" style="text-decoration: none; height: 46px; padding: 0 20px; border-radius: 999px; background: #1E7B4E; color: #FFFFFF; font-size: 14px; font-weight: 500; display: flex; align-items: center">Till dashboarden</a>
 </div>
 </sc-if>
 

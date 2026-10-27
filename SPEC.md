@@ -176,7 +176,7 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 `background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); border-radius: 22–28px;`
 
 ## Typografi
-Geist (Google Fonts), 400/500/600/700. Siffror i grafer: Geist Mono. Rubriker 34–36 px / 600 / letter-spacing -0.03em.
+Outfit (Google Fonts), 300/400/500/600. Sidrubriker och stora siffror 38–50 px / 300 / letter-spacing -0.02em. Etiketter och knappar 500. Ikoner med stroke 1,5.
 
 ## Rörelse
 - Menyn: 76 px ikonlist, 268 px utfälld, `width .28s cubic-bezier(.65,0,.35,1)`. Blur på innehållet bakom: `backdrop-filter: blur(8px)`, opacity .3s.
