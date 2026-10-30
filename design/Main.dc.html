@@ -41,7 +41,7 @@ html,body{transition:none}
 
 <!-- Sidebar -->
 <div style="position: sticky; top: 16px; z-index: 30; flex: none; width: 76px; height: calc(100vh - 32px); min-height: 620px">
-<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
+<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
 
 <button aria-label="Byt kollega, nu vald: Erik" style="display: flex; align-items: center; gap: 12px; width: 100%; height: 48px; padding: 0; border-radius: 16px; border: 0; background: transparent; color: var(--ink); cursor: pointer; text-align: left; white-space: nowrap">
 <img src="../assets/erik.jpg" alt="" style="width: 48px; height: 48px; flex: none; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 3px rgba(255,255,255,0.7)">
@@ -93,7 +93,7 @@ html,body{transition:none}
 <main style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 
 <sc-if value="{{anyPop}}" hint-placeholder-val="{{false}}"><div aria-hidden="true" onMouseDown="{{closePops}}" style="position: fixed; inset: 0; z-index: 14; background: transparent; cursor: default"></div></sc-if>
-<header style="position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; box-sizing: border-box; padding: 14px 14px 14px 30px; border-radius: 30px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow)">
+<header style="position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; box-sizing: border-box; padding: 14px 14px 14px 30px; border-radius: 30px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow)">
 <div style="display: flex; flex-direction: column; gap: 4px; line-height: 1.15; padding: 4px 0">
 <span style="font-size: 22px; font-weight: 400; letter-spacing: -0.01em">{{todayStr}} <span style="margin-left: 4px; font-size: 14px; font-weight: 400; color: var(--muted)">{{weekStr}}</span></span>
 </div>
@@ -179,17 +179,17 @@ html,body{transition:none}
 <section aria-label="Nyckeltal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
 <sc-for list="{{kpis}}" as="k" hint-placeholder-count="6">
 <sc-if value="{{k.selected}}" hint-placeholder-val="{{false}}">
-<button onClick="{{k.pick}}" aria-pressed="true" style="text-align: left; font: inherit; color: var(--ink); background: {{t.kpiOn}}; border: 1px solid var(--glassLine); border-radius: 24px; padding: 16px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); box-shadow: var(--shadow)">
+<button onClick="{{k.pick}}" aria-pressed="true" style="text-align: left; font: inherit; color: var(--ink); background: {{t.kpiOn}}; border: 1px solid var(--glassLine); border-radius: 24px; padding: 16px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; backdrop-filter: blur(24px) saturate(110%); -webkit-backdrop-filter: blur(24px) saturate(110%); box-shadow: var(--shadow)">
 <span style="font-size: 13px; font-weight: 500">{{k.label}}</span>
 <span style="font-size: 38px; font-weight: 300; letter-spacing: -0.02em; line-height: 1">{{k.value}}</span>
-<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 12px; font-weight: 500; color: {{k.trendColor}}">{{k.trend}}</span><svg width="78" height="26" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><polyline points="{{k.spark}}" fill="none" stroke="var(--chart)" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linejoin="round"></polyline></svg></span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 12px; font-weight: 500; color: {{k.trendColor}}">{{k.trend}}</span></span>
 </button>
 </sc-if>
 <sc-if value="{{k.unselected}}" hint-placeholder-val="{{true}}">
-<button onClick="{{k.pick}}" aria-pressed="false" style="text-align: left; font: inherit; color: var(--ink); background: var(--glass); border: 1px solid var(--glassLine); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); box-shadow: var(--shadow)">
+<button onClick="{{k.pick}}" aria-pressed="false" style="text-align: left; font: inherit; color: var(--ink); background: var(--glass); border: 1px solid var(--glassLine); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; backdrop-filter: blur(24px) saturate(110%); -webkit-backdrop-filter: blur(24px) saturate(110%); box-shadow: var(--shadow)">
 <span style="font-size: 13px; font-weight: 500; color: var(--muted)">{{k.label}}</span>
 <span style="font-size: 38px; font-weight: 300; letter-spacing: -0.02em; line-height: 1">{{k.value}}</span>
-<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 12px; font-weight: 500; color: {{k.trendColor}}">{{k.trend}}</span><svg width="78" height="26" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><polyline points="{{k.spark}}" fill="none" stroke="var(--chart)" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linejoin="round"></polyline></svg></span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="font-size: 12px; font-weight: 500; color: {{k.trendColor}}">{{k.trend}}</span></span>
 </button>
 </sc-if>
 </sc-for>
@@ -198,7 +198,7 @@ html,body{transition:none}
 <!-- Goal gauge + chart -->
 <section style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
 
-<div style="flex: 1 1 320px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
+<div style="flex: 1 1 320px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Från bolag till möte</h2><span style="font-size: 13px; color: var(--muted)">Senaste 30 dagarna · Eriks arbete steg för steg</span></div>
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
 <sc-for list="{{funnel}}" as="f" hint-placeholder-count="5">
@@ -214,7 +214,7 @@ html,body{transition:none}
 </div>
 </div>
 
-<div style="flex: 999 1 560px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="flex: 999 1 560px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start">
 <div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 500">{{chartTitle}}</h2><span style="font-size: 13px; color: var(--muted)">{{chartSub}}</span></div>
 <sc-if value="{{showChart}}" hint-placeholder-val="{{true}}">
@@ -278,9 +278,9 @@ html,body{transition:none}
 <!-- Erik now -->
 <section aria-label="Erik just nu" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
 
-<div style="flex: 999 1 520px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
+<div style="flex: 999 1 520px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Erik just nu</h2><a href="#" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Alla körningar</a></div>
-<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px">
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px 24px">
 <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--green); box-shadow: none"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Researchar <b>12 bolag</b> i Mälardalen</span><span style="font-size: 12px; color: var(--muted)">Pågår nu</span></div></li>
 <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--muted); opacity: 0.6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Bokade möte med <b>[Prospekt]</b>, tor 14:00</span><span style="font-size: 12px; color: var(--muted)">08:47</span></div></li>
 <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--muted); opacity: 0.6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Fick svar från <b>[Prospekt]</b> – positivt</span><span style="font-size: 12px; color: var(--muted)">I går 16:10</span></div></li>
@@ -288,25 +288,11 @@ html,body{transition:none}
 </ol>
 </div>
 
-<div style="flex: 1 1 300px; min-width: 0; padding: 22px; border-radius: 26px; background: {{t.inv}}; color: {{t.invInk}}; border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Sändning</h2><a href="Installningar.dc.html" style="font-size: 13px; font-weight: 500; color: {{t.invGreen}}">Ändra</a></div>
-<dl style="margin: 0; display: flex; flex-direction: column">
-<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid {{t.invLine}}"><dt style="font-size: 13px; opacity: 0.72">Just nu</dt><dd style="margin: 0; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 999px; background: {{t.invGreen}}"></span>Inom fönstret</dd></div>
-<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid {{t.invLine}}"><dt style="font-size: 13px; opacity: 0.72">Fönster</dt><dd style="margin: 0; font-size: 14px; font-weight: 500">mån–fre · 08:00–17:00</dd></div>
-<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid {{t.invLine}}"><dt style="font-size: 13px; opacity: 0.72">Tidszon</dt><dd style="margin: 0; font-size: 14px; font-weight: 500">Europe/Stockholm</dd></div>
-<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0"><dt style="font-size: 13px; opacity: 0.72">Gmail</dt><dd style="margin: 0; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: {{t.invGreen}}"><path d="m5 12 5 5L20 7"></path></svg>Ansluten</dd></div>
-</dl>
-</div>
 </section>
 
 <!-- New companies -->
-<section style="padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<section style="padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center"><div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 500">Nya bolag</h2><span style="font-size: 13px; color: var(--muted)">Topp 5, sorterat på matchning mot dina kundprofiler</span></div><a href="Foretag.dc.html" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Alla identifierade företag</a></div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{searches}}" as="se" hint-placeholder-count="2">
-<span style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px"><b style="font-weight: 500">{{se.profile}}</b><span style="color: var(--muted)">senast {{se.last}} · {{se.found}}</span></span>
-</sc-for>
-</div>
 <div style="overflow-x: auto">
 <div role="table" aria-label="Nya bolag" style="min-width: 720px; font-size: 14px">
 <div role="row" style="display: grid; grid-template-columns: minmax(180px, 1.4fr) minmax(110px, 1fr) minmax(160px, 1.4fr) 170px 120px; color: var(--muted); font-size: 12px">
@@ -330,7 +316,7 @@ html,body{transition:none}
 </section>
 
 <!-- Moa strip -->
-<section style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 14px 16px 14px 14px; border-radius: 24px; background: var(--glass); border: 1px dashed var(--muted); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%)">
+<section style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 14px 16px 14px 14px; border-radius: 24px; background: var(--glass); border: 1px dashed var(--muted); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%)">
 <img src="../assets/moa.jpg" alt="Moa" style="width: 52px; height: 52px; flex: none; border-radius: 16px; object-fit: cover">
 <div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Moa, webbredaktör <span style="font-size: 12px; font-weight: 500; color: var(--muted)">· inte aktiverad</span></span><span style="font-size: 13px; color: var(--muted)">Skriver artiklar för er sajt i den ton ni redan har. Du granskar allt innan något sparas.</span></div>
 <button style="height: 42px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 13px; font-weight: 500; cursor: pointer">Aktivera Moa</button>
@@ -379,15 +365,15 @@ class Component extends DCLogic {
       base: '#0A0F0C', blob1: '#1D3A2B', blob2: '#3A3124', blob3: '#173226', blob4: '#2B2A22',
       glass: 'rgba(22,30,25,0.55)', glassHi: 'rgba(34,46,38,0.7)', glassLine: 'rgba(255,255,255,0.08)',
       soft: 'rgba(255,255,255,0.06)', line: 'rgba(255,255,255,0.08)', ink: '#EEF2EE', muted: '#A3AFA7',
-      pill: 'rgba(255,255,255,0.16)', pillInk: '#EEF2EE', kpiOn: 'rgba(255,255,255,0.1)', sun: 'rgba(76,194,133,0.18)', beam: 'rgba(255,255,255,0.05)', grain: '0.25', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.35)',
+      pill: 'rgba(255,255,255,0.16)', pillInk: '#EEF2EE', kpiOn: 'rgba(255,255,255,0.1)', sun: 'rgba(76,194,133,0.08)', beam: 'transparent', grain: '0.15', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.35)',
       chart: '#4CC285', chartPrev: '#6C7A71', tintG: 'rgba(76,194,133,0.2)', down: '#F07A63',
       shadow: '0 10px 40px rgba(0,0,0,0.35)',
       scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', inv: 'rgba(24,52,38,0.78)', invInk: '#EEF2EE', invSoft: 'rgba(255,255,255,0.06)', invLine: 'rgba(255,255,255,0.1)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
     } : {
-      base: '#D8D2C6', blob1: '#B9C4A8', blob2: '#EADFCB', blob3: '#9FB394', blob4: '#CDB89C',
-      glass: 'rgba(255,255,255,0.36)', glassHi: 'rgba(255,255,255,0.6)', glassLine: 'rgba(255,255,255,0.65)',
+      base: '#E6E3DC', blob1: '#CBD4C2', blob2: '#EDE9E1', blob3: '#C6D0BE', blob4: '#E2DBCF',
+      glass: 'rgba(255,255,255,0.52)', glassHi: 'rgba(255,255,255,0.6)', glassLine: 'rgba(255,255,255,0.65)',
       soft: 'rgba(255,255,255,0.45)', line: 'rgba(30,40,34,0.1)', ink: '#14201A', muted: '#3F4B44',
-      pill: 'rgba(255,255,255,0.82)', pillInk: '#14201A', kpiOn: 'rgba(255,255,255,0.78)', sun: 'rgba(255,253,240,0.6)', beam: 'rgba(255,255,250,0.28)', grain: '0.35', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.28)',
+      pill: 'rgba(255,255,255,0.82)', pillInk: '#14201A', kpiOn: 'rgba(255,255,255,0.78)', sun: 'rgba(255,255,255,0.3)', beam: 'transparent', grain: '0.15', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'rgba(30,123,78,0.28)',
       chart: '#1E7B4E', chartPrev: '#8A938C', tintG: 'rgba(30,123,78,0.16)', down: '#9E2F22',
       shadow: '0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 50px rgba(60,70,40,0.08)',
       scrim: 'rgba(216,210,198,0.28)', pop: 'rgba(251,250,247,0.97)', field: '#FFFFFF', fieldLine: 'rgba(20,32,26,0.12)', inv: 'rgba(17,28,22,0.86)', invInk: '#F1F5F2', invSoft: 'rgba(255,255,255,0.08)', invLine: 'rgba(255,255,255,0.12)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
