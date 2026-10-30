@@ -49,7 +49,7 @@ Detta ska **inte** flaggas som saknat. Det ska byggas om i ny design med samma f
   - bannern "Väntar på dig"
   - "Senaste förslagen"
   - "Företagssökning" per kundprofil, med senaste och nästa sökning
-  - Sändning-kortet: fönster, tidszon och Gmail-status
+  - Sändning-kortet: fönster, tidszon och Gmail-status (visas inte längre på Start, finns under Inställningar › E-post)
   - Erik- och Moa-korten
 - **Förslag:** lista med utkast, "Läs den" och Avvisa.
 - **Identifierade företag:**
@@ -122,14 +122,14 @@ Detta ska **inte** flaggas som saknat. Det ska byggas om i ny design med samma f
 |---|---|---|---|
 | S-01 | Rubrik som räknas från data | T.ex. "Erik har bokat 2 möten sedan i fredags", med hälsning. | Antal möten per period |
 | S-02 | Periodval | 7 d / 30 d / 90 d / I år styr KPI:er och diagram. | Aggregering per period |
-| S-03 | KPI-kort | Svar, Utskick (mejl/LinkedIn), Svarsfrekvens och Pipeline. Varje kort har minidiagram och trend mot förra perioden. Klick väljer vad huvuddiagrammet visar. | Tidsserier per kanal |
+| S-03 | KPI-kort | Svar, Utskick (mejl/LinkedIn), Svarsfrekvens och Pipeline. Varje kort visar trend mot förra perioden (minidiagrammen är borttagna). Klick väljer vad huvuddiagrammet visar. | Tidsserier per kanal |
 | S-04 | Pipeline-tavla | Väljer man Pipeline visas en tavla per steg (Första kontakt / I dialog / Möte bokat – samma bolag som i Pågående sälj) i stället för diagram. | Bolag per steg |
-| S-05 | Tratt "Från bolag till möte" | Identifierade → godkända → kontaktade → svarat → möte bokat. | Räknare per steg |
+| S-05 | Grönt huvudkort "Från bolag till möte" | Antal bokade möten stort, plus Hittade / Kontaktade / Svarade och Eriks porträtt. Steget "Godkända av dig" är borttaget eftersom bolag inte längre godkänns för hand (se Eriks arbetsflöde). | Räknare per steg |
 | S-06 | Kostnad per bokat möte | Månadspris ÷ antal bokade möten. | Pris per arbetsyta + antal möten |
 | S-07 | Diagram svar per dag | Linjediagram med jämförelse mot förra perioden (på/av) och kanalfilter Alla/Mejl/LinkedIn/Anbud. | Tidsserie per kanal |
 | S-08 | "Erik just nu" | Vad Erik gör just nu, plus länk Alla körningar. | Pågående körningar |
 | S-09 | Tabellen "Nya bolag" | Senast identifierade bolag med matchning. | Finns troligen |
-| S-10 | Borttaget | Bannern "Väntar på dig", "Senaste förslagen" och "Företagssökning" på Start. Ersätts av räknarna i menyn; sökningarna finns kvar i Kundprofil. | – |
+| S-10 | Borttaget | Bannern "Väntar på dig", "Senaste förslagen" och "Företagssökning" på Start. Ersätts av räknarna i menyn; sökningarna finns kvar i Kundprofil. Även Sändning-kortet och raden med kundprofiler ovanför "Nya bolag" är borttagna från Start. | – |
 
 ## 3. Förslag
 

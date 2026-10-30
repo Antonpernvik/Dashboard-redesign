@@ -30,12 +30,12 @@ Menyraderna är desamma som idag: Start, Förslag, Identifierade företag, Påg�
 |---|---|---|
 | Ny | Rubrik som räknas från data: "Erik har bokat 2 möten sedan i fredags" | ja |
 | Ny | Periodval 7 d / 30 d / 90 d / I år | ja |
-| Ny | Fyra KPI-kort med minidiagram och trend: Svar, Utskick, Svarsfrekvens, Pipeline | ja |
+| Ny | Fyra KPI-kort med trend: Svar, Utskick, Svarsfrekvens, Pipeline | ja |
 | Ny | Klick på ett KPI-kort byter huvuddiagrammet. Pipeline visar en tavla per steg | ja |
-| Ny | Tratt "Från bolag till möte" och kostnad per bokat möte | ja |
+| Ny | Grönt huvudkort "Från bolag till möte" (bokade möten + hittade/kontaktade/svarade) och kostnad per bokat möte | ja |
 | Ny | Linjediagram svar per dag, jämförelse med förra perioden och kanalfilter | ja |
 | Ny | "Erik just nu" och tabellen "Nya bolag" | ja |
-| Ändrat | Sändning-kortet: nytt utseende, samma innehåll | – |
+| Ändrat | Sändning-kortet: flyttat från Start till Inställningar › E-post | – |
 | Borttaget | "Väntar på dig"-bannern, "Senaste förslagen" och "Företagssökning" per kundprofil (finns kvar under Kundprofil › Eriks sökningar) | – |
 
 ## Förslag

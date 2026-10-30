@@ -39,7 +39,7 @@ html,body{transition:none}
 
 <!-- Sidebar -->
 <div style="position: sticky; top: 16px; z-index: 30; flex: none; width: 76px; height: calc(100vh - 32px); min-height: 620px">
-<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
+<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #C3CEC7; --line: rgba(255,255,255,0.10); --glassHi: rgba(255,255,255,0.16); --glassLine: transparent; --greenText: #6EDC9F; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
 
 <button aria-label="Byt kollega, nu vald: Erik" style="display: flex; align-items: center; gap: 12px; width: 100%; height: 48px; padding: 0; border-radius: 16px; border: 0; background: transparent; color: var(--ink); cursor: pointer; text-align: left; white-space: nowrap">
 <img src="../assets/erik.jpg" alt="" style="width: 48px; height: 48px; flex: none; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 3px rgba(255,255,255,0.7)">
@@ -91,9 +91,9 @@ html,body{transition:none}
 <main style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 
 <sc-if value="{{anyPop}}" hint-placeholder-val="{{false}}"><div aria-hidden="true" onMouseDown="{{closePops}}" style="position: fixed; inset: 0; z-index: 14; background: transparent; cursor: default"></div></sc-if>
-<header style="position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; box-sizing: border-box; padding: 14px 14px 14px 30px; border-radius: 30px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow)">
+<header style="position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; box-sizing: border-box; padding: 14px 14px 14px 30px; border-radius: 30px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow)">
 <div style="display: flex; flex-direction: column; gap: 4px; line-height: 1.15; padding: 4px 0">
-<span style="font-size: 22px; font-weight: 400; letter-spacing: -0.01em">{{todayStr}} <span style="margin-left: 4px; font-size: 14px; font-weight: 400; color: var(--muted)">{{weekStr}}</span></span>
+<span style="font-size: 22px; font-weight: 500; letter-spacing: -0.015em">{{todayStr}} <span style="margin-left: 4px; font-size: 14px; font-weight: 400; color: var(--muted)">{{weekStr}}</span></span>
 </div>
 <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
 <span style="display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 20px 0 6px; border-radius: 999px; background: var(--tintG); color: var(--ink); font-size: 13px; font-weight: 500"><span style="position: relative; width: 40px; height: 40px; flex: none"><img src="../assets/erik.jpg" alt="" style="width: 40px; height: 40px; border-radius: 999px; object-fit: cover"><span style="position: absolute; right: -1px; bottom: -1px; width: 10px; height: 10px; border-radius: 999px; background: var(--green); border: 2px solid var(--base)"></span></span>Erik är aktiv</span>
@@ -126,7 +126,7 @@ html,body{transition:none}
 </sc-if>
 </div>
 <div style="position: relative">
-<button onClick="{{toggleTask}}" aria-expanded="{{taskStr}}" style="height: 52px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--green); color: var(--onGreen); font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: none">
+<button onClick="{{toggleTask}}" aria-expanded="{{taskStr}}" style="height: 52px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--pill); color: var(--pillInk); font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: none">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Ge Erik ett uppdrag</button>
 <sc-if value="{{taskOpen}}" hint-placeholder-val="{{false}}">
 <div role="dialog" aria-label="Ge Erik ett uppdrag" style="position: absolute; right: 0; top: 62px; width: 440px; max-width: calc(100vw - 120px); border-radius: 24px; background: {{t.pop}}; border: 1px solid var(--glassLine); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: 0 30px 80px rgba(0,0,0,0.22); overflow: hidden; z-index: 50">
@@ -164,7 +164,7 @@ html,body{transition:none}
 <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
 <a href="Foretag.dc.html" style="text-decoration: none; font-size: 13px; font-weight: 500; color: var(--greenText)">← Identifierade företag</a>
 <span style="font-size: 13px; color: var(--muted)">Förslag från Erik · Hitta företag: Svenska telekomoperatörer</span>
-<h1 style="margin: 0; font-size: 42px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1">Granska {{co.name}}</h1>
+<h1 style="margin: 0; font-size: 42px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">Granska {{co.name}}</h1>
 <span style="font-size: 14px; color: var(--muted)">{{pendingText}} · <a href="Korning.dc.html" style="color: var(--greenText); font-weight: 500">Visa körningen</a></span>
 </div>
 <div style="display: flex; align-items: center; gap: 6px; padding: 5px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px)">
@@ -174,7 +174,7 @@ html,body{transition:none}
 </div>
 </section>
 
-<article aria-label="Förslag" style="padding: 32px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(150%); -webkit-backdrop-filter: blur(28px) saturate(150%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 18px">
+<article aria-label="Förslag" style="padding: 32px; border-radius: 28px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
 <div style="display: flex; align-items: center; gap: 12px; min-width: 0">
 <span style="font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine)">Nytt</span>
@@ -280,20 +280,20 @@ class Component extends DCLogic {
     const accent = this.props.accent ?? '#1E7B4E';
     const dark = this.state.dark;
     const t = dark ? {
-      base: '#0A0F0C', blob1: '#1D3A2B', blob2: '#3A3124', blob3: '#173226', blob4: '#2B2A22',
-      glass: 'rgba(22,30,25,0.55)', glassHi: 'rgba(34,46,38,0.7)', glassLine: 'rgba(255,255,255,0.08)',
+      base: '#0E1210', blob1: '#0E1210', blob2: '#0E1210', blob3: '#0E1210', blob4: '#0E1210',
+      glass: '#171D1A', glassHi: '#1F2622', glassLine: 'rgba(255,255,255,0.06)',
       soft: 'rgba(255,255,255,0.06)', line: 'rgba(255,255,255,0.08)', ink: '#EEF2EE', muted: '#A3AFA7',
-      pill: 'rgba(255,255,255,0.16)', pillInk: '#EEF2EE', kpiOn: 'rgba(255,255,255,0.1)', sun: 'rgba(76,194,133,0.18)', beam: 'rgba(255,255,255,0.05)', grain: '0.25', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'transparent',
+      pill: '#EEF2EE', pillInk: '#0E1210', kpiOn: '#1E3328', sun: 'transparent', beam: 'transparent', grain: '0', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'transparent',
       chart: '#4CC285', chartPrev: '#6C7A71', tintG: 'rgba(76,194,133,0.2)', down: '#F07A63',
       shadow: '0 10px 40px rgba(0,0,0,0.35)',
       scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', curBar: 'rgba(76,194,133,0.5)', inv: 'rgba(24,52,38,0.78)', invInk: '#EEF2EE', invSoft: 'rgba(255,255,255,0.06)', invLine: 'rgba(255,255,255,0.1)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
     } : {
-      base: '#D8D2C6', blob1: '#B9C4A8', blob2: '#EADFCB', blob3: '#9FB394', blob4: '#CDB89C',
-      glass: 'rgba(255,255,255,0.36)', glassHi: 'rgba(255,255,255,0.6)', glassLine: 'rgba(255,255,255,0.65)',
-      soft: 'rgba(255,255,255,0.45)', line: 'rgba(30,40,34,0.1)', ink: '#14201A', muted: '#3F4B44',
-      pill: 'rgba(255,255,255,0.82)', pillInk: '#14201A', kpiOn: 'rgba(255,255,255,0.78)', sun: 'rgba(255,253,240,0.6)', beam: 'rgba(255,255,250,0.28)', grain: '0.35', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'transparent',
+      base: '#F1EFEA', blob1: '#F1EFEA', blob2: '#F1EFEA', blob3: '#F1EFEA', blob4: '#F1EFEA',
+      glass: '#FFFFFF', glassHi: '#F4F2ED', glassLine: 'rgba(20,32,26,0.06)',
+      soft: '#F4F2ED', line: 'rgba(30,40,34,0.08)', ink: '#14201A', muted: '#3F4B44',
+      pill: '#14201A', pillInk: '#FFFFFF', kpiOn: '#E4F0E8', sun: 'transparent', beam: 'transparent', grain: '0', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'transparent',
       chart: '#1E7B4E', chartPrev: '#8A938C', tintG: 'rgba(30,123,78,0.16)', down: '#9E2F22',
-      shadow: '0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 50px rgba(60,70,40,0.08)',
+      shadow: '0 1px 2px rgba(20,32,26,0.04), 0 10px 30px rgba(20,32,26,0.05)',
       scrim: 'rgba(216,210,198,0.28)', pop: 'rgba(251,250,247,0.97)', field: '#FFFFFF', fieldLine: 'rgba(20,32,26,0.12)', curBar: 'rgba(30,123,78,0.4)', inv: 'rgba(17,28,22,0.86)', invInk: '#F1F5F2', invSoft: 'rgba(255,255,255,0.08)', invLine: 'rgba(255,255,255,0.12)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
     };
     const up = dark ? '#4CC285' : '#17643F';

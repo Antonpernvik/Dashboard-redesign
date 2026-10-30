@@ -21,10 +21,9 @@ Vad som ska hända när man klickar, sida för sida. Samma text ligger som lappa
 - KPI-kort: väljer vad grafen visar. Pipeline-kortet byter grafen mot en tavla med bolag per steg.
 - Kanalfilter (Alla / Mejl / LinkedIn / Anbud): filtrerar grafen.
 - Jämför-reglaget: visar eller döljer förra periodens streckade linje.
-- Tratten: varje steg går till Pågående sälj, filtrerat på steget. "Kostnad per möte" räknas live som månadsavgift ÷ bokade möten.
+- Gröna huvudkortet "Från bolag till möte": antal bokade möten stort, plus Hittade / Kontaktade / Svarade. Varje siffra går till Pågående sälj, filtrerat på steget. "Kostnad per möte" räknas live som månadsavgift ÷ bokade möten.
 - Pipeline-tavlan: ett bolag öppnar kundkortet. "+N till" och "Öppna hela pipelinen" går till Pågående sälj.
 - Erik just nu: en rad öppnar kundkortet. "Alla körningar" går till Körningar.
-- Sändning "Ändra": Inställningar › Sändning.
 - Nya bolag: en rad öppnar kundkortet. "Alla identifierade företag" går till Identifierade företag.
 - Aktivera Moa: startar Moas onboarding (sajtens adress, ton, godkännande).
 

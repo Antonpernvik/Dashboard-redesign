@@ -43,13 +43,13 @@ theme: { extend: {
 }}
 ```
 
-Glas = `bg-glass border border-glass-line backdrop-blur-[28px] backdrop-saturate-150 shadow-glass`.
+Kort = `bg-glass border border-glass-line shadow-glass rounded-card`. Lägg även till `rail`, `rail-ink` m.fl. från tokens.css för menyn.
 
 ## Saker att veta
 
-- **Stilen (okt 2026):** Outfit med lätta vikter (300 för stora siffror och sidrubriker, 500 för etiketter och knappar), tunna ikoner (stroke 1,5), vita pillor för valt läge i stället för svarta, inga glödskuggor, ljusinsläpp och korn i bakgrunden. Toppbaren är 80 px hög med 52 px knappar.
+- **Stilen (30 okt 2026):** Enfärgad varm benvit bakgrund (`--base`), fasta vita kort med mjuk skugga (inget glas), menyn i mjuk grågrön (`--rail` #4A6457) där menyns färger sätts som lokala CSS-variabler (se `.rail`). Outfit i mellanvikt: 500 för stora siffror och sidrubriker, 600 för korttitlar. Svart "pill" för valt läge och knappen "Ge Erik ett uppdrag" (`.btn--dark`). Startsidan har ett grönt huvudkort (`.card--hero`, `--hero`). Tunna ikoner (stroke 1,5). Toppbaren är 80 px hög med 52 px knappar.
 
-- **Glaseffekten** kräver `backdrop-filter` med `-webkit-`-prefix för Safari. Den syns bara mot den suddiga bakgrunden, så bygg bakgrunden först.
+- **Glaset är borttaget.** Variablerna heter fortfarande `--glass` m.fl. men är nu fasta färger. `backdrop-filter` ligger kvar på några ställen i prototypen men gör ingen synlig skillnad och kan tas bort.
 - **Menyn** fälls ut med ren CSS (`:hover` och `:focus-within`). Oskärpan bakom använder `:has()`. Vill ni stödja äldre webbläsare, sätt klassen `.is-open` med JS i stället.
 - **Temat:** ljust är standard. Valet sparas per flik i `sessionStorage` (nyckel `aik-theme-tab`), inte mellan flikar. Det är medvetet, eftersom synk mellan flikar skapade buggar. Cirkelanimationen använder View Transitions API och faller tillbaka till direktbyte.
 - **Popovers** stängs vid klick utanför och med Esc. Spärren (`.popover-catcher`) måste ligga **utanför** element med `backdrop-filter`/`filter`/`transform` (t.ex. toppfältet) – annars blir den bara lika stor som det elementet. Enklast: rendera popover och spärr i en portal på `<body>`.

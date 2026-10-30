@@ -1,6 +1,6 @@
 # Dashboard-redesign
 
-Ny design för Ai Kollegornas kunddashboard (Erik och Moa): glas-paneler över en suddig bakgrund, grön accent, utfällbar ikonmeny och mörkt läge.
+Ny design för Ai Kollegornas kunddashboard (Erik och Moa): enfärgad ljus bakgrund, vita kort, grön accent, utfällbar grågrön meny och mörkt läge.
 
 ## Sidor
 
@@ -30,6 +30,7 @@ Ny design för Ai Kollegornas kunddashboard (Erik och Moa): glas-paneler över e
 - **prototype/** – alla sidor körbara i vanlig webbläsare. Öppna `prototype/Main.html`.
 - **NYA-FUNKTIONER.md** – vad som är nytt jämfört med dagens app, och vad som saknas i designen.
 - **SPEC.md** – vad varje knapp ska göra.
+- **ERIK-PIPELINE.md** – hur Erik jobbar från hittad lead till bokat möte, researchnivåer och kundens dagliga genomgång på 15 min.
 - **design/** – källfilerna i Claudes designformat.
 
 All exempeldata är påhittad eller platshållare – bolagen i exemplen är fiktiva. Kostnad per körning i dollar visas medvetet inte för kunden.

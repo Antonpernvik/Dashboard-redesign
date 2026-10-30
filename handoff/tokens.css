@@ -16,19 +16,19 @@
   --greenText: #15603C;  /* grönt som TEXT/länk – klarar 4,5:1 på glaset */
   --onGreen: #FFFFFF;
 
-  /* Bakgrund + suddiga färgfläckar */
-  --base: #D8D2C6;
-  --blob1: #B9C4A8;
-  --blob2: #EADFCB;
-  --blob3: #9FB394;
-  --blob4: #CDB89C;
+  /* Bakgrund: enfärgad, varm benvit. Färgfläckarna används inte längre (samma värde som --base). */
+  --base: #F1EFEA;
+  --blob1: #F1EFEA;
+  --blob2: #F1EFEA;
+  --blob3: #F1EFEA;
+  --blob4: #F1EFEA;
 
-  /* Glasytor */
-  --glass: rgba(255,255,255,0.36);      /* kort, panel, meny */
-  --glassHi: rgba(255,255,255,0.60);    /* upphöjd yta inne i kort, aktiv menyrad */
-  --glassLine: rgba(255,255,255,0.65);  /* kantlinje på glas */
-  --soft: rgba(255,255,255,0.45);       /* mjuk ruta, sekundära knappar */
-  --line: rgba(30,40,34,0.10);          /* avdelare */
+  /* Ytor (namnen är kvar från glasversionen – nu är korten fasta och vita) */
+  --glass: #FFFFFF;                     /* kort, panel, toppfält */
+  --glassHi: #F4F2ED;                   /* upphöjd yta inne i kort, sökfält, ikonknappar */
+  --glassLine: rgba(20,32,26,0.06);     /* kantlinje på kort */
+  --soft: #F4F2ED;                      /* mjuk ruta, sekundära knappar */
+  --line: rgba(30,40,34,0.08);          /* avdelare */
   --pop: rgba(251,250,247,0.97);        /* popover/dropdown */
   --scrim: rgba(216,210,198,0.28);      /* oskärpa bakom öppen meny */
 
@@ -36,10 +36,22 @@
   --ink: #14201A;
   --muted: #3F4B44;
 
-  /* Mörk "pill" (vald flik/segment) */
-  --pill: rgba(255,255,255,0.82);   /* vald flik/segment = vit pill (inte svart) */
-  --pillInk: #14201A;
-  --kpiOn: rgba(255,255,255,0.78);   /* valt KPI-kort */
+  /* Mörk "pill": vald flik/segment och knappen "Ge Erik ett uppdrag" */
+  --pill: #14201A;
+  --pillInk: #FFFFFF;
+  --kpiOn: #E4F0E8;   /* valt KPI-kort (ljust grönt) */
+
+  /* Menyn (rail): mjuk grågrön. Sätt menyns lokala variabler enligt .rail i components.css */
+  --rail: #4A6457;
+  --railInk: #EEF2EE;
+  --railMuted: #C3CEC7;
+  --railActive: rgba(255,255,255,0.16);
+  --railLine: rgba(255,255,255,0.10);
+  --railAccent: #6EDC9F;
+
+  /* Grönt huvudkort på Start ("Från bolag till möte") */
+  --hero: linear-gradient(150deg, #134F33 0%, #1E7B4E 50%, #48A374 100%);
+  --heroShadow: 0 18px 40px rgba(30,123,78,0.25);
 
   /* Status */
   --tintG: rgba(30,123,78,0.16);        /* grön bakgrundston */
@@ -65,16 +77,16 @@
   --invGlow: rgba(110,220,159,0.22);
 
   /* Skuggor */
-  --shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 20px 50px rgba(60,70,40,0.08);
-  /* Bakgrundens ljusinsläpp och korn */
-  --sun: rgba(255,253,240,0.6);
-  --beam: rgba(255,255,250,0.28);
-  --grain: 0.35;
+  --shadow: 0 1px 2px rgba(20,32,26,0.04), 0 10px 30px rgba(20,32,26,0.05);
+  /* Ljusinsläpp och korn används inte längre */
+  --sun: transparent;
+  --beam: transparent;
+  --grain: 0;
   --shadow-pop: 0 30px 80px rgba(0,0,0,0.22);
   --shadow-rail-open: 0 24px 60px rgba(60,50,30,0.22);
 
   /* Glaseffekt */
-  --blur-glass: blur(28px) saturate(150%);
+  --blur-glass: blur(28px) saturate(110%);
   --blur-pop: blur(40px) saturate(180%);
   --blur-scrim: blur(8px) saturate(120%);
 
@@ -114,15 +126,15 @@
 
 :root[data-theme="dark"] {
   --greenText: #6EDC9F;
-  --base: #0A0F0C;
-  --blob1: #1D3A2B;
-  --blob2: #3A3124;
-  --blob3: #173226;
-  --blob4: #2B2A22;
+  --base: #0E1210;
+  --blob1: #0E1210;
+  --blob2: #0E1210;
+  --blob3: #0E1210;
+  --blob4: #0E1210;
 
-  --glass: rgba(22,30,25,0.55);
-  --glassHi: rgba(34,46,38,0.70);
-  --glassLine: rgba(255,255,255,0.08);
+  --glass: #171D1A;
+  --glassHi: #1F2622;
+  --glassLine: rgba(255,255,255,0.06);
   --soft: rgba(255,255,255,0.06);
   --line: rgba(255,255,255,0.08);
   --pop: rgba(22,30,25,0.97);
@@ -131,12 +143,12 @@
   --ink: #EEF2EE;
   --muted: #A3AFA7;
 
-  --pill: rgba(255,255,255,0.16);
-  --pillInk: #EEF2EE;
-  --kpiOn: rgba(255,255,255,0.10);
-  --sun: rgba(76,194,133,0.18);
-  --beam: rgba(255,255,255,0.05);
-  --grain: 0.25;
+  --pill: #EEF2EE;
+  --pillInk: #0E1210;
+  --kpiOn: #1E3328;
+  --sun: transparent;
+  --beam: transparent;
+  --grain: 0;
 
   --tintG: rgba(76,194,133,0.20);
   --greenGlow: transparent;

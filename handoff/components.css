@@ -12,16 +12,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 /* ---------- Bakgrund ------------------------------------------------- */
 .app-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: var(--base); }
-.app-bg span { position: absolute; border-radius: 999px; }
-.app-bg span:nth-child(1) { left: -8%; top: -6%; width: 46%; height: 520px; background: var(--blob1); filter: blur(90px); }
-.app-bg span:nth-child(2) { right: -6%; top: 4%; width: 42%; height: 600px; background: var(--blob2); filter: blur(110px); }
-.app-bg span:nth-child(3) { left: 28%; top: 38%; width: 40%; height: 520px; background: var(--blob3); filter: blur(110px); }
-.app-bg span:nth-child(4) { left: -4%; bottom: -4%; width: 38%; height: 560px; background: var(--blob4); filter: blur(100px); }
-.app-bg span:nth-child(5) { right: 4%; bottom: 6%; width: 34%; height: 460px; background: var(--blob1); filter: blur(100px); }
-.app-bg span:nth-child(6) { right: 12%; top: -14%; width: 38%; height: 520px; background: var(--sun); filter: blur(120px); }
-.app-bg span:nth-child(7) { left: 10%; top: 18%; width: 80%; height: 900px; border-radius: 0; background: linear-gradient(115deg, transparent 0%, var(--beam) 42%, transparent 60%); filter: blur(60px); }
-/* Fint korn över bakgrunden – gör att den känns mindre platt */
-.app-bg::after { content: ''; position: absolute; inset: 0; opacity: var(--grain); mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+/* Enfärgad bakgrund. Inga färgfläckar, inget korn. */
 
 /* ---------- Layout --------------------------------------------------- */
 .app { position: relative; z-index: 1; display: flex; gap: 16px; align-items: flex-start; padding: 16px; min-height: 100vh; }
@@ -35,13 +26,15 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .card--selected { border: 2px solid var(--green); }
 .card--inv { background: var(--inv); color: var(--invInk); border-color: var(--invLine); }
 .card--inv .muted { color: rgba(241,245,242,0.7); }
+/* Grönt huvudkort (Start: Från bolag till möte). Barnen ärver vita färger via lokala variabler. */
+.card--hero { --ink: #FFFFFF; --muted: rgba(255,255,255,0.78); --soft: rgba(255,255,255,0.16); --glassLine: transparent; --green: #FFFFFF; --tintG: rgba(255,255,255,0.14); color: #FFFFFF; background: var(--hero); border: 0; box-shadow: var(--heroShadow); border-radius: 28px; padding: 24px; }
 .card--dashed { border: 1px dashed var(--muted); box-shadow: none; }
 .box { padding: 12px 14px; border-radius: var(--r-lg); background: var(--soft); border: 1px solid var(--glassLine); }
 .box--hi { background: var(--glassHi); }
 .divider { height: 1px; background: var(--line); border: 0; margin: 0; }
 
 /* ---------- Typografi ----------------------------------------------- */
-.h1 { margin: 0; font-size: 42px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; }
+.h1 { margin: 0; font-size: 42px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; }
 .h1--xl { font-size: var(--fs-40); }
 .h2 { margin: 0; font-size: var(--fs-24); font-weight: 600; letter-spacing: -0.02em; }
 .h3 { margin: 0; font-size: var(--fs-18); font-weight: 600; }
@@ -50,7 +43,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .small { font-size: var(--fs-12); }
 .eyebrow { font-size: var(--fs-12); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .eyebrow--green { color: var(--greenText); }
-.num { font-size: 38px; font-weight: 300; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.num { font-size: 38px; font-weight: 500; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
 .mono { font-family: var(--font-mono); }
 
 /* ---------- Knappar -------------------------------------------------- */
@@ -60,6 +53,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 :where(a, button, input, select, textarea, [role="switch"], [role="tab"]):focus-visible { outline: 2px solid var(--greenText); outline-offset: 2px; }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
 .btn--primary { border: 0; background: var(--green); color: var(--onGreen); box-shadow: none; }
+.btn--dark { border: 0; background: var(--pill); color: var(--pillInk); font-weight: 600; box-shadow: none; } /* "Ge Erik ett uppdrag" i toppfältet */
 .btn--soft { background: var(--soft); }
 .btn--danger { color: var(--down); }
 .btn--link { height: auto; padding: 8px 2px; border: 0; background: transparent; color: var(--greenText); font-size: var(--fs-13); box-shadow: none; }
@@ -132,14 +126,14 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 /* ---------- Sidomeny (ikonlist som fälls ut vid hover) -------------- */
 .rail-slot { position: sticky; top: 16px; z-index: 30; flex: none; width: var(--rail-closed); height: calc(100vh - 32px); min-height: 620px; }
-.rail { position: absolute; inset: 0 auto 0 0; width: var(--rail-closed); overflow: hidden; padding: 14px; border-radius: var(--r-panel); background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; transition: width var(--dur-rail) var(--ease), box-shadow var(--dur-rail); }
+.rail { --ink: var(--railInk); --muted: var(--railMuted); --line: var(--railLine); --glassHi: var(--railActive); --glassLine: transparent; --greenText: var(--railAccent); --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; position: absolute; inset: 0 auto 0 0; width: var(--rail-closed); overflow: hidden; padding: 14px; border-radius: var(--r-panel); background: var(--rail); color: var(--railInk); border: 0; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; transition: width var(--dur-rail) var(--ease), box-shadow var(--dur-rail); }
 .rail:hover, .rail:focus-within, .rail.is-open { width: var(--rail-open); box-shadow: var(--shadow-rail-open); }
 .rail__label { opacity: 0; transition: opacity var(--dur-fade); white-space: nowrap; }
 .rail:hover .rail__label, .rail:focus-within .rail__label, .rail.is-open .rail__label { opacity: 1; }
 .rail__nav { display: flex; flex-direction: column; gap: 6px; }
 .rail__item { position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px; border-radius: var(--r-lg); color: var(--ink); font-size: var(--fs-14); font-weight: 500; text-decoration: none; white-space: nowrap; }
 .rail__item svg { flex: none; }
-.rail__item[aria-current="page"] { background: var(--glassHi); color: var(--green); font-weight: 500; box-shadow: inset 0 0 0 1px var(--glassLine); }
+.rail__item[aria-current="page"] { background: var(--glassHi); color: var(--greenText); font-weight: 500; box-shadow: inset 0 0 0 1px var(--glassLine); }
 .rail__item[aria-current="page"] .rail__label { color: var(--ink); }
 .rail__item .badge { left: 30px; top: 6px; }
 .rail__section { height: 18px; padding: 0 14px; font-size: var(--fs-11); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -150,7 +144,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 /* ---------- Toppfält ------------------------------------------------- */
 .topbar { position: relative; z-index: 15; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; padding: 14px 14px 14px 30px; border-radius: 30px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: var(--blur-glass); -webkit-backdrop-filter: var(--blur-glass); box-shadow: var(--shadow); }
-.topbar__title { font-size: 22px; font-weight: 400; letter-spacing: -0.01em; }
+.topbar__title { font-size: 22px; font-weight: 500; letter-spacing: -0.015em; }
 .topbar__actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
 /* ---------- Popover (notiser, "Ge Erik ett uppdrag", menyer) -------- */
