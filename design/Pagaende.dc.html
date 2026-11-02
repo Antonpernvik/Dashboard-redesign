@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0}
 a{color:inherit}
@@ -165,7 +165,7 @@ html,body{transition:none}
 <section style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px; padding: 6px 6px 0">
 <div style="display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 14px; color: var(--muted)">Bolag Erik har tagit sig an</span>
-<div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap"><h1 style="margin: 0; font-size: 42px; font-weight: 500; letter-spacing: -0.02em">Pågående sälj</h1><span style="font-size: 20px; color: var(--muted)">9 bolag</span></div>
+<div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap"><h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 52px; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05">Pågående sälj</h1><span style="font-size: 20px; color: var(--muted)">9 bolag</span></div>
 </div>
 <div style="position: relative">
 <button onClick="{{togglePAct}}" aria-expanded="{{pActStr}}" aria-haspopup="menu" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--glassLine); background: var(--glassHi); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 8px">Åtgärder<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
@@ -196,16 +196,18 @@ html,body{transition:none}
 </sc-for>
 </div>
 
-<section aria-label="Pågående bolag" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+<section aria-label="Pågående bolag" style="flex: 999 1 640px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px">
 <sc-for list="{{deals}}" as="d" hint-placeholder-count="8">
-<a href="Kundkort.dc.html" style="text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 24px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow)">
-<div style="display: flex; justify-content: space-between; gap: 10px; align-items: flex-start">
-<h2 style="margin: 0; font-size: 17px; font-weight: 500; letter-spacing: -0.01em">{{d.name}}</h2>
-<span style="flex: none; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 500; color: var(--greenText)">{{d.score}}/10</span>
+<a href="Kundkort.dc.html" style="text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 14px; padding: 12px 12px 16px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); box-shadow: var(--shadow)">
+<div style="position: relative; height: 104px; border-radius: 18px; background: {{d.tint}}; display: flex; align-items: center; justify-content: center; overflow: hidden">
+<span style="position: absolute; left: 10px; top: 10px; height: 22px; padding: 0 10px; border-radius: 999px; background: #14201A; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center">{{d.status}}</span>
+<span style="width: 56px; height: 56px; border-radius: 18px; background: #FFFFFF; color: {{d.ink}}; font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; line-height: 1; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 18px rgba(20,32,26,0.10)">{{d.initials}}</span>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 6px">
-<span style="font-size: 11px; padding: 3px 9px; border-radius: 999px; background: var(--soft); border: 1px solid var(--glassLine); color: var(--muted)">{{d.profile}}</span>
-<span style="font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: var(--tintG)">{{d.status}}</span>
+<div style="padding: 0 8px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+<div style="display: flex; justify-content: space-between; gap: 10px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0"><h2 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.015em">{{d.name}}</h2><span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted)"><span style="width: 8px; height: 8px; flex: none; border-radius: 999px; background: {{d.ink}}"></span>{{d.profile}}</span></div>
+<span style="flex: none; font-size: 14px; font-weight: 600">{{d.score}}/10</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <div style="display: flex; gap: 3px">
@@ -213,11 +215,25 @@ html,body{transition:none}
 </div>
 <span style="font-size: 12px; font-weight: 500">Steg {{d.stepNo}} av 6 · {{d.stage}}</span>
 </div>
-<p style="margin: 0; font-size: 13px; line-height: 1.55; color: var(--muted); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden">{{d.summary}}</p>
-<span style="margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted)">{{d.meta}}</span>
+<p style="margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--muted); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden">{{d.summary}}</p>
+<span style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted)">{{d.meta}}</span>
+</div>
 </a>
 </sc-for>
 </section>
+<aside aria-label="Kundprofiler" style="flex: 1 1 280px; max-width: 340px; padding: 20px; border-radius: 22px; background: var(--glass); border: 1px solid var(--glassLine); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; font-weight: 400">Kundprofiler</h2><sc-if value="{{profFiltered}}" hint-placeholder-val="{{false}}"><button onClick="{{clearProf}}" style="border: 0; background: transparent; padding: 6px; color: var(--greenText); font-size: 12px; font-weight: 500; cursor: pointer">Visa alla</button></sc-if></div>
+<sc-for list="{{pProfRows}}" as="pr" hint-placeholder-count="3">
+<button onClick="{{pr.pick}}" aria-pressed="{{pr.pressed}}" style="display: flex; gap: 12px; align-items: flex-start; padding: 8px; margin: 0 -8px; border-radius: 14px; border: 0; background: {{pr.rowBg}}; color: var(--ink); font: inherit; text-align: left; cursor: pointer; opacity: {{pr.op}}">
+<span style="width: 32px; height: 32px; flex: none; border-radius: 10px; background: {{pr.bg}}; color: {{pr.fg}}; display: flex; align-items: center; justify-content: center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 7px"><span style="display: flex; justify-content: space-between; gap: 8px; font-size: 13px"><b style="font-weight: 600">{{pr.name}}</b><span style="color: var(--muted); font-size: 12px; white-space: nowrap">{{pr.count}}</span></span><span style="height: 4px; border-radius: 999px; background: var(--soft)"><span style="display: block; width: {{pr.pct}}; height: 100%; border-radius: 999px; background: {{pr.fg}}"></span></span></span>
+</button>
+</sc-for>
+<span style="font-size: 12px; color: var(--muted)">Klicka på en profil för att bara visa dess bolag.</span>
+<div style="height: 1px; background: var(--line)"></div>
+<div style="display: flex; align-items: baseline; gap: 10px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1">{{meetCount}}</span><span style="font-size: 13px; color: var(--muted)">{{meetLabel}}</span></div>
+</aside>
+</div>
 
 </main>
 </div>
@@ -455,11 +471,26 @@ class Component extends DCLogic {
       ['Kustvik Energi AB', 4, 'Telekomoperatörer', 'Berikat', 1, 'Delvis matchning. Intressant men inte en kärnmålgrupp.', 'Örnsköldsvik · 146 anställda · kustvikenergi.se']
     ];
     const stageSel = this.state.stage || 'Alla';
+    // En färg per kundprofil – samma färger som på Identifierade företag
+    const profLook = {
+      'Juridiska avdelningar': ['#E6DEF7', 'rgba(150,120,220,0.22)', '#5B3FA6'],
+      'Telekomoperatörer': ['#DCE8F8', 'rgba(110,150,220,0.22)', '#2F5C9E'],
+      'Egen kundprofil': ['#F6E1D4', 'rgba(220,140,100,0.22)', '#9A4A22']
+    };
     const allDeals = dealBase.map(([name, score, profile, status, step, summary, meta]) => ({
       name, score: String(score), profile, status, stepNo: String(step), stage: stageNames[step - 1], summary, meta,
+      initials: ini(name), tint: dark ? (profLook[profile] || profLook['Egen kundprofil'])[1] : (profLook[profile] || profLook['Egen kundprofil'])[0], ink: (profLook[profile] || profLook['Egen kundprofil'])[2],
       segs: [1, 2, 3, 4, 5, 6].map((i) => ({ bg: i < step ? 'var(--green)' : i === step ? t.curBar : 'var(--line)' }))
     }));
-    const deals = allDeals.filter((d) => stageSel === 'Alla' || d.stage === stageSel);
+    const profSel = this.state.prof || '';
+    const deals = allDeals.filter((d) => (stageSel === 'Alla' || d.stage === stageSel) && (!profSel || d.profile === profSel));
+    const pProfRows = ['Telekomoperatörer', 'Juridiska avdelningar', 'Egen kundprofil'].map((k) => {
+      const pl = profLook[k]; const n = allDeals.filter((d) => d.profile === k).length; const on = profSel === k;
+      return { name: k, count: n + ' bolag', pct: Math.round(n / allDeals.length * 100) + '%', bg: dark ? pl[1] : pl[0], fg: pl[2],
+        rowBg: on ? (dark ? pl[1] : pl[0]) : 'transparent', op: profSel && !on ? '0.55' : '1', pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ prof: on ? '' : k }) };
+    });
+    const meetCount = String(allDeals.filter((d) => d.stage === 'Möte bokat').length);
     const stageTabs = ['Alla', 'Research', 'Första kontakt', 'Dialog', 'Möte bokat'].map((l) => ({
       label: l, count: String(l === 'Alla' ? allDeals.length : allDeals.filter((d) => d.stage === l).length),
       active: stageSel === l, inactive: stageSel !== l, pick: () => this.setState({ stage: l })
@@ -517,7 +548,7 @@ class Component extends DCLogic {
       addCoDisabled: !addCoName.trim(), addCoOp: addCoName.trim() ? '1' : '0.5', addCoCursor: addCoName.trim() ? 'pointer' : 'not-allowed',
       addCo: () => { if (!addCoName.trim()) return; this.setState({ addCoOpen: false, addCoDone: addCoName.trim(), addCoName: '' }); },
       addCoDone: !!this.state.addCoDone, addCoDoneName: this.state.addCoDone || '',
-      deals, stageTabs,
+      deals, stageTabs, pProfRows, meetCount, meetLabel: meetCount === '1' ? 'möte bokat av Erik' : 'möten bokade av Erik', profFiltered: !!profSel, clearProf: () => this.setState({ prof: '' }),
       coCards, customers, excluded, ftabs, acceptAll, pendingCo: String(pendingCoN), hasPendingCo: pendingCoN > 0,
       tabBolag: this.state.ftab === 'Bolag', tabKunder: this.state.ftab === 'Befintliga kunder', tabExkl: this.state.ftab === 'Exkluderade',
       proposals: drafts, hasPending: pendingCount > 0, pendingLabel: pendingCount ? pendingCount + ' väntar' : 'Allt granskat', approveAll,

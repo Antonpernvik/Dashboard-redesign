@@ -9,7 +9,7 @@ Allt för att föra över Dashboard v2 till den riktiga appen. Börja här.
 | `handoff/tokens.css` | Alla designvärden som CSS-variabler, ljust och mörkt läge | **Kopiera rakt in.** Grunden för allt. |
 | `handoff/components.css` | Rena klasser för meny, toppfält, kort, knappar, flikar, taggar, fält, switch, popover, KPI, steg och tidslinje | Kopiera eller översätt till ert komponentbibliotek |
 | `handoff/components.html` | Komponentark med ren HTML (nästan inga inline-stilar), inklusive JS för temabyte | Facit för markup och tillstånd |
-| `handoff/fonts/` + `fonts.css` | Outfit (OFL-licens), lokala filer | Self-hosta i stället för Google Fonts |
+| `handoff/fonts/` + `fonts.css` | Outfit + Instrument Serif (OFL-licens), lokala filer | Self-hosta i stället för Google Fonts |
 | `handoff/screens/` | Skärmbilder av alla sidor i ljust och mörkt läge, plus viktiga lägen (öppna popovers, flikar, utfälld meny) | Pixelreferens |
 | `prototype/` | Alla 14 sidor körbara i vanlig webbläsare, utan Claude | Klicka runt och se beteendet. Öppna `prototype/Main.html`. |
 | `design/` | Källfilerna (Claudes designformat) | Exakta mått om något är oklart |
@@ -39,7 +39,7 @@ theme: { extend: {
   },
   borderRadius: { card: '26px', panel: '28px', box: '16px' },
   boxShadow: { glass: 'var(--shadow)', pop: 'var(--shadow-pop)' },
-  fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'] },
+  fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], serif: ['Instrument Serif', 'Georgia', 'serif'] },
 }}
 ```
 
@@ -59,6 +59,8 @@ Kort = `bg-glass border border-glass-line shadow-glass rounded-card`. Lägg äve
 - **Utkast från Erik** säger alltid att det är en AI-kollega (öppning och signatur). Inga påhittade rekommendationer eller kontakter.
 - **Mobil/surfplatta** är inte designat än – sidorna är byggda för ≥ 1024 px.
 - **Prototypen** (`prototype/`) har inline-stilar och en liten egen körmiljö (`dc-runtime.js`). Den är facit för utseende och beteende, inte kod att kopiera. Ren markup finns i `handoff/`.
+
+- **Uppdatering 2 nov 2026 – Identifierade företag och Pågående sälj:** Sidrubriken är i serif (Instrument Serif 400, 52 px, `.h1--serif`). Bolagen visas som stora kort med färgat toppfält, en vit ruta med initialerna och en svart tagg (bransch på Identifierade företag, status på Pågående). **En färg per kundprofil** (`--prof1…5-bg/-ink` i `tokens.css`) så att man ser direkt vilken profil ett bolag hör till: färgen syns i toppfältet, som prick vid profilnamnet och i panelen Kundprofiler till höger. Färgerna tilldelas i ordning när kunden skapar profiler och ska vara samma på alla sidor. På Pågående är profilraderna klickbara och filtrerar korten (fungerar ihop med stegflikarna); panelen visar antal bokade möten längst ner. Se `.co-card`, `.prof-panel` och `.prof-row` i `components.css`.
 
 ## Kända brister i prototypen (granskning 30 okt 2026)
 

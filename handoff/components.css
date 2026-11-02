@@ -36,6 +36,9 @@ button, input, textarea, select { font: inherit; color: inherit; }
 /* ---------- Typografi ----------------------------------------------- */
 .h1 { margin: 0; font-size: 42px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; }
 .h1--xl { font-size: var(--fs-40); }
+/* Serif-rubrik (Identifierade företag, Pågående sälj – rullas ut till fler sidor) */
+.h1--serif { font-family: var(--font-serif); font-size: 52px; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+.num--serif { font-family: var(--font-serif); font-size: 44px; font-weight: 400; line-height: 1; }
 .h2 { margin: 0; font-size: var(--fs-24); font-weight: 600; letter-spacing: -0.02em; }
 .h3 { margin: 0; font-size: var(--fs-18); font-weight: 600; }
 .lead { font-size: var(--fs-14); color: var(--muted); }
@@ -187,3 +190,23 @@ button, input, textarea, select { font: inherit; color: inherit; }
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 ::view-transition-old(root) { z-index: 1; }
 ::view-transition-new(root) { z-index: 2; }
+
+/* ===== Bolagskort med kundprofilfärg (Identifierade företag, Pågående sälj) =====
+   Sätt --prof-bg/--prof-ink på kortet från kundprofilens färg, t.ex. style="--prof-bg: var(--prof1-bg); --prof-ink: var(--prof1-ink)" */
+.co-card { display: flex; flex-direction: column; gap: 14px; padding: 12px 12px 18px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); box-shadow: var(--shadow); color: var(--ink); text-decoration: none; }
+.co-card__head { position: relative; height: 132px; border-radius: 18px; background: var(--prof-bg); display: flex; align-items: center; justify-content: center; }
+.co-card--compact .co-card__head { height: 104px; }
+.co-card__tag { position: absolute; left: 10px; top: 10px; height: 22px; padding: 0 10px; border-radius: var(--r-pill); background: #14201A; color: #FFFFFF; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; }
+.co-card__logo { width: 64px; height: 64px; border-radius: 18px; background: #FFFFFF; color: var(--prof-ink); font-family: var(--font-serif); font-size: 30px; line-height: 1; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 18px rgba(20,32,26,0.10); }
+.co-card__body { padding: 0 8px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.co-card__name { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; }
+.prof-dot { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.prof-dot::before { content: ""; width: 8px; height: 8px; flex: none; border-radius: 999px; background: var(--prof-ink); }
+/* Kundprofiler-panel till höger. På Pågående är raderna knappar som filtrerar (aria-pressed). */
+.prof-panel { padding: 20px; border-radius: 22px; background: var(--glass); border: 1px solid var(--glassLine); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; }
+.prof-row { display: flex; gap: 12px; align-items: flex-start; padding: 8px; margin: 0 -8px; border-radius: 14px; border: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; cursor: pointer; }
+.prof-row[aria-pressed="true"] { background: var(--prof-bg); }
+.prof-panel:has(.prof-row[aria-pressed="true"]) .prof-row[aria-pressed="false"] { opacity: 0.55; }
+.prof-row__icon { width: 32px; height: 32px; flex: none; border-radius: 10px; background: var(--prof-bg); color: var(--prof-ink); display: flex; align-items: center; justify-content: center; }
+.prof-row__bar { height: 4px; border-radius: 999px; background: var(--soft); }
+.prof-row__bar > span { display: block; height: 100%; border-radius: 999px; background: var(--prof-ink); }

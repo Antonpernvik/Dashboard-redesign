@@ -9,6 +9,7 @@
 :root {
   /* Typsnitt */
   --font-sans: 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif; /* lättare vikter: 300 stora siffror/rubriker, 400 brödtext, 500 etiketter/knappar */
+  --font-serif: 'Instrument Serif', Georgia, serif; /* sidrubriker (h1 52px) och stora siffror i paneler – alltid vikt 400 */
   --font-mono: 'Outfit', sans-serif; /* inga monospace-siffror längre – använd font-variant-numeric: tabular-nums */
 
   /* Accent (samma i båda lägena) */
@@ -31,6 +32,14 @@
   --line: rgba(30,40,34,0.08);          /* avdelare */
   --pop: rgba(251,250,247,0.97);        /* popover/dropdown */
   --scrim: rgba(216,210,198,0.28);      /* oskärpa bakom öppen meny */
+
+  /* Kundprofilfärger – en färg per kundprofil (kortets toppfält, prick vid profilnamnet, staplar i Kundprofiler-panelen).
+     Tilldelas i ordning när kunden skapar profiler. bg = ljus yta, ink = prick/stapel/initialer. */
+  --prof1-bg: #DCE8F8; --prof1-ink: #2F5C9E;  /* blå */
+  --prof2-bg: #E6DEF7; --prof2-ink: #5B3FA6;  /* lila */
+  --prof3-bg: #F6E1D4; --prof3-ink: #9A4A22;  /* persika */
+  --prof4-bg: #DDEFE3; --prof4-ink: #2E6B47;  /* grön (reserv) */
+  --prof5-bg: #F5EBC8; --prof5-ink: #7A5A10;  /* sand (reserv) */
 
   /* Text */
   --ink: #14201A;
@@ -127,6 +136,12 @@
 }
 
 :root[data-theme="dark"] {
+  /* Kundprofilfärger i mörkt läge: bara ytan byts, ink är samma (initialerna ligger på vit ruta) */
+  --prof1-bg: rgba(110,150,220,0.22); --prof1-ink: #2F5C9E;
+  --prof2-bg: rgba(150,120,220,0.22); --prof2-ink: #5B3FA6;
+  --prof3-bg: rgba(220,140,100,0.22); --prof3-ink: #9A4A22;
+  --prof4-bg: rgba(110,190,140,0.20); --prof4-ink: #2E6B47;
+  --prof5-bg: rgba(220,190,100,0.20); --prof5-ink: #7A5A10;
   --greenText: #6EDC9F;
   --base: #0E1210;
   --blob1: #0E1210;
