@@ -60,6 +60,18 @@ Kort = `bg-glass border border-glass-line shadow-glass rounded-card`. Lägg äve
 - **Mobil/surfplatta** är inte designat än – sidorna är byggda för ≥ 1024 px.
 - **Prototypen** (`prototype/`) har inline-stilar och en liten egen körmiljö (`dc-runtime.js`). Den är facit för utseende och beteende, inte kod att kopiera. Ren markup finns i `handoff/`.
 
+## Kända brister i prototypen (granskning 30 okt 2026)
+
+Fixat: etiketten i inloggningen, varningspillen på Kundkort, fokus i taggfälten på Kundprofil, kontrasten i menyn, radlinjerna i "Nya bolag", "Ja, ta bort" på Kundprofil, länkar på Start och att popovers stängs när menyn öppnas.
+
+Kvar att lösa i den riktiga appen:
+- **Inloggningen har inget mörkt läge.** `Login-dark.jpg` visar samma ljusa sida.
+- **Menybadgarna (11 och 6) är hårdkodade.** De ska räknas från datan och försvinna vid 0.
+- **Period- och kanalfiltret på Start ändrar inga siffror** i prototypen.
+- **Exempeldatan hänger inte ihop överallt.** Till exempel har Anders Berggren olika titel och status på Förslag och Kundkort, och Pollify/Paketbud har utkast fast de inte är godkända. Se datan som platshållare.
+- **Några beteenden i SPEC.md saknas i prototypen:** orsak vid Avvisa/Exkludera, bekräftelse vid Koppla från, "Lämna över nu" i Överlämning och kollegaväljaren ("Byt kollega").
+- **Listor ska ha nycklar (React `key`).** Prototypens enkla renderare matchar element per position, vilket gav fokusbuggen i taggfälten.
+
 ## Öppna prototypen lokalt
 
 Dubbelklicka på `prototype/Main.html`. Alternativt:

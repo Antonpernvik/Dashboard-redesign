@@ -41,7 +41,7 @@ html,body{transition:none}
 
 <!-- Sidebar -->
 <div style="position: sticky; top: 16px; z-index: 30; flex: none; width: 76px; height: calc(100vh - 32px); min-height: 620px">
-<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #C3CEC7; --line: rgba(255,255,255,0.10); --glassHi: rgba(255,255,255,0.16); --glassLine: transparent; --greenText: #6EDC9F; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
+<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #DCE4DF; --line: rgba(255,255,255,0.12); --glassHi: rgba(255,255,255,0.09); --glassLine: transparent; --greenText: #A4F0C4; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
 
 <button aria-label="Byt kollega, nu vald: Erik" style="display: flex; align-items: center; gap: 12px; width: 100%; height: 48px; padding: 0; border-radius: 16px; border: 0; background: transparent; color: var(--ink); cursor: pointer; text-align: left; white-space: nowrap">
 <img src="../assets/erik.jpg" alt="" style="width: 48px; height: 48px; flex: none; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 3px rgba(255,255,255,0.7)">
@@ -572,7 +572,7 @@ class Component extends DCLogic {
       pill: '#EEF2EE', pillInk: '#0E1210', kpiOn: '#1E3328', sun: 'transparent', beam: 'transparent', grain: '0', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'transparent',
       chart: '#4CC285', chartPrev: '#6C7A71', tintG: 'rgba(76,194,133,0.2)', down: '#F07A63',
       shadow: '0 10px 40px rgba(0,0,0,0.35)',
-      scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', curBar: 'rgba(76,194,133,0.5)', inv: 'rgba(24,52,38,0.78)', invInk: '#EEF2EE', invSoft: 'rgba(255,255,255,0.06)', invLine: 'rgba(255,255,255,0.1)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
+      scrim: 'rgba(10,15,12,0.35)', pop: 'rgba(22,30,25,0.97)', prioBg: 'rgba(245,158,11,0.2)', prioFg: '#FBC27A', field: 'rgba(255,255,255,0.05)', fieldLine: 'rgba(255,255,255,0.12)', curBar: 'rgba(76,194,133,0.5)', inv: 'rgba(24,52,38,0.78)', invInk: '#EEF2EE', invSoft: 'rgba(255,255,255,0.06)', invLine: 'rgba(255,255,255,0.1)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
     } : {
       base: '#F1EFEA', blob1: '#F1EFEA', blob2: '#F1EFEA', blob3: '#F1EFEA', blob4: '#F1EFEA',
       glass: '#FFFFFF', glassHi: '#F4F2ED', glassLine: 'rgba(20,32,26,0.06)',
@@ -580,7 +580,7 @@ class Component extends DCLogic {
       pill: '#14201A', pillInk: '#FFFFFF', kpiOn: '#E4F0E8', sun: 'transparent', beam: 'transparent', grain: '0', green: accent, greenText: dark ? '#6EDC9F' : '#15603C', onGreen: '#FFFFFF', greenGlow: 'transparent',
       chart: '#1E7B4E', chartPrev: '#8A938C', tintG: 'rgba(30,123,78,0.16)', down: '#9E2F22',
       shadow: '0 1px 2px rgba(20,32,26,0.04), 0 10px 30px rgba(20,32,26,0.05)',
-      scrim: 'rgba(216,210,198,0.28)', pop: 'rgba(251,250,247,0.97)', field: '#FFFFFF', fieldLine: 'rgba(20,32,26,0.12)', curBar: 'rgba(30,123,78,0.4)', inv: 'rgba(17,28,22,0.86)', invInk: '#F1F5F2', invSoft: 'rgba(255,255,255,0.08)', invLine: 'rgba(255,255,255,0.12)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
+      scrim: 'rgba(216,210,198,0.28)', pop: 'rgba(251,250,247,0.97)', prioBg: '#FCE3C6', prioFg: '#8A3A0C', field: '#FFFFFF', fieldLine: 'rgba(20,32,26,0.12)', curBar: 'rgba(30,123,78,0.4)', inv: 'rgba(17,28,22,0.86)', invInk: '#F1F5F2', invSoft: 'rgba(255,255,255,0.08)', invLine: 'rgba(255,255,255,0.12)', invGreen: '#6EDC9F', invGlow: 'rgba(110,220,159,0.22)'
     };
     const up = dark ? '#4CC285' : '#17643F';
 
@@ -1023,7 +1023,7 @@ class Component extends DCLogic {
       toggleCompare: () => this.setState({ compare: !compare }),
       autoStr: auto ? 'true' : 'false', autoTrack: auto ? accent : t.line, autoKnob: auto ? '23px' : '3px',
       toggleAuto: () => this.setState({ auto: !auto }),
-      openRail: () => { if (!this.state.rail) this.setState({ rail: true }); },
+      openRail: () => { if (!this.state.rail) this.setState({ rail: true, notifOpen: false, taskOpen: false }); },
       closeRail: () => { if (this.state.rail) this.setState({ rail: false }); },
       railW: this.state.rail ? '268px' : '76px', lo: this.state.rail ? '1' : '0',
       railShadow: this.state.rail ? (dark ? '0 24px 60px rgba(0,0,0,0.55)' : '0 24px 60px rgba(60,50,30,0.22)') : t.shadow

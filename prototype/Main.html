@@ -39,7 +39,7 @@ html,body{transition:none}
 
 <!-- Sidebar -->
 <div style="position: sticky; top: 16px; z-index: 30; flex: none; width: 76px; height: calc(100vh - 32px); min-height: 620px">
-<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #C3CEC7; --line: rgba(255,255,255,0.10); --glassHi: rgba(255,255,255,0.16); --glassLine: transparent; --greenText: #6EDC9F; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
+<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #DCE4DF; --line: rgba(255,255,255,0.12); --glassHi: rgba(255,255,255,0.09); --glassLine: transparent; --greenText: #A4F0C4; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
 
 <button aria-label="Byt kollega, nu vald: Erik" style="display: flex; align-items: center; gap: 12px; width: 100%; height: 48px; padding: 0; border-radius: 16px; border: 0; background: transparent; color: var(--ink); cursor: pointer; text-align: left; white-space: nowrap">
 <img src="../assets/erik.jpg" alt="" style="width: 48px; height: 48px; flex: none; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 3px rgba(255,255,255,0.7)">
@@ -121,7 +121,7 @@ html,body{transition:none}
 <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: {{n.weight}}; line-height: 1.4">{{n.text}}</span><span style="font-size: 11px; color: var(--muted)">{{n.kind}} · {{n.when}}</span></span>
 </a>
 </sc-for>
-<a href="#" style="text-align: center; padding: 8px; font-size: 12px; font-weight: 500; color: var(--muted); text-decoration: none">Notisinställningar</a>
+<a href="Installningar.dc.html" style="text-align: center; padding: 8px; font-size: 12px; font-weight: 500; color: var(--muted); text-decoration: none">Notisinställningar</a>
 </div>
 </sc-if>
 </div>
@@ -253,7 +253,7 @@ html,body{transition:none}
 <div style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 20px; background: var(--soft); border: 1px solid var(--glassLine)">
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px 4px"><span style="font-size: 13px; font-weight: 500">{{st.stage}}</span><span style="font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: {{st.pillBg}}; color: {{st.pillFg}}">{{st.count}}</span></div>
 <sc-for list="{{st.items}}" as="it" hint-placeholder-count="3">
-<a href="#" style="text-decoration: none; display: flex; gap: 10px; align-items: center; padding: 10px; border-radius: 14px; background: var(--glassHi); border: 1px solid var(--glassLine); color: var(--ink)">
+<a href="Kundkort.dc.html" style="text-decoration: none; display: flex; gap: 10px; align-items: center; padding: 10px; border-radius: 14px; background: var(--glassHi); border: 1px solid var(--glassLine); color: var(--ink)">
 <span style="width: 32px; height: 32px; flex: none; border-radius: 10px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{it.initials}}</span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 13px; font-weight: 500">{{it.name}}</span><span style="font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.note}}</span></span>
 </a>
@@ -262,7 +262,7 @@ html,body{transition:none}
 </div>
 </sc-for>
 </div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap"><span style="font-size: 12px; color: var(--muted)">Alla bolag här har Erik hittat själv och fått svar från.</span><a href="#" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Öppna hela pipelinen</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap"><span style="font-size: 12px; color: var(--muted)">Alla bolag här har Erik hittat själv och fått svar från.</span><a href="Pagaende.dc.html" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Öppna hela pipelinen</a></div>
 </sc-if>
 </div>
 </section>
@@ -271,7 +271,7 @@ html,body{transition:none}
 <section aria-label="Erik just nu" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
 
 <div style="flex: 999 1 520px; min-width: 0; padding: 22px; border-radius: 26px; background: var(--glass); border: 1px solid var(--glassLine); backdrop-filter: blur(28px) saturate(110%); -webkit-backdrop-filter: blur(28px) saturate(110%); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Erik just nu</h2><a href="#" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Alla körningar</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Erik just nu</h2><a href="Korningar.dc.html" style="font-size: 13px; font-weight: 500; color: var(--greenText)">Alla körningar</a></div>
 <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px 24px">
 <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--green); box-shadow: none"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Researchar <b>12 bolag</b> i Mälardalen</span><span style="font-size: 12px; color: var(--muted)">Pågår nu</span></div></li>
 <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 10px; height: 10px; margin-top: 5px; flex: none; border-radius: 999px; background: var(--muted); opacity: 0.6"></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Bokade möte med <b>[Prospekt]</b>, tor 14:00</span><span style="font-size: 12px; color: var(--muted)">08:47</span></div></li>
@@ -295,12 +295,12 @@ html,body{transition:none}
 <span role="columnheader" style="font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line)">Status</span>
 </div>
 <sc-for list="{{companies}}" as="co" hint-placeholder-count="5">
-<div role="row" style="display: grid; grid-template-columns: minmax(180px, 1.4fr) minmax(110px, 1fr) minmax(160px, 1.4fr) 170px 120px; align-items: center">
+<div role="row" style="display: grid; grid-template-columns: minmax(180px, 1.4fr) minmax(110px, 1fr) minmax(160px, 1.4fr) 170px 120px; align-items: stretch">
 <span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; flex: none; border-radius: 10px; background: var(--soft); border: 1px solid var(--glassLine); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{co.initials}}</span><span style="font-weight: 500">{{co.name}}</span></span>
-<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted)">{{co.industry}}</span>
-<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted)">{{co.signal}}</span>
+<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted); display: flex; align-items: center">{{co.industry}}</span>
+<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); color: var(--muted); display: flex; align-items: center">{{co.signal}}</span>
 <span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px"><span style="flex: 1; height: 6px; border-radius: 999px; background: var(--soft)"><span style="display: block; width: {{co.scorePct}}; height: 100%; border-radius: 999px; background: var(--green)"></span></span><span style="font-size: 12px">{{co.score}}</span></span>
-<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line)"><span style="font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: {{co.statusBg}}; color: {{co.statusFg}}">{{co.status}}</span></span>
+<span role="cell" style="padding: 12px; border-bottom: 1px solid var(--line); display: flex; align-items: center"><span style="font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: {{co.statusBg}}; color: {{co.statusFg}}">{{co.status}}</span></span>
 </div>
 </sc-for>
 </div>
@@ -523,7 +523,7 @@ class Component extends DCLogic {
       toggleCompare: () => this.setState({ compare: !compare }),
       autoStr: auto ? 'true' : 'false', autoTrack: auto ? accent : t.line, autoKnob: auto ? '23px' : '3px',
       toggleAuto: () => this.setState({ auto: !auto }),
-      openRail: () => { if (!this.state.rail) this.setState({ rail: true }); },
+      openRail: () => { if (!this.state.rail) this.setState({ rail: true, notifOpen: false, taskOpen: false }); },
       closeRail: () => { if (this.state.rail) this.setState({ rail: false }); },
       railW: this.state.rail ? '268px' : '76px', lo: this.state.rail ? '1' : '0',
       railShadow: this.state.rail ? (dark ? '0 24px 60px rgba(0,0,0,0.55)' : '0 24px 60px rgba(60,50,30,0.22)') : t.shadow

@@ -39,7 +39,7 @@ html,body{transition:none}
 
 <!-- Sidebar -->
 <div style="position: sticky; top: 16px; z-index: 30; flex: none; width: 76px; height: calc(100vh - 32px); min-height: 620px">
-<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #C3CEC7; --line: rgba(255,255,255,0.10); --glassHi: rgba(255,255,255,0.16); --glassLine: transparent; --greenText: #6EDC9F; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
+<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #DCE4DF; --line: rgba(255,255,255,0.12); --glassHi: rgba(255,255,255,0.09); --glassLine: transparent; --greenText: #A4F0C4; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
 
 <button aria-label="Byt kollega, nu vald: Erik" style="display: flex; align-items: center; gap: 12px; width: 100%; height: 48px; padding: 0; border-radius: 16px; border: 0; background: transparent; color: var(--ink); cursor: pointer; text-align: left; white-space: nowrap">
 <img src="../assets/erik.jpg" alt="" style="width: 48px; height: 48px; flex: none; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 3px rgba(255,255,255,0.7)">
@@ -189,10 +189,10 @@ html,body{transition:none}
 <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 13px; font-weight: 500">{{g.label}}</span><span style="font-size: 12px; color: var(--muted)">{{g.count}}</span></div>
 <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 8px; border-radius: 16px; background: {{t.field}}; border: 1.5px solid {{t.fieldLine}}; min-height: 52px; box-sizing: border-box">
+<input aria-label="{{g.addLabel}}" placeholder="{{g.placeholder}}" onKeyDown="{{g.onKey}}" style="order: 99; flex: 1 1 160px; min-width: 120px; height: 36px; border: 0; background: transparent; outline: none; font: inherit; font-size: 13px; color: var(--ink); padding: 0 8px">
 <sc-for list="{{g.chips}}" as="c" hint-placeholder-count="4">
 <span style="display: flex; align-items: center; gap: 2px; padding: 4px 4px 4px 12px; border-radius: 999px; background: var(--tintG); font-size: 13px; line-height: 1.3">{{c.text}}<button onClick="{{c.remove}}" aria-label="{{c.removeLabel}}" style="width: 26px; height: 26px; border-radius: 999px; border: 0; background: transparent; color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button></span>
 </sc-for>
-<input aria-label="{{g.addLabel}}" placeholder="{{g.placeholder}}" onKeyDown="{{g.onKey}}" style="flex: 1 1 160px; min-width: 120px; height: 36px; border: 0; background: transparent; outline: none; font: inherit; font-size: 13px; color: var(--ink); padding: 0 8px">
 </div>
 <span style="font-size: 12px; color: var(--muted)">{{g.help}}</span>
 </div>
@@ -210,10 +210,10 @@ html,body{transition:none}
 <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 13px; font-weight: 500">{{g.label}}</span><span style="font-size: 12px; color: var(--muted)">{{g.count}}</span></div>
 <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 8px; border-radius: 16px; background: {{t.field}}; border: 1.5px solid {{t.fieldLine}}; min-height: 52px; box-sizing: border-box">
+<input aria-label="{{g.addLabel}}" placeholder="{{g.placeholder}}" onKeyDown="{{g.onKey}}" style="order: 99; flex: 1 1 160px; min-width: 120px; height: 36px; border: 0; background: transparent; outline: none; font: inherit; font-size: 13px; color: var(--ink); padding: 0 8px">
 <sc-for list="{{g.chips}}" as="c" hint-placeholder-count="4">
 <span style="display: flex; align-items: center; gap: 2px; padding: 4px 4px 4px 12px; border-radius: 999px; background: var(--tintG); font-size: 13px; line-height: 1.3">{{c.text}}<button onClick="{{c.remove}}" aria-label="{{c.removeLabel}}" style="width: 26px; height: 26px; border-radius: 999px; border: 0; background: transparent; color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button></span>
 </sc-for>
-<input aria-label="{{g.addLabel}}" placeholder="{{g.placeholder}}" onKeyDown="{{g.onKey}}" style="flex: 1 1 160px; min-width: 120px; height: 36px; border: 0; background: transparent; outline: none; font: inherit; font-size: 13px; color: var(--ink); padding: 0 8px">
 </div>
 <span style="font-size: 12px; color: var(--muted)">{{g.help}}</span>
 </div>
@@ -225,10 +225,10 @@ html,body{transition:none}
 <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 13px; font-weight: 500">{{g.label}}</span><span style="font-size: 12px; color: var(--muted)">{{g.count}}</span></div>
 <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 8px; border-radius: 16px; background: {{t.field}}; border: 1.5px solid {{t.fieldLine}}; min-height: 52px; box-sizing: border-box">
+<input aria-label="{{g.addLabel}}" placeholder="{{g.placeholder}}" onKeyDown="{{g.onKey}}" style="order: 99; flex: 1 1 160px; min-width: 120px; height: 36px; border: 0; background: transparent; outline: none; font: inherit; font-size: 13px; color: var(--ink); padding: 0 8px">
 <sc-for list="{{g.chips}}" as="c" hint-placeholder-count="4">
 <span style="display: flex; align-items: center; gap: 2px; padding: 4px 4px 4px 12px; border-radius: 999px; background: var(--tintG); font-size: 13px; line-height: 1.3">{{c.text}}<button onClick="{{c.remove}}" aria-label="{{c.removeLabel}}" style="width: 26px; height: 26px; border-radius: 999px; border: 0; background: transparent; color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button></span>
 </sc-for>
-<input aria-label="{{g.addLabel}}" placeholder="{{g.placeholder}}" onKeyDown="{{g.onKey}}" style="flex: 1 1 160px; min-width: 120px; height: 36px; border: 0; background: transparent; outline: none; font: inherit; font-size: 13px; color: var(--ink); padding: 0 8px">
 </div>
 <span style="font-size: 12px; color: var(--muted)">{{g.help}}</span>
 </div>
@@ -266,7 +266,8 @@ html,body{transition:none}
 <h2 style="margin: 0; font-size: 15px; font-weight: 500">Ta bort profilen</h2>
 <span style="font-size: 13px; color: var(--muted); line-height: 1.5">Företag som hittats genom profilen ligger kvar.</span>
 <sc-if value="{{notConfirm}}" hint-placeholder-val="{{true}}"><button onClick="{{askDelete}}" style="align-self: flex-start; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--down); background: transparent; color: var(--down); font-size: 13px; font-weight: 500; cursor: pointer">Ta bort profilen</button></sc-if>
-<sc-if value="{{confirmDel}}" hint-placeholder-val="{{false}}"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 13px; font-weight: 500">Säker?</span><button style="height: 40px; padding: 0 16px; border-radius: 999px; border: 0; background: var(--down); color: #FFFFFF; font-size: 13px; font-weight: 500; cursor: pointer">Ja, ta bort</button><button onClick="{{cancelDelete}}" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 0; background: transparent; color: var(--ink); font-size: 13px; font-weight: 500; cursor: pointer">Avbryt</button></div></sc-if>
+<sc-if value="{{deleted}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 13px; font-weight: 500">Profilen är borttagen. <a href="Kundprofiler.dc.html" style="color: var(--greenText)">Till Kundprofiler</a></span></sc-if>
+<sc-if value="{{confirmDel}}" hint-placeholder-val="{{false}}"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 13px; font-weight: 500">Säker?</span><button style="height: 40px; padding: 0 16px; border-radius: 999px; border: 0; background: var(--down); color: #FFFFFF; font-size: 13px; font-weight: 500; cursor: pointer" onClick="{{doDelete}}">Ja, ta bort</button><button onClick="{{cancelDelete}}" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 0; background: transparent; color: var(--ink); font-size: 13px; font-weight: 500; cursor: pointer">Avbryt</button></div></sc-if>
 </div>
 
 </aside>
@@ -625,8 +626,8 @@ class Component extends DCLogic {
       activeLabel: isActive ? 'Aktiv' : 'Pausad', activeBg: isActive ? t.tintG : 'var(--soft)', activeDot: isActive ? 'var(--green)' : 'var(--muted)',
       activeStr: isActive ? 'true' : 'false', activeTrack: isActive ? accent : t.line, activeKnob: isActive ? '23px' : '3px',
       toggleActive: () => this.setState({ pActive: !isActive, saved: false }),
-      confirmDel: !!this.state.confirmDel, notConfirm: !this.state.confirmDel,
-      askDelete: () => this.setState({ confirmDel: true }), cancelDelete: () => this.setState({ confirmDel: false }),
+      confirmDel: !!this.state.confirmDel, notConfirm: !this.state.confirmDel && !this.state.deleted, deleted: !!this.state.deleted,
+      askDelete: () => this.setState({ confirmDel: true }), doDelete: () => this.setState({ confirmDel: false, deleted: true }), cancelDelete: () => this.setState({ confirmDel: false }),
       steps, facts, contacts, flow, runs, stepHead: 'Steg ' + sel + ' · ' + sd[0], stepDesc: sd[1], stepNote: sd[2],
       coCards, customers, excluded, ftabs, acceptAll, pendingCo: String(pendingCoN), hasPendingCo: pendingCoN > 0,
       tabBolag: this.state.ftab === 'Bolag', tabKunder: this.state.ftab === 'Befintliga kunder', tabExkl: this.state.ftab === 'Exkluderade',
@@ -642,7 +643,7 @@ class Component extends DCLogic {
       toggleCompare: () => this.setState({ compare: !compare }),
       autoStr: auto ? 'true' : 'false', autoTrack: auto ? accent : t.line, autoKnob: auto ? '23px' : '3px',
       toggleAuto: () => this.setState({ auto: !auto }),
-      openRail: () => { if (!this.state.rail) this.setState({ rail: true }); },
+      openRail: () => { if (!this.state.rail) this.setState({ rail: true, notifOpen: false, taskOpen: false }); },
       closeRail: () => { if (this.state.rail) this.setState({ rail: false }); },
       railW: this.state.rail ? '268px' : '76px', lo: this.state.rail ? '1' : '0',
       railShadow: this.state.rail ? (dark ? '0 24px 60px rgba(0,0,0,0.55)' : '0 24px 60px rgba(60,50,30,0.22)') : t.shadow

@@ -39,7 +39,7 @@ html,body{transition:none}
 
 <!-- Sidebar -->
 <div style="position: sticky; top: 16px; z-index: 30; flex: none; width: 76px; height: calc(100vh - 32px); min-height: 620px">
-<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #C3CEC7; --line: rgba(255,255,255,0.10); --glassHi: rgba(255,255,255,0.16); --glassLine: transparent; --greenText: #6EDC9F; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
+<aside onMouseEnter="{{openRail}}" onMouseLeave="{{closeRail}}" onFocus="{{openRail}}" onBlur="{{closeRail}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: {{railW}}; box-sizing: border-box; overflow: hidden; padding: 14px; border-radius: 28px; --ink: #EEF2EE; --muted: #DCE4DF; --line: rgba(255,255,255,0.12); --glassHi: rgba(255,255,255,0.09); --glassLine: transparent; --greenText: #A4F0C4; --pill: rgba(255,255,255,0.14); --pillInk: #FFFFFF; color: #EEF2EE; background: #4A6457; border: 0; box-shadow: {{railShadow}}; display: flex; flex-direction: column; gap: 14px; transition: width .28s cubic-bezier(.65,0,.35,1), box-shadow .28s">
 
 <button aria-label="Byt kollega, nu vald: Erik" style="display: flex; align-items: center; gap: 12px; width: 100%; height: 48px; padding: 0; border-radius: 16px; border: 0; background: transparent; color: var(--ink); cursor: pointer; text-align: left; white-space: nowrap">
 <img src="../assets/erik.jpg" alt="" style="width: 48px; height: 48px; flex: none; border-radius: 16px; object-fit: cover; box-shadow: 0 0 0 3px rgba(255,255,255,0.7)">
@@ -657,7 +657,7 @@ class Component extends DCLogic {
       toggleCompare: () => this.setState({ compare: !compare }),
       autoStr: auto ? 'true' : 'false', autoTrack: auto ? accent : t.line, autoKnob: auto ? '23px' : '3px',
       toggleAuto: () => this.setState({ auto: !auto }),
-      openRail: () => { if (!this.state.rail) this.setState({ rail: true }); },
+      openRail: () => { if (!this.state.rail) this.setState({ rail: true, notifOpen: false, taskOpen: false }); },
       closeRail: () => { if (this.state.rail) this.setState({ rail: false }); },
       railW: this.state.rail ? '268px' : '76px', lo: this.state.rail ? '1' : '0',
       railShadow: this.state.rail ? (dark ? '0 24px 60px rgba(0,0,0,0.55)' : '0 24px 60px rgba(60,50,30,0.22)') : t.shadow

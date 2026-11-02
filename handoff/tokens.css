@@ -44,10 +44,10 @@
   /* Menyn (rail): mjuk grågrön. Sätt menyns lokala variabler enligt .rail i components.css */
   --rail: #4A6457;
   --railInk: #EEF2EE;
-  --railMuted: #C3CEC7;
-  --railActive: rgba(255,255,255,0.16);
-  --railLine: rgba(255,255,255,0.10);
-  --railAccent: #6EDC9F;
+  --railMuted: #DCE4DF;   /* 5,0:1 mot --rail */
+  --railActive: rgba(255,255,255,0.09);
+  --railLine: rgba(255,255,255,0.12);
+  --railAccent: #A4F0C4;  /* t.ex. Logga ut, 4,9:1 */
 
   /* Grönt huvudkort på Start ("Från bolag till möte") */
   --hero: linear-gradient(150deg, #134F33 0%, #1E7B4E 50%, #48A374 100%);
@@ -56,7 +56,9 @@
   /* Status */
   --tintG: rgba(30,123,78,0.16);        /* grön bakgrundston */
   --greenGlow: transparent;              /* ingen glöd under knappar */
-  --down: #9E2F22;                      /* negativ trend, fel, varning */
+  --down: #9E2F22;
+  --prioBg: #FCE3C6;   /* varningspill: "Du behöver ta över", "Åtgärd behövs" */
+  --prioFg: #8A3A0C;                      /* negativ trend, fel, varning */
   --up: #17643F;                        /* positiv trend (text) */
 
   /* Formulärfält */
@@ -153,6 +155,8 @@
   --tintG: rgba(76,194,133,0.20);
   --greenGlow: transparent;
   --down: #F07A63;
+  --prioBg: rgba(245,158,11,0.20);
+  --prioFg: #FBC27A;
   --up: #4CC285;
 
   --field: rgba(255,255,255,0.05);
