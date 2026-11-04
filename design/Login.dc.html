@@ -9,73 +9,110 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;family=Rosario:wght@400;500&amp;family=Geist+Mono:wght@400..600&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#F1EFEA}
-a{color:inherit}
-button{font-family:inherit}
+html{font-size:100%}
+body{margin:0;background:#FFFFFF}
+.aik{
+  --bg:#FFFFFF;--subtle:#F8F8F9;--hover:#F3F3F4;--border:#E6E6E8;--border-strong:#8E8E96;
+  --fg:#0B0B0D;--fg-2:#3F3F46;--fg-3:#63636B;--accent:#1326D2;--accent-bg:#EEF2FA;--cta:#3E1FF3;--cta-h:#3417D9;--red:#C4261D;--red-ink:#A41F17;--red-bg:#FBEDEC;
+  --sans:'Inter','Helvetica Neue',Arial,sans-serif;--display:'Rosario','Inter',sans-serif;--mono:'Geist Mono',ui-monospace,Menlo,monospace;
+  min-height:100vh;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;line-height:20px;-webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss03';
+}
+.aik *,.aik *::before,.aik *::after{box-sizing:border-box}
+.aik h1,.aik p{margin:0}
+.aik a{color:inherit}
+.aik button,.aik input{font-family:inherit;font-size:inherit;color:inherit}
+.aik ::selection{background:var(--accent-bg)}
+.aik :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.aik img{display:block}
+.login{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:18vh 16px 64px}
+.card{width:100%;max-width:360px;display:flex;flex-direction:column;gap:24px}
+.card .brand{align-self:center;display:inline-flex;align-items:center;height:20px;padding:2px 6px;border-radius:4px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:510;line-height:16px;letter-spacing:.275px;text-transform:uppercase}
+.card h1{text-align:center;font-family:var(--display);font-weight:400;font-size:30px;line-height:36px;letter-spacing:-.4px}
+.card .sub{display:block;margin-top:8px;text-align:center;font-size:14px;color:var(--fg-2)}
+.card form{display:flex;flex-direction:column;gap:16px}
+.card label{display:flex;flex-direction:column;gap:6px}
+.card label > span,.card .lh label{font-size:13px;font-weight:510}
+.card .lh{display:flex;justify-content:space-between;align-items:center}
+.field{width:100%;height:40px;padding:0 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg);color:var(--fg);font-size:14px;outline:none;transition:border-color .15s,box-shadow .15s}
+.field:hover{border-color:var(--fg-3)}
+.field:focus{border-color:var(--fg-2);box-shadow:0 0 0 3px var(--accent-bg)}
+.field::placeholder{color:var(--fg-3)}
+.field.err{border-color:var(--red)}
+.pw{position:relative;display:block}
+.pw .field{padding-right:64px}
+.pw .btn{position:absolute;right:4px;top:4px;height:32px;padding:0 8px;border:0;background:transparent;color:var(--fg-2)}
+.pw .btn:hover{background:var(--hover)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--fg);font-size:13px;font-weight:510;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--subtle)}
+.btn.btn-primary{height:40px;margin-top:4px;border-color:var(--cta);border-radius:999px;background:var(--cta);color:#fff;font-size:14px}
+.btn.btn-primary:hover{background:var(--cta-h);border-color:var(--cta-h)}
+.btn-text{height:32px;padding:0 6px;margin:-6px -6px;border:0;border-radius:6px;background:transparent;color:var(--fg-2);font-size:13px;font-weight:400;text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:3px}
+.btn-text:hover{background:var(--hover);color:var(--fg)}
+.btn-text.quiet{color:var(--fg-3)}
+.alert{padding:10px 14px;border-radius:8px;background:var(--red-bg);color:var(--red-ink);font-size:13px;line-height:18px}
+.card .foot{text-align:center;font-size:13px;color:var(--fg-3)}
+.card .foot a{display:inline-block;padding:6px 0;color:var(--fg);font-weight:510;text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:3px}
+.card .center{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.card .center .ic{width:40px;height:40px;border-radius:999px;background:var(--subtle);display:flex;align-items:center;justify-content:center;color:var(--fg-2)}
+.card .center img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+.card .center p{font-size:14px;line-height:20px;color:var(--fg-2)}
+.card .center b{color:var(--fg);font-weight:510}
+.card .center .btn{margin-top:8px}
+@media (max-width:640px){.login{padding-top:12vh}}
 </style>
 </helmet>
-<div style="position: relative; overflow: hidden; min-height: 100vh; box-sizing: border-box; background: #F1EFEA; color: #14201A; font-family: 'Outfit', system-ui, sans-serif; font-feature-settings: 'tnum' 1; letter-spacing: 0.005em; display: flex; align-items: center; justify-content: center; padding: 24px">
-
-<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; overflow: hidden">
-<div style="position: absolute; left: -10%; top: -10%; width: 50%; height: 560px; border-radius: 999px; background: transparent; filter: blur(100px)"></div>
-<div style="position: absolute; right: -8%; top: 0; width: 46%; height: 620px; border-radius: 999px; background: transparent; filter: blur(110px)"></div>
-<div style="position: absolute; left: 30%; bottom: -12%; width: 44%; height: 560px; border-radius: 999px; background: transparent; filter: blur(110px)"></div>
-<div style="position: absolute; right: 6%; bottom: -6%; width: 30%; height: 420px; border-radius: 999px; background: transparent; filter: blur(100px)"></div>
-</div>
-
-<main style="position: relative; width: 100%; max-width: 460px; display: flex; flex-wrap: wrap; border-radius: 32px; overflow: hidden; background: #FFFFFF; border: 1px solid rgba(20,32,26,0.06); box-shadow: 0 1px 2px rgba(20,32,26,0.04), 0 20px 50px rgba(20,32,26,0.07)">
-
-
-<section aria-label="Logga in" style="flex: 1 1 100%; min-width: 0; box-sizing: border-box; padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 22px">
-
+<div class="aik">
+<main class="login">
+<section aria-label="Logga in" class="card">
+<span class="brand">Ai Kollegorna</span>
 <sc-if value="{{modeLogin}}" hint-placeholder-val="{{true}}">
-<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px"><h2 style="margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.02em">Logga in</h2><span style="font-size: 14px; color: #4B5750">Välkommen tillbaka.</span></div>
-<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 14px; margin: 0">
-<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 500">E-post</span><input type="email" autocomplete="username" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
-<div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; align-items: baseline"><label for="pw" style="font-size: 13px; font-weight: 500">Lösenord</label><button type="button" onClick="{{goForgot}}" style="border: 0; background: transparent; padding: 6px 2px; color: #15603C; font-size: 13px; font-weight: 500; cursor: pointer; padding: 0; font-size: 12px">Glömt lösenordet?</button></span>
-<span style="position: relative; display: block"><input id="pw" type="{{pwType}}" autocomplete="current-password" value="{{pw}}" onChange="{{setPw}}" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{pwLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%; padding-right: 92px"><button type="button" onClick="{{togglePw}}" aria-label="{{pwToggleLabel}}" style="position: absolute; right: 6px; top: 6px; height: 38px; padding: 0 12px; border-radius: 999px; border: 0; background: #F1F3EF; color: #14201A; font-size: 12px; font-weight: 500; cursor: pointer">{{pwToggleText}}</button></span></div>
-<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 500; color: #B3382A">{{errText}}</span></sc-if>
-<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: none">Logga in</button>
+<div><h1>Logga in</h1><span class="sub">Välkommen tillbaka.</span></div>
+<form onSubmit="{{submit}}">
+<label><span>E-post</span><input type="email" autocomplete="username" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" class="field {{emailCls}}"></label>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="lh"><label for="pw">Lösenord</label><button type="button" onClick="{{goForgot}}" class="btn btn-text btn-sm">Glömt lösenordet?</button></span>
+<span class="pw"><input id="pw" type="{{pwType}}" autocomplete="current-password" value="{{pw}}" onChange="{{setPw}}" class="field {{pwCls}}"><button type="button" onClick="{{togglePw}}" aria-label="{{pwToggleLabel}}" class="btn">{{pwToggleText}}</button></span></div>
+<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" class="alert">{{errText}}</span></sc-if>
+<button type="submit" class="btn btn-primary">Logga in</button>
 </form>
-<span style="font-size: 13px; color: #4B5750">Inget konto än? <a href="https://aikollegorna.se" style="color: #15603C; font-weight: 500">Skapa konto</a></span>
+<span class="foot">Inget konto än? <a href="https://aikollegorna.se">Skapa konto</a></span>
 </sc-if>
 
 <sc-if value="{{modeForgot}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.02em">Återställ lösenord</h2><span style="font-size: 14px; color: #4B5750; line-height: 1.5">Skriv din e-post så skickar vi en länk där du väljer ett nytt lösenord.</span></div>
-<form onSubmit="{{sendReset}}" style="display: flex; flex-direction: column; gap: 14px; margin: 0">
-<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 500">E-post</span><input type="email" autocomplete="email" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" style="height: 50px; padding: 0 16px; border-radius: 16px; border: 1.5px solid {{emailLine}}; background: #FFFFFF; color: #14201A; font: inherit; font-size: 15px; outline: none; box-sizing: border-box; width: 100%"></label>
-<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 13px; font-weight: 500; color: #B3382A">{{errText}}</span></sc-if>
-<button type="submit" style="height: 50px; border-radius: 999px; border: 0; background: #1E7B4E; color: #FFFFFF; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: none">Skicka återställningslänk</button>
+<div><h1>Återställ lösenord</h1><span class="sub">Vi mejlar en länk där du väljer ett nytt.</span></div>
+<form onSubmit="{{sendReset}}">
+<label><span>E-post</span><input type="email" autocomplete="email" value="{{email}}" onChange="{{setEmail}}" placeholder="namn@bolag.se" class="field {{emailCls}}"></label>
+<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}"><span role="alert" class="alert">{{errText}}</span></sc-if>
+<button type="submit" class="btn btn-primary">Skicka återställningslänk</button>
 </form>
-<button onClick="{{goLogin}}" style="border: 0; background: transparent; padding: 6px 2px; color: #15603C; font-size: 13px; font-weight: 500; cursor: pointer; align-self: flex-start">← Tillbaka till inloggning</button>
+<button onClick="{{goLogin}}" class="btn btn-text btn-sm quiet" style="align-self: flex-start">← Tillbaka till inloggning</button>
 </sc-if>
 
 <sc-if value="{{modeSent}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
-<span style="width: 56px; height: 56px; border-radius: 18px; background: rgba(30,123,78,0.14); color: #15603C; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
-<h2 style="margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.02em">Kolla din inkorg</h2>
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5750">Finns det ett konto för <b style="color: #14201A; font-weight: 500">{{email}}</b> har vi skickat en länk för att välja nytt lösenord. Länken gäller i 30 minuter.</p>
-<button onClick="{{goLogin}}" style="height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(20,32,26,0.12); background: #FFFFFF; color: #14201A; font-size: 14px; font-weight: 500; cursor: pointer">Tillbaka till inloggning</button>
+<div class="center">
+<span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
+<h1>Kolla din inkorg</h1>
+<p>Finns det ett konto för <b>{{email}}</b> har vi skickat en länk för att välja nytt lösenord. Länken gäller i 30 minuter.</p>
+<button onClick="{{goLogin}}" class="btn">Tillbaka till inloggning</button>
 </div>
 </sc-if>
 
 <sc-if value="{{modeIn}}" hint-placeholder-val="{{false}}">
-<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
-<img src="../assets/erik.jpg" alt="" style="width: 56px; height: 56px; border-radius: 18px; object-fit: cover; box-shadow: 0 0 0 2px #1E7B4E">
-<h2 style="margin: 0; font-size: 28px; font-weight: 500; letter-spacing: -0.02em">Välkommen tillbaka</h2>
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4B5750">Erik har 11 förslag som väntar på dig.</p>
-<a href="Main.dc.html" style="text-decoration: none; height: 46px; padding: 0 20px; border-radius: 999px; background: #1E7B4E; color: #FFFFFF; font-size: 14px; font-weight: 500; display: flex; align-items: center">Till dashboarden</a>
+<div class="center">
+<img src="../assets/erik.jpg" alt="">
+<h1>Välkommen tillbaka</h1>
+<p>Erik har 2 förslag som väntar på dig.</p>
+<a href="Main.dc.html" class="btn btn-primary">Till dashboarden</a>
 </div>
 </sc-if>
-
 </section>
-
 </main>
 </div>
+
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -103,7 +140,7 @@ class Component extends DCLogic {
       goLogin: () => this.setState({ mode: 'login', err: '' }),
       modeLogin: mode === 'login', modeForgot: mode === 'forgot', modeSent: mode === 'sent', modeIn: mode === 'in',
       hasError: !!err, errText: err === 'email' ? 'Skriv en giltig e-postadress.' : 'Skriv ditt lösenord.',
-      emailLine: err === 'email' ? '#B3382A' : 'rgba(20,32,26,0.12)', pwLine: err === 'pw' ? '#B3382A' : 'rgba(20,32,26,0.12)'
+      emailCls: err === 'email' ? 'err' : '', pwCls: err === 'pw' ? 'err' : ''
     };
   }
 }

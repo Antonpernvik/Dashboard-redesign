@@ -1,193 +1,57 @@
-/* =====================================================================
-   Ai Kollegorna – Dashboard v2 · design tokens
-   Källa: designfilerna i /design (objektet `t` i varje sida).
-   Ljust läge är standard. Mörkt läge: sätt data-theme="dark" på <html>.
-   ===================================================================== */
+/* Dashboard v2 – designvärden (Exa-stil, nov 2026)
+   Allt som behövs för att återskapa utseendet. Komponenterna ligger i exa-shared.css. */
 
-@import url('fonts.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Rosario:wght@400;500&family=Geist+Mono:wght@400..600&display=swap');
 
 :root {
-  /* Typsnitt */
-  --font-sans: 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif; /* lättare vikter: 300 stora siffror/rubriker, 400 brödtext, 500 etiketter/knappar */
-  --font-serif: 'Instrument Serif', Georgia, serif; /* sidrubriker (h1 52px) och stora siffror i paneler – alltid vikt 400 */
-  --font-mono: 'Outfit', sans-serif; /* inga monospace-siffror längre – använd font-variant-numeric: tabular-nums */
+  /* Ytor */
+  --bg: #FFFFFF;            /* sidbakgrund, kort, meny */
+  --subtle: #F8F8F9;        /* grå "brunnar" för data, segmentväljare, tabellhuvud */
+  --hover: #F3F3F4;         /* hover och valt menyval */
 
-  /* Accent (samma i båda lägena) */
-  --green: #1E7B4E;      /* fyllda knappar och ytor */
-  --greenText: #15603C;  /* grönt som TEXT/länk – klarar 4,5:1 på glaset */
-  --onGreen: #FFFFFF;
-
-  /* Bakgrund: enfärgad, varm benvit. Färgfläckarna används inte längre (samma värde som --base). */
-  --base: #F1EFEA;
-  --blob1: #F1EFEA;
-  --blob2: #F1EFEA;
-  --blob3: #F1EFEA;
-  --blob4: #F1EFEA;
-
-  /* Ytor (namnen är kvar från glasversionen – nu är korten fasta och vita) */
-  --glass: #FFFFFF;                     /* kort, panel, toppfält */
-  --glassHi: #F4F2ED;                   /* upphöjd yta inne i kort, sökfält, ikonknappar */
-  --glassLine: rgba(20,32,26,0.06);     /* kantlinje på kort */
-  --soft: #F4F2ED;                      /* mjuk ruta, sekundära knappar */
-  --line: rgba(30,40,34,0.08);          /* avdelare */
-  --pop: rgba(251,250,247,0.97);        /* popover/dropdown */
-  --scrim: rgba(216,210,198,0.28);      /* oskärpa bakom öppen meny */
-
-  /* Kundprofilfärger – en färg per kundprofil (kortets toppfält, prick vid profilnamnet, staplar i Kundprofiler-panelen).
-     Tilldelas i ordning när kunden skapar profiler. bg = ljus yta, ink = prick/stapel/initialer. */
-  --prof1-bg: #DCE8F8; --prof1-ink: #2F5C9E;  /* blå */
-  --prof2-bg: #E6DEF7; --prof2-ink: #5B3FA6;  /* lila */
-  --prof3-bg: #F6E1D4; --prof3-ink: #9A4A22;  /* persika */
-  --prof4-bg: #DDEFE3; --prof4-ink: #2E6B47;  /* grön (reserv) */
-  --prof5-bg: #F5EBC8; --prof5-ink: #7A5A10;  /* sand (reserv) */
+  /* Linjer */
+  --border: #E6E6E8;        /* kort, avdelare, menyns högerkant */
+  --border-strong: #8E8E96; /* fältkanter, kryssrutor, reglage (≥3:1 mot vitt) */
 
   /* Text */
-  --ink: #14201A;
-  --muted: #3F4B44;
+  --fg: #0B0B0D;            /* rubriker och brödtext */
+  --fg-2: #3F3F46;          /* sekundär text, menyval */
+  --fg-3: #63636B;          /* metadata, etiketter (5,6:1 mot vitt) */
 
-  /* Mörk "pill": vald flik/segment och knappen "Ge Erik ett uppdrag" */
-  --pill: #14201A;
-  --pillInk: #FFFFFF;
-  --kpiOn: #E4F0E8;   /* valt KPI-kort (ljust grönt) */
+  /* Färg – bara två blå, inget grönt */
+  --cta: #3E1FF3;           /* primärknappen (rund pill), t.ex. "Granska allt" */
+  --cta-hover: #3417D9;
+  --accent: #1326D2;        /* länkar i menyn, status Aktiv/Ansluten, bock i listor */
+  --accent-bg: #EEF2FA;     /* bakgrund för blå etiketter (SÄLJARE, NY, MATCHNING 8/10) */
 
-  /* Menyn (rail): mjuk grågrön. Sätt menyns lokala variabler enligt .rail i components.css */
-  --rail: #4A6457;
-  --railInk: #EEF2EE;
-  --railMuted: #DCE4DF;   /* 5,0:1 mot --rail */
-  --railActive: rgba(255,255,255,0.09);
-  --railLine: rgba(255,255,255,0.12);
-  --railAccent: #A4F0C4;  /* t.ex. Logga ut, 4,9:1 */
+  /* Signalfärger, sparsamt */
+  --red: #C4261D;  --red-bg: #FBEDEC;   /* Misslyckades, Avvisa i bekräftelse */
+  --amber-ink: #7A4A00; --amber-bg: #FBF3E4; /* varningar */
 
-  /* Grönt huvudkort på Start ("Från bolag till möte") */
-  --hero: linear-gradient(150deg, #134F33 0%, #1E7B4E 50%, #48A374 100%);
-  --heroShadow: 0 18px 40px rgba(30,123,78,0.25);
+  /* Typsnitt (gratis ersättare för Exas ABC Diatype / ABC Arizona Flare) */
+  --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;  /* allt brödtext och UI */
+  --display: 'Rosario', 'Inter', sans-serif;             /* bara sidrubriker (h1), vikt 400 */
+  --mono: 'Geist Mono', ui-monospace, Menlo, monospace;  /* siffror, datum, etiketter, adresser */
 
-  /* Status */
-  --tintG: rgba(30,123,78,0.16);        /* grön bakgrundston */
-  --greenGlow: transparent;              /* ingen glöd under knappar */
-  --down: #9E2F22;
-  --prioBg: #FCE3C6;   /* varningspill: "Du behöver ta över", "Åtgärd behövs" */
-  --prioFg: #8A3A0C;                      /* negativ trend, fel, varning */
-  --up: #17643F;                        /* positiv trend (text) */
+  /* Storlekar */
+  --h1-start: 52px;   /* Start: "11 saker väntar på dig" */
+  --h1: 32px;         /* övriga sidor, Rosario 400, letter-spacing -0.5px */
+  --title: 14px;      /* kort- och avsnittsrubriker, vikt 590 */
+  --body: 14px;       /* brödtext, line-height 20px */
+  --meta: 13px;       /* sekundär text */
+  --tag: 11px;        /* mono, VERSALER, letter-spacing .275px */
 
-  /* Formulärfält */
-  --field: #FFFFFF;
-  --fieldLine: rgba(20,32,26,0.12);
+  /* Form */
+  --radius-card: 12px;
+  --radius-control: 8px;    /* knappar, fält, brunnar */
+  --radius-tag: 4px;
+  --radius-pill: 999px;     /* primärknapp och chips */
+  --pad-card: 16px;         /* 20–22px på stora kort */
+  --shadow-menu: 0 12px 32px -10px rgba(11,11,13,.18), 0 1px 2px rgba(11,11,13,.06); /* bara menyer/popovers */
 
-  /* Diagram */
-  --chart: #1E7B4E;
-  --chartPrev: #8A938C;
-  --curBar: rgba(30,123,78,0.40);
-
-  /* Inverterat kort (t.ex. "Sändning", "Därför är det här en bra matchning") */
-  --inv: rgba(17,28,22,0.86);
-  --invInk: #F1F5F2;
-  --invSoft: rgba(255,255,255,0.08);
-  --invLine: rgba(255,255,255,0.12);
-  --invGreen: #6EDC9F;
-  --invGlow: rgba(110,220,159,0.22);
-
-  /* Skuggor */
-  --shadow: 0 1px 2px rgba(20,32,26,0.04), 0 10px 30px rgba(20,32,26,0.05);
-  /* Ljusinsläpp och korn används inte längre */
-  --sun: transparent;
-  --beam: transparent;
-  --grain: 0;
-  --shadow-pop: 0 30px 80px rgba(0,0,0,0.22);
-  --shadow-rail-open: 0 24px 60px rgba(60,50,30,0.22);
-
-  /* Glaseffekt */
-  --blur-glass: blur(28px) saturate(110%);
-  --blur-pop: blur(40px) saturate(180%);
-  --blur-scrim: blur(8px) saturate(120%);
-
-  /* Radier (mest använda) */
-  --r-pill: 999px;
-  --r-sm: 10px;
-  --r-md: 14px;
-  --r-lg: 16px;   /* menyrader, rutor i kort */
-  --r-xl: 22px;   /* popovers */
-  --r-card: 26px; /* standardkort */
-  --r-panel: 28px;/* meny, stora kort */
-
-  /* Mellanrum (mest använda) */
-  --s-1: 4px; --s-2: 6px; --s-3: 8px; --s-4: 10px; --s-5: 12px;
-  --s-6: 14px; --s-7: 16px; --s-8: 22px; --s-9: 28px; --s-10: 32px;
-
-  /* Typskala */
-  --fs-10: 10px; --fs-11: 11px; --fs-12: 12px; --fs-13: 13px; --fs-14: 14px;
-  --fs-15: 15px; --fs-16: 16px; --fs-18: 18px; --fs-19: 19px; --fs-24: 24px;
-  --fs-28: 28px; --fs-36: 36px; --fs-40: 40px;
-
-  /* Kontrollhöjder */
-  --h-sm: 38px; --h-md: 42px; --h-lg: 44px; --h-xl: 50px;
-
-  /* Rörelse */
-  --ease: cubic-bezier(.65,0,.35,1);
-  --dur-rail: .28s;
-  --dur-fade: .2s;
-  --dur-theme: 620ms; /* cirkel-wipe vid byte av tema */
-
-  /* Meny */
-  --rail-closed: 76px;
-  --rail-open: 268px;
-
-  color-scheme: light;
-}
-
-:root[data-theme="dark"] {
-  /* Kundprofilfärger i mörkt läge: bara ytan byts, ink är samma (initialerna ligger på vit ruta) */
-  --prof1-bg: rgba(110,150,220,0.22); --prof1-ink: #2F5C9E;
-  --prof2-bg: rgba(150,120,220,0.22); --prof2-ink: #5B3FA6;
-  --prof3-bg: rgba(220,140,100,0.22); --prof3-ink: #9A4A22;
-  --prof4-bg: rgba(110,190,140,0.20); --prof4-ink: #2E6B47;
-  --prof5-bg: rgba(220,190,100,0.20); --prof5-ink: #7A5A10;
-  --greenText: #6EDC9F;
-  --base: #0E1210;
-  --blob1: #0E1210;
-  --blob2: #0E1210;
-  --blob3: #0E1210;
-  --blob4: #0E1210;
-
-  --glass: #171D1A;
-  --glassHi: #1F2622;
-  --glassLine: rgba(255,255,255,0.06);
-  --soft: rgba(255,255,255,0.06);
-  --line: rgba(255,255,255,0.08);
-  --pop: rgba(22,30,25,0.97);
-  --scrim: rgba(10,15,12,0.35);
-
-  --ink: #EEF2EE;
-  --muted: #A3AFA7;
-
-  --pill: #EEF2EE;
-  --pillInk: #0E1210;
-  --kpiOn: #1E3328;
-  --sun: transparent;
-  --beam: transparent;
-  --grain: 0;
-
-  --tintG: rgba(76,194,133,0.20);
-  --greenGlow: transparent;
-  --down: #F07A63;
-  --prioBg: rgba(245,158,11,0.20);
-  --prioFg: #FBC27A;
-  --up: #4CC285;
-
-  --field: rgba(255,255,255,0.05);
-  --fieldLine: rgba(255,255,255,0.12);
-
-  --chart: #4CC285;
-  --chartPrev: #6C7A71;
-  --curBar: rgba(76,194,133,0.50);
-
-  --inv: rgba(24,52,38,0.78);
-  --invInk: #EEF2EE;
-  --invSoft: rgba(255,255,255,0.06);
-  --invLine: rgba(255,255,255,0.10);
-
-  --shadow: 0 10px 40px rgba(0,0,0,0.35);
-  --shadow-rail-open: 0 24px 60px rgba(0,0,0,0.55);
-
-  color-scheme: dark;
+  /* Layout */
+  --side: 272px;            /* sidomenyn utfälld */
+  --side-mini: 72px;        /* infälld, bara ikoner */
+  --page-pad: 48px;         /* 16px på mobil */
+  --bp-mobile: 900px;       /* under detta blir menyn en låda som öppnas med ☰ */
 }
