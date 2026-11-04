@@ -1,7 +1,7 @@
 /* Dashboard v2 – designvärden (Exa-stil, nov 2026)
    Allt som behövs för att återskapa utseendet. Komponenterna ligger i exa-shared.css. */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Rosario:wght@400;500&family=Geist+Mono:wght@400..600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* Ytor */
@@ -28,16 +28,18 @@
   --red: #C4261D;  --red-bg: #FBEDEC;   /* Misslyckades, Avvisa i bekräftelse */
   --amber-ink: #7A4A00; --amber-bg: #FBF3E4; /* varningar */
 
-  /* Typsnitt (gratis ersättare för Exas ABC Diatype / ABC Arizona Flare) */
-  --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;  /* allt brödtext och UI */
-  --display: 'Rosario', 'Inter', sans-serif;             /* bara sidrubriker (h1), vikt 400 */
-  --mono: 'Geist Mono', ui-monospace, Menlo, monospace;  /* siffror, datum, etiketter, adresser */
+  /* Typsnitt: IBM Plex (gratis, Google Fonts). Valt för att inte se AI-genererat ut
+     (Inter/Geist/Rosario flaggas av designskillarna) och för riktiga tabellsiffror. */
+  --sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; /* all text och UI */
+  --display: 'IBM Plex Serif', Georgia, serif;                  /* BARA sidrubriker (h1), vikt 500 */
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;      /* siffror, datum, etiketter, adresser */
 
   /* Storlekar */
-  --h1-start: 52px;   /* Start: "11 saker väntar på dig" */
-  --h1: 32px;         /* övriga sidor, Rosario 400, letter-spacing -0.5px */
+  --h1-start: 42px;   /* Start: "11 saker väntar på dig", Plex Serif 500 */
+  --h1: 30px;         /* övriga sidor, Plex Serif 500, letter-spacing -0.4px */
+  --kpi: 34px;        /* siffror i siffrekort, Plex Sans 600, tabellsiffror */
   --title: 14px;      /* kort- och avsnittsrubriker, vikt 590 */
-  --body: 14px;       /* brödtext, line-height 20px */
+  --body: 14px;       /* brödtext, line-height 20px (innehållsytan visas i 115 % på dator, se HANDOFF) */
   --meta: 13px;       /* sekundär text */
   --tag: 11px;        /* mono, VERSALER, letter-spacing .275px */
 

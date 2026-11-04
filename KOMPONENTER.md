@@ -63,7 +63,7 @@ Detta har tillkommit i beta. Den nya designen täcker det bara delvis:
 
 | Komponent | Status | Beta | Ny design | Att göra |
 |---|---|---|---|---|
-| Bannern "Väntar på dig – 7 saker att granska" + Granska förslag | FLYTTAD | Lila banner överst | Stor rubrik **"11 saker väntar på dig"** (Rosario 52 px) och blå pill **"Granska allt"** som leder till `/proposals` | Talet ska vara antal väntande förslag (samma som i menyn) |
+| Bannern "Väntar på dig – 7 saker att granska" + Granska förslag | FLYTTAD | Lila banner överst | Stor rubrik **"11 saker väntar på dig"** (Plex Serif 42 px) och blå pill **"Granska allt"** som leder till `/proposals` | Talet ska vara antal väntande förslag (samma som i menyn) |
 | Bannern "Svar – x svar väntar" + Läs svaren | FLYTTAD | Egen banner | Textlänken **"Läs svarsutkast"** bredvid Granska allt | Länka till `/proposals` med filtret Utkast/Svar. Visa gärna antalet i texten: "Läs 1 svarsutkast" |
 | "Senaste förslagen" (3 st + Visa alla) | FLYTTAD | Kort på Start | Borttaget från Start; finns i Förslag | Ta bort från Start |
 | "Företagssökning" (profil, senaste/nästa sökning, hittade) | FLYTTAD | Kort på Start | Textlänken **"6 nya företag"** till Identifierade företag. Sökningarna visas i Kundprofil › "Eriks sökningar" (finns redan i beta) | Talet ska vara antal väntande i Identifierade företag |
@@ -227,7 +227,7 @@ Störst skillnad. Beta har en lång sida. Designen delar upp den i tre flikar: *
 
 | Komponent | Status | Beta | Ny design | Att göra |
 |---|---|---|---|---|
-| "Kom igång med Moa" – "Låt Moa läsa er webbplats" + Läs vår webbplats | SAKNAS I DESIGN | Egen sida | Ingen egen sida; länkarna går till Inställningar › Moa | **Behåll betas sida.** Bygg den som en vanlig sida: Rosario-rubrik, ett kort med texten och blå pill "Läs vår webbplats". Peka Moa-länkarna i menyn och på Start hit |
+| "Kom igång med Moa" – "Låt Moa läsa er webbplats" + Läs vår webbplats | SAKNAS I DESIGN | Egen sida | Ingen egen sida; länkarna går till Inställningar › Moa | **Behåll betas sida.** Bygg den som en vanlig sida: rubrik i Plex Serif, ett kort med texten och blå pill "Läs vår webbplats". Peka Moa-länkarna i menyn och på Start hit |
 
 ## 14. Logga in
 

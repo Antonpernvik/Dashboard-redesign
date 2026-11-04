@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;family=Rosario:wght@400;500&amp;family=Geist+Mono:wght@400..600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Serif:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 /* ===== Exa shared styles v3 (generated into every inner page by tools/exa_v3.py, edit here) ===== */
 html{font-size:100%}
@@ -23,7 +23,7 @@ body{margin:0;background:#FFFFFF}
   --ink:var(--fg);--ink-2:var(--fg-2);--ink-3:var(--fg-3);--field:var(--bg);--field-line:var(--border);--pop:var(--bg);
   --amber-tint:var(--amber-bg);
   --pop-shadow:0 12px 32px -10px rgba(11,11,13,.18),0 1px 2px rgba(11,11,13,.06);
-  --sans:'Inter','Helvetica Neue',Arial,sans-serif;--display:'Rosario','Inter',sans-serif;--mono:'Geist Mono',ui-monospace,Menlo,monospace;
+  --sans:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;--display:'IBM Plex Serif',Georgia,serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.2,.7,.2,1);
   position:relative;min-height:100vh;box-sizing:border-box;background:var(--bg);color:var(--fg);
   font-family:var(--sans);font-size:14px;line-height:20px;
@@ -51,7 +51,7 @@ body{margin:0;background:#FFFFFF}
 .title{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 24px;padding:0;margin:0 0 32px}
 .title .l{display:flex;flex-direction:column;gap:8px;min-width:0}
 .title .r{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.h1{font-family:var(--display);font-weight:400;font-size:30px;line-height:36px;letter-spacing:-.4px;color:var(--fg)}
+.h1{font-family:var(--display);font-weight:500;font-size:30px;line-height:36px;letter-spacing:-.4px;color:var(--fg)}
 .h1-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .h1-row .cnt{font-family:var(--mono);font-size:12px;line-height:16px;color:var(--fg-3)}
 .meta{font-size:14px;line-height:20px;color:var(--fg-2)}
@@ -167,7 +167,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .stats > div{display:flex;flex-direction:column;gap:6px;min-width:0;padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg)}
 .stats .l{font-size:14px;font-weight:590;line-height:17px;color:var(--fg)}
-.stats .v{font-size:26px;font-weight:400;line-height:32px;letter-spacing:-.4px;font-variant-numeric:tabular-nums;color:var(--fg)}
+.stats .v{font-size:34px;font-weight:600;line-height:40px;letter-spacing:-.8px;font-variant-numeric:tabular-nums;color:var(--fg)}
 .stats .v.sm{font-size:18px;line-height:26px;letter-spacing:-.1px;hyphens:auto;overflow-wrap:break-word}
 .stats .s{font-size:13px;line-height:16px;color:var(--fg-3)}
 
@@ -261,7 +261,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .why .hd{display:flex;align-items:center;gap:10px}
 .why .hd img{width:24px;height:24px;border-radius:7px;object-fit:cover}
 .why h2{font-size:14px;font-weight:590;line-height:17px;color:var(--fg)}
-.why .story{max-width:880px;font-family:var(--display);font-size:22px;font-weight:400;line-height:30px;letter-spacing:-.2px;color:var(--fg)}
+.why .story{max-width:880px;font-family:var(--sans);font-size:20px;font-weight:500;line-height:28px;letter-spacing:-.2px;color:var(--fg)}
 .why ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;max-width:880px;padding:12px 14px;border-radius:8px;background:var(--subtle);font-size:13px;line-height:18px}
 .why li{display:flex;gap:8px;align-items:flex-start;color:var(--fg-2)}
 .why li svg{margin-top:2px;color:var(--accent)}
@@ -443,7 +443,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .brief .from span b{font-weight:590}
 .brief .from span i{font-style:normal;color:var(--fg-3)}
 .brief .from small{font-size:12px;color:var(--fg-3)}
-.brief h2{font-family:var(--display);font-size:22px;font-weight:400;line-height:28px;letter-spacing:-.2px}
+.brief h2{font-family:var(--sans);font-size:20px;font-weight:600;line-height:26px;letter-spacing:-.2px}
 .brief .bh .sub{display:block;margin-top:4px;font-size:13px;color:var(--fg-3)}
 .brief .bb{display:flex;flex-direction:column;gap:24px;padding:24px}
 .brief .lead{display:flex;flex-direction:column;gap:10px;max-width:760px}
@@ -581,6 +581,10 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 @media (max-width:1100px){.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.profiles{grid-template-columns:minmax(0,1fr)}.profile{min-height:0}}
 /* @endpage */
+
+/* större innehåll (sidomenyn oförändrad) */
+@media (min-width:901px){.aik .main{zoom:1.15}}
+@media (max-width:900px){.aik .main{zoom:1.06}}
 </style>
 </helmet>
 <div class="aik {{themeCls}}">

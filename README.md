@@ -1,6 +1,6 @@
 # Dashboard-redesign
 
-Ny design för Ai Kollegornas kunddashboard (Erik och Moa) i Exa-stil: vit, platt och luftig. Den har en vit sidomeny med kollegaväljare och tre typsnitt: Inter för text, Rosario för rubriker och Geist Mono för data. Primärknappen är en blå pill.
+Ny design för Ai Kollegornas kunddashboard (Erik och Moa) i Exa-stil: vit, platt och luftig. Den har en vit sidomeny med kollegaväljare och typsnittsfamiljen IBM Plex: Plex Sans för text, Plex Serif bara för sidrubriker och Plex Mono för siffror och data. Primärknappen är en blå pill.
 
 Designen ska ersätta utseendet i beta.aikollegorna.se och behåller samma funktioner.
 

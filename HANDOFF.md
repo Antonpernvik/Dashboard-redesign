@@ -21,11 +21,11 @@ Förebilden är Exas dashboard (dashboard.exa.ai): vitt, platt och luftigt, med 
 - **Bakgrund:** vit. Ingen gradient, inga skuggor utom på menyer och popovers.
 - **Kort:** 1 px kant `#E6E6E8`, radie 12 px, 16–22 px luft. Data ligger i grå "brunnar" (`#F8F8F9`, radie 8 px) med mono-text.
 - **Typsnitt:**
-  - Inter för all text.
-  - Rosario 400 bara för sidrubriken (h1): 52 px på Start, 32 px på övriga sidor.
-  - Geist Mono för siffror, datum, adresser och etiketter.
+  - IBM Plex Sans för all text och UI.
+  - IBM Plex Serif, vikt 500, **bara** för sidrubriken (h1): 42 px på Start, 30 px på övriga sidor.
+  - IBM Plex Mono för siffror, datum, adresser och etiketter. Alla siffror i tabeller och siffrekort har tabellsiffror (`font-variant-numeric: tabular-nums`).
 
-  Exa använder ABC Diatype och ABC Arizona Flare, som är kommersiella. Köper vi licens byter vi bara `--sans` och `--display`.
+  Inter, Geist och Rosario är medvetet bortvalda: designskillarna flaggar dem som typiska för AI-genererade gränssnitt.
 - **Färg:**
   - Bara två blå:
     - `#3E1FF3` för primärknappen (rund pill, en per sida).
@@ -56,8 +56,9 @@ Förebilden är Exas dashboard (dashboard.exa.ai): vitt, platt och luftigt, med 
 ## Innehållsytan
 
 - **Bredd:** full bredd bredvid menyn, med 48 px luft (16 px på mobil). Ingen maxbredd, utom att formulärfält stannar på 720 px.
+- **Storlek:** innehållsytan på undersidorna visas i 115 % på dator och 106 % på mobil (`zoom` på `.main`). Sidomenyn och Start har sina mått som de är. I riktig kod: skala hellre upp tokens med 1,15 än att använda `zoom`.
 - **Rutnät:** kortrutnät (Integrationer och Kundprofiler) fyller hela bredden i lika breda kolumner med lika höga kort.
-- **Sidhuvud:** rubriken (Rosario) står först, med en kort förklarande rad under. Primärknappen sitter till höger.
+- **Sidhuvud:** rubriken (Plex Serif) står först, med en kort förklarande rad under. Primärknappen sitter till höger.
 
 ## Rekommenderad ordning
 
