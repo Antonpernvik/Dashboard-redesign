@@ -150,7 +150,7 @@ Störst skillnad. Beta har en lång sida. Designen delar upp den i tre flikar: *
 | **Konversation** (tråd per kontakt) | FLYTTAD | Egen ruta: Skickat · Du, från din brevlåda · inkommande svar · "Väntar på ditt svar" · Visa mejlet / Visa tidigare meddelanden | Säljkort › "All dialog" (en tråd per kontakt, fälls ut) och "Erik väntar på dig" | Visa även "Du, från din brevlåda" (mejl du skickat själv) och statusen "Väntar på ditt svar" som etikett på tråden |
 | Arbetsflöde (träd med steg, status och skäl) | FLYTTAD | Egen ruta | Research › "Eriks arbete med [bolag]" | Skälen är på engelska i beta (bugg) |
 | Senaste körningar | FLYTTAD | Lista | Ingår i "Eriks arbete" | – |
-| Kostnad i USD | SAKNAS I DESIGN, avsiktligt | Visas | Visas inte för kund | Flytta till intern admin |
+| Kostnad | SAKNAS I DESIGN, avsiktligt | Visas i USD | Visas inte för kund | Intern admin, i SEK |
 | Dynamisk research (signaler, "Stämmer inte?") | NY (Agent) | – | Research | Signalbevakning + flagga |
 | Källor Erik söker i (+ Lägg till) | NY (API + Agent) | – | Research | URL-lista per bolag |
 | Personerna (roll, driv, "Exkludera – Erik kontaktar inte") | NY (Agent) | – | Research | – |
@@ -163,10 +163,12 @@ Störst skillnad. Beta har en lång sida. Designen delar upp den i tre flikar: *
 
 ## 8. Körningar (`/runs`, körningsdetalj)
 
+> **Beslut (Anton, 4 nov):** Körningar ska **inte synas för kunden**. Sidan och körningsdetaljen blir en intern adminvy, där kostnad visas i **SEK**. I kunddashboarden ska menyvalet Körningar och länkarna "Visa körningen" / "Alla körningar" därför tas bort. Designen visar dem fortfarande; tabellen nedan gäller den interna vyn.
+
 | Komponent | Status | Beta | Ny design | Att göra |
 |---|---|---|---|---|
 | Tabell: uppgift, status, startad, fel | SAMMA | Tabell | Tabell i kort med grått huvud | – |
-| Kolumnen Kostnad (USD) | SAKNAS I DESIGN, avsiktligt | Visas | Borttagen | Intern admin |
+| Kolumnen Kostnad | FLYTTAD | Visas i USD för kunden | Borttagen för kund | Intern admin, i SEK |
 | Uppgiftsnamn | FLYTTAD | Engelska: "Draft answer to", "Find contacts at", "Enrich" | Svenska: "Svara …", "Hitta kontakter på …", "Berika …" | Översätt (bugg i beta) |
 | Fel | FLYTTAD | Rå text ("… is excluded, so Erik …") | Begriplig text + "Försök igen" | Felmappning + omstart |
 | Filter (Alla / Pågår / Väntar på dig / Klara / Misslyckade) + fyra siffrekort | NY (API) | – | Överst | Aggregering |
@@ -241,8 +243,7 @@ Störst skillnad. Beta har en lång sida. Designen delar upp den i tre flikar: *
 1. **Engelska texter mot kund:**
    - Förslagsrubriker och körningsnamn: "Draft answer to", "Find contacts at", "Draft email to", "Enrich".
    - Skäl i arbetsflödet: "LinkedIn isn't connected, so Erik didn't look.", "matches its customer profile 3/10, under the 5/10 …", "… is excluded, so Erik …".
-2. **Kostnad i USD syns för kunden** under Körningar och på företagssidan.
-3. **Startsidan och Identifierade företag visar olika siffror:** Start säger "Hittade 3 företag", men Identifierade företag visar "0 väntar". Antingen räknas olika saker eller så stämmer inte en av siffrorna.
+2. **Kostnad syns för kunden** under Körningar och på företagssidan. Kostnad ska anges i SEK och bara visas internt (se avsnitt 8).
 
 ## Beslut vi behöver från dig eller Anton
 
