@@ -51,7 +51,7 @@ Detta har tillkommit i beta. Den nya designen täcker det bara delvis:
 | Räknare i menyn | FLYTTAD | Bara Förslag har räknare (7) | Förslag **och** Identifierade företag | API: antal väntande företag |
 | Fäll in / ut menyn | NY (UI) | – | Knapp bredvid kollegaväljaren. Infälld meny är 72 px med bara ikoner | Spara valet per användare (localStorage räcker) |
 | Moa-kortet i menyn ("Kom igång med Moa") | NY (UI) | – | Ovanför användaren | Länka till `/moa/setup` |
-| "Ge oss feedback" | NY (UI + beslut) | – | Menyval under Inställningar-gruppen | Beslut: vart ska feedbacken gå (mejl, Slack, formulär)? |
+| "Ge oss feedback" | NY (UI + API) | – | Menyval som öppnar en liten ruta bredvid menyn: textfält, tumme upp/ner och Skicka (grå tills något är ifyllt), sedan "Tack! Vi läser allt som kommer in." Som Exas "Give us feedback" | API: spara text + tumme + sida + användare. Beslut: vart ska den skickas (mejl, Slack)? |
 | Användaren längst ner (bolag, e-post) | SAMMA | Bolag, e-post och Logga ut | Namn och e-post | – |
 | Logga ut | FLYTTAD | I menyn under användaren | Inställningar › Konto | Flytta |
 | Statusen "Erik är aktiv" uppe till höger | SAKNAS I DESIGN | Grön pill på alla sidor | Finns inte | Beslut: visa den som en liten blå punkt vid kollegans namn i menyn, eller ta bort den |
@@ -178,7 +178,7 @@ Störst skillnad. Beta har en lång sida. Designen delar upp den i tre flikar: *
 
 | Komponent | Status | Beta | Ny design | Att göra |
 |---|---|---|---|---|
-| Lista med profiler, Aktiv, branscher, beskrivning | SAMMA | Lista | Kort i tre kolumner över hela bredden | – |
+| Lista med profiler, Aktiv, branscher, beskrivning | SAMMA | Lista | Kort i tre kolumner över hela bredden, utan ikoner: namn + Aktiv överst, beskrivning, branscher | – |
 | "2 av 10 · 1 av 3 aktiva" | SAMMA | Under rubriken | Finns | – |
 | Ny profil | FLYTTAD | Åtgärder-meny / `?new=1` | Kortet "Ny kundprofil" sist i rutnätet | – |
 | Fälten namn, beskrivning, branscher, regioner, min/max anställda, nyckelord, roller, uteslut | SAMMA | Kommaseparerad text | Taggfält (Enter lägger till, × tar bort) | Samma data, listor i stället för sträng |
@@ -206,6 +206,7 @@ Störst skillnad. Beta har en lång sida. Designen delar upp den i tre flikar: *
 | Outlook spärrad när Gmail är anslutet | SAMMA | Text | Text i grå brunn | – |
 | LinkedIn, läge Ansluten: "Erik agerar som [namn] — [url]", konto-id, Spara konto-id, Ta bort | SAKNAS I DESIGN | Visas | Designen visar bara läget Inte ansluten (Anslut LinkedIn) | Bygg läget Ansluten som Gmail-kortet: namn + url i brunn, Ta bort som sekundär knapp, konto-id bakom "Ändra" |
 | Tre kort i rad över hela bredden | NY (UI) | – | Tre lika breda kort | – |
+| Riktiga loggor för Gmail, Outlook och LinkedIn | NY (UI) | – | I kortens övre hörn | Filerna finns i `assets/logo-gmail.png`, `logo-outlook.png` och `logo-linkedin.png` |
 
 ## 12. Inställningar (`/settings/*`)
 
