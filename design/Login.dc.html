@@ -55,7 +55,6 @@ body{margin:0;background:#FFFFFF}
 .card .foot{text-align:center;font-size:13px;color:var(--fg-3)}
 .card .foot a{display:inline-block;padding:6px 0;color:var(--fg);font-weight:510;text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:3px}
 .card .center{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-.card .center .ic{width:40px;height:40px;border-radius:999px;background:var(--subtle);display:flex;align-items:center;justify-content:center;color:var(--fg-2)}
 .card .center img{width:40px;height:40px;border-radius:8px;object-fit:cover}
 .card .center p{font-size:14px;line-height:20px;color:var(--fg-2)}
 .card .center b{color:var(--fg);font-weight:510}
@@ -95,7 +94,6 @@ body{margin:0;background:#FFFFFF}
 
 <sc-if value="{{modeSent}}" hint-placeholder-val="{{false}}">
 <div class="center">
-<span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
 <h1>Kolla din inkorg</h1>
 <p>Finns det ett konto för <b>{{email}}</b> har vi skickat en länk för att välja nytt lösenord. Länken gäller i 30 minuter.</p>
 <button onClick="{{goLogin}}" class="btn">Tillbaka till inloggning</button>
@@ -106,7 +104,7 @@ body{margin:0;background:#FFFFFF}
 <div class="center">
 <img src="../assets/erik.jpg" alt="">
 <h1>Du är inloggad</h1>
-<p>Erik har 2 förslag som väntar på dig.</p>
+<p>Erik har 11 förslag som väntar på dig.</p>
 <a href="Main.dc.html" class="btn btn-primary">Till dashboarden</a>
 </div>
 </sc-if>

@@ -17,11 +17,10 @@ body{margin:0;background:#FFFFFF}
 .aik{
   --bg:#FFFFFF;--subtle:#F8F8F9;--hover:#F3F3F4;--border:#E6E6E8;--border-strong:#8E8E96;--avatar:#E6E6E8;
   --fg:#0B0B0D;--fg-2:#3F3F46;--fg-3:#63636B;--accent:#1326D2;--accent-bg:#EEF2FA;--cta:#3E1FF3;--cta-h:#3417D9;
-  --red:#C4261D;--red-ink:#A41F17;--red-bg:#FBEDEC;--amber-bg:#FBF3E4;--amber-ink:#7A4A00;
+  --red:#C4261D;--red-ink:#A41F17;--red-bg:#FBEDEC;
   /* old names kept as aliases so page code keeps working */
   --paper:var(--bg);--paper-2:var(--subtle);--sheet:var(--bg);--rule:var(--border);--rule-strong:var(--border-strong);--rule-head:var(--border);
   --ink:var(--fg);--ink-2:var(--fg-2);--ink-3:var(--fg-3);--field:var(--bg);--field-line:var(--border);--pop:var(--bg);
-  --amber-tint:var(--amber-bg);
   --pop-shadow:0 12px 32px -10px rgba(11,11,13,.18),0 1px 2px rgba(11,11,13,.06);
   --sans:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;--display:'IBM Plex Serif',Georgia,serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.2,.7,.2,1);
@@ -115,15 +114,17 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .tag{display:inline-flex;align-items:center;gap:5px;height:20px;padding:2px 6px;border-radius:4px;background:var(--hover);color:var(--fg-2);font-family:var(--mono);font-size:11px;font-weight:510;line-height:16px;letter-spacing:.275px;text-transform:uppercase;white-space:nowrap}
 .tag.accent{background:var(--accent-bg);color:var(--accent)}
 .tag.soft{background:var(--hover);color:var(--fg-2)}
-.tag.amber{background:var(--amber-bg);color:var(--amber-ink)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{display:inline-flex;align-items:center;height:28px;padding:0 10px;border:0;border-radius:6px;background:var(--hover);color:var(--fg-2);font-size:13px;line-height:16px}
 .st-dot{display:inline-flex;align-items:center;gap:7px;font-size:13px;line-height:16px;color:var(--fg-2);white-space:nowrap}
 .st-dot i{width:6px;height:6px;border-radius:50%;background:var(--border-strong);flex:none}
 .st-dot.done,.st-dot.s-done,.st-dot.s-run,.st-dot.s-wait{color:var(--fg)}
 .st-dot.s-done i{background:var(--fg)}
-.st-dot.done i,.st-dot.s-run i,.st-dot.s-wait i{background:var(--accent)}
-.st-dot.s-wait,.st-dot.s-run{color:var(--accent);font-weight:510}
+.st-dot.done i{background:var(--fg)}
+.st-dot.s-run i{background:transparent;border:1.5px solid var(--fg)}
+.st-dot.s-wait i{background:var(--accent)}
+.st-dot.s-wait{color:var(--accent);font-weight:510}
+.st-dot.s-run{font-weight:510}
 .st-dot.skip,.st-dot.s-skip{color:var(--fg-3)}
 .st-dot.no,.st-dot.s-fail{color:var(--red-ink)}
 .st-dot.no i,.st-dot.s-fail i{background:var(--red)}
@@ -343,13 +344,13 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .step{display:flex;flex-direction:column;gap:8px;padding:0;border:0;background:transparent;text-align:left;cursor:pointer;color:var(--fg)}
 .step .bar{height:3px;border-radius:2px;background:var(--border)}
 .step.is-done .bar{background:var(--fg)}
-.step.is-now .bar{background:var(--cta)}
+.step.is-now .bar{background:var(--border-strong)}
 .step .box{display:flex;flex-direction:column;gap:8px;min-height:84px;padding:12px;border:1px solid var(--border);border-radius:12px}
 .step:hover .box{background:var(--subtle)}
 .step.is-sel .box{border-color:var(--border-strong);background:var(--subtle)}
 .step .chip{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;height:20px;padding:2px 6px;border:0;border-radius:4px;background:var(--hover);font-family:var(--mono);font-size:11px;font-weight:510;letter-spacing:.275px;text-transform:uppercase;color:var(--fg-3)}
 .step.is-done .chip{color:var(--fg-2)}
-.step.is-now .chip{background:var(--accent-bg);color:var(--accent);padding-left:2px}
+.step.is-now .chip{background:var(--hover);color:var(--fg);padding-left:2px}
 .step .chip img{width:16px;height:16px;border-radius:4px;object-fit:cover}
 .step .t{font-size:13px;font-weight:510;line-height:17px}
 .step-detail{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:8px;background:var(--subtle)}
@@ -406,7 +407,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .dstep .k{display:flex;justify-content:space-between;align-items:center}
 .dstep .k span{font-size:12px;font-weight:510;color:var(--fg-3)}
 .dstep .k i{font-style:normal;height:20px;padding:2px 6px;border-radius:4px;background:var(--hover);font-family:var(--mono);font-size:11px;font-weight:510;letter-spacing:.275px;text-transform:uppercase;color:var(--fg-3)}
-.dstep.is-now .k i{background:var(--accent-bg);color:var(--accent)}
+.dstep.is-now .k i{background:var(--hover);color:var(--fg)}
 .dstep b{font-size:13.5px;font-weight:510}
 .dstep .ch{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--fg-3)}
 .threads{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -418,12 +419,11 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .thread-btn .r{margin-left:auto;display:flex;align-items:center;gap:12px;font-size:12px;color:var(--fg-3)}
 .thread-btn .r span{display:flex;align-items:center;gap:4px}
 .thread-btn .r .li{height:20px;padding:2px 6px;border-radius:4px;background:var(--hover);font-family:var(--mono);font-size:11px;font-weight:510;letter-spacing:.275px;text-transform:uppercase;color:var(--fg-2)}
-.thread-btn .r .li.ok{background:var(--accent-bg);color:var(--accent)}
 .thread-btn .r svg.chev{transition:transform .2s var(--ease)}
 .thread-btn[aria-expanded="true"] .r svg.chev{transform:rotate(180deg)}
 .aik .msgs{display:flex;flex-direction:column;gap:8px;padding:0 16px 16px}
 .msg{display:flex;flex-direction:column;gap:4px;max-width:720px;padding:10px 14px;border-radius:8px;background:var(--subtle);align-self:flex-start}
-.msg.them{background:var(--accent-bg);align-self:flex-end}
+.msg.them{background:var(--hover);align-self:flex-end}
 .msg small{font-size:12px;color:var(--fg-3)}
 .msg small b{color:var(--fg);font-weight:590}
 .msg span{font-size:13.5px;line-height:20px}
@@ -438,7 +438,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .history span:first-child{font-family:var(--mono);font-size:12px;color:var(--fg-3);padding-top:1px}
 .over-title{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
 .over-title .h1{font-size:22px;line-height:28px;letter-spacing:-.2px}
-.over-title .ostatus{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:510;color:var(--accent)}
+.over-title .ostatus{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:510;color:var(--fg-2)}
 .over-title .meet{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--fg-2)}
 .brief{margin-bottom:32px;border:1px solid var(--border);border-radius:12px;background:var(--bg);overflow:hidden}
 .brief .bh{display:flex;flex-direction:column;gap:14px;padding:20px 24px;border-bottom:1px solid var(--border)}
@@ -455,7 +455,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .brief .lead{display:flex;flex-direction:column;gap:10px;max-width:760px}
 .brief .lead h3{font-size:15px;font-weight:590}
 .brief .lead p{font-size:14px;line-height:22px}
-.brief .yours{padding:12px 14px;border-radius:8px;background:var(--accent-bg)}
+.brief .yours{padding:12px 14px;border-radius:8px;background:var(--subtle)}
 .brief .yours small{display:block;margin-top:4px;font-size:12px;color:var(--fg-3)}
 .brief .win{display:flex;flex-direction:column;gap:8px;max-width:860px;padding:14px 16px;border-radius:8px;background:var(--subtle)}
 .brief .win p{font-size:14px!important;line-height:22px!important}
@@ -557,7 +557,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .aik .side .who-row .nm{font-size:14px;font-weight:510}
 .aik .side .who-row .ok{margin-left:auto;color:var(--accent)}
 .aik .side .who-sep{height:1px;background:var(--border);margin:6px 4px}
-.aik .side .who-add{display:flex;align-items:center;gap:10px;height:40px;padding:0 10px;border-radius:6px;color:var(--accent);font-size:14px;font-weight:510;text-decoration:none}
+.aik .side .who-add{display:flex;align-items:center;gap:10px;height:40px;padding:0 10px;border-radius:6px;color:var(--fg);font-size:14px;font-weight:510;text-decoration:none}
 .aik .side .who-add:hover{background:var(--hover)}
 @media (min-width:901px){
   .aik .side.mini{width:72px;padding-left:12px;padding-right:12px}
@@ -841,7 +841,7 @@ class Component extends DCLogic {
         isMail: d.type === 'Mail', isLi: d.type === 'LinkedIn', isAnbud: d.type === 'Anbud',
         pending: st === 'pending', approved: st === 'approved', rejected: st === 'rejected',
         doneText: d.type === 'Anbud' ? 'Godkänt – Erik lämnar in svaret' : 'Godkänt – skickas inom sändningsfönstret',
-        typeName: d.type === 'Mail' ? 'E-post' : d.type, preview: d.body.replace(/^(Hej [^,]+,)\s*(.)/, (m, g, c) => g + '\n\n' + c.toUpperCase()),
+        typeName: d.type === 'Mail' ? 'E-post' : d.type, preview: d.body,
         approveLabel: d.type === 'Anbud' ? 'Godkänn och lämna in' : 'Godkänn och skicka',
         cls: (st === 'rejected' ? 'is-rejected ' : '') + (exp ? 'is-open' : ''),
         expanded: exp, collapsed: !exp, expandedStr: exp ? 'true' : 'false', toggleLabel: exp ? 'Visa mindre' : 'Läs hela',
@@ -864,7 +864,7 @@ class Component extends DCLogic {
     });
     const pendingAll = all.filter((p) => p.pending);
     const kinds = ['Alla', 'Mail', 'LinkedIn', 'Anbud'].map((k) => ({
-      label: k, count: String((k === 'Alla' ? pendingAll : pendingAll.filter((p) => p.type === k)).length),
+      label: k === 'Mail' ? 'E-post' : k, count: String((k === 'Alla' ? pendingAll : pendingAll.filter((p) => p.type === k)).length),
       active: kind === k, inactive: kind !== k, str: kind === k ? 'true' : 'false', pick: () => this.setState({ kind: k })
     }));
     const byKind = all.filter((p) => kind === 'Alla' || p.type === kind);

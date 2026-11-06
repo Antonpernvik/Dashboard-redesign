@@ -9,6 +9,7 @@ Den här designen ersätter utseendet i beta.aikollegorna.se. Funktionen är den
 | `prototype/*.html` | Alla 14 sidor, körbara i vanlig webbläsare. Börja med `prototype/Main.html`. Allt är klickbart: menyn, kollegaväljaren, fäll in/ut och flikar |
 | `handoff/tokens.css` | Alla designvärden: färger, typsnitt, storlekar, radier och layout |
 | `handoff/exa-shared.css` | Delade komponentstilar för alla sidor utom Start (knappar, kort, brunnar, flikar, etiketter, tabeller, fält, menyer) |
+| `handoff/regelkontroll.md` | Oberoende kontroll av alla sidor och lägen mot de 12 reglerna: godkänt/underkänt med bevis |
 | `handoff/screens/` | Skärmbilder per sida, dator (`-desktop.jpg`) och mobil (`-mobil.jpg`), plus lägen: kollegaväljaren, infälld meny, Moa vald, Kundkort Säljkort och Överlämning, öppnat förslag, alla flikar i Inställningar |
 | `design/*.dc.html` | Källfilerna i Claudes designformat. Sidspecifik CSS ligger mellan `/* @page */` och `/* @endpage */` |
 | `assets/` | Eriks och Moas foton |
