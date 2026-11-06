@@ -19,11 +19,11 @@ body{margin:0;background:#FFFFFF}
   --ease:cubic-bezier(.2,.7,.2,1);
   position:relative;min-height:100vh;box-sizing:border-box;background:var(--bg);color:var(--fg);
   font-family:var(--sans);font-size:14px;line-height:20px;
-  -webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss03';color-scheme:light;
+  -webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss03';font-variant-numeric:tabular-nums;color-scheme:light;
 }
 .aik *,.aik *::before,.aik *::after{box-sizing:border-box}
 .aik a{color:inherit}
-.aik button,.aik input,.aik select,.aik textarea{font-family:inherit;font-size:inherit;color:inherit}
+.aik button,.aik input,.aik select,.aik textarea{font-family:inherit;font-size:inherit;color:inherit;font-variant-numeric:tabular-nums}
 .aik ::selection{background:var(--accent-bg);color:var(--fg)}
 .aik :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .aik img{display:block}
@@ -91,17 +91,17 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 
 /* ---------- Segmented tabs (Exa "Skill / Prompt" control) ---------- */
 .filters,.tabs-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 16px;margin-bottom:20px}
-.tabs{display:inline-flex;flex-wrap:nowrap;gap:2px;padding:2px;border-radius:10px;background:var(--subtle);max-width:100%;overflow-x:auto;scrollbar-width:none}
+.tabs{display:inline-flex;flex-wrap:nowrap;gap:2px;padding:2px;border-radius:8px;background:var(--subtle);max-width:100%;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:0;border-radius:8px;background:transparent;color:var(--fg-2);font-size:13px;font-weight:510;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s}
+.tab{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--fg-2);font-size:13px;font-weight:510;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s}
 .tab:hover{color:var(--fg)}
-.tab[aria-selected="true"]{background:var(--bg);color:var(--fg);box-shadow:0 1px 2px rgba(11,11,13,.08),0 0 0 1px rgba(11,11,13,.04)}
+.tab[aria-selected="true"]{background:var(--bg);color:var(--fg);border-color:var(--border)}
 .tab .n{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--fg-3)}
 .tabs-row .sells{font-size:13px;color:var(--fg-3)}
 .tabs-row .sells b{color:var(--fg);font-weight:510}
 .seg{display:inline-flex;gap:2px;padding:2px;border-radius:8px;background:var(--subtle)}
-.seg button{height:28px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--fg-2);font-size:13px;cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--bg);color:var(--fg);box-shadow:0 1px 2px rgba(11,11,13,.08)}
+.seg button{height:28px;padding:0 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--fg-2);font-size:13px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--bg);color:var(--fg);border-color:var(--border)}
 
 /* ---------- Tags, chips, status ---------- */
 .tag{display:inline-flex;align-items:center;gap:5px;height:20px;padding:2px 6px;border-radius:4px;background:var(--hover);color:var(--fg-2);font-family:var(--mono);font-size:11px;font-weight:510;line-height:16px;letter-spacing:.275px;text-transform:uppercase;white-space:nowrap}
@@ -109,7 +109,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .tag.soft{background:var(--hover);color:var(--fg-2)}
 .tag.amber{background:var(--amber-bg);color:var(--amber-ink)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-flex;align-items:center;height:28px;padding:0 10px;border:1px solid var(--border);border-radius:999px;background:var(--bg);color:var(--fg-2);font-size:13px;line-height:16px}
+.chip{display:inline-flex;align-items:center;height:28px;padding:0 10px;border:0;border-radius:6px;background:var(--hover);color:var(--fg-2);font-size:13px;line-height:16px}
 .st-dot{display:inline-flex;align-items:center;gap:7px;font-size:13px;line-height:16px;color:var(--fg-2);white-space:nowrap}
 .st-dot i{width:6px;height:6px;border-radius:50%;background:var(--border-strong);flex:none}
 .st-dot.done,.st-dot.s-done,.st-dot.s-run,.st-dot.s-wait{color:var(--fg)}
@@ -140,7 +140,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 
 /* ---------- Menus ---------- */
 .menu{position:absolute;right:0;top:40px;z-index:50;width:320px;padding:6px;background:var(--bg);border:1px solid var(--border);border-radius:12px;box-shadow:var(--pop-shadow);display:flex;flex-direction:column;gap:2px}
-.menu-item{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:8px 10px;border:0;border-radius:8px;background:transparent;text-align:left;cursor:pointer}
+.menu-item{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:8px 10px;border:0;border-radius:6px;background:transparent;text-align:left;cursor:pointer}
 .menu-item:hover{background:var(--hover)}
 .menu-item b{font-size:13.5px;font-weight:510}
 .menu-item > span{font-size:13px;color:var(--fg-3)}
@@ -162,6 +162,13 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .stats .v{font-size:34px;font-weight:600;line-height:40px;letter-spacing:-.8px;font-variant-numeric:tabular-nums;color:var(--fg)}
 .stats .v.sm{font-size:18px;line-height:26px;letter-spacing:-.1px;hyphens:auto;overflow-wrap:break-word}
 .stats .s{font-size:13px;line-height:16px;color:var(--fg-3)}
+/* R10: one lead metric, the rest secondary */
+.stats.lead{grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr))}
+.stats.lead > div:first-child .v{font-size:40px;line-height:44px}
+.stats.lead > div:first-child .v.sm{font-size:26px;line-height:32px;letter-spacing:-.3px}
+.stats.lead > div:not(:first-child) .l{font-size:13px;font-weight:510;color:var(--fg-2)}
+.stats.lead > div:not(:first-child) .v{font-size:20px;line-height:26px;font-weight:500;letter-spacing:-.2px;color:var(--fg-2)}
+.stats.lead > div:not(:first-child) .v.sm{font-size:15px;line-height:22px;letter-spacing:0}
 
 /* ---------- List + aside layout ---------- */
 .with-aside{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
@@ -202,9 +209,9 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .chipbox .box:focus-within{border-color:var(--border-strong);box-shadow:0 0 0 3px var(--accent-bg)}
 .chipbox input{order:99;flex:1 1 140px;min-width:120px;height:30px;padding:0 6px;border:0;background:transparent;outline:none;font-size:13px;color:var(--fg)}
 .chipbox input::placeholder{color:var(--fg-3)}
-.chipbox .ch{display:inline-flex;align-items:center;gap:2px;height:30px;padding:0 3px 0 10px;border:1px solid var(--border);border-radius:999px;background:var(--bg);font-size:13px;color:var(--fg-2)}
-.chipbox .ch button{width:24px;height:24px;border:0;border-radius:999px;background:transparent;color:var(--fg-3);cursor:pointer;display:flex;align-items:center;justify-content:center}
-.chipbox .ch button:hover{color:var(--fg);background:var(--hover)}
+.chipbox .ch{display:inline-flex;align-items:center;gap:2px;height:30px;padding:0 3px 0 10px;border:0;border-radius:4px;background:var(--hover);font-size:13px;color:var(--fg-2)}
+.chipbox .ch button{width:24px;height:24px;border:0;border-radius:4px;background:transparent;color:var(--fg-3);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.chipbox .ch button:hover{color:var(--fg);background:var(--border)}
 .chipbox .help{font-size:13px;color:var(--fg-3)}
 .side-blk{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg)}
 .side-blk .hd{display:flex;align-items:center;gap:10px}
@@ -225,7 +232,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .switch-row .t span{font-size:13px;color:var(--fg-3)}
 .switch-row .trk{position:relative;width:36px;height:20px;flex:none;border-radius:999px;background:var(--border-strong);transition:background .2s}
 .switch-row[aria-checked="true"] .trk{background:var(--cta)}
-.switch-row .knob{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(11,11,13,.2);transition:left .2s}
+.switch-row .knob{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .2s}
 .switch-row[aria-checked="true"] .knob{left:18px}
 .check{align-self:flex-start;display:flex;align-items:center;gap:8px;padding:0;border:0;background:transparent;font-size:13px;cursor:pointer}
 .check .box{width:16px;height:16px;border:1px solid var(--border-strong);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;background:var(--bg)}
@@ -251,12 +258,12 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .strip b{font-size:13.5px;font-weight:510}
 .why{display:flex;flex-direction:column;gap:14px;padding:20px;margin:0 0 40px;border:1px solid var(--border);border-radius:12px;background:var(--bg)}
 .why .hd{display:flex;align-items:center;gap:10px}
-.why .hd img{width:24px;height:24px;border-radius:7px;object-fit:cover}
+.why .hd img{width:24px;height:24px;border-radius:6px;object-fit:cover}
 .why h2{font-size:14px;font-weight:590;line-height:17px;color:var(--fg)}
 .why .story{max-width:880px;font-family:var(--sans);font-size:20px;font-weight:500;line-height:28px;letter-spacing:-.2px;color:var(--fg)}
-.why ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;max-width:880px;padding:12px 14px;border-radius:8px;background:var(--subtle);font-size:13px;line-height:18px}
-.why li{display:flex;gap:8px;align-items:flex-start;color:var(--fg-2)}
-.why li svg{margin-top:2px;color:var(--accent)}
+.why ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 32px;max-width:880px;padding:12px 14px 12px 32px;border-radius:8px;background:var(--subtle);font-size:13px;line-height:18px;list-style:disc}
+.why li{display:list-item;color:var(--fg-2)}
+.why li::marker{color:var(--fg-3)}
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .col{display:flex;flex-direction:column;gap:16px;min-width:0}
 .ledger{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -275,7 +282,6 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .signal .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .signal .kind{font-family:var(--mono);font-size:11px;font-weight:510;letter-spacing:.275px;text-transform:uppercase;color:var(--fg-3)}
 .signal .fresh{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--fg-3)}
-.signal .fresh i{width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .signal h3{font-size:14px;font-weight:590;line-height:19px}
 .signal p{font-size:13px;line-height:19px;color:var(--fg-2)}
 .signal .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:2px}
@@ -362,7 +368,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .reply,.plan{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--border);border-radius:12px}
 .reply .hd,.plan .hd{display:flex;align-items:center;gap:8px}
-.reply .hd img,.plan .hd img{width:24px;height:24px;border-radius:7px;object-fit:cover}
+.reply .hd img,.plan .hd img{width:24px;height:24px;border-radius:6px;object-fit:cover}
 .reply .hd b{font-size:13px;font-weight:510;color:var(--fg-3)}
 .reply h2,.plan h2{font-size:15px;font-weight:590;line-height:20px}
 .reply .sub{font-size:13px;color:var(--fg-2)}
@@ -381,7 +387,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .flow{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--border);border-radius:12px}
 .flow .ctl{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .flow .why-l{display:flex;align-items:flex-start;gap:10px}
-.flow .why-l img{width:24px;height:24px;border-radius:7px;object-fit:cover}
+.flow .why-l img{width:24px;height:24px;border-radius:6px;object-fit:cover}
 .flow .why-l div{display:flex;flex-direction:column;gap:2px}
 .flow .why-l span{font-size:13.5px}
 .flow .why-l small{font-size:13px;color:var(--fg-3)}
@@ -446,7 +452,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .brief .win{display:flex;flex-direction:column;gap:8px;max-width:860px;padding:14px 16px;border-radius:8px;background:var(--subtle)}
 .brief .win p{font-size:14px!important;line-height:22px!important}
 .brief .k{font-family:var(--mono);font-size:11px;font-weight:510;letter-spacing:.275px;text-transform:uppercase;color:var(--fg-3)}
-.brief .k.accent{color:var(--accent)}
+.brief .k.accent{color:var(--fg)}
 .brief .block{display:flex;flex-direction:column;gap:6px}
 .brief .block p{max-width:720px;font-size:14px!important;line-height:22px}
 .brief .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px;align-items:start}
@@ -485,6 +491,10 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
   .with-aside,.two-col,.cols,.two{grid-template-columns:minmax(0,1fr)}
   .prof-aside{position:static}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats.lead{grid-template-columns:minmax(0,1fr);gap:8px}
+  .stats.lead > div:not(:first-child){display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center;padding:12px 16px}
+  .stats.lead > div:not(:first-child) .l,.stats.lead > div:not(:first-child) .s{grid-column:1}
+  .stats.lead > div:not(:first-child) .v{grid-column:2;grid-row:1 / span 2;text-align:right}
   .menu{position:fixed;left:16px;right:16px;top:auto;width:auto}
   .why .story{font-size:19px;line-height:26px}
   .why ul{grid-template-columns:1fr}
@@ -504,7 +514,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 /* ===== Start sidebar (shared) ===== */
 .aik .side{position:sticky;top:0;z-index:30;flex:none;width:272px;height:100vh;border-right:1px solid var(--border);background:var(--bg);display:flex;flex-direction:column;padding:16px 16px 18px;overflow-y:auto;transition:width .2s ease;font-size:16px;line-height:1.4}
 .aik .side .ws{position:relative;display:flex;align-items:center;justify-content:space-between;gap:9px;height:36px;padding:0 2px 0 4px}
-.aik .side .tag{display:inline-flex;align-items:center;height:20px;padding:2px 6px;border-radius:4px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:510;line-height:16px;letter-spacing:.275px;text-transform:uppercase;white-space:nowrap}
+.aik .side .tag{display:inline-flex;align-items:center;height:20px;padding:2px 6px;border-radius:4px;background:var(--hover);color:var(--fg-2);font-family:var(--mono);font-size:11px;font-weight:510;line-height:16px;letter-spacing:.275px;text-transform:uppercase;white-space:nowrap}
 .aik .side .icon-btn{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:transparent;color:var(--fg-2);cursor:pointer}
 .aik .side .icon-btn:hover{background:var(--hover)}
 .aik .side svg{flex:none;display:block}
@@ -530,7 +540,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .aik .side .who-w{position:relative;min-width:0}
 .aik .side .who{display:flex;align-items:center;gap:9px;height:36px;padding:0 6px;border:0;border-radius:8px;background:transparent;cursor:pointer;min-width:0;font-family:var(--sans);color:var(--fg)}
 .aik .side .who:hover{background:var(--hover)}
-.aik .side .who img,.aik .side .who-row img{width:24px;height:24px;border-radius:7px;object-fit:cover;flex:none}
+.aik .side .who img,.aik .side .who-row img{width:24px;height:24px;border-radius:6px;object-fit:cover;flex:none}
 .aik .side .who b{font-size:14px;font-weight:510;white-space:nowrap}
 .aik .side .who .chev{color:var(--fg-2)}
 .aik .side .who-menu{position:absolute;left:0;top:42px;z-index:30;width:252px;padding:6px;border:1px solid var(--border);border-radius:12px;background:var(--bg);box-shadow:0 12px 32px -10px rgba(11,11,13,.18)}
@@ -558,18 +568,17 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 
 /* @page */
 /* Förslag: one bordered list, quiet rows */
-.seqbar{display:flex;align-items:center;gap:10px;height:36px;padding:0 4px 0 12px;border-radius:10px;background:var(--subtle);font-size:13px;font-weight:510;color:var(--fg)}
+.seqbar{display:flex;align-items:center;gap:10px;height:36px;padding:0 2px 0 12px;border-radius:8px;background:var(--subtle);font-size:13px;font-weight:510;color:var(--fg)}
 .alldone{display:flex;flex-direction:column;align-items:center;gap:6px;padding:48px 24px;border:1px solid var(--border);border-radius:12px;text-align:center}
-.alldone img{width:40px;height:40px;border-radius:10px;object-fit:cover;margin-bottom:8px}
+.alldone img{width:40px;height:40px;border-radius:8px;object-fit:cover;margin-bottom:8px}
 .alldone h2{font-size:15px;font-weight:590}
 .alldone span{max-width:420px;font-size:13px;line-height:18px;color:var(--fg-2)}
 .props{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.prop{display:flex;padding:16px 20px;transition:opacity .25s var(--ease),background .15s}
+.prop{display:flex;padding:16px 20px;transition:opacity .2s var(--ease),background .15s}
 .prop + .prop{border-top:1px solid var(--border)}
 .prop:hover{background:#FCFCFD}
 .prop.is-rejected{opacity:.5}
 .prop.is-open,.prop.is-open:hover{background:var(--bg)}
-.prop .ico{display:none}
 .prop .bd{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
 .prop .meta-l{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:13px;color:var(--fg-3)}
 .prop .meta-l b{font-weight:510;color:var(--fg-2)}
@@ -589,7 +598,9 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .trainbox{display:flex;flex-direction:column;gap:10px;max-width:760px;padding:14px;border-radius:8px;background:var(--subtle)}
 .trainbox b{font-size:13px;font-weight:590}
 .trainbox small{font-size:13px;line-height:17px;color:var(--fg-3)}
+.seqbar .btn{border-radius:6px}
 @media (max-width:900px){
+  .seqbar{height:auto;min-height:44px}
   .prop{padding:14px 16px}
   .filters{flex-direction:column;align-items:stretch}
 }
@@ -681,7 +692,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 <span class="meta">Ingenting skickas utan ditt ok.</span>
 </div>
 <div class="r">
-<sc-if value="{{notSeq}}" hint-placeholder-val="{{true}}"><button onClick="{{startSeq}}" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4v16l7-5 7 5V4z"></path></svg>Granska en i taget</button></sc-if>
+<sc-if value="{{notSeq}}" hint-placeholder-val="{{true}}"><button onClick="{{startSeq}}" class="btn btn-primary">Granska en i taget</button></sc-if>
 </div>
 </section>
 
@@ -707,18 +718,11 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 <section aria-label="Att godkänna" class="props">
 <sc-for list="{{shown}}" as="p" hint-placeholder-count="4">
 <article class="prop {{p.cls}}">
-<div class="ico">
-<sc-if value="{{p.isMail}}" hint-placeholder-val="{{true}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></sc-if>
-<sc-if value="{{p.isLi}}" hint-placeholder-val="{{false}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c.8-3.6 3.6-6 7-6s6.2 2.4 7 6M19 8v6M16 11h6"></path></svg></sc-if>
-<sc-if value="{{p.isAnbud}}" hint-placeholder-val="{{false}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5M10 13h6M10 17h6"></path></svg></sc-if>
-</div>
 <div class="bd">
 
 <div class="meta-l">
-<span class="tag">{{p.typeName}}</span>
+<sc-if value="{{p.showType}}" hint-placeholder-val="{{true}}"><span class="tag">{{p.typeName}}</span></sc-if>
 <span>Till <b>{{p.to}}</b></span>
-<sc-if value="{{p.approved}}" hint-placeholder-val="{{false}}"><span class="tag accent end">Godkänt</span></sc-if>
-<sc-if value="{{p.rejected}}" hint-placeholder-val="{{false}}"><span class="tag end" style="color: var(--red-ink)">Avvisad</span></sc-if>
 </div>
 
 <h2>{{p.title}}</h2>
@@ -745,7 +749,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 <sc-if value="{{p.rejected}}" hint-placeholder-val="{{false}}"><span class="foot-note">Avvisad – Erik tar med det till nästa utkast.</span><button onClick="{{p.undo}}" class="btn btn-sm btn-text quiet">Ångra</button></sc-if>
 </div>
 <sc-if value="{{p.expanded}}" hint-placeholder-val="{{false}}"><div class="train">
-<button onClick="{{p.toggleTrain}}" aria-expanded="{{p.trainStr}}" class="btn btn-sm"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"></path></svg>Träna Erik</button>
+<button onClick="{{p.toggleTrain}}" aria-expanded="{{p.trainStr}}" class="btn btn-sm">Träna Erik</button>
 <div role="group" aria-label="Betygsätt utkastet" class="stars">
 <sc-for list="{{p.stars}}" as="s" hint-placeholder-count="5">
 <button onClick="{{s.pick}}" aria-label="{{s.label}}" class="star {{s.cls}}"><svg width="17" height="17" viewBox="0 0 24 24" fill="{{s.fill}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z"></path></svg></button>
@@ -808,10 +812,10 @@ class Component extends DCLogic {
     const items = [
       { id: 'm1', type: 'Mail', prio: true, cat: 'Outbound – kall kontakt', to: 'Anders Berggren, VD Nordvik Systems AB', title: 'Introducera oss för varandra', reason: 'nyanställd VP Sales, växer utan fler SDR:er', body: 'Hej Anders, jag heter Erik och jobbar hos Ai Kollegorna. Vi hjälper SaaS-bolag som Nordvik att skala outbound utan att lägga till fler SDR:er. Såg att ni nyligen anställt en VP Sales – tänkte att vi borde introducera oss för varandra. Har du 20 minuter nästa vecka?' },
       { id: 'l1', type: 'LinkedIn', prio: true, cat: 'Outbound – kall kontakt', to: 'Henrik Sjögren, Nordkapital', title: 'Kontaktförfrågan + öppning', reason: 'postade om AI i portföljbolagen i går', body: 'Hej Henrik, såg att du nyligen postade om hur portföljbolagen jobbar med AI i säljet. Vi gör just det för svenska B2B-bolag – vore kul att koppla ihop oss här.' },
-      { id: 'a1', type: 'Anbud', prio: true, cat: '', to: 'Region Exempel', title: 'Anbudssvar – AI för kundservice', reason: 'matchar 6 av 7 krav i upphandlingen', body: 'Härmed inkommer vårt svar på upphandling 2026/RS-114. Vi erbjuder en AI-kollega för kundservice med drift inom EU och full insyn för beställaren.' },
-      { id: 'a2', type: 'Anbud', prio: true, cat: '', to: 'Exempelmyndigheten', title: 'Förfrågan EXM 2026/4421', reason: 'passform 7/10, delsvar möjligt', body: 'Bedömning: passform 7/10. Föreslår delsvar på sektion 3 och 5, där vi uppfyller samtliga ska-krav. Sektion 4 kräver underleverantör.' },
+      { id: 'a1', type: 'Anbud', prio: true, cat: '', to: 'Region Mälardal', title: 'Anbudssvar – AI för kundservice', reason: 'matchar 6 av 7 krav i upphandlingen', body: 'Härmed inkommer vårt svar på upphandling 2026/RS-114. Vi erbjuder en AI-kollega för kundservice med drift inom EU och full insyn för beställaren.' },
+      { id: 'a2', type: 'Anbud', prio: true, cat: '', to: 'Kustkommunernas förbund', title: 'Förfrågan EXM 2026/4421', reason: 'passform 7/10, delsvar möjligt', body: 'Bedömning: passform 7/10. Föreslår delsvar på sektion 3 och 5, där vi uppfyller samtliga ska-krav. Sektion 4 kräver underleverantör.' },
       { id: 'm2', type: 'Mail', prio: false, cat: 'Outbound – kall kontakt', to: 'Sara Lind, Battericell AB', title: 'Förslag på pilot Q1', reason: 'söker två säljare i Västerås', body: 'Hej Sara, baserat på era utmaningar med att bemanna säljet i Västerås vill jag föreslå en pilot under Q1 där Erik tar prospekteringen.' },
-      { id: 'm3', type: 'Mail', prio: false, cat: 'Uppföljning efter möte', to: 'Maria Sköld, TEST AB', title: 'Återkoppling – workshop', reason: 'möte i torsdags, utlovad sammanfattning', body: 'Hej Maria, ville följa upp på workshopen i torsdags. Här är de tre punkterna vi kom fram till och ett förslag på nästa steg.' },
+      { id: 'm3', type: 'Mail', prio: false, cat: 'Uppföljning efter möte', to: 'Maria Sköld, Tegelbruket AB', title: 'Återkoppling – workshop', reason: 'möte i torsdags, utlovad sammanfattning', body: 'Hej Maria, ville följa upp på workshopen i torsdags. Här är de tre punkterna vi kom fram till och ett förslag på nästa steg.' },
       { id: 'm4', type: 'Mail', prio: false, cat: 'Outbound – kall kontakt', to: 'Petra Holm, Betalfin', title: 'Kort fråga om ert säljteam', reason: 'ny säljchef sedan september', body: 'Hej Petra, grattis till nya rollen! En kort fråga: hur mycket av säljarnas tid går i dag till research innan första kontakten?' },
       { id: 'm5', type: 'Mail', prio: false, cat: 'Uppföljning – inget svar', to: 'Oskar Lund, Paketbud', title: 'Följer upp mitt förra mejl', reason: 'öppnade förra mejlet två gånger', body: 'Hej Oskar, följer upp mitt mejl från förra veckan. Om timingen är fel säger du bara till, så hör jag av mig efter årsskiftet.' },
       { id: 'm6', type: 'Mail', prio: false, cat: 'Outbound – kall kontakt', to: 'Sara Nyberg, Pollify', title: 'AI-kollega för er SDR-grupp', reason: 'ny finansiering, rekryterar SDR:er', body: 'Hej Sara, grattis till rundan! När SDR-teamet växer brukar researchen bli flaskhalsen. Erik tar den delen så att teamet kan fokusera på samtalen.' },
@@ -825,7 +829,7 @@ class Component extends DCLogic {
       const set = (v) => () => this.setState({ decided: { ...(this.state.decided || {}), [d.id]: v }, openP: null });
       return {
         ...d, full: (this.state.txt || {})[d.id] !== undefined ? (this.state.txt || {})[d.id] : (d.body.replace(/^(Hej [^,]+,)\s*(.)/, (m, g, c) => g + '\n\n' + c.toUpperCase()) + (d.type === 'Mail' ? '\n\nVänliga hälsningar,\nErik, AI-kollega\nAi Kollegorna' : '')),
-        typeLabel: d.type.toUpperCase(), hasCat: !!d.cat,
+        typeLabel: d.type.toUpperCase(), hasCat: !!d.cat, showType: kind === 'Alla',
         isMail: d.type === 'Mail', isLi: d.type === 'LinkedIn', isAnbud: d.type === 'Anbud',
         pending: st === 'pending', approved: st === 'approved', rejected: st === 'rejected',
         doneText: d.type === 'Anbud' ? 'Godkänt – Erik lämnar in svaret' : 'Godkänt – skickas inom sändningsfönstret',

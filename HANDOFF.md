@@ -51,6 +51,11 @@ De här reglerna gäller alla sidor och allt som byggs framöver. Bryter något 
 5. **Det som hör ihop står ihop.** Status står bredvid det den gäller, inte i ett annat hörn. Exempel: "Aktiv" står på samma rad som profilnamnet, och "Ansluten" på samma rad som Gmail. Knappar står vid det de påverkar.
 6. **Inre hörn följer det yttre.** Inre radie = yttre radie − avståndet till kanten (minst 4 px). Det gäller när något ligger nära kanten, till exempel rader i en meny (12 − 6 = 6 px) eller fältet i feedback-rutan (14 − 8 = 6 px). Ligger något långt in (16 px eller mer) räcker 8 px. Runda pill-knappar är undantagna.
 7. **Ingen animation som loopar.** Rörelse bara när något händer: hover, öppna/stänga och en pil som flyttar sig 2 px. Max 200 ms. Inga pulserande prickar, ingen shimmer och inga snurrande ikoner som pynt.
+8. **En platt accentfärg, och färg betyder något.** Blått bara på primärknappen, på status som kräver något och på valt läge. Ingen gradient på knappar, staplar eller diagram.
+9. **Inga färgade ikonrutor.** Ingen pastellruta per kort eller rad. I ett siffrekort är siffran huvudsaken. Initialer och ikoner visas bara där de ersätter något, till exempel ett foto av en person.
+10. **Hierarki bland siffror.** Aldrig en rad med lika stora kort med samma vikt. Ett huvudtal är stort, resten är mindre och grå (`.stats.lead`, se Körningar).
+11. **Tunna kanter, mindre radie på mindre delar.** 12 px på kort och stora ytor, 8 px på brunnar, fält och knappar, 4–6 px på etiketter, kryssrutor och chips. Inget över 14 px. Kort, fält, etiketter och diagram har ingen skugga.
+12. **Riktig text och siffror med form.** Inga platshållare ("[namn]", "Välkommen tillbaka", emojis). Varje förändring säger vilken period den gäller ("senaste 7 dagarna"). Alla siffror har tabellsiffror (`font-variant-numeric: tabular-nums`). Förändring över tid visas som en liten linjegraf eller som text med period, inte som en procentetikett. Ingen trend hittas på där data saknas.
 
 ## Sidomenyn (samma på alla sidor)
 

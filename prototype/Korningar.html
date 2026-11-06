@@ -19,11 +19,11 @@ body{margin:0;background:#FFFFFF}
   --ease:cubic-bezier(.2,.7,.2,1);
   position:relative;min-height:100vh;box-sizing:border-box;background:var(--bg);color:var(--fg);
   font-family:var(--sans);font-size:14px;line-height:20px;
-  -webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss03';color-scheme:light;
+  -webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss03';font-variant-numeric:tabular-nums;color-scheme:light;
 }
 .aik *,.aik *::before,.aik *::after{box-sizing:border-box}
 .aik a{color:inherit}
-.aik button,.aik input,.aik select,.aik textarea{font-family:inherit;font-size:inherit;color:inherit}
+.aik button,.aik input,.aik select,.aik textarea{font-family:inherit;font-size:inherit;color:inherit;font-variant-numeric:tabular-nums}
 .aik ::selection{background:var(--accent-bg);color:var(--fg)}
 .aik :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .aik img{display:block}
@@ -91,17 +91,17 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 
 /* ---------- Segmented tabs (Exa "Skill / Prompt" control) ---------- */
 .filters,.tabs-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 16px;margin-bottom:20px}
-.tabs{display:inline-flex;flex-wrap:nowrap;gap:2px;padding:2px;border-radius:10px;background:var(--subtle);max-width:100%;overflow-x:auto;scrollbar-width:none}
+.tabs{display:inline-flex;flex-wrap:nowrap;gap:2px;padding:2px;border-radius:8px;background:var(--subtle);max-width:100%;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:0;border-radius:8px;background:transparent;color:var(--fg-2);font-size:13px;font-weight:510;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s}
+.tab{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--fg-2);font-size:13px;font-weight:510;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s}
 .tab:hover{color:var(--fg)}
-.tab[aria-selected="true"]{background:var(--bg);color:var(--fg);box-shadow:0 1px 2px rgba(11,11,13,.08),0 0 0 1px rgba(11,11,13,.04)}
+.tab[aria-selected="true"]{background:var(--bg);color:var(--fg);border-color:var(--border)}
 .tab .n{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--fg-3)}
 .tabs-row .sells{font-size:13px;color:var(--fg-3)}
 .tabs-row .sells b{color:var(--fg);font-weight:510}
 .seg{display:inline-flex;gap:2px;padding:2px;border-radius:8px;background:var(--subtle)}
-.seg button{height:28px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--fg-2);font-size:13px;cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--bg);color:var(--fg);box-shadow:0 1px 2px rgba(11,11,13,.08)}
+.seg button{height:28px;padding:0 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--fg-2);font-size:13px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--bg);color:var(--fg);border-color:var(--border)}
 
 /* ---------- Tags, chips, status ---------- */
 .tag{display:inline-flex;align-items:center;gap:5px;height:20px;padding:2px 6px;border-radius:4px;background:var(--hover);color:var(--fg-2);font-family:var(--mono);font-size:11px;font-weight:510;line-height:16px;letter-spacing:.275px;text-transform:uppercase;white-space:nowrap}
@@ -109,7 +109,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .tag.soft{background:var(--hover);color:var(--fg-2)}
 .tag.amber{background:var(--amber-bg);color:var(--amber-ink)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-flex;align-items:center;height:28px;padding:0 10px;border:1px solid var(--border);border-radius:999px;background:var(--bg);color:var(--fg-2);font-size:13px;line-height:16px}
+.chip{display:inline-flex;align-items:center;height:28px;padding:0 10px;border:0;border-radius:6px;background:var(--hover);color:var(--fg-2);font-size:13px;line-height:16px}
 .st-dot{display:inline-flex;align-items:center;gap:7px;font-size:13px;line-height:16px;color:var(--fg-2);white-space:nowrap}
 .st-dot i{width:6px;height:6px;border-radius:50%;background:var(--border-strong);flex:none}
 .st-dot.done,.st-dot.s-done,.st-dot.s-run,.st-dot.s-wait{color:var(--fg)}
@@ -140,7 +140,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 
 /* ---------- Menus ---------- */
 .menu{position:absolute;right:0;top:40px;z-index:50;width:320px;padding:6px;background:var(--bg);border:1px solid var(--border);border-radius:12px;box-shadow:var(--pop-shadow);display:flex;flex-direction:column;gap:2px}
-.menu-item{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:8px 10px;border:0;border-radius:8px;background:transparent;text-align:left;cursor:pointer}
+.menu-item{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:8px 10px;border:0;border-radius:6px;background:transparent;text-align:left;cursor:pointer}
 .menu-item:hover{background:var(--hover)}
 .menu-item b{font-size:13.5px;font-weight:510}
 .menu-item > span{font-size:13px;color:var(--fg-3)}
@@ -162,6 +162,13 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .stats .v{font-size:34px;font-weight:600;line-height:40px;letter-spacing:-.8px;font-variant-numeric:tabular-nums;color:var(--fg)}
 .stats .v.sm{font-size:18px;line-height:26px;letter-spacing:-.1px;hyphens:auto;overflow-wrap:break-word}
 .stats .s{font-size:13px;line-height:16px;color:var(--fg-3)}
+/* R10: one lead metric, the rest secondary */
+.stats.lead{grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr))}
+.stats.lead > div:first-child .v{font-size:40px;line-height:44px}
+.stats.lead > div:first-child .v.sm{font-size:26px;line-height:32px;letter-spacing:-.3px}
+.stats.lead > div:not(:first-child) .l{font-size:13px;font-weight:510;color:var(--fg-2)}
+.stats.lead > div:not(:first-child) .v{font-size:20px;line-height:26px;font-weight:500;letter-spacing:-.2px;color:var(--fg-2)}
+.stats.lead > div:not(:first-child) .v.sm{font-size:15px;line-height:22px;letter-spacing:0}
 
 /* ---------- List + aside layout ---------- */
 .with-aside{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
@@ -202,9 +209,9 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .chipbox .box:focus-within{border-color:var(--border-strong);box-shadow:0 0 0 3px var(--accent-bg)}
 .chipbox input{order:99;flex:1 1 140px;min-width:120px;height:30px;padding:0 6px;border:0;background:transparent;outline:none;font-size:13px;color:var(--fg)}
 .chipbox input::placeholder{color:var(--fg-3)}
-.chipbox .ch{display:inline-flex;align-items:center;gap:2px;height:30px;padding:0 3px 0 10px;border:1px solid var(--border);border-radius:999px;background:var(--bg);font-size:13px;color:var(--fg-2)}
-.chipbox .ch button{width:24px;height:24px;border:0;border-radius:999px;background:transparent;color:var(--fg-3);cursor:pointer;display:flex;align-items:center;justify-content:center}
-.chipbox .ch button:hover{color:var(--fg);background:var(--hover)}
+.chipbox .ch{display:inline-flex;align-items:center;gap:2px;height:30px;padding:0 3px 0 10px;border:0;border-radius:4px;background:var(--hover);font-size:13px;color:var(--fg-2)}
+.chipbox .ch button{width:24px;height:24px;border:0;border-radius:4px;background:transparent;color:var(--fg-3);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.chipbox .ch button:hover{color:var(--fg);background:var(--border)}
 .chipbox .help{font-size:13px;color:var(--fg-3)}
 .side-blk{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg)}
 .side-blk .hd{display:flex;align-items:center;gap:10px}
@@ -225,7 +232,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .switch-row .t span{font-size:13px;color:var(--fg-3)}
 .switch-row .trk{position:relative;width:36px;height:20px;flex:none;border-radius:999px;background:var(--border-strong);transition:background .2s}
 .switch-row[aria-checked="true"] .trk{background:var(--cta)}
-.switch-row .knob{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(11,11,13,.2);transition:left .2s}
+.switch-row .knob{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .2s}
 .switch-row[aria-checked="true"] .knob{left:18px}
 .check{align-self:flex-start;display:flex;align-items:center;gap:8px;padding:0;border:0;background:transparent;font-size:13px;cursor:pointer}
 .check .box{width:16px;height:16px;border:1px solid var(--border-strong);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;background:var(--bg)}
@@ -251,12 +258,12 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .strip b{font-size:13.5px;font-weight:510}
 .why{display:flex;flex-direction:column;gap:14px;padding:20px;margin:0 0 40px;border:1px solid var(--border);border-radius:12px;background:var(--bg)}
 .why .hd{display:flex;align-items:center;gap:10px}
-.why .hd img{width:24px;height:24px;border-radius:7px;object-fit:cover}
+.why .hd img{width:24px;height:24px;border-radius:6px;object-fit:cover}
 .why h2{font-size:14px;font-weight:590;line-height:17px;color:var(--fg)}
 .why .story{max-width:880px;font-family:var(--sans);font-size:20px;font-weight:500;line-height:28px;letter-spacing:-.2px;color:var(--fg)}
-.why ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;max-width:880px;padding:12px 14px;border-radius:8px;background:var(--subtle);font-size:13px;line-height:18px}
-.why li{display:flex;gap:8px;align-items:flex-start;color:var(--fg-2)}
-.why li svg{margin-top:2px;color:var(--accent)}
+.why ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 32px;max-width:880px;padding:12px 14px 12px 32px;border-radius:8px;background:var(--subtle);font-size:13px;line-height:18px;list-style:disc}
+.why li{display:list-item;color:var(--fg-2)}
+.why li::marker{color:var(--fg-3)}
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .col{display:flex;flex-direction:column;gap:16px;min-width:0}
 .ledger{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -275,7 +282,6 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .signal .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .signal .kind{font-family:var(--mono);font-size:11px;font-weight:510;letter-spacing:.275px;text-transform:uppercase;color:var(--fg-3)}
 .signal .fresh{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--fg-3)}
-.signal .fresh i{width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .signal h3{font-size:14px;font-weight:590;line-height:19px}
 .signal p{font-size:13px;line-height:19px;color:var(--fg-2)}
 .signal .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:2px}
@@ -362,7 +368,7 @@ textarea.field{min-height:88px;max-height:480px;resize:vertical;field-sizing:con
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .reply,.plan{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--border);border-radius:12px}
 .reply .hd,.plan .hd{display:flex;align-items:center;gap:8px}
-.reply .hd img,.plan .hd img{width:24px;height:24px;border-radius:7px;object-fit:cover}
+.reply .hd img,.plan .hd img{width:24px;height:24px;border-radius:6px;object-fit:cover}
 .reply .hd b{font-size:13px;font-weight:510;color:var(--fg-3)}
 .reply h2,.plan h2{font-size:15px;font-weight:590;line-height:20px}
 .reply .sub{font-size:13px;color:var(--fg-2)}
@@ -381,7 +387,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .flow{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--border);border-radius:12px}
 .flow .ctl{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .flow .why-l{display:flex;align-items:flex-start;gap:10px}
-.flow .why-l img{width:24px;height:24px;border-radius:7px;object-fit:cover}
+.flow .why-l img{width:24px;height:24px;border-radius:6px;object-fit:cover}
 .flow .why-l div{display:flex;flex-direction:column;gap:2px}
 .flow .why-l span{font-size:13.5px}
 .flow .why-l small{font-size:13px;color:var(--fg-3)}
@@ -446,7 +452,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .brief .win{display:flex;flex-direction:column;gap:8px;max-width:860px;padding:14px 16px;border-radius:8px;background:var(--subtle)}
 .brief .win p{font-size:14px!important;line-height:22px!important}
 .brief .k{font-family:var(--mono);font-size:11px;font-weight:510;letter-spacing:.275px;text-transform:uppercase;color:var(--fg-3)}
-.brief .k.accent{color:var(--accent)}
+.brief .k.accent{color:var(--fg)}
 .brief .block{display:flex;flex-direction:column;gap:6px}
 .brief .block p{max-width:720px;font-size:14px!important;line-height:22px}
 .brief .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px;align-items:start}
@@ -485,6 +491,10 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
   .with-aside,.two-col,.cols,.two{grid-template-columns:minmax(0,1fr)}
   .prof-aside{position:static}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats.lead{grid-template-columns:minmax(0,1fr);gap:8px}
+  .stats.lead > div:not(:first-child){display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center;padding:12px 16px}
+  .stats.lead > div:not(:first-child) .l,.stats.lead > div:not(:first-child) .s{grid-column:1}
+  .stats.lead > div:not(:first-child) .v{grid-column:2;grid-row:1 / span 2;text-align:right}
   .menu{position:fixed;left:16px;right:16px;top:auto;width:auto}
   .why .story{font-size:19px;line-height:26px}
   .why ul{grid-template-columns:1fr}
@@ -504,7 +514,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 /* ===== Start sidebar (shared) ===== */
 .aik .side{position:sticky;top:0;z-index:30;flex:none;width:272px;height:100vh;border-right:1px solid var(--border);background:var(--bg);display:flex;flex-direction:column;padding:16px 16px 18px;overflow-y:auto;transition:width .2s ease;font-size:16px;line-height:1.4}
 .aik .side .ws{position:relative;display:flex;align-items:center;justify-content:space-between;gap:9px;height:36px;padding:0 2px 0 4px}
-.aik .side .tag{display:inline-flex;align-items:center;height:20px;padding:2px 6px;border-radius:4px;background:var(--accent-bg);color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:510;line-height:16px;letter-spacing:.275px;text-transform:uppercase;white-space:nowrap}
+.aik .side .tag{display:inline-flex;align-items:center;height:20px;padding:2px 6px;border-radius:4px;background:var(--hover);color:var(--fg-2);font-family:var(--mono);font-size:11px;font-weight:510;line-height:16px;letter-spacing:.275px;text-transform:uppercase;white-space:nowrap}
 .aik .side .icon-btn{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:transparent;color:var(--fg-2);cursor:pointer}
 .aik .side .icon-btn:hover{background:var(--hover)}
 .aik .side svg{flex:none;display:block}
@@ -530,7 +540,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .aik .side .who-w{position:relative;min-width:0}
 .aik .side .who{display:flex;align-items:center;gap:9px;height:36px;padding:0 6px;border:0;border-radius:8px;background:transparent;cursor:pointer;min-width:0;font-family:var(--sans);color:var(--fg)}
 .aik .side .who:hover{background:var(--hover)}
-.aik .side .who img,.aik .side .who-row img{width:24px;height:24px;border-radius:7px;object-fit:cover;flex:none}
+.aik .side .who img,.aik .side .who-row img{width:24px;height:24px;border-radius:6px;object-fit:cover;flex:none}
 .aik .side .who b{font-size:14px;font-weight:510;white-space:nowrap}
 .aik .side .who .chev{color:var(--fg-2)}
 .aik .side .who-menu{position:absolute;left:0;top:42px;z-index:30;width:252px;padding:6px;border:1px solid var(--border);border-radius:12px;background:var(--bg);box-shadow:0 12px 32px -10px rgba(11,11,13,.18)}
@@ -675,7 +685,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 </div>
 </div>
 
-<section class="stats" aria-label="Sammanfattning">
+<section class="stats lead" aria-label="Sammanfattning">
 <sc-for list="{{runStats}}" as="rs" hint-placeholder-count="4">
 <div><span class="l">{{rs.label}}</span><span class="v">{{rs.value}}</span><span class="s">{{rs.sub}}</span></div>
 </sc-for>
@@ -691,7 +701,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 </a>
 <span role="cell" class="st-dot {{r.stCls}}"><i></i>{{r.status}}</span>
 <span role="cell" class="res">
-<span>{{r.result}}</span>
+<sc-if value="{{r.hasResult}}" hint-placeholder-val="{{true}}"><span>{{r.result}}</span></sc-if>
 <sc-if value="{{r.failed}}" hint-placeholder-val="{{false}}"><span class="err"><span>{{r.errText}}</span><sc-if value="{{r.canRetry}}" hint-placeholder-val="{{true}}"><button onClick="{{r.retry}}" class="btn btn-sm">Försök igen</button></sc-if><sc-if value="{{r.retried}}" hint-placeholder-val="{{false}}"><span class="done-note">Startad igen</span></sc-if></span></sc-if>
 <sc-if value="{{r.waiting}}" hint-placeholder-val="{{false}}"><a href="{{r.reviewHref}}" class="link">{{r.reviewLabel}}</a></sc-if>
 </span>
@@ -737,17 +747,17 @@ class Component extends DCLogic {
     const dark = this.state.dark;
 
     const runData = [
-      ['Hitta företag: Juridiska avdelningar', 'Hitta företag', 'run', 'Söker efter bolag…', 'Pågår', 'startade 15.31'],
+      ['Hitta företag: Juridiska avdelningar', 'Hitta företag', 'run', 'Söker efter bolag…', 'I dag 15.31', '4 min hittills'],
       ['Hitta kontakter på Kustenergi AB', 'Hitta kontakter', 'done', '4 kontakter föreslagna', 'I dag 15.24', '2 min'],
       ['Hitta kontakter på Norrsignal AB', 'Hitta kontakter', 'done', '6 kontakter föreslagna', 'I dag 13.54', '3 min'],
       ['Berika Norrsignal AB', 'Berika företaget', 'done', '7 fakta verifierade', 'I dag 13.53', '1 min'],
-      ['Skriv mejl till [Kontakt 1], Bolag B', 'Skriv mejl', 'wait', 'Utkast klart', 'I dag 13.28', 'under 1 min', 'Forslag.dc.html', 'Granska i Förslag'],
+      ['Skriv mejl till Anders Berggren, Nordvik Systems AB', 'Skriv mejl', 'wait', 'Utkast klart', 'I dag 13.28', 'under 1 min', 'Forslag.dc.html', 'Granska i Förslag'],
       ['Hitta företag: Svenska telekomoperatörer', 'Hitta företag', 'wait', '5 företag att granska', 'I dag 12.56', '6 min', 'Underlag.dc.html', 'Granska förslaget'],
-      ['Hitta kontakter på Bolag K', 'Hitta kontakter', 'fail', 'Kunde inte slutföra', 'I dag 12.49', '—'],
+      ['Hitta kontakter på Vindela Kraft AB', 'Hitta kontakter', 'fail', '', 'I dag 12.49', '—'],
       ['Bedöm Kustenergi AB', 'Bedöm företaget', 'done', 'Matchning 6/10', 'I dag 12.48', 'under 1 min'],
       ['Berika Kustenergi AB', 'Berika företaget', 'done', '6 fakta verifierade', 'I dag 12.47', '1 min'],
-      ['Hitta på LinkedIn: Kustenergi AB', 'Hitta på LinkedIn', 'skip', 'Överhoppat – LinkedIn är inte anslutet', 'I dag 12.47', '—'],
-      ['Hitta kontakter på Fjällnät AB', 'Hitta kontakter', 'skip', 'Överhoppat – matchning 4/10, under er gräns 5/10', 'Fre 13.49', '—'],
+      ['Hitta på LinkedIn: Kustenergi AB', 'Hitta på LinkedIn', 'skip', 'LinkedIn är inte anslutet', 'I dag 12.47', '—'],
+      ['Hitta kontakter på Fjällnät AB', 'Hitta kontakter', 'skip', 'Matchning 4/10, under er gräns 5/10', 'Fre 13.49', '—'],
       ['Hitta företag: Juridiska avdelningar', 'Hitta företag', 'done', '5 företag föreslagna', 'Fre 13.36', '7 min']
     ];
     const RS = {
@@ -769,7 +779,7 @@ class Component extends DCLogic {
       const [task, kind, st, result, when, dur, reviewHref, reviewLabel] = r;
       const s = RS[st];
       const rt = !!retried[i];
-      return { task, kind, result, when, dur, status: s[0], stCls: s[1], cls: st === 'wait' ? 'is-wait' : st === 'fail' ? 'is-fail' : '',
+      return { task, kind, result, hasResult: !!result, when, dur, status: s[0], stCls: s[1], cls: st === 'wait' ? 'is-wait' : st === 'fail' ? 'is-fail' : '',
         failed: st === 'fail', errText: 'För mycket underlag för en körning. Vi har fått en signal och tittar på det.',
         canRetry: !rt, retried: rt, retry: () => this.setState({ retried: { ...(this.state.retried || {}), [i]: true } }),
         waiting: st === 'wait', reviewHref: reviewHref || '#', reviewLabel: reviewLabel || '',
@@ -778,7 +788,7 @@ class Component extends DCLogic {
     const runStats = [
       ['Senaste 7 dagarna', '12', 'körningar'],
       ['Väntar på dig', '2', 'förslag att granska'],
-      ['Lästa sidor', '312', 'register, webbplatser, nyheter'],
+      ['Lästa sidor', '312', 'register, webbplatser och nyheter, senaste 7 dagarna'],
       ['Misslyckade', '1', 'vi felsöker den']
     ].map(([label, value, sub]) => ({ label, value, sub }));
 
