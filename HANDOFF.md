@@ -40,6 +40,18 @@ Förebilden är Exas dashboard (dashboard.exa.ai): vitt, platt och luftigt, med 
 - **Etiketter:** mono, VERSALER, 11 px, radie 4 px. Blå för status som betyder något (SÄLJARE, MATCHNING 8/10), grå för övrigt.
 - **Text:** minst 13 px för sekundär text och 12 px för metadata. Kontrast AA överallt (`--fg-3` är 5,6:1).
 
+## Regler: så undviker vi AI-looken
+
+De här reglerna gäller alla sidor och allt som byggs framöver. Bryter något mot en regel är det en bugg.
+
+1. **Inga gradienter och inget glow.** Platta färger. Skugga bara på det som svävar ovanpå sidan: menyer, kollegaväljaren, feedback-rutan och mobilmenyn. Fokusringar på fält räknas inte, de behövs för tillgänglighet.
+2. **Riktiga ikoner, aldrig emojis.** Linjeikoner (1,5 px streck, 16–20 px) i gränssnittet. Varumärken visas med sina officiella loggor (`assets/logo-*.png`).
+3. **Inga etiketter som inte betyder något.** En etikett ska ändra vad användaren gör eller förstår. Har alla rader samma etikett ska den bort. Exempel vi tagit bort: "NY" på Moa-kortet, "Nytt" på varje förslag i Underlag, "Körs automatiskt" och "Avgör på egen hand" på arbetsflödesstegen. Kvar finns till exempel typ (E-POST/LINKEDIN/ANBUD), status (BERIKAT, I DIALOG) och det som kräver handling (VÄNTAR PÅ DITT GODKÄNNANDE, ÅTGÄRD BEHÖVS).
+4. **Inga kort i kort.** Ett kort har ram. Det som ligger inuti har ingen egen ram, utan är en grå brunn (`--subtle`), en rad med tunn avdelare eller ett vanligt fält. Undantaget är formulärfält, som alltid har ram.
+5. **Det som hör ihop står ihop.** Status står bredvid det den gäller, inte i ett annat hörn. Exempel: "Aktiv" står på samma rad som profilnamnet, och "Ansluten" på samma rad som Gmail. Knappar står vid det de påverkar.
+6. **Inre hörn följer det yttre.** Inre radie = yttre radie − avståndet till kanten (minst 4 px). Det gäller när något ligger nära kanten, till exempel rader i en meny (12 − 6 = 6 px) eller fältet i feedback-rutan (14 − 8 = 6 px). Ligger något långt in (16 px eller mer) räcker 8 px. Runda pill-knappar är undantagna.
+7. **Ingen animation som loopar.** Rörelse bara när något händer: hover, öppna/stänga och en pil som flyttar sig 2 px. Max 200 ms. Inga pulserande prickar, ingen shimmer och inga snurrande ikoner som pynt.
+
 ## Sidomenyn (samma på alla sidor)
 
 1. Överst sitter kollegaväljaren: foto 24 px, namn, blå etikett med roll och en pil. Klick öppnar en lista med Erik, Moa och "Lägg till kollega". Bredvid sitter knappen för att fälla in menyn.

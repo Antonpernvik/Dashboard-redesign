@@ -7,7 +7,7 @@ Designen ska ersätta utseendet i beta.aikollegorna.se och behåller samma funkt
 ## Börja här
 
 1. **KOMPONENTER.md:** varje komponent jämförd med beta. Den visar vad som är samma, vad som är flyttat, vad som är nytt och vad som saknas i designen, plus det som tillkommit i beta sedan förra genomgången.
-2. **HANDOFF.md:** designspråket, sidomenyn, layoutregler och byggordning.
+2. **HANDOFF.md:** designspråket, reglerna mot AI-looken, sidomenyn, layoutregler och byggordning.
 3. **prototype/Main.html:** öppna i webbläsaren och klicka runt.
 
 ## Sidor

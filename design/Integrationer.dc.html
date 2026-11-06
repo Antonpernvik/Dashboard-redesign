@@ -542,12 +542,12 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .aik .side .who b{font-size:14px;font-weight:510;white-space:nowrap}
 .aik .side .who .chev{color:var(--fg-2)}
 .aik .side .who-menu{position:absolute;left:0;top:42px;z-index:30;width:252px;padding:6px;border:1px solid var(--border);border-radius:12px;background:var(--bg);box-shadow:0 12px 32px -10px rgba(11,11,13,.18)}
-.aik .side .who-row{display:flex;align-items:center;gap:10px;width:100%;height:40px;padding:0 10px;border:0;border-radius:8px;background:transparent;cursor:pointer;text-align:left;font-family:var(--sans);color:var(--fg)}
+.aik .side .who-row{display:flex;align-items:center;gap:10px;width:100%;height:40px;padding:0 10px;border:0;border-radius:6px;background:transparent;cursor:pointer;text-align:left;font-family:var(--sans);color:var(--fg)}
 .aik .side .who-row:hover{background:var(--hover)}
 .aik .side .who-row .nm{font-size:14px;font-weight:510}
 .aik .side .who-row .ok{margin-left:auto;color:var(--accent)}
 .aik .side .who-sep{height:1px;background:var(--border);margin:6px 4px}
-.aik .side .who-add{display:flex;align-items:center;gap:10px;height:40px;padding:0 10px;border-radius:8px;color:var(--accent);font-size:14px;font-weight:510;text-decoration:none}
+.aik .side .who-add{display:flex;align-items:center;gap:10px;height:40px;padding:0 10px;border-radius:6px;color:var(--accent);font-size:14px;font-weight:510;text-decoration:none}
 .aik .side .who-add:hover{background:var(--hover)}
 @media (min-width:901px){
   .aik .side.mini{width:72px;padding-left:12px;padding-right:12px}
@@ -571,6 +571,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 .integ .hd{display:flex;justify-content:space-between;align-items:center;min-height:28px}
 .integ .logo{width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--fg)}
 .logo img{width:28px;height:28px;object-fit:contain}
+.integ .t .nm{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .integ .t{display:flex;flex-direction:column;gap:4px}
 .integ h2{font-size:14px;font-weight:590;line-height:17px}
 .integ .t span{font-size:13px;line-height:18px;color:var(--fg-2)}
@@ -592,13 +593,13 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 
 /* Feedback-ruta (som Exas "Give us feedback") */
 .fb-w{position:relative}
-.fb-pop{position:fixed;z-index:60;width:300px;padding:10px;border:1px solid var(--border);border-radius:12px;background:var(--bg);box-shadow:0 12px 32px -10px rgba(11,11,13,.18),0 1px 2px rgba(11,11,13,.06);font-family:var(--sans)}
+.fb-pop{position:fixed;z-index:60;width:300px;padding:8px;border:1px solid var(--border);border-radius:14px;background:var(--bg);box-shadow:0 12px 32px -10px rgba(11,11,13,.18),0 1px 2px rgba(11,11,13,.06);font-family:var(--sans)}
 .fb-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.fb-t{display:block;width:100%;min-height:110px;padding:10px 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg);color:var(--fg);font:14px/20px var(--sans);resize:vertical;outline:0}
+.fb-t{display:block;width:100%;min-height:110px;padding:10px 12px;border:1px solid var(--border-strong);border-radius:6px;background:var(--bg);color:var(--fg);font:14px/20px var(--sans);resize:vertical;outline:0}
 .fb-t:focus{border-color:var(--fg)}
 .fb-t::placeholder{color:var(--fg-3)}
-.fb-row{display:flex;align-items:center;gap:6px;margin-top:10px}
-.fb-pop .fb-v{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--fg-2);cursor:pointer}
+.fb-row{display:flex;align-items:center;gap:6px;margin-top:8px}
+.fb-pop .fb-v{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--fg-2);cursor:pointer}
 .fb-pop .fb-v:hover{background:var(--hover);color:var(--fg)}
 .fb-pop .fb-v[aria-pressed="true"]{background:#EEF2FA;border-color:#1326D2;color:#1326D2}
 .fb-pop .fb-v.dn svg{transform:rotate(180deg)}
@@ -654,7 +655,7 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 </div>
 
 <div class="promo">
-<div class="t">Moa <span class="tag">Ny</span></div>
+<div class="t">Moa</div>
 <p>Skriver för er webbplats, i den ton sajten redan har.</p>
 <a class="btn" href="Installningar.dc.html">Kom igång med Moa</a>
 </div>
@@ -678,9 +679,8 @@ textarea.field.serif{min-height:160px;font-size:14px;line-height:22px}
 <sc-if value="{{g.isOutlook}}" hint-placeholder-val="{{false}}"><img src="../assets/logo-outlook.png" alt="" width="28" height="28"></sc-if>
 <sc-if value="{{g.isLi}}" hint-placeholder-val="{{false}}"><img src="../assets/logo-linkedin.png" alt="" width="28" height="28"></sc-if>
 </span>
-<span class="st-dot {{g.stCls}}"><i></i>{{g.status}}</span>
 </div>
-<div class="t"><h2>{{g.name}}</h2><span>{{g.what}}</span></div>
+<div class="t"><div class="nm"><h2>{{g.name}}</h2><span class="st-dot {{g.stCls}}"><i></i>{{g.status}}</span></div><span class="what">{{g.what}}</span></div>
 
 <sc-if value="{{g.connected}}" hint-placeholder-val="{{true}}">
 <div class="acc"><b>{{g.account}}</b></div>
