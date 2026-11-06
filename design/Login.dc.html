@@ -64,6 +64,22 @@ body{margin:0;background:#FFFFFF}
 /* större innehåll (sidomenyn oförändrad) */
 @media (min-width:901px){.aik .main{zoom:1.15}}
 @media (max-width:900px){.aik .main{zoom:1.06}}
+/* ===== Ikoner "Kollegan" (agent5) ===== */
+svg.i .ik{transition:transform .16s cubic-bezier(.2,.7,.2,1),fill .16s}
+svg.i.mv-r,svg.i.mv-l,svg.i.mv-turn,svg.i.mv-spread path{transition:transform .16s cubic-bezier(.2,.7,.2,1)}
+:is(a,button):is(:hover,:focus-visible) svg.i .ik.k-u{transform:translateY(-1.5px)}
+:is(a,button):is(:hover,:focus-visible) svg.i .ik.k-d{transform:translateY(1.5px)}
+:is(a,button):is(:hover,:focus-visible) svg.i .ik.k-r{transform:translateX(1.5px)}
+:is(a,button):is(:hover,:focus-visible) svg.i .ik.k-l{transform:translateX(-1.5px)}
+:is(a,button):is(:hover,:focus-visible) svg.i.mv-r{transform:translateX(2px)}
+:is(a,button):is(:hover,:focus-visible) svg.i.mv-l{transform:translateX(-2px)}
+:is(a,button):is(:hover,:focus-visible) svg.i.mv-turn{transform:rotate(45deg)}
+:is(a,button):is(:hover,:focus-visible) svg.i.mv-spread .mv-up{transform:translateY(-1px)}
+:is(a,button):is(:hover,:focus-visible) svg.i.mv-spread .mv-dn{transform:translateY(1px)}
+[aria-current="page"] > svg.i .ik{fill:var(--accent,#1326D2)}
+@media (prefers-reduced-motion:reduce){
+  svg.i .ik,svg.i.mv-r,svg.i.mv-l,svg.i.mv-turn,svg.i.mv-spread path{transition:none!important;transform:none!important}
+}
 </style>
 </helmet>
 <div class="aik">

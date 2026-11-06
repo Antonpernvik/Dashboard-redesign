@@ -12,7 +12,8 @@ Den här designen ersätter utseendet i beta.aikollegorna.se. Funktionen är den
 | `handoff/regelkontroll.md` | Oberoende kontroll av alla sidor och lägen mot de 12 reglerna: godkänt/underkänt med bevis |
 | `handoff/screens/` | Skärmbilder per sida, dator (`-desktop.jpg`) och mobil (`-mobil.jpg`), plus lägen: kollegaväljaren, infälld meny, Moa vald, Kundkort Säljkort och Överlämning, öppnat förslag, alla flikar i Inställningar |
 | `design/*.dc.html` | Källfilerna i Claudes designformat. Sidspecifik CSS ligger mellan `/* @page */` och `/* @endpage */` |
-| `assets/` | Eriks och Moas foton |
+| `assets/` | Eriks och Moas foton, officiella loggor för Gmail, Outlook och LinkedIn |
+| `icons/` | Egna ikoner "Kollegan": 29 SVG-filer (24×24, `currentColor`) och `icons/sheet.html` med alla ikoner, konstruktionsregler och hover-rörelse |
 | `ERIK-PIPELINE.md` | Hur Erik jobbar från lead till möte. Oförändrad från förra versionen |
 
 ## Designspråket i korthet
@@ -57,6 +58,16 @@ De här reglerna gäller alla sidor och allt som byggs framöver. Bryter något 
 10. **Hierarki bland siffror.** Aldrig en rad med lika stora kort med samma vikt. Ett huvudtal är stort, resten är mindre och grå (`.stats.lead`, se Körningar).
 11. **Tunna kanter, mindre radie på mindre delar.** 12 px på kort och stora ytor, 8 px på brunnar, fält och knappar, 4–6 px på etiketter, kryssrutor och chips. Inget över 14 px. Kort, fält, etiketter och diagram har ingen skugga.
 12. **Riktig text och siffror med form.** Inga platshållare ("[namn]", "Välkommen tillbaka", emojis). Varje förändring säger vilken period den gäller ("senaste 7 dagarna"). Alla siffror har tabellsiffror (`font-variant-numeric: tabular-nums`). Förändring över tid visas som en liten linjegraf eller som text med period, inte som en procentetikett. Ingen trend hittas på där data saknas.
+
+## Ikoner: "Kollegan"
+
+Egen ikonuppsättning, ritad från grunden. Använd inte Lucide, Heroicons eller liknande.
+
+- **Rutnät och streck:** 24×24, 1,5 px streck, runda ändar och hörn. Under 20 px tjockas strecket så att det ritas med cirka 1,2 px.
+- **Kännetecken:** en liten fylld prick, "kollegan", inuti varje menyikon och rutan på Start. Knappar och kontroller har ingen prick.
+- **Färg:** alltid `currentColor`. Pricken på det valda menyvalet är blå, och det är det enda stället där ikonerna har färg.
+- **Rörelse:** bara vid hover och tangentbordsfokus, 160 ms, en gång. Pricken rör sig cirka 1 px åt det håll arbetet går, pilar 2 px och Uppdatera vrids 45°. Allt stängs av med `prefers-reduced-motion`.
+- Alla ikoner, med storlekar och var de används, finns i `icons/sheet.html`.
 
 ## Sidomenyn (samma på alla sidor)
 
